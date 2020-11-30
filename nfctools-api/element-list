@@ -1,0 +1,9 @@
+org.nfctools
+org.nfctools.api
+org.nfctools.io
+org.nfctools.llcp
+org.nfctools.ndef
+org.nfctools.nfcip
+org.nfctools.scio
+org.nfctools.snep
+org.nfctools.utils

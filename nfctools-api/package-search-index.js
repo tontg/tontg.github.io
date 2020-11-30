@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.nfctools"},{"l":"org.nfctools.api"},{"l":"org.nfctools.io"},{"l":"org.nfctools.llcp"},{"l":"org.nfctools.ndef"},{"l":"org.nfctools.nfcip"},{"l":"org.nfctools.scio"},{"l":"org.nfctools.snep"},{"l":"org.nfctools.utils"}];updateSearchResults();

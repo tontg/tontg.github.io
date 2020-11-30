@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>javadoc</title>
+  </head>
+  <body>
+    <ul>
+      <li>link to nfctools-api javadoc</li>
+      <li>same for ndef, core, p2p...</li>
+    </ul>
+  </body>
+</html>
