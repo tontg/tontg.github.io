@@ -27,8 +27,9 @@ function readNdefTag() {
                             break;
                         case "url":
                             console.log("tag is URL");
-                            if (confirm("do you want to open URL " + record.data + " in new tab?")) {
-                                window.open(record.data, "_blank");
+                            var url = ab2str(record.data.buffer);
+                            if (confirm("do you want to open URL " + url + " in new tab?")) {
+                                window.open(url, "_blank");
                             }
                             break;
                         default:
@@ -43,6 +44,12 @@ function readNdefTag() {
         console.log("NFC not supported (no NDEFReader object)");
     }
 }
+
+// https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
+function ab2str(buf) {
+  return String.fromCharCode.apply(null, new Uint16Array(buf));
+}
+
 
 // @deprecated
 function testOpenNewTab() {
