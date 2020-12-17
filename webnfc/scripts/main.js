@@ -4,57 +4,99 @@
 // must enable flag in chrome android enable-experimental-web-platform-features
 // specs: https://w3c.github.io/web-nfc/
 
-function readNdefTag() {
-    if ('NDEFReader' in window) {
-        const reader = new NDEFReader();
-        reader.scan().then(() => {
-            console.log("Tag scan started successfully.");
-            reader.onerror = () => {
-                console.log("Cannot read data from the NFC tag. Try another one?");
+// TODO : write a listener
+// TODO : mettre `${}` partout
+
+class NfcManager {
+    constructor(logElement) {
+        this.logElement = logElement;
+        if ('NDEFReader' in window) {
+            this.reader = new NDEFReader();
+        } else {
+            this.log("NFC not supported (no NDEFReader object)");
+        }
+    }
+
+    log = function (text) {
+        console.log(text);
+        this.logElement.value += text + "\n";
+    }
+
+    readNdefTag = function () {
+        this.reader.scan().then(() => {
+            this.log("Tag scan started successfully.");
+            this.reader.onerror = () => {
+                this.log("Cannot read data from the NFC tag. Try another one?");
             };
-            reader.onreading = event => {
+            this.reader.onreading = event => {
                 const message = event.message;
-                console.log(`nbRecords:    ${message.records.length}`);
+                this.log(`nbRecords:    ${message.records.length}`);
                 for (const record of message.records) {
-                    console.log("record:");//       " + record);
-                    console.log(record);
-                    console.log("Record type:  " + record.recordType);
-                    console.log("MIME type:    " + record.mediaType);
-                    console.log("Record id:    " + record.id);
+                    this.log("record:");
+                    this.log(record);
+                    this.log(`Record type:  ${record.recordType}`);
+                    this.log("MIME type:    " + record.mediaType);
+                    this.log("Record id:    " + record.id);
                     switch (record.recordType) {
                         case "text":
                             // TODO: Read text record with record data, lang, and encoding.
+                            this.log("tag is text");
+                            var text = ab2str(record.data.buffer);
+                            this.log("text is " + text); // TODO fix
                             break;
                         case "url":
-                            console.log("tag is URL");
+                            this.log("tag is URL");
+                            // TODO : replace with
+                            //       const decoder = new TextDecoder();
+                            // console.log(`URL: ${decoder.decode(record.data)}`);
                             var url = ab2str(record.data.buffer);
-                            if (confirm("do you want to open URL " + url + " in new tab?")) {
+                            this.log(`URL is ${url}`);
+                            if (confirm(`do you want to open ${url} in new tab?`)) {
                                 window.open(url, "_blank");
+                            }
+                            break;
+                        case "mime":
+                            this.log("tag is mime");
+                            this.log("media type is " + record.mediaType);
+                            if (record.mediaType.startsWith("image/")) {
+                                // TODO : test
+                                this.log("media is image");
+                                var img = document.createElement('img');
+                                img.src = "data:" + record.mediaType + ";base64," + record.data.buffer.toString('base64');
+                                document.getElementById('imgContainer').appendChild(img);
                             }
                             break;
                         default:
                         // TODO: Handle other records with record data.
+                        // TODO : support image
                     }
                 }
             };
         }).catch(error => {
-            console.log(`Error! Scan failed to start: ${error}.`);
+            this.log(`Error! Scan failed to start: ${error}.`);
         });
-    } else {
-        console.log("NFC not supported (no NDEFReader object)");
+    }
+
+    writeNdefTag = function (text) {
+        // const ndef = new NDEFReader(); // TODO : move as instance variable
+        this.reader.write({records: [{
+                    recordType: "text",
+                    data: text
+                }]})
+                .then(() => {
+                    this.log("Message written.");
+                })
+                .catch(error => {
+                    this.log(`Write failed :-( try again: ${error}.`);
+                });
     }
 }
 
-// https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
+/**
+ * array buffer to string
+ * https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
+ * @param {ArrayBuffer} character buffer encoded in 8 bits
+ * @return {String} */
 function ab2str(buf) {
-  return String.fromCharCode.apply(null, new Uint8Array(buf));
-}
-
-
-// @deprecated
-function testOpenNewTab() {
-    var url = "https://google.com/";
-    if (confirm("do you want to open URL " + url + " in new tab?")) {
-        window.open(url, "_blank");
-    }
+    return String.fromCharCode.apply(null, new Uint8Array(buf));
 }
