@@ -22,6 +22,7 @@
         <h1>tests NFC</h1>
         <p>works on Android phones with NFC; don't forget to activate the appropriate flag in Chrome settings</p>
         TODO: more information on current status (ongoing scan, etc.)<br>
+        <a href="chrome://flags#experimental-web-platform-features">enable experimental-web-platform-features flag</a>
         <button onclick="nfcManager.readNdefTag()">read NDEF tag</button> - 
         <button onclick="nfcManager.writeNdefTag(document.getElementById('logElement').value)">write NDEF tag</button><br>
         <textarea id="logElement"></textarea>
