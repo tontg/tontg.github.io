@@ -81,7 +81,7 @@ class NfcManager {
     writeNdefTag = function (text) {
         this.log("writing tag...");
         // const ndef = new NDEFReader(); // TODO : move as instance variable
-        NDEFReader writer = new NDEFReader();
+        var writer = new NDEFWriter();
         // this.reader
         writer.write({records: [{
                     recordType: "text",
