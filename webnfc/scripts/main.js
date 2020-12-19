@@ -23,6 +23,7 @@ class NfcManager {
     }
 
     readNdefTag = function () {
+        this.log("reading tag...");
         this.reader.scan().then(() => {
             this.log("Tag scan started successfully.");
             this.reader.onerror = () => {
@@ -78,6 +79,7 @@ class NfcManager {
     }
 
     writeNdefTag = function (text) {
+        this.log("writing tag...");
         // const ndef = new NDEFReader(); // TODO : move as instance variable
         this.reader.write({records: [{
                     recordType: "text",
