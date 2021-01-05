@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Refresh" content="3;URL=demo.ics">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test vCalendar</title>
     <style>
     body {
@@ -13,28 +12,25 @@
   </head>
   <body>
     <h1>Test vCalendar</h1>
-    <p>should download automatically...</p>
-    <p></p>
-    <hr>
-    <p> </p>
     <form>
       <table>
         <tbody>
           <tr>
-            <td for="end"><label for="end">title: </label></td>
-            <td><input autofocus id="title" name="title" type="text"></td>
+            <td for="event_title"><label for="event_title" style="width:100%">title</label></td>
+            <td><input autofocus="" id="event_title" name="event_title" type="text"></td>
           </tr>
           <tr>
-            <td><label for="start">start time: </label></td>
+            <td><label for="start">start time</label></td>
             <td><input id="start" name="start" type="datetime-local"></td>
           </tr>
           <tr>
-            <td><label for="end">end time: </label></td>
+            <td><label for="end">end time</label></td>
             <td><input id="end" name="end" type="datetime-local"></td>
           </tr>
           <tr>
-            <td><label for="comment">comment: </label></td>
-            <td><textarea id="comment" name="comment" style="font-family:sans-serif"></textarea></td>
+            <td><label for="comment">comment</label></td>
+            <td><textarea id="comment" name="comment" style="font-family:sans-serif"
+rows="4"></textarea></td>
           </tr>
           <tr>
             <td><input type="submit"></td>
@@ -42,6 +38,5 @@
         </tbody>
       </table>
     </form>
-    
   </body>
 </html>
