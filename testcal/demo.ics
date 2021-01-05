@@ -43,6 +43,7 @@ SEQUENCE:0
 STATUS:CONFIRMED
 SUMMARY:Ex. Ep. Especial: IP/PROGI 
 TRANSP:OPAQUE
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20150907
@@ -57,6 +58,7 @@ SEQUENCE:1
 STATUS:CONFIRMED
 SUMMARY:Conference
 TRANSP:OPAQUE
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
 BEGIN:VALARM
 ACTION:AUDIO
 TRIGGER:-PT15H
@@ -80,6 +82,7 @@ SEQUENCE:1
 STATUS:CONFIRMED
 SUMMARY:Conference Early Fee
 TRANSP:TRANSPARENT
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
 BEGIN:VALARM
 ACTION:AUDIO
 TRIGGER:-PT15H
@@ -103,6 +106,7 @@ SEQUENCE:0
 STATUS:CONFIRMED
 SUMMARY:Research Proceedings Track - Camera Ready
 TRANSP:TRANSPARENT
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
 BEGIN:VALARM
 ACTION:AUDIO
 TRIGGER:-PT15H
