@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Refresh" content="3;URL=demo.ics">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Refresh" content="3;URL=demo.ics">
     <title>Test vCalendar</title>
     <style>
     body {
@@ -13,5 +13,34 @@
   <body>
     <h1>Test vCalendar</h1>
     <p>should download automatically...</p>
+    <p></p>
+    <hr>
+    <p> </p>
+    <form>
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="end">title: </label></td>
+            <td><input id="title" name="title" type="text"></td>
+          </tr>
+          <tr>
+            <td><label for="start">start time: </label></td>
+            <td><input id="start" name="start" type="datetime-local"></td>
+          </tr>
+          <tr>
+            <td><label for="end">end time: </label></td>
+            <td><input id="end" name="end" type="datetime-local"></td>
+          </tr>
+          <tr>
+            <td><label for="comment">comment: </label></td>
+            <td><textarea id="comment" name="comment" style="font-family:sans-serif"></textarea></td>
+          </tr>
+          <tr>
+            <td><input type="submit"></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    
   </body>
 </html>
