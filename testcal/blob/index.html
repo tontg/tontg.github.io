@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'">
-    <title>test blob url</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
-  <body> 
-  
-  <textarea id="file_content" cols="30" rows="10" placeholder="file content" title="file content"></textarea>
-<input id="file_name" type="text" placeholder="file name" title="file name">
-<button id="create_file">Gen File</button>
-<button id="revoke_file">Revoke File</button>
-<a id="download_link" title="click to download"></a>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'">
+        <title>test blob url</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <textarea id="file_content" cols="30" rows="10" placeholder="file content" title="file content"></textarea>
+        <input id="file_name" type="text" placeholder="file name" title="file name">
+        <button id="create_file">Gen File</button>
+        <button id="revoke_file">Revoke File</button>
+        <a id="download_link" title="click to download"></a>
+        <script>
 
-    <script>
-    
-    $(function() {
-  $("#create_file").click(function() {
-  console.log("ok2");
-    $("#download_link").removeClass("revoke");
-    var blob = new Blob([$("#file_content").val()], {
-      type: "application/octect-stream"
-    });
-    var blobUrl = URL.createObjectURL(blob);
-    var fileName = $("#file_name").val();
+            $(function () {
+                $("#create_file").click(function () {
+                    // console.log("ok2");
+                    $("#download_link").removeClass("revoke");
+                    var fileContent = // $("#file_content").val();
+                            "BEGIN:VCALENDAR\n" +
+                            "VERSION:2.0\n" +
+                            "CALSCALE:GREGORIAN\n" +
+                            "BEGIN:VEVENT\n" +
+                            "SUMMARY:Access-A-Ride Pickup\n" +
+                            "DTSTART;TZID=America/New_York:20130802T103400\n" +
+                            "DTEND;TZID=America/New_York:20130802T110400\n" +
+                            "DESCRIPTION: Access-A-Ride to 900 Jay St.\n" +
+                            "STATUS:CONFIRMED\n" +
+                            "SEQUENCE:3\n" +
+                            "END:VEVENT\n" +
+                            "END:VCALENDAR";
 
-    $("#download_link").attr({
-      href: blobUrl,
-      download: fileName + ".txt",
+                    var blob = new Blob([fileContent], {
+                        type: "text/calendar" //"application/octect-stream"
+                    });
+                    var blobUrl = URL.createObjectURL(blob);
+                    var fileName = $("#file_name").val();
 
-    }).text(fileName + ".txt");
-    console.log("ok3");
+                    $("#download_link").attr({
+                        href: blobUrl,
+                        download: "democal.ics", //fileName + ".txt",
 
-  });
+                    }).text(fileName + ".txt");
+                    // console.log("ok3");
 
-  $("#revoke_file").click(function() {
-    blobUrl = URL.revokeObjectURL($("#download_link").attr("href"));
-    $("#download_link").addClass("revoke");
-  })
-});
-            console.log("ok1");
-    </script>
-  </body>
+                });
+
+                $("#revoke_file").click(function () {
+                    blobUrl = URL.revokeObjectURL($("#download_link").attr("href"));
+                    $("#download_link").addClass("revoke");
+                })
+            });
+            // console.log("ok1");
+        </script>
+    </body>
 </html>
