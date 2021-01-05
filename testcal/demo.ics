@@ -41,9 +41,10 @@ LAST-MODIFIED:20180827T111019Z
 LOCATION:
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:Ex. Ep. Especial: IP/PROGI 
+SUMMARY:Ex. Ep. Especial: IP/PROGI2 
 TRANSP:OPAQUE
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
+IMAGE;VALUE=URI;DISPLAY=BADGE,THUMBNAIL;FMTTYPE=image/png:https://tontg.github.io/testcal/awesome.png
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20150907
@@ -83,6 +84,7 @@ STATUS:CONFIRMED
 SUMMARY:Conference Early Fee
 TRANSP:TRANSPARENT
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
+IMAGE;VALUE=URI;DISPLAY=BADGE,THUMBNAIL;FMTTYPE=image/png:https://tontg.github.io/testcal/awesome.png
 BEGIN:VALARM
 ACTION:AUDIO
 TRIGGER:-PT15H
@@ -107,6 +109,7 @@ STATUS:CONFIRMED
 SUMMARY:Research Proceedings Track - Camera Ready
 TRANSP:TRANSPARENT
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><BODY><img src="https://tontg.github.io/testcal/awesome.gif" width="400" height="400"> sample text</BODY></HTML>
+IMAGE;VALUE=URI;DISPLAY=BADGE,THUMBNAIL;FMTTYPE=image/png:https://tontg.github.io/testcal/awesome.png
 BEGIN:VALARM
 ACTION:AUDIO
 TRIGGER:-PT15H
