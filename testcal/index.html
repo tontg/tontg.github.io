@@ -1,49 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test vCalendar</title>
-    <style>
-    body {
-     font-family: sans-serif; 
-    }
-    </style>
-  </head>
-  <body>
-    <h1>Test vCalendar</h1>
-    <form>
-      <table>
-        <tbody>
-          <tr>
-            <td for="event_title"><label for="event_title" style="width:100%">title</label></td>
-            <td><input autofocus="" id="event_title" name="event_title" type="text"></td>
-          </tr>
-          <tr>
-            <td><label for="start">start time</label></td>
-            <td><input id="start" name="start" type="datetime-local"></td>
-          </tr>
-          <tr>
-            <td><label for="end">end time</label></td>
-            <td><input id="end" name="end" type="datetime-local"></td>
-          </tr>
-          <tr>
-            <td><label for="comment">comment</label></td>
-            <td><textarea id="comment" name="comment" style="font-family:sans-serif"
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test vCalendar</title>
+        <style>
+            /* TODO : add a little CSS */
+            body, #comment {
+                font-family:sans-serif;
+            }
+        </style>
+        <meta name="author" content="Gilles Reant">
+        <!-- license: https://www.mozilla.org/en-US/MPL/2.0/ -->
+    </head>
+    <body>
+        <h1>Test vCalendar</h1>
+        <form>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="event_title">title</label></td>
+                        <td><input autofocus="" id="event_title" name="event_title" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="start_time">start time</label></td>
+                        <td><input id="start_time" name="start_time" type="datetime-local"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="end_time">end time</label></td>
+                        <td><input id="end_time" name="end_time" type="datetime-local"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="comment">comment</label></td>
+                        <td><textarea id="comment" name="comment" rows="4"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <a id="downloadLink">download</a>
+        <hr>
+        <script>
+            /**
+             * https://stackoverflow.com/a/21210643 CC BY-SA 4.0 Peter Mortensen
+             * modified by Gilles
+             * TODO check encoding for specific chars ; replace +
+             */
+            function getQueryDict() {
+                var queryDict = {};
+                location.search.substr(1).split("&").forEach(function (item) {
+                    queryDict[item.split("=")[0]] = decodeURIComponent(item.split("=")[1]);
+                });
+                return queryDict;
+            }
 
-rows="4"></textarea></td>
-          </tr>
-          <tr>
-            <td><input type="submit"></td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-    <hr>
-    <!-- https://www.google.fr/maps/place/1+Place+de+la+Bastille,+75004+Paris/ -->
-    <!-- https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik -->
-    <!--iframe id="inlineFrameExample" title="Inline Frame Example" src="https://www.openstreetmap.org/search?query=1%20place%20Bastille%20Paris"
+            function generateVCalendarFile(calendarParams) {
+                if (calendarParams.event_title && calendarParams.start_time && calendarParams.end_time) {
+                    var startTime = calendarParams.start_time.replaceAll("-", "");
+                    startTime = startTime.replace(":", "") + "00";
+                    var endTime = calendarParams.end_time.replaceAll("-", "");
+                    endTime = endTime.replace(":", "") + "00";
+                    // TODO dt stamp from new Date()
+                    // TODO : support encoding
+                    return `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//reant.net//vCalendar short link//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:${uuidv4().toUpperCase()}
+DTSTAMP:20210105T102650Z
+SUMMARY:${calendarParams.event_title}
+DTSTART:${startTime}
+DTEND:${endTime}
+DESCRIPTION:${calendarParams.event_title}
+END:VEVENT
+END:VCALENDAR`;
+                } else {
+                    throw "IllegalArgumentException";
+                }
+            }
 
-      height="200" width="300"> </iframe-->
-  </body>
+            // https://stackoverflow.com/a/2117523 CC BY-SA 4.0 broofa
+            function uuidv4() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+
+            function prepareDownloadLink() {
+                // TODO catch IllegalArgumentException
+                var vCalendarFileContent = generateVCalendarFile(getQueryDict());
+                if (vCalendarFileContent !== null) {
+                    var downloadLink = document.getElementById("downloadLink");
+                    downloadLink.setAttribute("href", URL.createObjectURL(new Blob([vCalendarFileContent], {type: "text/calendar"})));
+                    downloadLink.setAttribute("download", "demoCalendar.ics");
+                    setTimeout(function () {
+                        downloadLink.click();
+                    }, 3000);
+                }
+            }
+
+            if (!document.getElementById("start_time").value) {
+                document.getElementById("start_time").value = new Date().toISOString().substr(0, 16);
+            }
+            prepareDownloadLink();
+        </script>
+        <!-- https://www.google.fr/maps/place/1+Place+de+la+Bastille,+75004+Paris/ -->
+        <!-- https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik -->
+        <!--iframe id="inlineFrameExample" title="Inline Frame Example" src="https://www.openstreetmap.org/search?query=1%20place%20Bastille%20Paris"
+
+          height="200" width="300"> </iframe-->
+    </body>
 </html>
