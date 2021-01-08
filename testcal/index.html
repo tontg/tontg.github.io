@@ -5,14 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>1-click event</title>
         <meta property="og:title" content="1-click event">
-        <script>
-            document.querySelector('meta[property="og:title"]').setAttribute("content", "SUPER!!!");
-        </script>
         <meta property="og:type" content="article">
-        <meta property="og:url" content="https://tontg.github.io/testcal/">
-        <meta property="og:image" content="awesome.gif">
-        <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.">
-        <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.">
+        <meta property="og:url" content="https://tontg.github.io/testcal/"><!-- TODO : replace testcal with event -->
+        <meta property="og:image" content="awesome.gif"><!-- TODO : replace with generic calendar icon -->
+        <meta name="description" content="add this event in your calendar in 1 click">
+        <meta property="og:description" content="add this event in your calendar in 1 click">
         <style>
             /* TODO : add a little CSS */
             body, #comment, #dispDescription {
@@ -134,7 +131,7 @@
             <hr>
         </div>
 
-        <p>want to generate your own event shortcut in 1-click? fill-in and submit this form</p>
+        <p>fill-in this form generate your own event shortcut</p>
         <form onsubmit="return onFormSubmit(this)">
             <table>
                 <tbody>
@@ -319,10 +316,14 @@ END:VCALENDAR`;
             }
             prepareDownloadLink();
         </script>
-        <!-- https://www.google.fr/maps/place/1+Place+de+la+Bastille,+75004+Paris/ -->
-        <!-- https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik -->
-        <!--iframe id="inlineFrameExample" title="Inline Frame Example" src="https://www.openstreetmap.org/search?query=1%20place%20Bastille%20Paris"
-
-          height="200" width="300"> </iframe-->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY0XX3MBF7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-SY0XX3MBF7');
+        </script>
     </body>
 </html>
