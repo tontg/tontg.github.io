@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- author: Gilles Reant - license: MPL_2 https://www.mozilla.org/en-US/MPL/2.0/ -->
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -6,23 +7,31 @@
         <title>1-click event</title>
         <meta property="og:title" content="1-click event">
         <meta property="og:type" content="article">
-        <meta property="og:url" content="https://tontg.github.io/testcal/"><!-- TODO : replace testcal with event -->
+        <!--meta property="og:url" content="https://tontg.github.io/testcal/"--><!-- TODO : replace testcal with event -->
         <meta property="og:image" content="awesome.gif"><!-- TODO : replace with generic calendar icon -->
         <meta name="description" content="add this event to your calendar in 1 click">
         <meta property="og:description" content="add this event to your calendar in 1 click">
-        <link href="style.css" rel="stylesheet">
-        <meta name="author" content="Gilles Reant">
-        <!-- license: https://www.mozilla.org/en-US/MPL/2.0/ -->
+        <link rel="stylesheet" href="style.css">
+        <meta name="author" content="Gilles R&eacute;ant">
+        <meta name="license" content="https://www.mozilla.org/en-US/MPL/2.0/">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY0XX3MBF7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-SY0XX3MBF7');
+        </script>
     </head>
     <body>
-        <h1>1-click event</h1>
-
         <!-- positionning with table, sorry : ) -->
         <div id="dispEvent">
+            <noscript>&#x26A0;&#xFE0F; this website requires JavaScript in order to work properly</noscript><!-- TODO : optimize for web crawlers -->
             <table>
                 <tr>
                     <td>
-                        <!-- https://cssdeck.com/labs/calendar-icon -->
+                        <!-- calendar icon -->
                         <time datetime="2014-09-20" class="icon">
                             <em>Samedi</em>
                             <strong>September</strong>
@@ -47,8 +56,9 @@
             <button onclick="copyLinktoClipboard()">copy event link to clipboard</button>
             <hr>
         </div>
+        <h1>1-click event</h1>
 
-        <p>fill-in this form generate your own event shortcut</p>
+        <p>fill-in this form to generate your own event shortcut</p>
         <form onsubmit="return onFormSubmit(this)">
             <table>
                 <tbody>
@@ -84,15 +94,10 @@
                 </tbody>
             </table>
         </form>
+        <footer>
+            made with &#x2764;&#xFE0F; by <a href="https://github.com/tontg/" target="_blank">tontg</a><br>
+            privacy: this webpage uses Google Analytics cookies
+        </footer>
         <script src="script.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY0XX3MBF7"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'G-SY0XX3MBF7');
-        </script>
     </body>
 </html>

@@ -1,3 +1,6 @@
+/* author : Gilles Reant */
+/* license: https://www.mozilla.org/en-US/MPL/2.0/ */
+
 /* TODO : add a little CSS */
 
 body, #comment, #dispDescription {
@@ -6,6 +9,10 @@ body, #comment, #dispDescription {
 
 button {
     cursor: pointer;
+}
+
+footer {
+    font-size: 0.7em;
 }
 
 /* start calendar icon */
@@ -18,7 +25,7 @@ time.icon {
     width: 7em;
     height: 7em;
     background-color: #fff;
-    margin: 2em auto;
+    /*margin: 2em auto;*/
     border-radius: 0.6em;
     box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
     overflow: hidden;
