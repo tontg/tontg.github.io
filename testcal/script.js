@@ -39,8 +39,8 @@ DTEND:${endTime}
         }
         fileContent += `URL:${eventParams.u}
 `;
-        if (eventParams.d) {
-            fileContent += `LOCATION:${eventParams.d}
+        if (eventParams.l) {
+            fileContent += `LOCATION:${eventParams.l}
 `;
         }
         fileContent += `END:VEVENT
