@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>1-click event</title>
         <meta property="og:title" content="1-click event">
         <meta property="og:type" content="article">
@@ -12,6 +12,8 @@
         <meta name="description" content="add this event to your calendar in 1 click">
         <meta property="og:description" content="add this event to your calendar in 1 click">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <meta name="author" content="Gilles R&eacute;ant">
         <meta name="license" content="https://www.mozilla.org/en-US/MPL/2.0/">
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY0XX3MBF7"></script>
@@ -22,82 +24,89 @@
             }
             gtag('js', new Date());
             gtag('config', 'G-SY0XX3MBF7');
+            // TODO : test
+            gtag('config', 'G-SY0XX3MBF7', {
+                cookie_domain: 'tontg.github.io',
+                cookie_flags: 'SameSite=None;Secure'
+            });
         </script>
     </head>
     <body>
-        <!-- positionning with table, sorry : ) -->
-        <div id="dispEvent">
-            <noscript>&#x26A0;&#xFE0F; this website requires JavaScript in order to work properly</noscript><!-- TODO : optimize for web crawlers -->
-            <table>
-                <tr>
-                    <td>
-                        <!-- calendar icon -->
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Samedi</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                    </td>
-                    <td style="padding-left: 15px;">
-                        <h2 id="dispTitle"></h2>
-                        <span id="dispStartTime"></span> - <span id="dispEndTime"></span><br>
-                        <pre id="dispDescription"></pre>
-                        <!-- todo : add small icons ; URL icon, map icon - time/clock icon -->
-                        <a id="dispLocation" target="_blank"></a><br>
-                        <a id="dispUrl" target="_blank">web link</a>
-                    </td>
-                </tr>
-            </table>
-            <!-- TODO : share this link + copy button -->
-            <!-- https://stackoverflow.com/a/21653600 -->
-            <a id="downloadLink">add to iCalendar / Outlook / Yahoo Agenda</a> -
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
-            <button id="dispShare" onclick="share(this)">share</button> -
-            <button onclick="copyLinktoClipboard()">copy event link to clipboard</button>
-            <hr>
-        </div>
-        <h1>1-click event</h1>
+        <div style="padding: 10px">
+            <!-- positionning with table, sorry : ) -->
+            <div id="dispEvent">
+                <noscript>&#x26A0;&#xFE0F; this website requires JavaScript in order to work properly</noscript><!-- TODO : optimize for web crawlers -->
+                <table>
+                    <tr>
+                        <td>
+                            <!-- calendar icon -->
+                            <time datetime="2014-09-20" class="icon">
+                                <em>Samedi</em>
+                                <strong>September</strong>
+                                <span>20</span>
+                            </time>
+                        </td>
+                        <td style="padding-left: 15px;">
+                            <h2 id="dispTitle"></h2>
+                            <span id="dispStartTime"></span> - <span id="dispEndTime"></span><br>
+                            <pre id="dispDescription"></pre>
+                            <!-- todo : add small icons ; URL icon, map icon - time/clock icon -->
+                            <a id="dispLocation" target="_blank"></a><br>
+                            <a id="dispUrl" target="_blank">web link</a>
+                        </td>
+                    </tr>
+                </table>
+                <!-- TODO : share this link + copy button -->
+                <!-- https://stackoverflow.com/a/21653600 -->
+                <a id="downloadLink">add to iCalendar / Outlook / Yahoo Agenda</a> -
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
+                <button id="dispShare" onclick="share(this)">share</button> -
+                <button onclick="copyLinktoClipboard()">copy event link to clipboard</button>
+                <hr>
+            </div>
+            <h1>1-click event</h1>
 
-        <p>fill-in this form to generate your own event shortcut</p>
-        <form onsubmit="return onFormSubmit(this)">
-            <table>
-                <tbody>
-                    <tr>
-                        <!-- TODO : tooltip for help https://stackoverflow.com/questions/12539006/tooltips-for-mobile-browsers -->
-                        <td><label for="event_title">title</label></td>
-                        <td><input type="text" id="event_title" name="t" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="start_time">start time</label></td>
-                        <td><input type="datetime-local" id="start_time" name="s" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="end_time">end time</label></td>
-                        <td><input type="datetime-local" id="end_time" name="e" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="description">comment</label></td>
-                        <td><textarea id="description" name="d" rows="4" class="optionnal"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><label for="location">location</label></td>
-                        <td><input type="text" id="location" name="l" class="optionnal"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="url">web link</label></td>
-                        <!-- not using type url, too restrictive -->
-                        <td><input type="text" id="url" name="u" class="optionnal"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button type="submit">generate link</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-        <footer>
-            made with &#x2764;&#xFE0F; by <a href="https://github.com/tontg/" target="_blank">tontg</a><br>
-            privacy: this webpage uses Google Analytics cookies
-        </footer>
+            <p>fill-in this form to generate your own event shortcut</p>
+            <form onsubmit="return onFormSubmit(this)">
+                <table>
+                    <tbody>
+                        <tr>
+                            <!-- TODO : tooltip for help https://stackoverflow.com/questions/12539006/tooltips-for-mobile-browsers -->
+                            <td><label for="event_title">title</label></td>
+                            <td><input type="text" id="event_title" name="t" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="start_time">start time</label></td>
+                            <td><input type="datetime-local" id="start_time" name="s" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="end_time">end time</label></td>
+                            <td><input type="datetime-local" id="end_time" name="e" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="description">decription</label></td>
+                            <td><textarea id="description" name="d" rows="4" class="optionnal"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="location">location</label></td>
+                            <td><input type="text" id="location" name="l" class="optionnal"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="url">web link</label></td>
+                            <!-- not using type url, too restrictive -->
+                            <td><input type="text" id="url" name="u" class="optionnal"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit">generate link</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <footer>
+                made with &#x2764;&#xFE0F; by <a href="https://github.com/tontg/" target="_blank">tontg</a><br>
+                privacy: this webpage uses Google Analytics cookies
+            </footer>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
