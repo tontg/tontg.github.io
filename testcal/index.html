@@ -3,45 +3,164 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Test vCalendar</title>
+        <title>1-click event</title>
         <style>
             /* TODO : add a little CSS */
-            body, #comment {
+            body, #comment, #dispDescription {
                 font-family:sans-serif;
             }
+            button {
+                cursor:pointer;
+            }
+
+            /* start calendar icon */
+            /* https://cssdeck.com/labs/calendar-icon https://www.sitepoint.com/create-calendar-icon-html5-css3/ */
+            /* Craig Buckler + Simone Sala */
+            time.icon {
+                font-size: 1em; /* change icon size */
+                display: block;
+                position: relative;
+                width: 7em;
+                height: 7em;
+                background-color: #fff;
+                margin: 2em auto;
+                border-radius: 0.6em;
+                box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+                overflow: hidden;
+                -webkit-backface-visibility: hidden;
+                -webkit-transform: rotate(0deg) skewY(0deg);
+                -webkit-transform-origin: 50% 10%;
+                transform-origin: 50% 10%;
+            }
+
+            time.icon * {
+                display: block;
+                width: 100%;
+                font-size: 1em;
+                font-weight: bold;
+                font-style: normal;
+                text-align: center;
+            }
+
+            time.icon strong {
+                position: absolute;
+                top: 0;
+                padding: 0.4em 0;
+                color: #fff;
+                background-color: #fd9f1b;
+                border-bottom: 1px dashed #f37302;
+                box-shadow: 0 2px 0 #fd9f1b;
+            }
+
+            time.icon em {
+                position: absolute;
+                bottom: 0.3em;
+                color: #fd9f1b;
+            }
+
+            time.icon span {
+                width: 100%;
+                font-size: 2.8em;
+                letter-spacing: -0.05em;
+                padding-top: 0.8em;
+                color: #2f2f2f;
+            }
+
+            time.icon:hover, time.icon:focus {
+                -webkit-animation: swing 0.6s ease-out;
+                animation: swing 0.6s ease-out;
+            }
+
+            @-webkit-keyframes swing {
+                0%   { -webkit-transform: rotate(0deg)  skewY(0deg); }
+                20%  { -webkit-transform: rotate(12deg) skewY(4deg); }
+                60%  { -webkit-transform: rotate(-9deg) skewY(-3deg); }
+                80%  { -webkit-transform: rotate(6deg)  skewY(-2deg); }
+                100% { -webkit-transform: rotate(0deg)  skewY(0deg); }
+            }
+
+            @keyframes swing {
+                0%   { transform: rotate(0deg)  skewY(0deg); }
+                20%  { transform: rotate(12deg) skewY(4deg); }
+                60%  { transform: rotate(-9deg) skewY(-3deg); }
+                80%  { transform: rotate(6deg)  skewY(-2deg); }
+                100% { transform: rotate(0deg)  skewY(0deg); }
+            }
+            /* end calendar icon */
         </style>
         <meta name="author" content="Gilles Reant">
         <!-- license: https://www.mozilla.org/en-US/MPL/2.0/ -->
     </head>
     <body>
-        <h1>Test vCalendar</h1>
-        <form>
+        <h1>1-click event</h1>
+
+        <!-- positionning with table, sorry : ) -->
+        <div id="dispEvent">
+            <table>
+                <tr>
+                    <td>
+                        <!-- https://cssdeck.com/labs/calendar-icon -->
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Samedi</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                    </td>
+                    <td style="padding-left: 15px;">
+                        <h2 id="dispTitle"></h2>
+                        <span id="dispStartTime"></span> - <span id="dispEndTime"></span><br>
+                        <pre id="dispDescription"></pre>
+                        <!-- todo : add small icons ; URL icon, map icon - time/clock icon -->
+                        <a id="dispLocation" target="_blank"></a><br>
+                        <a id="dispUrl" target="_blank">web link</a>
+                    </td>
+                </tr>
+            </table>
+            <!-- TODO : share this link + copy button -->
+            <!-- https://stackoverflow.com/a/21653600 -->
+            <a id="downloadLink">add to iCalendar / Outlook / Yahoo Agenda</a> -
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
+            <button id="dispShare" onclick="share()">share</button>
+            <hr>
+        </div>
+
+        <p>want to generate your own event shortcut in 1-click? fill-in and submit this form</p>
+        <form onsubmit="return onFormSubmit(this)">
             <table>
                 <tbody>
                     <tr>
+                        <!-- TODO : tooltip for help https://stackoverflow.com/questions/12539006/tooltips-for-mobile-browsers -->
                         <td><label for="event_title">title</label></td>
-                        <td><input autofocus="" id="event_title" name="event_title" type="text"></td>
+                        <td><input type="text" id="event_title" name="t" required autofocus></td>
                     </tr>
                     <tr>
                         <td><label for="start_time">start time</label></td>
-                        <td><input id="start_time" name="start_time" type="datetime-local"></td>
+                        <td><input type="datetime-local" id="start_time" name="s" required></td>
                     </tr>
                     <tr>
                         <td><label for="end_time">end time</label></td>
-                        <td><input id="end_time" name="end_time" type="datetime-local"></td>
+                        <td><input type="datetime-local" id="end_time" name="e" required></td>
                     </tr>
                     <tr>
-                        <td><label for="comment">comment</label></td>
-                        <td><textarea id="comment" name="comment" rows="4"></textarea></td>
+                        <td><label for="description">comment</label></td>
+                        <td><textarea id="description" name="d" rows="4" class="optionnal"></textarea></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="submit"></td>
+                        <td><label for="location">location</label></td>
+                        <td><input type="text" id="location" name="l" class="optionnal"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="url">web link</label></td>
+                        <!-- not using type url, too restrictive -->
+                        <td><input type="text" id="url" name="u" class="optionnal"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit">generate link</button></td>
                     </tr>
                 </tbody>
             </table>
         </form>
-        <a id="downloadLink">download</a>
-        <hr>
+
         <script>
             /**
              * https://stackoverflow.com/a/21210643 CC BY-SA 4.0 Peter Mortensen
@@ -56,14 +175,26 @@
                 return queryDict;
             }
 
-            function generateVCalendarFile(calendarParams) {
-                if (calendarParams.event_title && calendarParams.start_time && calendarParams.end_time) {
-                    var startTime = calendarParams.start_time.replaceAll("-", "");
+            function generateVCalendarFile(eventParams) {
+                if (eventParams.t && eventParams.s && eventParams.e) {
+                    var startTime = eventParams.s.replaceAll("-", "");
                     startTime = startTime.replace(":", "") + "00";
-                    var endTime = calendarParams.end_time.replaceAll("-", "");
+                    var endTime = eventParams.e.replaceAll("-", "");
                     endTime = endTime.replace(":", "") + "00";
                     // TODO dt stamp from new Date()
-                    // TODO : support encoding
+                    // TODO : support encoding ; test with Kanji
+                    // TODO : set min date for start
+                    // TODO : when exiting start, set min date for end
+                    // TODO : remove name "calendar" & say "event" instead
+                    // fixing URL
+                    if (eventParams.u) {
+                        if (!eventParams.u.includes("://")) {
+                            // we can't be sure the website will work with HTTPS, so we'll assume HTTP
+                            eventParams.u = "http://" + eventParams.u;
+                        }
+                    } else {
+                        eventParams.u = window.location.href;
+                    }
                     return `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//reant.net//vCalendar short link//EN
@@ -71,14 +202,14 @@ CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:${uuidv4().toUpperCase()}
 DTSTAMP:20210105T102650Z
-SUMMARY:${calendarParams.event_title}
+SUMMARY:${eventParams.t}
 DTSTART:${startTime}
 DTEND:${endTime}
-DESCRIPTION:${calendarParams.event_title}
+DESCRIPTION:${eventParams.d}
 END:VEVENT
 END:VCALENDAR`;
                 } else {
-                    throw "IllegalArgumentException";
+                    return null;
                 }
             }
 
@@ -92,19 +223,72 @@ END:VCALENDAR`;
 
             function prepareDownloadLink() {
                 // TODO catch IllegalArgumentException
-                var vCalendarFileContent = generateVCalendarFile(getQueryDict());
+                var eventParams = getQueryDict();
+                var vCalendarFileContent = generateVCalendarFile(eventParams);
                 if (vCalendarFileContent !== null) {
+                    displayEvent(eventParams);
                     var downloadLink = document.getElementById("downloadLink");
                     downloadLink.setAttribute("href", URL.createObjectURL(new Blob([vCalendarFileContent], {type: "text/calendar"})));
-                    downloadLink.setAttribute("download", "demoCalendar.ics");
+                    downloadLink.setAttribute("download", eventParams.t + ".ics");
                     setTimeout(function () {
                         downloadLink.click();
                     }, 3000);
+                } else {
+                    document.getElementById("dispEvent").style.display = "none";
                 }
             }
 
+            function displayEvent(event) {
+                document.getElementById("dispTitle").textContent = event.t;
+                document.title = event.t + " - 1-click event";
+                // TODO from XXX to YYY
+                document.getElementById("dispStartTime").textContent = event.s;
+                document.getElementById("dispEndTime").textContent = event.e;
+                if (event.d) {
+                    document.getElementById("dispDescription").textContent = event.d;
+                } else {
+                    document.getElementById("dispDescription").style.display = "none";
+                }
+                if (event.l) {
+                    document.getElementById("dispLocation").textContent = event.l;
+                    // using Google Maps ; alternative with OpenStreetMap Nomatim https://nominatim.openstreetmap.org/ui/search.html?q=
+                    document.getElementById("dispLocation").href = "https://www.google.com/maps/search/" + event.l;
+                } else {
+                    document.getElementById("dispLocation").style.display = "none";
+                }
+                if (event.u) {
+                    document.getElementById("dispUrl").href = event.u;
+                } else {
+                    document.getElementById("dispUrl").style.display = "none";
+                }
+                if (!navigator.share) {
+                    document.getElementById("dispShare").style.display = "none";
+                }
+            }
+
+            function onFormSubmit(form) {
+                // remove form optionnal attributes if they are empty
+                Array.from(form.getElementsByClassName("optionnal")).forEach(
+                        function (element) {
+                            if (!element.value) {
+                                element.removeAttribute("name");
+                            }
+                        }
+                );
+                return true;
+            }
+
+            function share() {
+                navigator.share({title: "pouet !!", url: window.location.href, text: "detailled description"});
+            }
+
+            var now = new Date();
             if (!document.getElementById("start_time").value) {
-                document.getElementById("start_time").value = new Date().toISOString().substr(0, 16);
+                document.getElementById("start_time").value = now.toISOString().substr(0, 16);
+            }
+            if (!document.getElementById("end_time").value) {
+                now.setHours(now.getHours() + 1);
+                document.getElementById("end_time").value = now.toISOString().substr(0, 16);
             }
             prepareDownloadLink();
         </script>
