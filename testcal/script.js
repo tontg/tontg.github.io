@@ -21,7 +21,7 @@ function generateEventFile(eventParams) {
         } else {
             eventParams.u = window.location.href;
         }
-        return `BEGIN:VCALENDAR
+        var fileContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//tontg.github.io//1-click event//EN
 CALSCALE:GREGORIAN
@@ -31,10 +31,18 @@ DTSTAMP:20210105T102650Z
 SUMMARY:${eventParams.t}
 DTSTART:${startTime}
 DTEND:${endTime}
-DESCRIPTION:${eventParams.d}
-URL:${eventParams.u}
-LOCATION:${eventParams.d}
-END:VEVENT
+`;
+        if (eventParams.d) {
+            fileContent += `DESCRIPTION:${eventParams.d}
+`;
+        }
+        fileContent += `URL:${eventParams.u}
+`;
+        if (eventParams.d) {
+            fileContent += `LOCATION:${eventParams.d}
+`;
+        }
+        fileContent += `END:VEVENT
 END:VCALENDAR`;
     } else {
         return null;
