@@ -44,6 +44,7 @@ DTEND:${endTime}
         }
         fileContent += `END:VEVENT
 END:VCALENDAR`;
+        return fileContent;
     } else {
         return null;
     }
