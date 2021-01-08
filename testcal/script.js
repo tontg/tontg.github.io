@@ -33,7 +33,8 @@ DTSTART:${startTime}
 DTEND:${endTime}
 `;
         if (eventParams.d) {
-            fileContent += `DESCRIPTION:${eventParams.d}
+            // TODO : fix bug with multiline_description
+            fileContent += `DESCRIPTION:${encodeURIComponent(eventParams.d)}
 `;
         }
         fileContent += `URL:${eventParams.u}
