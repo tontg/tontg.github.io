@@ -85,16 +85,17 @@
                         </tr>
                         <tr>
                             <td><label for="description">decription</label></td>
-                            <td><textarea id="description" name="d" rows="4" class="optionnal"></textarea></td>
+                            <td><textarea id="description" name="d" rows="4" class="optional"></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="location">location</label></td>
-                            <td><input type="text" id="location" name="l" class="optionnal"></td>
+                            <td><input type="text" id="location" name="l" class="optional"></td>
                         </tr>
                         <tr>
                             <td><label for="url">web link</label></td>
                             <!-- not using type url, too restrictive -->
-                            <td><input type="text" id="url" name="u" class="optionnal"></td>
+                            <!-- TODO test inputmode URL -->
+                            <td><input type="text" inputmode="url" id="url" name="u" class="optional"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><button type="submit">generate link</button></td>

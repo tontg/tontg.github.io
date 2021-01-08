@@ -34,13 +34,13 @@ DTEND:${endTime}
 `;
         if (eventParams.d) {
             // TODO : fix bug with multiline_description
-            fileContent += `DESCRIPTION:${encodeURIComponent(eventParams.d)}
+            fileContent += `DESCRIPTION;ENCODING=QUOTED-PRINTABLE:${encodeURIComponent(eventParams.d)}
 `;
         }
         fileContent += `URL:${eventParams.u}
 `;
         if (eventParams.l) {
-            fileContent += `LOCATION:${eventParams.l}
+            fileContent += `LOCATION:${eventParams.l.replaceAll("+", " ")}
 `;
         }
         fileContent += `END:VEVENT
@@ -115,7 +115,7 @@ function displayEvent(event) {
 
 function onFormSubmit(form) {
     // remove form optional attributes if they are empty
-    Array.from(form.getElementsByClassName("optionnal")).forEach(
+    Array.from(form.getElementsByClassName("optional")).forEach(
             function (element) {
                 if (!element.value) {
                     element.removeAttribute("name");
