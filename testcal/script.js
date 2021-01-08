@@ -72,7 +72,10 @@ function preparePage() {
 function displayEvent(event) {
     document.getElementById("dispTitle").textContent = event.t.replaceAll("+", " ");
     document.title = event.t.replaceAll("+", " ") + " \u2013 1-click event";
+    document.querySelector('meta[property="og:title"]').setAttribute("content", document.title);
+    // TODO : replace og:image
     // TODO from XXX to YYY
+    document.querySelector('meta[property="og:description"]').setAttribute("content", "dynamic change");
     document.getElementById("dispStartTime").textContent = event.s;
     document.getElementById("dispEndTime").textContent = event.e;
     if (event.d) {
