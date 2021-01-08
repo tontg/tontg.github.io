@@ -4,6 +4,15 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>1-click event</title>
+        <meta property="og:title" content="1-click event">
+        <script>
+            document.querySelector('meta[property="og:title"]').setAttribute("content", "SUPER!!!");
+        </script>
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://tontg.github.io/testcal/">
+        <meta property="og:image" content="awesome.gif">
+        <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.">
+        <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.">
         <style>
             /* TODO : add a little CSS */
             body, #comment, #dispDescription {
@@ -120,7 +129,8 @@
             <!-- https://stackoverflow.com/a/21653600 -->
             <a id="downloadLink">add to iCalendar / Outlook / Yahoo Agenda</a> -
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
-            <button id="dispShare" onclick="share()">share</button>
+            <button id="dispShare" onclick="share(this)">share</button> -
+            <button onclick="copyLinktoClipboard()">copy event link to clipboard</button>
             <hr>
         </div>
 
@@ -131,7 +141,7 @@
                     <tr>
                         <!-- TODO : tooltip for help https://stackoverflow.com/questions/12539006/tooltips-for-mobile-browsers -->
                         <td><label for="event_title">title</label></td>
-                        <td><input type="text" id="event_title" name="t" required autofocus></td>
+                        <td><input type="text" id="event_title" name="t" required></td>
                     </tr>
                     <tr>
                         <td><label for="start_time">start time</label></td>
@@ -186,6 +196,7 @@
                     // TODO : set min date for start
                     // TODO : when exiting start, set min date for end
                     // TODO : remove name "calendar" & say "event" instead
+                    // TODO : generate UID on form (input hidden) before submit
                     // fixing URL
                     if (eventParams.u) {
                         if (!eventParams.u.includes("://")) {
@@ -197,7 +208,7 @@
                     }
                     return `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//reant.net//vCalendar short link//EN
+PRODID:-//reant.net//1-click event//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:${uuidv4().toUpperCase()}
@@ -206,6 +217,8 @@ SUMMARY:${eventParams.t}
 DTSTART:${startTime}
 DTEND:${endTime}
 DESCRIPTION:${eventParams.d}
+URL:${eventParams.u}
+LOCATION:${eventParams.d}
 END:VEVENT
 END:VCALENDAR`;
                 } else {
@@ -235,22 +248,23 @@ END:VCALENDAR`;
                     }, 3000);
                 } else {
                     document.getElementById("dispEvent").style.display = "none";
+                    // document.getElementById("event_title").autofocus = true;
                 }
             }
 
             function displayEvent(event) {
-                document.getElementById("dispTitle").textContent = event.t;
-                document.title = event.t + " - 1-click event";
+                document.getElementById("dispTitle").textContent = event.t.replaceAll("+", " ");
+                document.title = event.t.replaceAll("+", " ") + " – 1-click event";
                 // TODO from XXX to YYY
                 document.getElementById("dispStartTime").textContent = event.s;
                 document.getElementById("dispEndTime").textContent = event.e;
                 if (event.d) {
-                    document.getElementById("dispDescription").textContent = event.d;
+                    document.getElementById("dispDescription").textContent = event.d.replaceAll("+", " ");
                 } else {
                     document.getElementById("dispDescription").style.display = "none";
                 }
                 if (event.l) {
-                    document.getElementById("dispLocation").textContent = event.l;
+                    document.getElementById("dispLocation").textContent = event.l.replaceAll("+", " ");
                     // using Google Maps ; alternative with OpenStreetMap Nomatim https://nominatim.openstreetmap.org/ui/search.html?q=
                     document.getElementById("dispLocation").href = "https://www.google.com/maps/search/" + event.l;
                 } else {
@@ -261,7 +275,9 @@ END:VCALENDAR`;
                 } else {
                     document.getElementById("dispUrl").style.display = "none";
                 }
-                if (!navigator.share) {
+                if (navigator.share) {
+                    document.getElementById("dispShare").title = "add " + event.t + " to your calendar";
+                } else {
                     document.getElementById("dispShare").style.display = "none";
                 }
             }
@@ -278,8 +294,19 @@ END:VCALENDAR`;
                 return true;
             }
 
-            function share() {
-                navigator.share({title: "pouet !!", url: window.location.href, text: "detailled description"});
+            function share(element) {
+                navigator.share({url: window.location.href, title: element.title, text: element.title});
+            }
+
+            function copyLinktoClipboard() {
+                navigator.permissions.query({name: "clipboard-write"}).then(result => {
+                    if (result.state === "granted" || result.state === "prompt") {
+                        var copyText = "http://reant.net/";
+                        // TODO : fix by adding input text unmodifiable
+                        copyText.select();
+                        document.execCommand("copy");
+                    }
+                });
             }
 
             var now = new Date();
