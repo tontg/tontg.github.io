@@ -52,8 +52,9 @@ DTEND:${endTime}
                 console.log("geolocation");
                 console.log(eventParams.g);
                 /*fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, France
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
-`;*/
+                 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
+                 `;*/
+                // TODO : change location
                 fileContent += `LOCATION:36 Boulevard de la Bastille\\, 75012 Paris\\, France
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
 `;
@@ -114,6 +115,14 @@ function displayEvent(event) {
     } else {
         document.getElementById("dispLocation").style.display = "none";
     }
+    if (event.g) {
+        // display iframe map
+        var lat = parseFloat(event.g.substring(0, event.g.indexOf(',')));
+        var lon = parseFloat(event.g.substring(event.g.indexOf(',') + 1));
+        // TODO : add CSS to iframe map
+        document.getElementById("eventMap").src = `https://www.openstreetmap.org/export/embed.html?bbox=${lon - 0.002}%2C${lat - 0.002}%2C${lon + 0.002}%2C${lat + 0.002}&marker=${lat}%2C${lon}`;
+        document.getElementById("eventMap").style.display = "initial";
+    }
     if (event.u) {
         document.getElementById("dispUrl").textContent = new URL(event.u).hostname;
         document.getElementById("dispUrl").href = event.u;
@@ -171,7 +180,7 @@ function updateGeolocation(address) {
                 document.getElementById("geolocation").value = `${lat},${lon}`;
                 var boundingBox = response[0].boundingbox;
                 // TODO : add CSS to iframe map
-                document.getElementById("formMap").src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]}%2C${boundingBox[0]}%2C${boundingBox[3]}%2C${boundingBox[1]}&layer=mapnik&marker=${lat}%2C${lon}`;
+                document.getElementById("formMap").src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]}%2C${boundingBox[0]}%2C${boundingBox[3]}%2C${boundingBox[1]}&marker=${lat}%2C${lon}`;
                 document.getElementById("formMap").style.display = "initial";
             } else {
                 ok = false;

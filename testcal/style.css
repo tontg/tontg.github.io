@@ -18,7 +18,7 @@ footer {
     font-size: 0.7em;
 }
 
-#dispEvent, #formMap {
+#dispEvent, #formMap, #eventMap {
     display: none; /* will be updated dynamically */
 }
 
