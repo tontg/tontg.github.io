@@ -43,7 +43,7 @@ DTEND:${endTime}
         if (eventParams.l) {
             // TODO : test X-APPLE-STRUCTURED-LOCATION
             fileContent += `LOCATION:${eventParams.l.replaceAll("+", " ")}
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
 `;
         }
         fileContent += `END:VEVENT
@@ -162,31 +162,4 @@ function uuidv4() {
         var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
-}
-
-// https://stackoverflow.com/questions/294297/javascript-implementation-of-gzip
-// LZW-compress a string
-function lzw_encode(s) {
-    var dict = {};
-    var data = (s + "").split("");
-    var out = [];
-    var currChar;
-    var phrase = data[0];
-    var code = 256;
-    for (var i = 1; i < data.length; i++) {
-        currChar = data[i];
-        if (dict[phrase + currChar] !== null) {
-            phrase += currChar;
-        } else {
-            out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-            dict[phrase + currChar] = code;
-            code++;
-            phrase = currChar;
-        }
-    }
-    out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-    for (var i = 0; i < out.length; i++) {
-        out[i] = String.fromCharCode(out[i]);
-    }
-    return out.join("");
 }
