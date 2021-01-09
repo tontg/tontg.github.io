@@ -41,7 +41,9 @@ DTEND:${endTime}
         fileContent += `URL:${eventParams.u}
 `;
         if (eventParams.l) {
+            // TODO : test X-APPLE-STRUCTURED-LOCATION
             fileContent += `LOCATION:${eventParams.l.replaceAll("+", " ")}
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
 `;
         }
         fileContent += `END:VEVENT
@@ -63,7 +65,7 @@ function preparePage() {
         document.getElementById("end_time").value = now.toISOString().substr(0, 16);
     }
 
-    // if event, prepare page
+    // if event in query, display it
     var eventParams = getQueryDict();
     var eventFileContent = generateEventFile(eventParams);
     if (eventFileContent !== null) {
@@ -74,6 +76,8 @@ function preparePage() {
         setTimeout(function () {
             downloadLink.click();
         }, 3000);
+    } else {
+        document.getElementById("event_title").focus();
     }
 }
 
@@ -83,10 +87,8 @@ function displayEvent(event) {
     document.title = event.t.replaceAll("+", " ") + " \u2013 1-click event";
     document.querySelector('meta[property="og:title"]').setAttribute("content", document.title);
     // TODO : replace og:image
-    // TODO from XXX to YYY
-    document.querySelector('meta[property="og:description"]').setAttribute("content", "dynamic change");
-    document.getElementById("dispStartTime").textContent = event.s;
-    document.getElementById("dispEndTime").textContent = event.e;
+    document.querySelector('meta[property="og:description"]').setAttribute("content", `event from ${event.s} to ${event.e}`);
+    document.getElementById("dispTime").textContent = `from ${event.s} to ${event.e}`;
     if (event.d) {
         document.getElementById("dispDescription").textContent = event.d.replaceAll("+", " ");
     } else {

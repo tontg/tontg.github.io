@@ -30,7 +30,7 @@
                 cookie_flags: 'SameSite=None;Secure'
             });
         </script>
-        <script src="script.js"></script>        
+        <script src="script.js"></script>
         <script src="warn_ie.js"></script>
     </head>
     <body>
@@ -51,9 +51,9 @@
                                 <span>20</span>
                             </time>
                         </td>
-                        <td style="padding-left: 15px;">
+                        <td class="padding">
                             <h2 id="dispTitle"></h2>
-                            <img src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-clock-512.png" alt="time" class="icon" /> from <span id="dispStartTime"></span> to <span id="dispEndTime"></span><br>
+                            <img src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-clock-512.png" alt="time" class="icon" /> <span id="dispTime"></span><br>
                             <img src="https://cdn.icon-icons.com/icons2/1875/PNG/512/note_120060.png" alt="description" class="icon" /><pre id="dispDescription"></pre>
                             <img src="https://p.kindpng.com/picc/s/108-1084466_map-location-outline-map-location-icon-png-transparent.png" alt="location" class="icon" /> <a id="dispLocation" target="_blank"></a><br>
                             <img src="https://cdn.pixabay.com/photo/2016/08/31/00/44/www-1632431_1280.png" alt="web link" class="icon" /> <a id="dispUrl" target="_blank"></a>
@@ -77,29 +77,29 @@
                         <tr>
                             <!-- TODO : tooltip for help https://stackoverflow.com/questions/12539006/tooltips-for-mobile-browsers -->
                             <td><label for="event_title">title</label></td>
-                            <td><input type="text" id="event_title" name="t" required></td>
+                            <td class="padding"><input type="text" id="event_title" name="t" required></td>
                         </tr>
                         <tr>
                             <td><label for="start_time">start time</label></td>
-                            <td><input type="datetime-local" id="start_time" name="s" required></td>
+                            <td class="padding"><input type="datetime-local" id="start_time" name="s" required></td>
                         </tr>
                         <tr>
                             <td><label for="end_time">end time</label></td>
-                            <td><input type="datetime-local" id="end_time" name="e" required></td>
+                            <td class="padding"><input type="datetime-local" id="end_time" name="e" required></td>
                         </tr>
                         <tr>
                             <td><label for="description">decription</label></td>
-                            <td><textarea id="description" name="d" rows="4" class="optional"></textarea></td>
+                            <td class="padding"><textarea id="description" name="d" rows="4" class="optional"></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="location">location</label></td>
-                            <td><input type="text" id="location" name="l" class="optional"></td>
+                            <td class="padding"><input type="text" id="location" name="l" class="optional"></td>
                         </tr>
                         <tr>
                             <td><label for="url">web link</label></td>
                             <!-- not using type url, too restrictive -->
                             <!-- TODO test inputmode URL -->
-                            <td><input type="text" inputmode="url" id="url" name="u" class="optional"></td>
+                            <td class="padding"><input type="text" inputmode="url" autocorrect="off" autocapitalize="none" id="url" name="u" class="optional"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><button type="submit">generate link</button></td>
