@@ -45,7 +45,7 @@ DTEND:${endTime}
             /*fileContent += `LOCATION:${eventParams.l.replaceAll("+", " ")}
              X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
              `;*/
-            fileContent += `LOCATION:Cafe de la Presse\n36 Boulevard de la Bastille\, 75012 Paris\, F
+            fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, F
  rance
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Basti
  lle, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=CAESwAIIrk0Q7Lmt/4mCuvMy
