@@ -1,10 +1,12 @@
 /* author : Gilles Reant */
-/* license: https://www.mozilla.org/en-US/MPL/2.0/ */
+/* license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/ */
 
 /* TODO : add a little CSS */
 
 #dispDescription {
     font-family: var(--bs-font-sans-serif);
+    font-size: 0.75em;
+    /*display: inline;*/
 }
 
 button {
@@ -12,7 +14,21 @@ button {
 }
 
 footer {
+    margin-top: 10px;
     font-size: 0.7em;
+}
+
+#dispEvent {
+    display: none; /* will be updated dynamically */
+}
+
+form input, form textarea {
+    width: 215px;
+}
+
+img.icon {
+    max-width:20px;
+    max-height:20px;
 }
 
 /* start calendar icon */

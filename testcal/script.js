@@ -1,5 +1,5 @@
 // author : Gilles Reant
-// license: https://www.mozilla.org/en-US/MPL/2.0/
+// license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/
 
 function generateEventFile(eventParams) {
     if (eventParams.t && eventParams.s && eventParams.e) {
@@ -21,6 +21,7 @@ function generateEventFile(eventParams) {
         } else {
             eventParams.u = window.location.href;
         }
+        // TODO : generate dTSTAMP
         var fileContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//tontg.github.io//1-click event//EN
@@ -73,13 +74,11 @@ function preparePage() {
         setTimeout(function () {
             downloadLink.click();
         }, 3000);
-    } else {
-        document.getElementById("dispEvent").style.display = "none";
-        // TODO : add? document.getElementById("event_title").autofocus = true;
     }
 }
 
 function displayEvent(event) {
+    document.getElementById("dispEvent").style.display = "initial";
     document.getElementById("dispTitle").textContent = event.t.replaceAll("+", " ");
     document.title = event.t.replaceAll("+", " ") + " \u2013 1-click event";
     document.querySelector('meta[property="og:title"]').setAttribute("content", document.title);
@@ -125,6 +124,7 @@ function onFormSubmit(form) {
     return true;
 }
 
+// TODO : replace element with element.title
 function share(element) {
     navigator.share({url: window.location.href, title: element.title, text: element.title});
 }
@@ -162,4 +162,71 @@ function uuidv4() {
     });
 }
 
-preparePage();
+// https://stackoverflow.com/questions/294297/javascript-implementation-of-gzip
+// LZW-compress a string
+function lzw_encode(s) {
+    var dict = {};
+    var data = (s + "").split("");
+    var out = [];
+    var currChar;
+    var phrase = data[0];
+    var code = 256;
+    for (var i = 1; i < data.length; i++) {
+        currChar = data[i];
+        if (dict[phrase + currChar] !== null) {
+            phrase += currChar;
+        } else {
+            out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
+            dict[phrase + currChar] = code;
+            code++;
+            phrase = currChar;
+        }
+    }
+    out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
+    for (var i = 0; i < out.length; i++) {
+        out[i] = String.fromCharCode(out[i]);
+    }
+    return out.join("");
+}
+
+// Decompress an LZW-encoded string
+function lzw_decode(s) {
+    var dict = {};
+    var data = (s + "").split("");
+    var currChar = data[0];
+    var oldPhrase = currChar;
+    var out = [currChar];
+    var code = 256;
+    var phrase;
+    for (var i = 1; i < data.length; i++) {
+        var currCode = data[i].charCodeAt(0);
+        if (currCode < 256) {
+            phrase = data[i];
+        } else {
+            phrase = dict[currCode] ? dict[currCode] : (oldPhrase + currChar);
+        }
+        out.push(phrase);
+        currChar = phrase.charAt(0);
+        dict[code] = oldPhrase + currChar;
+        code++;
+        oldPhrase = phrase;
+    }
+    return out.join("");
+}
+
+function testCompress() {
+    var str = "t=hoho+&s=2021-01-09T09%3A34&e=2021-01-09T10%3A34&d=hehe";
+    console.log("str");
+    console.log(str);
+    var base64 = atob(str);
+    console.log("base64");
+    console.log(base64);
+    var compressed = lzw_encode(str);
+    console.log("compressed");
+    console.log(compressed);
+    var deflated = lzw_decode(compressed);
+    console.log("deflated");
+    console.log(deflated);
+}
+
+testCompress();

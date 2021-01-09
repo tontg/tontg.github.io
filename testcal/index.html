@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- author: Gilles Reant - license: MPL_2 https://www.mozilla.org/en-US/MPL/2.0/ -->
+<!-- author: Gilles Reant - license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/ -->
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -30,9 +30,14 @@
                 cookie_flags: 'SameSite=None;Secure'
             });
         </script>
+        <script src="script.js"></script>        
+        <script src="warn_ie.js"></script>
     </head>
     <body>
         <div style="padding: 10px">
+            <!-- TODO : CSS around error message -->
+            <!-- fix default time for start_time and time_zone -->
+            <script>internetExplorerMessage();</script>
             <!-- positionning with table, sorry : ) -->
             <div id="dispEvent">
                 <noscript>&#x26A0;&#xFE0F; this website requires JavaScript in order to work properly</noscript><!-- TODO : optimize for web crawlers -->
@@ -48,11 +53,10 @@
                         </td>
                         <td style="padding-left: 15px;">
                             <h2 id="dispTitle"></h2>
-                            <span id="dispStartTime"></span> - <span id="dispEndTime"></span><br>
-                            <pre id="dispDescription"></pre>
-                            <!-- todo : add small icons ; URL icon, map icon - time/clock icon -->
-                            <a id="dispLocation" target="_blank"></a><br>
-                            <a id="dispUrl" target="_blank">web link</a>
+                            <img src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-clock-512.png" alt="time" class="icon" /> from <span id="dispStartTime"></span> to <span id="dispEndTime"></span><br>
+                            <img src="https://cdn.icon-icons.com/icons2/1875/PNG/512/note_120060.png" alt="description" class="icon" /><pre id="dispDescription"></pre>
+                            <img src="https://p.kindpng.com/picc/s/108-1084466_map-location-outline-map-location-icon-png-transparent.png" alt="location" class="icon" /> <a id="dispLocation" target="_blank"></a><br>
+                            <img src="https://cdn.pixabay.com/photo/2016/08/31/00/44/www-1632431_1280.png" alt="web link" class="icon" /> <a id="dispUrl" target="_blank"></a>
                         </td>
                     </tr>
                 </table>
@@ -108,6 +112,6 @@
                 privacy: this webpage uses Google Analytics cookies
             </footer>
         </div>
-        <script src="script.js"></script>
+        <script>preparePage();</script>
     </body>
 </html>
