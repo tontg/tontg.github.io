@@ -150,27 +150,28 @@ function copyLinktoClipboard() {
 }
 
 function updateGeolocation(address) {
-    console.log("address");
-    console.log(address);
+    // console.log("address");
+    // console.log(address);
     // TODO : if address is empty, clear geolocation value & hide map
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             console.log("AJAX response received");
             document.getElementById("geolocation").value = "test";
-            // TODO : parse JSON
-                    console.log(this.responseText);
-                    var response = JSON.parse(this.responseText);
-                    if (response.length >= 1) {
-                        var lat = parseFloat(response[0].lat);
-                        var lon = parseFloat(response[0].lon);
-                        console.log(lat + " - " + lon);
-                        // TODO : add CSS iframe map
-                        // TODO : extract bbox frol AJAX response instead of creating it from scratch
-                        document.getElementById("formMap").src= `https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.002}%2C${lat-0.002}%2C${lon+0.002}%2C${lat+0.002}&layer=mapnik&marker=${lat}%2C${lon}`;
-                        document.getElementById("formMap").style.display = "initial";
-                    }
-                    // TODO : display map OpenStreetMap & update it
+            console.log(this.responseText);
+            var response = JSON.parse(this.responseText);
+            if (response.length >= 1) {
+                var lat = parseFloat(response[0].lat);
+                var lon = parseFloat(response[0].lon);
+                var boundingBox = response[0].boundingbox;
+                // console.log(lat + " - " + lon);
+                // TODO : add CSS iframe map
+                document.getElementById("formMap").src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]}%2C${boundingBox[0]}%2C${boundingBox[3]}%2C${boundingBox[1]}&layer=mapnik&marker=${lat}%2C${lon}`;
+                document.getElementById("formMap").style.display = "initial";
+            } else {
+                // TODO clear map
+            }
+            // TODO : display map OpenStreetMap & update it
         }
     };
     // TODO : form correct URL
