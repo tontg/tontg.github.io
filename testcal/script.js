@@ -48,9 +48,16 @@ DTEND:${endTime}
             // TODO : on leave input location, Ajax call to https://nominatim.openstreetmap.org/search?q=1+avenue+des+champs+elysees+Paris&format=json and fill in the hidden geolocation parameter
             // + insert GEO vCalendar element
             // input.onblur
-            fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, France
+            if (eventParams.g) {
+                console.log("geolocation");
+                console.log(eventParams.g);
+                /*fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, France
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
+`;*/
+                fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, France
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:${eventParams.g}
 `;
+            }
         }
         fileContent += `END:VEVENT
 END:VCALENDAR`;
@@ -150,28 +157,32 @@ function copyLinktoClipboard() {
 }
 
 function updateGeolocation(address) {
-    // console.log("address");
-    // console.log(address);
-    // TODO : if address is empty, clear geolocation value & hide map
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
+        var ok;
         if (this.readyState === 4 && this.status === 200) {
-            console.log("AJAX response received");
-            document.getElementById("geolocation").value = "test";
+            console.log("AJAX response received:");
             console.log(this.responseText);
             var response = JSON.parse(this.responseText);
             if (response.length >= 1) {
+                ok = true;
                 var lat = parseFloat(response[0].lat);
                 var lon = parseFloat(response[0].lon);
+                document.getElementById("geolocation").value = `${lat},${lon}`;
                 var boundingBox = response[0].boundingbox;
-                // console.log(lat + " - " + lon);
-                // TODO : add CSS iframe map
+                // TODO : add CSS to iframe map
                 document.getElementById("formMap").src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]}%2C${boundingBox[0]}%2C${boundingBox[3]}%2C${boundingBox[1]}&layer=mapnik&marker=${lat}%2C${lon}`;
                 document.getElementById("formMap").style.display = "initial";
             } else {
-                // TODO clear map
+                ok = false;
             }
-            // TODO : display map OpenStreetMap & update it
+        } else {
+            ok = false;
+        }
+        if (!ok) {
+            document.getElementById("geolocation").value = "";
+            document.getElementById("formMap").src = "";
+            document.getElementById("formMap").style.display = "none";
         }
     };
     // TODO : form correct URL
