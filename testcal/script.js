@@ -45,6 +45,9 @@ DTEND:${endTime}
             /*fileContent += `LOCATION:${eventParams.l.replaceAll("+", " ")}
              X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
              `;*/
+            // TODO : on leave input location, Ajax call to https://nominatim.openstreetmap.org/search?q=1+avenue+des+champs+elysees+Paris&format=json and fill in the hidden geolocation parameter
+            // + insert GEO vCalendar element
+            // input.onblur
             fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, France
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
 `;
@@ -144,6 +147,36 @@ function copyLinktoClipboard() {
             document.execCommand("copy");
         }
     });
+}
+
+function updateGeolocation(address) {
+    console.log("address");
+    console.log(address);
+    // TODO : if address is empty, clear geolocation value & hide map
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            console.log("AJAX response received");
+            document.getElementById("geolocation").value = "test";
+            // TODO : parse JSON
+                    console.log(this.responseText);
+                    var response = JSON.parse(this.responseText);
+                    if (response.length >= 1) {
+                        var lat = parseFloat(response[0].lat);
+                        var lon = parseFloat(response[0].lon);
+                        console.log(lat + " - " + lon);
+                        // TODO : add CSS iframe map
+                        // TODO : extract bbox frol AJAX response instead of creating it from scratch
+                        document.getElementById("formMap").src= `https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.002}%2C${lat-0.002}%2C${lon+0.002}%2C${lat+0.002}&layer=mapnik&marker=${lat}%2C${lon}`;
+                        document.getElementById("formMap").style.display = "initial";
+                    }
+                    // TODO : display map OpenStreetMap & update it
+        }
+    };
+    // TODO : form correct URL
+    // test URL: https://nominatim.openstreetmap.org/search?format=json&q=1+rue+de+Paris,+Strasbourg
+    xhttp.open("GET", "https://nominatim.openstreetmap.org/search?format=json&q=" + address, true);
+    xhttp.send();
 }
 
 /**

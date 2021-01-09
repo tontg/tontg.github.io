@@ -56,7 +56,10 @@
                             <img src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-clock-512.png" alt="time" class="icon" /> <span id="dispTime"></span><br>
                             <img src="https://cdn.icon-icons.com/icons2/1875/PNG/512/note_120060.png" alt="description" class="icon" /><pre id="dispDescription"></pre>
                             <img src="https://p.kindpng.com/picc/s/108-1084466_map-location-outline-map-location-icon-png-transparent.png" alt="location" class="icon" /> <a id="dispLocation" target="_blank"></a><br>
-                            <img src="https://cdn.pixabay.com/photo/2016/08/31/00/44/www-1632431_1280.png" alt="web link" class="icon" /> <a id="dispUrl" target="_blank"></a>
+                            <img src="https://cdn.pixabay.com/photo/2016/08/31/00/44/www-1632431_1280.png" alt="web link" class="icon" /> <a id="dispUrl" target="_blank"></a><br>
+                        </td>
+                        <td class="padding">
+                            <iframe width="210" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="//www.openstreetmap.org/export/embed.html?bbox=10.970685482025146%2C49.5968664515866%2C10.98160743713379%2C49.603138573344914&amp;layer=mapnik&amp;marker=49.60000261331038%2C10.976146459579468" style="border: 1px solid silver"></iframe>
                         </td>
                     </tr>
                 </table>
@@ -93,12 +96,11 @@
                         </tr>
                         <tr>
                             <td><label for="location">location</label></td>
-                            <td class="padding"><input type="text" id="location" name="l" class="optional"></td>
+                            <td class="padding"><input type="text" id="location" name="l" class="optional" onblur="updateGeolocation(this.value)"><input type="hidden" id="geolocation" name="g" /></td>
                         </tr>
                         <tr>
                             <td><label for="url">web link</label></td>
-                            <!-- not using type url, too restrictive -->
-                            <!-- TODO test inputmode URL -->
+                            <!-- not using type url, doesn't support "example.com" simple URL -->
                             <td class="padding"><input type="text" inputmode="url" autocorrect="off" autocapitalize="none" id="url" name="u" class="optional"></td>
                         </tr>
                         <tr>
@@ -107,9 +109,10 @@
                     </tbody>
                 </table>
             </form>
+            <iframe id="formMap"></iframe>
             <footer>
                 made with &#x2764;&#xFE0F; by <a href="https://github.com/tontg/" target="_blank">tontg</a><br>
-                privacy: this webpage uses Google Analytics cookies
+                privacy: this webpage uses Google Analytics cookies; <a href="https://nominatim.openstreetmap.org/" target="_blank">Nominatim</a> / <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> API
             </footer>
         </div>
         <script>preparePage();</script>
