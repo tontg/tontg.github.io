@@ -102,8 +102,24 @@ function displayEvent(event) {
     document.title = event.t.replaceAll("+", " ") + " \u2013 1-click event";
     document.querySelector('meta[property="og:title"]').setAttribute("content", document.title);
     // TODO : replace og:image
-    document.querySelector('meta[property="og:description"]').setAttribute("content", `event from ${event.s} to ${event.e}`);
-    document.getElementById("dispTime").textContent = `from ${event.s} to ${event.e}`;
+    var startDateTime = new Date(event.s);
+    var endDateTime = new Date(event.e);
+    // set calendar icon content
+    document.getElementById("weekday").textContent = startDateTime.toLocaleDateString([], {weekday: 'long'});
+    document.getElementById("month").textContent = startDateTime.toLocaleDateString([], {month: 'long'});
+    document.getElementById("day").textContent = startDateTime.toLocaleDateString([], {day: 'numeric'});
+    // TODO : use <time> element
+    if (startDateTime.getFullYear() === endDateTime.getFullYear() &&
+            startDateTime.getMonth() === endDateTime.getMonth() &&
+            startDateTime.getDate() === endDateTime.getDate()) {
+        // same day
+        document.querySelector('meta[property="og:description"]').setAttribute("content", `event on ${new Intl.DateTimeFormat(navigator.userLanguage, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`);
+        document.getElementById("dispTime").textContent = `${new Intl.DateTimeFormat(navigator.userLanguage, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`;
+    } else {
+        document.querySelector('meta[property="og:description"]').setAttribute("content", `event from ${startDateTime.toLocaleString(navigator.userLanguage)} to ${endDateTime.toLocaleString(navigator.userLanguage)}`);
+        document.getElementById("dispTime").textContent = `from ${startDateTime.toLocaleString(navigator.userLanguage)} to ${endDateTime.toLocaleString(navigator.userLanguage)}`;
+    }
+
     if (event.d) {
         document.getElementById("dispDescription").textContent = event.d.replaceAll("+", " ");
     } else {
@@ -125,6 +141,7 @@ function displayEvent(event) {
         document.getElementById("eventMap").style.display = "initial";
     }
     if (event.u) {
+        // TODO : if URL is github.io, don't display it, only in vCalendar file
         document.getElementById("dispUrl").textContent = new URL(event.u).hostname;
         document.getElementById("dispUrl").href = event.u;
     } else {

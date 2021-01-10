@@ -122,5 +122,24 @@ END:VCARD`, "text/vcard", "vCard.vcf"
                 card 2.1
             </button><br>
             <a id="downloadLink"></a></p>
+        <hr>
+        <h2>test time</h2>
+        <script>
+            var now = new Date();
+            now = new Date("2021-01-10T11:31");
+            console.log("date");
+            console.log(now);
+            console.log("locale");
+            console.log(navigator.language);
+            console.log(navigator.language);
+            console.log(now.toLocaleDateString(navigator.language));
+            console.log(now.toLocaleTimeString(navigator.language));
+            console.log(now.toLocaleString(navigator.language));
+            console.log(now.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'}));
+            console.log(new Intl.DateTimeFormat(navigator.language).format(now));
+            console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: 'full'}).format(now));
+            console.log(new Intl.DateTimeFormat(navigator.language, { timeStyle: 'long' }).format(now));
+            console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: 'full', timeStyle: 'long' }).format(now));
+        </script>
     </body>
 </html>
