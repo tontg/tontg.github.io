@@ -6,6 +6,7 @@
 #dispDescription {
     font-family: var(--bs-font-sans-serif);
     font-size: 0.75em;
+    margin-bottom: 0;
     /*display: inline;*/
 }
 

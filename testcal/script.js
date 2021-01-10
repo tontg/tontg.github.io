@@ -48,6 +48,8 @@ DTEND:${endTime}
             // TODO : on leave input location, Ajax call to https://nominatim.openstreetmap.org/search?q=1+avenue+des+champs+elysees+Paris&format=json and fill in the hidden geolocation parameter
             // + insert GEO vCalendar element
             // input.onblur
+            fileContent += `LOCATION:36 Boulevard de la Bastille\\, 75012 Paris\\, France
+`;
             if (eventParams.g) {
                 console.log("geolocation");
                 console.log(eventParams.g);
@@ -55,8 +57,7 @@ DTEND:${endTime}
                  X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
                  `;*/
                 // TODO : change location
-                fileContent += `LOCATION:36 Boulevard de la Bastille\\, 75012 Paris\\, France
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
+                fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
 `;
             }
         }
@@ -106,14 +107,14 @@ function displayEvent(event) {
     if (event.d) {
         document.getElementById("dispDescription").textContent = event.d.replaceAll("+", " ");
     } else {
-        document.getElementById("dispDescription").style.display = "none";
+        document.getElementById("dispDescription").parentNode.style.display = "none";
     }
     if (event.l) {
         document.getElementById("dispLocation").textContent = event.l.replaceAll("+", " ");
         // using Google Maps ; alternative with OpenStreetMap Nomatim https://nominatim.openstreetmap.org/ui/search.html?q=
         document.getElementById("dispLocation").href = "https://www.google.com/maps/search/" + event.l;
     } else {
-        document.getElementById("dispLocation").style.display = "none";
+        document.getElementById("dispLocation").parentNode.style.display = "none";
     }
     if (event.g) {
         // display iframe map

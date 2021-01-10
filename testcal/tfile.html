@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- author: Gilles Reant - license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/ -->
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>test files</title>
+        <script>
+            var array = [
+                `test_123_test`, "text/calendar", "test.ics",
+                `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ABC Corporation//NONSGML My Product//EN
+BEGIN:VTODO
+DTSTAMP:19980130T134500Z
+SEQUENCE:2
+UID:uid4@host1.com
+ORGANIZER:MAILTO:unclesam@us.gov
+ATTENDEE;PARTSTAT=ACCEPTED:MAILTO:jqpublic@host.com
+DUE:19980415T235959
+STATUS:NEEDS-ACTION
+SUMMARY:Submit Income Taxes
+BEGIN:VALARM
+ACTION:AUDIO
+TRIGGER:19980414T120000
+ATTACH;FMTTYPE=audio/basic:http://host.com/pub/audio-files/ssbanner.aud
+REPEAT:4
+DURATION:PT1H
+END:VALARM
+END:VTODO
+END:VCALENDAR`, "text/calendar", "vTodo.ics"
+            ];
+            function test(index) {
+                var downloadLink = document.getElementById("downloadLink");
+                downloadLink.setAttribute("href", URL.createObjectURL(new Blob([array[index * 3]], {type: array[index * 3 + 1]})));
+                downloadLink.setAttribute("download", array[index * 3 + 2]);
+                downloadLink.click();
+            }
+        </script>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            button {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>test files</h1>
+        <p><button onclick="test(0);">
+                event
+            </button><button onclick="test(1);">
+                todo
+            </button><br>
+            <a id="downloadLink"></a></p>
+    </body>
+</html>
