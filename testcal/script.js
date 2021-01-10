@@ -105,19 +105,19 @@ function displayEvent(event) {
     var startDateTime = new Date(event.s);
     var endDateTime = new Date(event.e);
     // set calendar icon content
-    document.getElementById("weekday").textContent = startDateTime.toLocaleDateString([], {weekday: 'long'});
-    document.getElementById("month").textContent = startDateTime.toLocaleDateString([], {month: 'long'});
-    document.getElementById("day").textContent = startDateTime.toLocaleDateString([], {day: 'numeric'});
+    document.getElementById("weekday").textContent = startDateTime.toLocaleDateString(navigator.language, {weekday: 'long'});
+    document.getElementById("month").textContent = startDateTime.toLocaleDateString(navigator.language, {month: 'long'});
+    document.getElementById("day").textContent = startDateTime.toLocaleDateString(navigator.language, {day: 'numeric'});
     // TODO : use <time> element
     if (startDateTime.getFullYear() === endDateTime.getFullYear() &&
             startDateTime.getMonth() === endDateTime.getMonth() &&
             startDateTime.getDate() === endDateTime.getDate()) {
         // same day
-        document.querySelector('meta[property="og:description"]').setAttribute("content", `event on ${new Intl.DateTimeFormat(navigator.userLanguage, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`);
-        document.getElementById("dispTime").textContent = `${new Intl.DateTimeFormat(navigator.userLanguage, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`;
+        document.querySelector('meta[property="og:description"]').setAttribute("content", `event on ${new Intl.DateTimeFormat(navigator.language, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`);
+        document.getElementById("dispTime").textContent = `${new Intl.DateTimeFormat(navigator.language, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`;
     } else {
-        document.querySelector('meta[property="og:description"]').setAttribute("content", `event from ${startDateTime.toLocaleString(navigator.userLanguage)} to ${endDateTime.toLocaleString(navigator.userLanguage)}`);
-        document.getElementById("dispTime").textContent = `from ${startDateTime.toLocaleString(navigator.userLanguage)} to ${endDateTime.toLocaleString(navigator.userLanguage)}`;
+        document.querySelector('meta[property="og:description"]').setAttribute("content", `event from ${startDateTime.toLocaleString(navigator.language)} to ${endDateTime.toLocaleString(navigator.language)}`);
+        document.getElementById("dispTime").textContent = `from ${startDateTime.toLocaleString(navigator.language)} to ${endDateTime.toLocaleString(navigator.language)}`;
     }
 
     if (event.d) {

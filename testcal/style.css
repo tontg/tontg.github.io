@@ -36,6 +36,10 @@ td.padding {
     padding-left: 15px;
 }
 
+.shareLinks {
+    margin-top: 15px;
+}
+
 /* start calendar icon */
 /* https://cssdeck.com/labs/calendar-icon https://www.sitepoint.com/create-calendar-icon-html5-css3/ */
 /* Craig Buckler + Simone Sala */
