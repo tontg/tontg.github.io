@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:Access-A-Ride Pickup
 DTSTART;TZID=America/New_York:20130802T103400
 DTEND;TZID=America/New_York:20130802T110400
-LOCATION:1000 Broadway Ave.\, Brooklyn
-DESCRIPTION: Access-A-Ride to 900 Jay St.\, Brooklyn
+LOCATION:1000 Broadway Ave.\\, Brooklyn
+DESCRIPTION: Access-A-Ride to 900 Jay St.\\, Brooklyn
 STATUS:CONFIRMED
 SEQUENCE:3
 BEGIN:VALARM
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:Access-A-Ride Pickup
 DTSTART;TZID=America/New_York:20130802T200000
 DTEND;TZID=America/New_York:20130802T203000
-LOCATION:900 Jay St.\, Brooklyn
-DESCRIPTION: Access-A-Ride to 1000 Broadway Ave.\, Brooklyn
+LOCATION:900 Jay St.\\, Brooklyn
+DESCRIPTION: Access-A-Ride to 1000 Broadway Ave.\\, Brooklyn
 STATUS:CONFIRMED
 SEQUENCE:3
 BEGIN:VALARM
@@ -59,7 +59,17 @@ REPEAT:4
 DURATION:PT1H
 END:VALARM
 END:VTODO
-END:VCALENDAR`, "text/calendar", "vTodo.ics"
+END:VCALENDAR`, "text/calendar", "vTodo.ics",
+        `BEGIN:VCARD
+VERSION:2.1
+FN:Jean Dupont
+N:Dupont;Jean
+ADR;WORK;PREF;QUOTED-PRINTABLE:;Bruxelles 1200=Belgique;6A Rue Th. Decuyper
+LABEL;QUOTED-PRINTABLE;WORK;PREF:Rue Th. Decuyper 6A=Bruxelles 1200=Belgique
+TEL;CELL:+1234 56789
+EMAIL;INTERNET:jean.dupont@example.com
+UID:
+END:VCARD`, "text/vcard", "Jean_Dupont.vcf"
             ];
             function test(index) {
             var downloadLink = document.getElementById("downloadLink");
@@ -83,6 +93,8 @@ END:VCALENDAR`, "text/calendar", "vTodo.ics"
                 event
             </button><button onclick="test(1);">
                 todo
+            </button><button onclick="test(2);">
+                vCard 2.1
             </button><br>
             <a id="downloadLink"></a></p>
     </body>
