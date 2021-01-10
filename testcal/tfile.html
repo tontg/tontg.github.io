@@ -3,11 +3,43 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>test files</title>
         <script>
             var array = [
-                `test_123_test`, "text/calendar", "test.ics",
-                `BEGIN:VCALENDAR
+                    `BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:Access-A-Ride Pickup
+DTSTART;TZID=America/New_York:20130802T103400
+DTEND;TZID=America/New_York:20130802T110400
+LOCATION:1000 Broadway Ave.\, Brooklyn
+DESCRIPTION: Access-A-Ride to 900 Jay St.\, Brooklyn
+STATUS:CONFIRMED
+SEQUENCE:3
+BEGIN:VALARM
+TRIGGER:-PT10M
+DESCRIPTION:Pickup Reminder
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Access-A-Ride Pickup
+DTSTART;TZID=America/New_York:20130802T200000
+DTEND;TZID=America/New_York:20130802T203000
+LOCATION:900 Jay St.\, Brooklyn
+DESCRIPTION: Access-A-Ride to 1000 Broadway Ave.\, Brooklyn
+STATUS:CONFIRMED
+SEQUENCE:3
+BEGIN:VALARM
+TRIGGER:-PT10M
+DESCRIPTION:Pickup Reminder
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR`, "text/calendar", "test.ics",
+                    `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//ABC Corporation//NONSGML My Product//EN
 BEGIN:VTODO
@@ -30,10 +62,10 @@ END:VTODO
 END:VCALENDAR`, "text/calendar", "vTodo.ics"
             ];
             function test(index) {
-                var downloadLink = document.getElementById("downloadLink");
-                downloadLink.setAttribute("href", URL.createObjectURL(new Blob([array[index * 3]], {type: array[index * 3 + 1]})));
-                downloadLink.setAttribute("download", array[index * 3 + 2]);
-                downloadLink.click();
+            var downloadLink = document.getElementById("downloadLink");
+            downloadLink.setAttribute("href", URL.createObjectURL(new Blob([array[index * 3]], {type: array[index * 3 + 1]})));
+            downloadLink.setAttribute("download", array[index * 3 + 2]);
+            downloadLink.click();
             }
         </script>
         <style>
