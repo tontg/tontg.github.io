@@ -73,11 +73,12 @@ function preparePage() {
     // prepare form
     var now = new Date();
     if (!document.getElementById("start_time").value) {
-        document.getElementById("start_time").value = now.toISOString().substr(0, 16);
+        document.getElementById("start_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + now.getDate() + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
     }
+    document.getElementById("end_time").min = document.getElementById("start_time").value;
     if (!document.getElementById("end_time").value) {
         now.setHours(now.getHours() + 1);
-        document.getElementById("end_time").value = now.toISOString().substr(0, 16);
+        document.getElementById("end_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + now.getDate() + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
     }
 
     // if event in query, display it
@@ -88,6 +89,7 @@ function preparePage() {
         var downloadLink = document.getElementById("downloadLink");
         downloadLink.setAttribute("href", URL.createObjectURL(new Blob([eventFileContent], {type: "text/calendar"})));
         downloadLink.setAttribute("download", eventParams.t + ".ics");
+        // TODO : add cookie with UUID to prevent from multiple auto-download
         setTimeout(function () {
             downloadLink.click();
         }, 3000);
@@ -164,6 +166,11 @@ function onFormSubmit(form) {
             }
     );
     return true;
+}
+
+function updateEndTime(startTime) {
+    document.getElementById('end_time').min = startTime;
+    // TODO : parse date ; if date < startTime, replace date with start time + 1h
 }
 
 // TODO : replace element with element.title

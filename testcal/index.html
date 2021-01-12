@@ -44,7 +44,6 @@
                 <table>
                     <tr>
                         <td>
-                            <!-- calendar icon -->
                             <!-- TODO : fix datetime -->
                             <time datetime="2014-09-20" class="icon">
                                 <em id="weekday"></em>
@@ -71,11 +70,12 @@
                     <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
                     <button id="dispShare" onclick="share(this)">share</button> -
                     <button onclick="copyLinktoClipboard()">copy event link to clipboard</button>
+                    <!-- TODO : share by email button mailto:?subject=Hello world&body=Line one%0D%0ALine two%0D%0Aline3 -->
+                    <!-- TODO : test SMS support https://stackoverflow.com/questions/16165393/ios-sms-scheme-in-html-hyperlink-with-body -->
                 </div>
                 <hr>
             </div>
             <h1>1-click event</h1>
-
             <p>fill-in this form to generate your 1-click event</p>
             <form onsubmit="return onFormSubmit(this)">
                 <table>
@@ -87,7 +87,7 @@
                         </tr>
                         <tr>
                             <td><label for="start_time">start time</label></td>
-                            <td class="padding"><input type="datetime-local" id="start_time" name="s" required></td>
+                            <td class="padding"><input type="datetime-local" onblur="updateEndTime(this.value)" id="start_time" name="s" required></td>
                         </tr>
                         <tr>
                             <td><label for="end_time">end time</label></td>

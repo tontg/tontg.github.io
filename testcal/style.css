@@ -44,7 +44,7 @@ td.padding {
 /* https://cssdeck.com/labs/calendar-icon https://www.sitepoint.com/create-calendar-icon-html5-css3/ */
 /* Craig Buckler + Simone Sala */
 time.icon {
-    font-size: 1em; /* change icon size */
+    font-size: 0.7em; /* change icon size */
     display: block;
     position: relative;
     width: 7em;

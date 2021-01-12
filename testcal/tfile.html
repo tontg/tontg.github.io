@@ -126,12 +126,13 @@ END:VCARD`, "text/vcard", "vCard.vcf"
         <h2>test time</h2>
         <script>
             var now = new Date();
-            now = new Date("2021-01-10T11:31");
+            // now = new Date("2021-01-10T11:31");
             console.log("date");
             console.log(now);
             console.log("locale");
             console.log(navigator.language);
             console.log(navigator.language);
+            console.log(now.toISOString());
             console.log(now.toLocaleDateString(navigator.language));
             console.log(now.toLocaleTimeString(navigator.language));
             console.log(now.toLocaleString(navigator.language));
@@ -140,6 +141,29 @@ END:VCARD`, "text/vcard", "vCard.vcf"
             console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: 'full'}).format(now));
             console.log(new Intl.DateTimeFormat(navigator.language, { timeStyle: 'long' }).format(now));
             console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: 'full', timeStyle: 'long' }).format(now));
+            console.log(now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "T" + now.getHours() + ":" + now.getMinutes());
+            // test cookies
+            console.log("location");
+            console.log(window.location);
+// https://stackoverflow.com/questions/4825683/how-do-i-create-and-read-a-value-from-cookie
+            const setCookie = (name, value, days = 7, path = '/') => {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString()
+                    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=' + path
+            }
+
+            const getCookie = (name) => {
+            return document.cookie.split('; ').reduce((r, v) => {
+            const parts = v.split('=')
+                    return parts[0] === name ? decodeURIComponent(parts[1]) : r
+            }, '')
+            }
+
+            const deleteCookie = (name, path) => {
+            setCookie(name, '', - 1, path)
+            }
+            var testArray = [1, 2, 3];
+            setCookie("alreadyDownloaded", JSON.stringify(testArray), 365, window.location.pathname);
+            console.log(getCookie("alreadyDownloaded"));
         </script>
     </body>
 </html>
