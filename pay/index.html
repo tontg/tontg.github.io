@@ -19,9 +19,9 @@
         <script>
             function preparePage() {
                 var query = getQueryDict();
-                document.getElementById("details").value = query.details;
-                document.getElementById("amount").value = query.amount;
-                document.getElementById("currency").value = query.currency;
+                document.getElementById("details").textContent = query.details;
+                document.getElementById("amount").textContent = query.amount;
+                document.getElementById("currency").textContent = query.currency;
             }
 
             /**
