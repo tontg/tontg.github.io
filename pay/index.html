@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Pay</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            button, input[type=submit] {
+                cursor: pointer;
+            }
+            #amount {
+                width: 70px;
+                text-align: right;
+            }
+        </style>
+        <script>
+            function preparePage() {
+                var query = getQueryDict();
+                document.getElementById("details").value = query.details;
+                document.getElementById("amount").value = query.amount;
+                document.getElementById("currency").value = query.currency;
+            }
+
+            /**
+             * https://stackoverflow.com/a/21210643 CC BY-SA 4.0 Peter Mortensen
+             * modified by Gilles
+             * TODO check encoding for specific chars ; replace +
+             */
+            function getQueryDict() {
+                var queryDict = {};
+                location.search.substr(1).split("&").forEach(function (item) {
+                    queryDict[item.split("=")[0]] = decodeURIComponent(item.split("=")[1]);
+                });
+                return queryDict;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Pay</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td>details:</td>
+                    <td><pre id="details"></pre></td>
+                </tr>
+                <tr>
+                    <td>total amount:</td>
+                    <td><span id="amount"></span> <span id="currency"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <button>pay with wallet</button>
+    </body>
+</html>
