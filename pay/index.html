@@ -19,7 +19,7 @@
         <script>
             function preparePage() {
                 var query = getQueryDict();
-                document.getElementById("details").textContent = query.details;
+                document.getElementById("details").textContent = query.details.replaceAll("+", " ");
                 document.getElementById("amount").textContent = query.amount;
                 document.getElementById("currency").textContent = query.currency;
             }
