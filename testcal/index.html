@@ -70,7 +70,8 @@
                     <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
                     <button id="dispShare" onclick="share(this)">share</button> -
                     <button onclick="copyLinktoClipboard()">copy event link to clipboard</button> -
-                    <a href="sms://?&body=Hello%20World">share by SMS</a>
+                    <a href="sms://?&body=Hello%20World">share by SMS</a> -
+                    <a href="intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=http://test.com;S.android.intent.extra.SUBJECT=Test;end">test intent</a>
                     <!-- TODO : share by email button mailto:?subject=Hello world&body=Line one%0D%0ALine two%0D%0Aline3 -->
                     <!-- TODO : test SMS support https://stackoverflow.com/questions/16165393/ios-sms-scheme-in-html-hyperlink-with-body -->
                 </div>
