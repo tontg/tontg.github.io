@@ -73,12 +73,12 @@ function preparePage() {
     // prepare form
     var now = new Date();
     if (!document.getElementById("start_time").value) {
-        document.getElementById("start_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + (now.getDate() + 1).toString().padStart(2, "0") + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
+        document.getElementById("start_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + (now.getDate() + 1).toString().padStart(2, "0") + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes().toString().padStart(2, "0");
     }
     document.getElementById("end_time").min = document.getElementById("start_time").value;
     if (!document.getElementById("end_time").value) {
         now.setHours(now.getHours() + 1);
-        document.getElementById("end_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + (now.getDate() + 1).toString().padStart(2, "0") + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
+        document.getElementById("end_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + (now.getDate() + 1).toString().padStart(2, "0") + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes().toString().padStart(2, "0");
     }
 
     // if event in query, display it
@@ -122,6 +122,9 @@ function displayEvent(event) {
         document.querySelector('meta[property="og:description"]').setAttribute("content", `event from ${startDateTime.toLocaleString(navigator.language)} to ${endDateTime.toLocaleString(navigator.language)}`);
         document.getElementById("dispTime").textContent = `from ${startDateTime.toLocaleString(navigator.language)} to ${endDateTime.toLocaleString(navigator.language)}`;
     }
+    
+    // fill in Google Calendar URL
+    document.getElementById("gCalendarLink").href = generateGoogleCalendarUrl(event.t, event.s, event.e, event.d, event.l);
 
     if (event.d) {
         document.getElementById("dispDescription").textContent = event.d.replaceAll("+", " ");
@@ -192,6 +195,31 @@ function copyLinktoClipboard() {
     });
 }
 
+function generateGoogleCalendarUrl(text, startDate, endDate, details, location) {
+    // https://www.google.com/calendar/render?action=TEMPLATE
+    // &text=Your+Event+Name
+    // &dates=20140127T224000Z/20140320T221500Z
+    // &details=For+details,+link+here:+http://www.example.com
+    // &location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022
+    // &sf=true&output=xml
+    //startDate = starDate;
+    var link = "https://www.google.com/calendar/render?action=TEMPLATE";
+    if (text) {
+        link += "&text=" + text;
+    }
+    if (startDate && endDate) {
+        link += "&dates=" + startDate.replaceAll("-", "").replaceAll(":","") + "/" + endDate.replaceAll("-", "").replaceAll(":","");
+    }
+    if (details) {
+        link += "&details=" + details.replaceAll("\n", "%0D%0A");
+    }
+    if (location) {
+        link += "&location=" + location;
+    }
+    link += "&sf=true&output=xml";
+    return link;
+}
+
 function updateGeolocation(address) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -205,6 +233,7 @@ function updateGeolocation(address) {
                 var lat = parseFloat(response[0].lat);
                 var lon = parseFloat(response[0].lon);
                 document.getElementById("geolocation").value = `${lat},${lon}`;
+                // TODO : upload bounding box in form too
                 var boundingBox = response[0].boundingbox;
                 // TODO : add CSS to iframe map
                 document.getElementById("formMap").src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]}%2C${boundingBox[0]}%2C${boundingBox[3]}%2C${boundingBox[1]}&marker=${lat}%2C${lon}`;
