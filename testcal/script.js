@@ -73,12 +73,12 @@ function preparePage() {
     // prepare form
     var now = new Date();
     if (!document.getElementById("start_time").value) {
-        document.getElementById("start_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + now.getDate() + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
+        document.getElementById("start_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + (now.getDate() + 1).toString().padStart(2, "0") + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
     }
     document.getElementById("end_time").min = document.getElementById("start_time").value;
     if (!document.getElementById("end_time").value) {
         now.setHours(now.getHours() + 1);
-        document.getElementById("end_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + now.getDate() + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
+        document.getElementById("end_time").value = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + (now.getDate() + 1).toString().padStart(2, "0") + "T" + now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes();
     }
 
     // if event in query, display it
@@ -104,6 +104,7 @@ function displayEvent(event) {
     document.title = event.t.replaceAll("+", " ") + " \u2013 1-click event";
     document.querySelector('meta[property="og:title"]').setAttribute("content", document.title);
     // TODO : replace og:image
+    // console.log("event.s: " + event.s);
     var startDateTime = new Date(event.s);
     var endDateTime = new Date(event.e);
     // set calendar icon content
@@ -173,7 +174,6 @@ function updateEndTime(startTime) {
     // TODO : parse date ; if date < startTime, replace date with start time + 1h
 }
 
-// TODO : replace element with element.title
 function share(element) {
     navigator.share({url: window.location.href, title: element.title, text: element.title});
 }
@@ -187,6 +187,8 @@ function copyLinktoClipboard() {
             copyText.select();
             document.execCommand("copy");
         }
+    }).catch(ex => {
+        // probably not supported, e.g. on Firefox ("clipboard-write" not in enum)
     });
 }
 

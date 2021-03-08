@@ -8,11 +8,11 @@
         <meta property="og:title" content="1-click event">
         <meta property="og:type" content="article">
         <!--meta property="og:url" content="https://tontg.github.io/testcal/"--><!-- TODO : replace testcal with event -->
-        <meta property="og:image" content="calendar.png"><!-- TODO : replace with generic calendar icon -->
+        <meta property="og:image" content="calendar.png">
         <meta name="description" content="add this event to your calendar in 1 click">
         <meta property="og:description" content="add this event to your calendar in 1 click">
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <meta name="author" content="Gilles R&eacute;ant">
         <meta name="license" content="https://www.mozilla.org/en-US/MPL/2.0/">
@@ -70,8 +70,8 @@
                     <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml" target="_blank">add to Google calendar</a> -
                     <button id="dispShare" onclick="share(this)">share</button> -
                     <button onclick="copyLinktoClipboard()">copy event link to clipboard</button> -
-                    <a href="sms://?&body=Hello%20World">share by SMS</a> -
-                    <a href="intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=http://test.com;S.android.intent.extra.SUBJECT=Test;end">test intent</a>
+                    <a href="sms://?&body=Hello%20World">share by SMS</a>
+                    <!--a href="intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=http://test.com;S.android.intent.extra.SUBJECT=Test;end">test intent</a-->
                     <!-- TODO : share by email button mailto:?subject=Hello world&body=Line one%0D%0ALine two%0D%0Aline3 -->
                     <!-- TODO : test SMS support https://stackoverflow.com/questions/16165393/ios-sms-scheme-in-html-hyperlink-with-body -->
                 </div>

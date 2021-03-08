@@ -1,13 +1,28 @@
 /* author : Gilles Reant */
 /* license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/ */
 
-/* TODO : add a little CSS */
+/* start dark mode */
+:root {
+    --background: #F0F0F0;
+    --foreground: #333;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #444;
+        --foreground: #F0F0F0;
+    }
+}
+body, input, textarea {
+    color: var(--foreground);
+    background: var(--background);
+}
+/* end dark mode */
 
 #dispDescription {
-    font-family: var(--bs-font-sans-serif);
+    font-family: var(--bs-font-sans-serif); /* font defined in bootstrap */
     font-size: 0.75em;
     margin-bottom: 0;
-    /*display: inline;*/
+    display: inline;
 }
 
 button {
