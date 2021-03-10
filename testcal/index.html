@@ -24,7 +24,8 @@
                 dataLayer.push(arguments);
             }
             gtag('js', new Date());
-            gtag('config', 'G-SY0XX3MBF7');
+            gtag('set', {cookie_flags: 'SameSite=None;Secure'});
+            // gtag('config', 'G-SY0XX3MBF7');
             // TODO : test
             gtag('config', 'G-SY0XX3MBF7', {
                 cookie_domain: 'tontg.github.io',
