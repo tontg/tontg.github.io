@@ -19,26 +19,21 @@
         <meta name="license" content="https://www.mozilla.org/en-US/MPL/2.0/">
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY0XX3MBF7"></script>
         <script>
-            try {
-                window.dataLayer = window.dataLayer || [];
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-                gtag('js', new Date());
-                gtag('set', {
-                    cookie_domain: 'tontg.github.io',
-                    cookie_flags: 'SameSite=None;Secure'
-                });
-                // gtag('config', 'G-SY0XX3MBF7');
-                // TODO : test
-                gtag('config', 'G-SY0XX3MBF7', {
-                    cookie_domain: 'tontg.github.io',
-                    cookie_flags: 'SameSite=None;Secure'
-                });
-            } catch(e) {
-                console.log(e);
-                console.log(e.stack);
+            // TODO : move to a separate file
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
             }
+            gtag('js', new Date());
+            gtag('set', {
+                cookie_domain: 'tontg.github.io',
+                cookie_flags: 'SameSite=None;Secure'
+            });
+            // gtag('config', 'G-SY0XX3MBF7');
+            gtag('config', 'G-SY0XX3MBF7', {
+                cookie_domain: 'tontg.github.io',
+                cookie_flags: 'SameSite=None;Secure'
+            });
         </script>
         <script src="script.js"></script>
         <script src="warn_ie.js"></script>
