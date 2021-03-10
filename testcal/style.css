@@ -4,17 +4,24 @@
 /* start dark mode */
 :root {
     --background: #F0F0F0;
+    --inputBackground: #F4F4F4;
     --foreground: #333;
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #444;
+        --inputBackground: #383838;
         --foreground: #F0F0F0;
     }
 }
 body, input, textarea {
     color: var(--foreground);
+}
+body {
     background: var(--background);
+}
+input, textarea {
+    background: var(--inputBackground);
 }
 /* end dark mode */
 
