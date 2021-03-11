@@ -62,6 +62,14 @@ td.padding {
     margin-top: 15px;
 }
 
+label.optional {
+    line-height: 65%;
+}
+span.optional {
+    font-size: 0.5em;
+    color: #888;
+}
+
 /* start calendar icon */
 /* https://cssdeck.com/labs/calendar-icon https://www.sitepoint.com/create-calendar-icon-html5-css3/ */
 /* Craig Buckler + Simone Sala */
