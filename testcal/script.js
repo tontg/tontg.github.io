@@ -72,7 +72,8 @@ DTEND:${endTime}
 `;
     if (eventParams.d) {
         // TODO : fix bug with multiline_description
-        fileContent += `DESCRIPTION;ENCODING=QUOTED-PRINTABLE:${encodeURIComponent(eventParams.d)}
+        //fileContent += `DESCRIPTION;ENCODING=QUOTED-PRINTABLE:${eventParams.d}
+        fileContent += `DESCRIPTION:${eventParams.d.replaceAll("+", " ").replaceAll("\r\n", "\\n")}
 `;
     }
     fileContent += `URL:${eventParams.u}
