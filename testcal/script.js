@@ -97,7 +97,7 @@ DTEND:${endTime}
              `;*/
             // TODO : add proper support
             // fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
-            fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="${eventParams.l.replaceAll("+", " ")}";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="titleTest01":geo:${eventParams.g}
+            fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="${eventParams.l.replaceAll("+", " ")}";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
 `;
         }
     }
