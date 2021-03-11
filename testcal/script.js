@@ -163,7 +163,7 @@ function displayEvent(event) {
         document.getElementById("dispUrl").style.display = "none";
     }
     if (navigator.share) {
-        document.getElementById("dispShare").title = "add " + event.t + " to your calendar";
+        document.getElementById("dispShare").title = "add " + event.t.replaceAll("+", " ") + " to your calendar";
     } else {
         document.getElementById("dispShare").style.display = "none";
     }
