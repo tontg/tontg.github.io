@@ -23,7 +23,7 @@ function preparePage() {
         displayEvent(eventParams);
         var downloadLink = document.getElementById("downloadLink");
         downloadLink.setAttribute("href", URL.createObjectURL(new Blob([eventFileContent], {type: "text/calendar"})));
-        downloadLink.setAttribute("download", eventParams.t + ".ics");
+        downloadLink.setAttribute("download", eventParams.t.replaceAll("+", "_") + ".ics");
         // TODO : add cookie with UUID to prevent from multiple auto-download
         setTimeout(function () {
             downloadLink.click();
@@ -51,40 +51,43 @@ function generateEventFile(eventParams) {
     // TODO : generate UID on form (input hidden) before submit
     if (eventParams.u) {
         if (!eventParams.u.includes("://")) {
-            // we can't be sure the website will work with HTTPS, so we'll assume HTTP
+            // we can't be sure the website will work with HTTPS, so we'll assume regular HTTP
             eventParams.u = "http://" + eventParams.u;
         }
     } else {
         eventParams.u = window.location.href;
     }
-// TODO : generate dTSTAMP
+    // TODO : generate dTSTAMP
+    // DTSTAMP:20210105T102650Z
     var fileContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//tontg.github.io//1-click event//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:${uuidv4().toUpperCase()}
-DTSTAMP:20210105T102650Z
-SUMMARY:${eventParams.t}
+UID:${uuidv4()}
+DTSTAMP:${toISO8601Format(new Date()).replaceAll("-", "").replaceAll(":", "") + "00"}
+SUMMARY:${eventParams.t.replaceAll("+", " ")}
 DTSTART:${startTime}
 DTEND:${endTime}
 `;
     if (eventParams.d) {
-// TODO : fix bug with multiline_description
+        // TODO : fix bug with multiline_description
         fileContent += `DESCRIPTION;ENCODING=QUOTED-PRINTABLE:${encodeURIComponent(eventParams.d)}
 `;
     }
     fileContent += `URL:${eventParams.u}
 `;
     if (eventParams.l) {
-// TODO : test X-APPLE-STRUCTURED-LOCATION ; doesn't work (don't know why)
+        // TODO : fix X-APPLE-STRUCTURED-LOCATION
         /*fileContent += `LOCATION:${eventParams.l.replaceAll("+", " ")}
          X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
          `;*/
-// TODO : on leave input location, Ajax call to https://nominatim.openstreetmap.org/search?q=1+avenue+des+champs+elysees+Paris&format=json and fill in the hidden geolocation parameter
-// + insert GEO vCalendar element
-// input.onblur
-        fileContent += `LOCATION:36 Boulevard de la Bastille\\, 75012 Paris\\, France
+        // TODO : on leave input location, Ajax call to https://nominatim.openstreetmap.org/search?q=1+avenue+des+champs+elysees+Paris&format=json and fill in the hidden geolocation parameter
+        // + insert GEO vCalendar element
+        // input.onblur
+        // TODO : add proper support
+        // fileContent += `LOCATION:36 Boulevard de la Bastille\\, 75012 Paris\\, France
+        fileContent += `LOCATION:${eventParams.l.replaceAll(",", "\\,").replaceAll("+", " ")}
 `;
         if (eventParams.g) {
             console.log("geolocation");
@@ -92,8 +95,9 @@ DTEND:${endTime}
             /*fileContent += `LOCATION:Cafe de la Presse\\n36 Boulevard de la Bastille\\, 75012 Paris\\, France
              X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=141.1750506089954;X-APPLE-REFERENCEFRAME=1;X-TITLE="Cafe de la Presse":geo:48.850322,2.368959
              `;*/
-            // TODO : change location
-            fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
+            // TODO : add proper support
+            // fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="36 Boulevard de la Bastille, 75012 Paris, France";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="":geo:${eventParams.g}
+            fileContent += `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="${eventParams.l.replaceAll("+", " ")}";X-APPLE-MAPKIT-HANDLE=;X-APPLE-RADIUS=50;X-APPLE-REFERENCEFRAME=1;X-TITLE="titleTest01":geo:${eventParams.g}
 `;
         }
     }
@@ -120,7 +124,7 @@ function displayEvent(event) {
     if (startDateTime.getFullYear() === endDateTime.getFullYear() &&
             startDateTime.getMonth() === endDateTime.getMonth() &&
             startDateTime.getDate() === endDateTime.getDate()) {
-// same day
+        // same day
         document.querySelector('meta[property="og:description"]').setAttribute("content", `event on ${new Intl.DateTimeFormat(navigator.language, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`);
         document.getElementById("dispTime").textContent = `${new Intl.DateTimeFormat(navigator.language, {dateStyle: 'full'}).format(startDateTime)} from ${startDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})} to ${endDateTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})}`;
     } else {
@@ -128,7 +132,7 @@ function displayEvent(event) {
         document.getElementById("dispTime").textContent = `from ${startDateTime.toLocaleString(navigator.language)} to ${endDateTime.toLocaleString(navigator.language)}`;
     }
 
-// fill in Google Calendar URL
+    // fill in Google Calendar URL
     document.getElementById("gCalendarLink").href = generateGoogleCalendarUrl(event.t, event.s, event.e, event.d, event.l);
     if (event.d) {
         document.getElementById("dispDescription").textContent = event.d.replaceAll("+", " ");
@@ -151,7 +155,7 @@ function displayEvent(event) {
         document.getElementById("eventMap").style.display = "initial";
     }
     if (event.u) {
-// TODO : if URL is github.io, don't display it, only in vCalendar file
+        // TODO : if URL is github.io, don't display it, only in vCalendar file
         document.getElementById("dispUrl").textContent = new URL(event.u).hostname;
         document.getElementById("dispUrl").href = event.u;
     } else {
@@ -165,12 +169,12 @@ function displayEvent(event) {
 }
 
 function generateGoogleCalendarUrl(text, startDate, endDate, details, location) {
-// https://www.google.com/calendar/render?action=TEMPLATE
-// &text=Your+Event+Name
-// &dates=20140127T224000Z/20140320T221500Z
-// &details=For+details,+link+here:+http://www.example.com
-// &location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022
-// &sf=true&output=xml
+    // https://www.google.com/calendar/render?action=TEMPLATE
+    // &text=Your+Event+Name
+    // &dates=20140127T224000Z/20140320T221500Z
+    // &details=For+details,+link+here:+http://www.example.com
+    // &location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022
+    // &sf=true&output=xml
     var link = "https://www.google.com/calendar/render?action=TEMPLATE";
     if (text) {
         link += "&text=" + text;
@@ -190,6 +194,7 @@ function generateGoogleCalendarUrl(text, startDate, endDate, details, location) 
 
 function onFormSubmit(form) {
     // remove form optional attributes if they are empty
+    // TODO : replace selector by "not required"
     Array.from(form.getElementsByClassName("optional")).forEach(
             function (element) {
                 if (!element.value) {
@@ -212,6 +217,7 @@ function updateEndTime(startTime) {
     }
 }
 
+// TODO : fix icon & text as in https://css-tricks.com/on-the-web-share-api/
 function share(element) {
     navigator.share({url: window.location.href, title: element.title, text: element.title});
 }
@@ -287,6 +293,6 @@ function getQueryDict() {
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
+        return v.toString(16).toUpperCase();
     });
 }
