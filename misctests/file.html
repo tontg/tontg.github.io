@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- author: Gilles Reant - license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/ -->
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>file to URL</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            button, input[type='file'] {
+                cursor: pointer;
+            }
+            #thumbnail {
+                max-width: 1024px;
+                max-height: 512px;
+                margin: 15px;
+            }
+        </style>
+        <script src="file.js"></script>
+        <meta name="author" content="Gilles R&eacute;ant">
+        <meta name="license" content="https://www.mozilla.org/en-US/MPL/2.0/">
+    </head>
+    <body>
+        <h1>file to URL</h1>
+        <p>
+            <a id="downloadLink">download file</a><br>
+            <img id="thumbnail" /><br>
+            <label for="file">select the file you want to convert to a URL: </label><input type="file" id="file" onchange="loadFileElement(this)" /><br>
+            <!--button onclick="loadFileElement(document.getElementById('file'))">test file</button-->
+        </p>
+        <script>loadFile();</script>
+    </body>
+</html>
