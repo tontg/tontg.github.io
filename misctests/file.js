@@ -1,23 +1,24 @@
-function loadFile() {
+function loadFile(downloadLink, thumbnail) {
     var queryDict = getQueryDict();
     if (queryDict.d) {
-        var downloadLink = document.getElementById("downloadLink");
+        // TODO : doesn't work on iPhone, fix ; https://washamdev.com/debug-a-website-in-ios-safari-on-windows/
         downloadLink.setAttribute("href", queryDict.d);
         const fileName = queryDict.n ? queryDict.n : "file";
         downloadLink.setAttribute("download", fileName);
+        // TODO : autodownload=false parameter (opt-out)
         setTimeout(function () {
             downloadLink.click();
         }, 3000);
         downloadLink.innerHTML = "download " + fileName;
         if (queryDict.d.startsWith("data:image")) {
-            document.getElementById("thumbnail").src = queryDict.d;
+            thumbnail.src = queryDict.d;
         } else {
-            document.getElementById("thumbnail").style.display = "none";
+            thumbnail.style.display = "none";
         }
     } else {
         // hide link & thumbnail
-        document.getElementById("downloadLink").style.display = "none";
-        document.getElementById("thumbnail").style.display = "none";
+        downloadLink.style.display = "none";
+        thumbnail.style.display = "none";
     }
 }
 
@@ -29,8 +30,10 @@ const toBase64 = file => new Promise((resolve, reject) => {
         reader.onerror = error => reject(error);
     });
 async function loadFileElement(fileElement) {
+    // possible evolution : better encoding than Base64 (Ascii85 ? must be URL safe)
     const fileName = fileElement.value.substring(fileElement.value.lastIndexOf("\\") + 1);
     var fileData = await toBase64(fileElement.files[0]);
+    // TODO : warning if file size > 8 Ko & prompt user
     window.location.href = window.location.origin + window.location.pathname + "?n=" + fileName + "&d=" + fileData;
 }
 

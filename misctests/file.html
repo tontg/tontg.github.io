@@ -27,9 +27,9 @@
         <p>
             <a id="downloadLink">download file</a><br>
             <img id="thumbnail" /><br>
-            <label for="file">select the file you want to convert to a URL: </label><input type="file" id="file" onchange="loadFileElement(this)" /><br>
+            <label for="file">select the file you want to convert to a URL (max ~8 KB): </label><input type="file" id="file" onchange="loadFileElement(this)" /><br>
             <!--button onclick="loadFileElement(document.getElementById('file'))">test file</button-->
         </p>
-        <script>loadFile();</script>
+        <script>loadFile(document.getElementById("downloadLink"), document.getElementById("thumbnail"));</script>
     </body>
 </html>
