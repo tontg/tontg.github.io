@@ -1,0 +1,16 @@
+body {
+    font-family: sans-serif;
+}
+
+input.emoji {
+    width: 0px;
+    border: none;
+}
+
+button {
+    cursor: pointer;
+    font-size: larger;
+    text-align: center;
+    width: 45px;
+    height: 32px;
+}
