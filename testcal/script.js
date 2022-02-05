@@ -1,4 +1,4 @@
-/* global URL */
+/* global URL, Notification */
 
 // author : Gilles Reant
 // license: Mozilla Public License version 2.0 https://www.mozilla.org/en-US/MPL/2.0/
@@ -274,6 +274,67 @@ function updateGeolocation(address) {
     xhttp.open("GET", "https://nominatim.openstreetmap.org/search?format=json&q=" + address, true);
     xhttp.send();
 }
+
+
+function sendNotification() {
+    var notificationText = "friendly reminder for task " + document.getElementById("dispTitle").innerText;
+    // TODO : manage x minutes before start
+    askNotificationPermission(notificationText);
+}
+
+// from https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API
+function askNotificationPermission(notificationText) {
+    // function to actually ask the permissions
+    function handlePermission(permission) {
+        console.log("permission: " + permission);
+        if (permission === 'granted') {
+            function timeToAlert() {
+                var icon = './calendar.png';
+                var title = 'Calendar';
+                new Notification(title, {body: notificationText, icon: icon});
+            }
+            /*var timeIsBeing936 = new Date("08/09/2020 09:36:00 AM").getTime()
+                    , currentTime = new Date().getTime()
+                    , subtractMilliSecondsValue = timeIsBeing936 - currentTime;*/
+            var delay = 20 * 1000;
+            setTimeout(timeToAlert, delay);
+        }
+        // set the button to shown or hidden, depending on what the user answers
+        /*if (Notification.permission === 'denied' || Notification.permission === 'default') {
+         notificationBtn.style.display = 'block';
+         } else {
+         notificationBtn.style.display = 'none';
+         }*/
+    }
+
+    // Let's check if the browser supports notifications
+    if (!('Notification' in window)) {
+        alert("This browser does not support notifications.");
+    } else {
+        if (checkNotificationPromise()) {
+            Notification.requestPermission()
+                    .then((permission) => {
+                        handlePermission(permission);
+                    });
+        } else {
+            Notification.requestPermission(function (permission) {
+                handlePermission(permission);
+            });
+        }
+    }
+}
+
+// from https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API
+function checkNotificationPromise() {
+    try {
+        Notification.requestPermission().then();
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+
 
 /**
  * https://stackoverflow.com/a/21210643 CC BY-SA 4.0 Peter Mortensen
