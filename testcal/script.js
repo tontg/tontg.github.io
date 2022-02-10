@@ -292,16 +292,21 @@ function askNotificationPermission(notificationText) {
             function timeToAlert() {
                 var icon = './calendar.png';
                 var title = 'Calendar';
-                new Notification(title, {body: notificationText, icon: icon});
-                // TODO : for Android devices, use a service Worker (in a try catch ?)
-                /*navigator.serviceWorker.ready.then((registration) => {
-                    registration.showNotification('Vibration Sample', {
-                        body: 'Buzz! Buzz!',
-                        icon: './calendar.png',
-                        vibrate: [200, 100, 200, 100, 200, 100, 200],
-                        tag: 'vibration-sample'
+                try {
+                    new Notification(title, {body: notificationText, icon: icon});
+                } catch (error) {
+                    console.log(error);
+                    // apparently Notification didn't work, so let's try using service workers
+                    // TODO : for Android devices, use a service Worker (in a try catch ?)
+                    navigator.serviceWorker.ready.then((registration) => {
+                        registration.showNotification(title, {
+                            body: notificationText,
+                            icon: './calendar.png',
+                            vibrate: [200, 100, 200, 100, 200, 100, 200],
+                            tag: 'vibration-sample'
+                        });
                     });
-                });*/
+                }
             }
             /*var timeIsBeing936 = new Date("08/09/2020 09:36:00 AM").getTime()
              , currentTime = new Date().getTime()
@@ -317,7 +322,7 @@ function askNotificationPermission(notificationText) {
          }*/
     }
 
-    // Let's check if the browser supports notifications
+// Let's check if the browser supports notifications
     if (!('Notification' in window)) {
         alert("This browser does not support notifications.");
     } else {
@@ -332,6 +337,20 @@ function askNotificationPermission(notificationText) {
             });
         }
     }
+}
+
+// service worker for notification support
+// https://developers.google.com/web/fundamentals/primers/service-workers
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').then(function (registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
 }
 
 // from https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API
