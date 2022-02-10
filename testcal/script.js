@@ -300,14 +300,16 @@ function askNotificationPermission(notificationText) {
                     // apparently Notification didn't work, so let's try using service workers
                     // TODO : for Android devices, use a service Worker (in a try catch ?)
                     navigator.serviceWorker.ready.then((registration) => {
+                        console.log("service worker ready ; registration: " + registration);
                         registration.showNotification(title, {
                             body: notificationText,
                             icon: './calendar.png',
                             vibrate: [200, 100, 200, 100, 200, 100, 200],
                             tag: 'vibration-sample'
                         });
+                        console.log("showNotification done.");
                     });
-                    console.log("service worker notification sent.");
+                    //console.log("service worker notification sent.");
                 }
             }
             /*var timeIsBeing936 = new Date("08/09/2020 09:36:00 AM").getTime()
