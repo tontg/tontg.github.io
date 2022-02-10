@@ -296,6 +296,7 @@ function askNotificationPermission(notificationText) {
                     new Notification(title, {body: notificationText, icon: icon});
                 } catch (error) {
                     console.log(error);
+                    console.log("trying registration.showNotification");
                     // apparently Notification didn't work, so let's try using service workers
                     // TODO : for Android devices, use a service Worker (in a try catch ?)
                     navigator.serviceWorker.ready.then((registration) => {
@@ -306,6 +307,7 @@ function askNotificationPermission(notificationText) {
                             tag: 'vibration-sample'
                         });
                     });
+                    console.log("service worker notification sent.");
                 }
             }
             /*var timeIsBeing936 = new Date("08/09/2020 09:36:00 AM").getTime()
