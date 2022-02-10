@@ -283,6 +283,7 @@ function sendNotification() {
 }
 
 // from https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API
+// TODO : why doesn't it work on Android Chrome ? to fix ; (nor Samsung Android browser)
 function askNotificationPermission(notificationText) {
     // function to actually ask the permissions
     function handlePermission(permission) {
@@ -292,10 +293,19 @@ function askNotificationPermission(notificationText) {
                 var icon = './calendar.png';
                 var title = 'Calendar';
                 new Notification(title, {body: notificationText, icon: icon});
+                // TODO : for Android devices, use a service Worker (in a try catch ?)
+                /*navigator.serviceWorker.ready.then((registration) => {
+                    registration.showNotification('Vibration Sample', {
+                        body: 'Buzz! Buzz!',
+                        icon: './calendar.png',
+                        vibrate: [200, 100, 200, 100, 200, 100, 200],
+                        tag: 'vibration-sample'
+                    });
+                });*/
             }
             /*var timeIsBeing936 = new Date("08/09/2020 09:36:00 AM").getTime()
-                    , currentTime = new Date().getTime()
-                    , subtractMilliSecondsValue = timeIsBeing936 - currentTime;*/
+             , currentTime = new Date().getTime()
+             , subtractMilliSecondsValue = timeIsBeing936 - currentTime;*/
             var delay = 20 * 1000;
             setTimeout(timeToAlert, delay);
         }
