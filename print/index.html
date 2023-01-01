@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>print</title>
+        <script src="bluetooth-printer.js"></script>
+        <script src="bundle.js"></script>
+        <script src="bluetooth-printer-wrapper.js"></script>
+        <script>
+            var btPrinter = new BluetoothPrinter();
+            var _imageUrl = "";
+
+            function connectToPrinter() {
+                btPrinter.connect();
+            }
+
+            function testPrint(text) {
+                // TODO : generate ticket content on server side
+                /*var text =
+                 "+------------------------------+\n" +
+                 "|                              |\n" +
+                 "|       SMOOTHIES TO GO        |\n" +
+                 "|     https://pay.reant.net    |\n" +
+                 "|                              |\n" +
+                 "|    42 Bonne Nouvelle blvd,   |\n" +
+                 "|      75010 Paris, France     |\n" +
+                 //"|        01.31.41.59.27        |\n" +
+                 "|                              |\n" +
+                 "|  1x orange smoothie  3.95 EU |\n" +
+                 "|  tip (thanks!)       0.50 EU |\n" +
+                 //"|                              |\n" +
+                 //"|  Subtotal             12.04  |\n" +
+                 "|                              |\n" +
+                 "|  TOTAL               4.45 EU |\n" +
+                 "|  Card MasterCard #### 1234   |\n" +
+                 //"|  Change Due           3.00   |\n" +
+                 //"|                              |\n" +
+                 // "|  Item Count:  5              |\n" +
+                 "|                              |\n" +
+                 "|           THANK YOU!         |\n" +
+                 "+------------------------------+"
+                 ;*/
+                // text = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+                //text = new Date() + "\n";
+                // test = "ok";
+                // text = '\x1d\x49\x01'; // https://reliance-escpos-commands.readthedocs.io/en/latest/info.html
+                console.log("printing text:\n" + text);
+                btPrinter.print(text);
+            }
+
+            // doesn't work on Memobird printer
+            function testQrCode(text) {
+                console.log("QR-Code of " + text);
+                btPrinter.qrCode(text);
+            }
+
+            function testImage(imageUrl) {
+                console.log("Image of " + imageUrl);
+                btPrinter.image(imageUrl);
+            }
+
+            function testBarcodeEan13(ean13Code) {
+                console.log("EAN 13 of " + ean13Code);
+                btPrinter.barcodeEan13(ean13Code);
+            }
+
+            // https://stackoverflow.com/a/16153675
+            function onImageFileSelected(event) {
+                var selectedFile = event.target.files[0];
+                // console.log(selectedFile);
+                var reader = new FileReader();
+                var imgtag = document.getElementById("image");
+                imgtag.title = selectedFile.name;
+                /*reader.onload = function (event) {
+                    imgtag.src = event.target.result;
+                };*/
+                reader.readAsDataURL(selectedFile);
+                reader.onload = function () {
+                    _imageUrl = reader.result;
+                    imgtag.src = _imageUrl;
+                    // console.log(_imageUrl);
+                };
+            }
+        </script>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            button, input[type=file] {
+                cursor: pointer;
+            }
+            table.doublebarre, table.doublebarre th, table.doublebarre td {
+                border: 1px solid;
+            }
+            table.doublebarre th, table.doublebarre td {
+                padding: 3px;
+            }
+            table.borduregrise, table.borduregrise th, table.borduregrise td {
+                border-color: silver; /* gris argenté - #C0C0C0 */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>web bluetooth printer demo 🖨️</h1>
+        <button onclick="connectToPrinter()">connect to printer</button><br>
+        <button id="share">share</button><br>
+        <table class="doublebarre borduregrise">
+            <tr>
+                <th><label for="imageUrl">image URL: </label></th>
+                <td>
+                    <input id="imageUrl" type="text" style="width: 600px" value="https://upload.wikimedia.org/wikipedia/fr/thumb/6/6d/Logo_hps_0.png/640px-Logo_hps_0.png" /><br>
+                    <input type="file" accept="image/*" onchange="onImageFileSelected(event)"><br>
+                    <input type="file" accept="image/*" capture onchange="onImageFileSelected(event)" /><br>
+                    <img id="image" height="200" />
+                </td>
+                <td><button onclick="testImage(document.getElementById('imageUrl').value);">print Image</button></td>
+            </tr>
+            <tr>
+                <th><label for="ean13Code">EAN13 code: </label></th>
+                <td><input id="ean13Code" type="text" style="width: 100px; font-family:monospace;" value="3141592653589" /></td>
+                <td><button onclick="testBarcodeEan13(document.getElementById('ean13Code').value);">print EAN13 barcode</button></td>
+            </tr>
+            <tr>
+                <th><label for="qrCodeUrl">QR-Code URL: </label></th>
+                <td><input id="qrCodeUrl" type="text" style="width: 600px" value="https://hps-worldwide.com" /></td>
+                <td><button onclick="testQrCode(document.getElementById('qrCodeUrl').value);">print QR-Code</button></td>
+            </tr>
+            <tr>
+                <th><label for="text">text: </label></th>
+                <td><textarea id="text" rows="5" cols="33"></textarea></td>
+                <td><button onclick="testPrint(document.getElementById('text').value);">connect &amp; print test message</button></td>
+            </tr>
+        </table>
+        <script>
+            // https://caniuse.com/#search=Web%20Share%20API
+            // https://w3c.github.io/web-share/
+            document.getElementById("share").addEventListener("click", async () => {
+                try {
+                    await navigator.share({title: "Titre"/*, text:'pouet'*/, url: "https://pay.reant.net/1234"});
+                    console.log("Data was shared successfully");
+                } catch (err) {
+                    console.error("Share failed:", err.message);
+                }
+            });
+        </script>
+    </body>
+</html>
