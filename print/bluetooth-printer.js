@@ -90,7 +90,7 @@
             }
         }
 
-        _queue(f) {
+        _queue(commandChunk) {
             var that = this;
             function run() {
                 if (!that._QUEUE.length) {
@@ -110,13 +110,15 @@
                 }
                 that._CHARACTERISTIC
                         // .writeValue(buffer)
+                        // writing byte per byte (sloooow) ; TODO: fix?
+                        // TODO: test writeValueWithoutResponse as well
                         .writeValue(that._QUEUE.shift())
                         .then(function () {
                             run();
                         });
             }
 
-            that._QUEUE.push(f);
+            that._QUEUE.push(commandChunk);
 
             if (!that._WORKING)
                 run();
