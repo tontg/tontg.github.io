@@ -77,6 +77,7 @@
             const maxLength = 90; // sometimes 100, but 90 for our Memobird, 512 for black printer
             let chunks = Math.ceil(command.length / maxLength);
             console.log("printing command... length: " + command.length + " chunks: " + chunks);
+            console.log("command: " + command);
             if (chunks === 1) {
                 this._queue(command);
             } else {
