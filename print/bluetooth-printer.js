@@ -73,7 +73,8 @@
 
         print(command) {
             // console.log("command: " + command);
-            // can send max 512 bytes per BLE command
+            // can send max 512 bytes per BLE command on Chrome desktop
+            // chrome Android doesn't like big values, 10 works for him, haven't tested bigger values
             const maxLength = 10; // sometimes 100, but 90 for our Memobird, 512 for black printer
             let chunks = Math.ceil(command.length / maxLength);
             console.log("printing command... length: " + command.length + " chunks: " + chunks);
