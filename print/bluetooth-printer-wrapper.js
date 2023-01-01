@@ -25,7 +25,11 @@ class BluetoothPrinter {
                         });
                         resolve();
                     }).catch((e) => {
-                window.alert('Connection to printer failed, please try again! - ' + e);
+                if (!navigator.bluetooth) {
+                    window.alert("the browser does not support Web Bluetooth API");
+                } else {
+                    window.alert('Connection to printer failed, please try again! - ' + e);
+                }
                 console.log(e);
                 reject();
             });
@@ -34,7 +38,7 @@ class BluetoothPrinter {
 
     print(msg) {
         if (!BluetoothPrinterAPI.isConnected()) {
-            console.log("printer is not connected, connecting beofre executing command...");
+            console.log("printer is not connected, connecting before executing command...");
             // let's connect, then we'll print
             this.connect()
                     .then(() => {
@@ -62,7 +66,7 @@ class BluetoothPrinter {
     // doesn't work on memobird
     qrCode(value) {
         if (!BluetoothPrinterAPI.isConnected()) {
-            console.log("printer is not connected, connecting beofre executing command...");
+            console.log("printer is not connected, connecting before executing command...");
             // let's connect, then we'll print
             this.connect()
                     .then(() => {
@@ -86,7 +90,7 @@ class BluetoothPrinter {
 
     barcodeEan13(value) {
         if (!BluetoothPrinterAPI.isConnected()) {
-            console.log("printer is not connected, connecting beofre executing command...");
+            console.log("printer is not connected, connecting before executing command...");
             // let's connect, then we'll print
             this.connect()
                     .then(() => {
@@ -110,7 +114,7 @@ class BluetoothPrinter {
     // first connect to printer then execute this command
     image(imageUrl) {
         if (!BluetoothPrinterAPI.isConnected()) {
-            console.log("printer is not connected, connecting beofre executing command...");
+            console.log("printer is not connected, connecting before executing command...");
             // let's connect, then we'll print
             this.connect()
                     .then(() => {
