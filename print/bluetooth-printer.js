@@ -77,7 +77,7 @@
             // chrome Android doesn't like big values, 10 works for him, haven't tested bigger values
             const maxLength = 10; // sometimes 100, but 90 for our Memobird, 512 for black printer
             let chunks = Math.ceil(command.length / maxLength);
-            console.log("printing command... length: " + command.length + " chunks: " + chunks);
+            console.log("start printing... command length: " + command.length + " chunks: " + chunks);
             //console.log("command: " + command);
             if (chunks === 1) {
                 this._queue(command);
@@ -95,7 +95,7 @@
             function run() {
                 if (!that._QUEUE.length) {
                     that._WORKING = false;
-                    console.log("endprinting.");
+                    console.log("end printing.");
                     return;
                 }
                 that._WORKING = true;
@@ -106,7 +106,7 @@
                 // console.log("_QUEUE: " + that._QUEUE);
                 // console.log("_CHARACTERISTIC: " + that._CHARACTERISTIC);
                 if (that._CHARACTERISTIC === null) {
-                    throw new Error("that._CHARACTERISTIC is null, bluetooth printer not connected");
+                    throw new Error("BluetoothRemoteGATTCharacteristic is null, bluetooth printer not connected");
                 }
                 that._CHARACTERISTIC
                         // .writeValue(buffer)
