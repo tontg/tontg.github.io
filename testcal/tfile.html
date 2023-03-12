@@ -99,6 +99,64 @@ END:VCARD`, "text/vcard", "vCard.vcf"
             downloadLink.setAttribute("download", array[index * 3 + 2]);
             downloadLink.click();
             }
+
+            async function compressArrayBuffer(input) {
+            const cs = new CompressionStream('deflate');
+            const writer = cs.writable.getWriter();
+            writer.write(input);
+            writer.close();
+            const output = [];
+            const reader = cs.readable.getReader();
+            let totalSize = 0;
+            while (true) {
+            const { value, done } = await reader.read();
+            if (done)
+                    break;
+            output.push(value);
+            totalSize += value.byteLength;
+            }
+            const concatenated = new Uint8Array(totalSize);
+            let offset = 0;
+            for (const array of output) {
+            concatenated.set(array, offset);
+            offset += array.byteLength;
+            }
+            return concatenated;
+            }
+
+            function testRecoverDataFromUrl() {
+            var hash = window.location.hash.substr(1);
+            console.log("hash: " + hash);
+            var testObject = {
+            "toto":1,
+                    "tutu": "abc"
+            };
+            var jsonString = JSON.stringify(testObject);
+            jsonString = "t=bonjour+test+1&s=2023-03-12T12%3A45&e=2023-03-12T13%3A45&d=une+jolie+description+??&l=Paris&g=48.8588897%2C2.3200410217200766&u=https%3A%2F%2Fgoogle.com";
+            var srcByteArray = new TextEncoder("utf-8").encode(jsonString);
+            console.log("src length: " + srcByteArray.length);
+            compressArrayBuffer(srcByteArray)
+                    .then((compressed) => {
+                    console.log("compressed: ", compressed);
+                    console.log("compressed length: " + compressed.length);
+                    toBase64 = function(u8) {
+                        return btoa(String.fromCharCode.apply(null, u8));
+                    }
+                    var compressedBase64 = toBase64(compressed);
+                    console.log("compressedBase64: " + compressedBase64);
+                    console.log("compressedBase64 length: " + compressedBase64.length);
+                    });
+            // console.log("compressed: ", compressed);
+            var base64Encoded = btoa(JSON.stringify(testObject));
+            console.log("base64: " + base64Encoded);
+            var recoveredObject = JSON.parse(atob(hash));
+            console.log("recoveredObject: ", recoveredObject);
+            // test compress (not for Firefox)
+            // https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API
+
+            }
+
+            testRecoverDataFromUrl();
         </script>
         <style>
             body {
