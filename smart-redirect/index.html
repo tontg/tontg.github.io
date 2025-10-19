@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Device Redirect</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 2rem; line-height: 1.5; }
+    .wrap { max-width: 680px; margin: 6vh auto; }
+    code{background:#f6f8fa;padding:.15rem .35rem;border-radius:6px}
+  </style>
+  <script>
+    (function () {
+      function normalizeUrl(raw) {
+        if (!raw) return null;
+        try {
+          // Values might be URL-encoded; decode once.
+          var decoded = decodeURIComponent(raw.trim());
+          // If protocol missing, default to https.
+          if (!/^https?:\/\//i.test(decoded)) {
+            decoded = 'https://' + decoded;
+          }
+          // Validate URL
+          var u = new URL(decoded);
+          return u.href;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function getTargets() {
+        var sp = new URLSearchParams(window.location.search);
+        return {
+          i: normalizeUrl(sp.get('i')), // iOS (iPhone/iPad/iPod)
+          a: normalizeUrl(sp.get('a')), // Android
+          e: normalizeUrl(sp.get('e')), // Else (web/desktop)
+        };
+      }
+
+      function isIOS() {
+        var ua = navigator.userAgent || '';
+        var p = navigator.platform || '';
+        // Classic detection
+        if (/iPhone|iPad|iPod/i.test(ua)) return true;
+        // iPadOS 13+ can report as "Mac"; detect touch-capable Mac as iPadOS
+        var touchOnMac = /Mac/.test(p) && navigator.maxTouchPoints > 1;
+        return !!touchOnMac;
+      }
+
+      function isAndroid() {
+        var ua = navigator.userAgent || '';
+        return /Android/i.test(ua);
+      }
+
+      function redirect(url) {
+        if (!url) return false;
+        // Use assign() so history records the redirect; replace() if you prefer no back.
+        window.location.assign(url);
+        return true;
+      }
+
+      function run() {
+        var targets = getTargets();
+        var dest = null;
+
+        if (isIOS()) dest = targets.i || targets.e;
+        else if (isAndroid()) dest = targets.a || targets.e;
+        else dest = targets.e || targets.i || targets.a; // best-effort fallback
+
+        if (dest) {
+          redirect(dest);
+        } else {
+          // Show helpful info if nothing valid to redirect to
+          document.getElementById('status').innerHTML =
+            'No valid redirect URL found. Make sure your page URL includes ' +
+            '<code>?i=</code>, <code>&a=</code>, and/or <code>&e=</code> parameters.';
+          document.getElementById('details').textContent =
+            'Example: index.html?i=apps.apple.com%2Fapp%2Fchatgpt%2Fid6448311069&a=play.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.openai.chatgpt&e=chatgpt.com';
+        }
+      }
+
+      // Kick off as early as possible
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+      } else {
+        run();
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Redirecting…</h1>
+    <p id="status">If you are not redirected automatically, use one of the links below.</p>
+    <ul id="links">
+      <li><a id="link-i" href="#" rel="noopener">Open in App Store (iOS)</a></li>
+      <li><a id="link-a" href="#" rel="noopener">Open in Google Play (Android)</a></li>
+      <li><a id="link-e" href="#" rel="noopener">Open on Web</a></li>
+    </ul>
+    <p id="details" style="opacity:.7"></p>
+  </div>
+
+  <script>
+    // Populate visible fallback links using the same normalization logic
+    (function () {
+      function normalizeUrl(raw) {
+        if (!raw) return null;
+        try {
+          var decoded = decodeURIComponent(raw.trim());
+          if (!/^https?:\/\//i.test(decoded)) decoded = 'https://' + decoded;
+          return new URL(decoded).href;
+        } catch (e) { return null; }
+      }
+      var sp = new URLSearchParams(window.location.search);
+      var urls = {
+        i: normalizeUrl(sp.get('i')),
+        a: normalizeUrl(sp.get('a')),
+        e: normalizeUrl(sp.get('e'))
+      };
+      var elI = document.getElementById('link-i');
+      var elA = document.getElementById('link-a');
+      var elE = document.getElementById('link-e');
+      if (urls.i) { elI.href = urls.i; } else { elI.style.display = 'none'; }
+      if (urls.a) { elA.href = urls.a; } else { elA.style.display = 'none'; }
+      if (urls.e) { elE.href = urls.e; } else { elE.style.display = 'none'; }
+    })();
+  </script>
+
+  <noscript>
+    <div class="wrap">
+      JavaScript is required for automatic redirection.
+    </div>
+  </noscript>
+</body>
+</html>
