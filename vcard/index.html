@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Link / Mini Card</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #11182f;
+      --accent: #7aa2ff;
+      --muted: #9fb0d0;
+      --text: #eaf0ff;
+      --bad: #ff6b6b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, #1a2454 0%, var(--bg) 50%), var(--bg);
+      color: var(--text);
+      min-height: 100svh; display: grid; place-items: center; padding: 24px;
+    }
+    .wrap { width: min(880px, 100%); }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 22px; box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    h1 { margin: 0 0 10px; font-size: 24px; letter-spacing: .3px; }
+    p.help { margin: 4px 0 18px; color: var(--muted); }
+
+    form { display: grid; gap: 14px; }
+    label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+    input[type="text"], input[type="url"] {
+      width: 100%;
+      padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06); color: var(--text);
+      outline: none;
+    }
+    input::placeholder { color: #9db2ff88; }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+
+    button {
+      width: 100%; border: none; padding: 12px 14px; border-radius: 12px;
+      background: linear-gradient(180deg, #96b4ff, #6d90ff);
+      color: #06102a; font-weight: 700; letter-spacing: .3px; cursor: pointer;
+    }
+
+    .result { margin-top: 14px; display: none; }
+    .result .box { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); padding: 12px; border-radius: 12px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .muted { color: var(--muted); }
+    .err { color: var(--bad); }
+    .copyBtn { padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: var(--text); cursor: pointer; }
+
+    .profile {
+      display: grid; gap: 16px; justify-items: center; text-align: center;
+    }
+    .avatar {
+      width: 112px; height: 112px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      display: grid; place-items: center; background: #0d1328;
+      font-size: 40px; font-weight: 800; letter-spacing: .5px; color: #8fb2ff;
+    }
+    .links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .links a {
+      text-decoration: none; color: var(--text); border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06); padding: 10px 14px; border-radius: 12px; font-weight: 600;
+    }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .tiny { font-size: 12px; }
+    .ghost { color: var(--muted); text-decoration: none; }
+    .spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.2); border-top-color: var(--text); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="formCard" class="card" role="region" aria-labelledby="formTitle">
+      <div class="toolbar">
+        <h1 id="formTitle">Create your mini profile link</h1>
+        <a class="ghost tiny" href="?">Reset</a>
+      </div>
+      <p class="help">Enter anything you like (all fields optional). Submitting will generate a URL (with GET parameters), try to shorten it, and show you the short link.</p>
+      <form id="profileForm">
+        <label>Display name (optional)
+          <input type="text" name="name" placeholder="Ada Lovelace" autocomplete="name" />
+        </label>
+
+        <div class="row">
+          <label>LinkedIn URL (optional)
+            <input type="url" name="linkedin" placeholder="https://www.linkedin.com/in/username" inputmode="url" />
+          </label>
+          <label>Twitter / X URL (optional)
+            <input type="url" name="twitter" placeholder="https://twitter.com/username" inputmode="url" />
+          </label>
+        </div>
+
+        <label>Profile image URL (optional)
+          <input type="url" name="img" placeholder="https://…/photo.jpg" inputmode="url" />
+        </label>
+
+        <button type="submit">Generate link</button>
+      </form>
+
+      <div id="result" class="result">
+        <p class="muted tiny">Your link:</p>
+        <div class="box">
+          <span id="shortStatus" class="mono"></span>
+          <button id="copyBtn" class="copyBtn" type="button">Copy</button>
+        </div>
+        <p class="tiny muted">Original (full) URL: <span id="longUrl" class="mono"></span></p>
+      </div>
+    </div>
+
+    <div id="profileCard" class="card" role="region" aria-labelledby="profileTitle" style="display:none">
+      <div class="toolbar">
+        <h1 id="profileTitle">Your profile</h1>
+        <a class="ghost tiny" href="?">Create your own</a>
+      </div>
+      <div class="profile">
+        <div id="avatar" class="avatar" aria-hidden="true"></div>
+        <div>
+          <div id="displayName" style="font-size:22px; font-weight:800; letter-spacing:.3px;">Anonymous</div>
+          <div id="handleLine" class="muted tiny" style="margin-top:6px; display:none;"></div>
+        </div>
+        <div id="linkList" class="links"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Helpers
+    const qs = new URLSearchParams(location.search);
+
+    function hasAnyParams() {
+      const keys = ["name","linkedin","twitter","img"]; // accepted params
+      return keys.some(k => qs.get(k));
+    }
+
+    function normalizeUrl(u) {
+      if (!u) return "";
+      try {
+        // If user typed just username, enhance known patterns
+        if (/^[^:\/\s]+$/.test(u)) return u; // leave as-is (not a URL)
+        const url = new URL(u);
+        return url.toString();
+      } catch (_) {
+        // Try to prefix https://
+        try { return new URL("https://" + u).toString(); } catch { return ""; }
+      }
+    }
+
+    function initialsFromName(name) {
+      if (!name) return "?";
+      const parts = name.trim().split(/\s+/).slice(0,2);
+      return parts.map(p=>p[0]?.toUpperCase()||"").join("") || "?";
+    }
+
+    async function shortenUrl(longUrl) {
+      const statusEl = document.getElementById('shortStatus');
+      statusEl.innerHTML = '<span class="spinner" aria-label="shortening…"></span>';
+
+      const tryIsGd = async () => {
+        const api = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`;
+        const r = await fetch(api, { method: 'GET' });
+        if (!r.ok) throw new Error('is.gd unavailable');
+        const t = (await r.text()).trim();
+        if (!/^https?:\/\//i.test(t)) throw new Error('is.gd bad response');
+        return t;
+      };
+
+      const tryTinyUrl = async () => {
+        const api = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
+        const r = await fetch(api, { method: 'GET' });
+        if (!r.ok) throw new Error('tinyurl unavailable');
+        const t = (await r.text()).trim();
+        if (!/^https?:\/\//i.test(t)) throw new Error('tinyurl bad response');
+        return t;
+      };
+
+      try {
+        return await tryIsGd();
+      } catch (e1) {
+        try { return await tryTinyUrl(); }
+        catch (e2) { throw new Error(e2.message || e1.message || 'Shortening failed'); }
+      }
+    }
+
+    function buildLongUrl(data) {
+      const url = new URL(location.href);
+      url.search = '';
+      const sp = new URLSearchParams();
+      for (const [k,v] of Object.entries(data)) {
+        if (v) sp.set(k, v);
+      }
+      url.search = sp.toString();
+      return url.toString();
+    }
+
+    // Form behavior
+    const form = document.getElementById('profileForm');
+    const result = document.getElementById('result');
+    const longUrlEl = document.getElementById('longUrl');
+    const shortStatus = document.getElementById('shortStatus');
+    const copyBtn = document.getElementById('copyBtn');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = (fd.get('name')||'').toString().trim();
+      const linkedin = normalizeUrl((fd.get('linkedin')||'').toString().trim());
+      const twitter = normalizeUrl((fd.get('twitter')||'').toString().trim());
+      const img = normalizeUrl((fd.get('img')||'').toString().trim());
+
+      const payload = { name, linkedin, twitter, img };
+      const longUrl = buildLongUrl(payload);
+
+      result.style.display = 'block';
+      longUrlEl.textContent = longUrl;
+      shortStatus.textContent = '';
+
+      try {
+        const short = await shortenUrl(longUrl);
+        shortStatus.innerHTML = `<a class="mono" href="${short}" target="_blank" rel="noopener noreferrer">${short}</a>`;
+      } catch (err) {
+        shortStatus.innerHTML = `<span class="err">Could not shorten automatically.</span> <a class="mono" href="${longUrl}" target="_blank" rel="noopener noreferrer">Use full URL</a>`;
+      }
+    });
+
+    copyBtn?.addEventListener('click', async () => {
+      const txt = (document.querySelector('#shortStatus a')?.href) || longUrlEl.textContent;
+      if (!txt) return;
+      try {
+        await navigator.clipboard.writeText(txt);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(()=> copyBtn.textContent = 'Copy', 1200);
+      } catch {
+        // Fallback: select text visually (best-effort)
+        const r = document.createRange();
+        r.selectNode(document.getElementById('shortStatus'));
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      }
+    });
+
+    // Profile (view) mode
+    function renderProfile() {
+      const name = (qs.get('name')||'').trim();
+      const linkedin = normalizeUrl(qs.get('linkedin')||'');
+      const twitter = normalizeUrl(qs.get('twitter')||'');
+      const img = normalizeUrl(qs.get('img')||'');
+
+      // Name
+      const nameEl = document.getElementById('displayName');
+      nameEl.textContent = name || 'Anonymous';
+
+      // Avatar (image or initials)
+      const avatar = document.getElementById('avatar');
+      if (img) {
+        const im = new Image();
+        im.alt = name ? `${name}'s avatar` : 'Avatar';
+        im.referrerPolicy = 'no-referrer';
+        im.style.width = '100%';
+        im.style.height = '100%';
+        im.style.objectFit = 'cover';
+        im.onload = () => { avatar.textContent = ''; avatar.appendChild(im); }
+        im.onerror = () => { avatar.textContent = initialsFromName(name); }
+        im.src = img;
+      } else {
+        avatar.textContent = initialsFromName(name);
+      }
+
+      // Links
+      const links = document.getElementById('linkList');
+      links.innerHTML = '';
+      if (linkedin) {
+        const a = document.createElement('a');
+        a.href = linkedin; a.textContent = 'LinkedIn'; a.target = '_blank'; a.rel='noopener noreferrer';
+        links.appendChild(a);
+      }
+      if (twitter) {
+        const a = document.createElement('a');
+        a.href = twitter; a.textContent = 'Twitter / X'; a.target = '_blank'; a.rel='noopener noreferrer';
+        links.appendChild(a);
+      }
+
+      // Optional handle line if only usernames provided (best-effort, non-strict)
+      const handleLine = document.getElementById('handleLine');
+      const handles = [];
+      if (/^@[\w.]{2,}$/i.test(qs.get('twitter')||'')) handles.push(qs.get('twitter'));
+      if (handles.length) {
+        handleLine.style.display = 'block';
+        handleLine.textContent = handles.join(' · ');
+      }
+    }
+
+    // Toggle UI depending on mode
+    const formCard = document.getElementById('formCard');
+    const profileCard = document.getElementById('profileCard');
+    if (hasAnyParams()) {
+      formCard.style.display = 'none';
+      profileCard.style.display = 'block';
+      renderProfile();
+    } else {
+      formCard.style.display = 'block';
+      profileCard.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
