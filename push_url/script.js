@@ -64,7 +64,7 @@ async function connectSerial() {
     readLoop();
 
     setStatus(true);
-    log("Serial port opened: " + port.getInfo());
+    log("Serial port opened.");
   } catch (err) {
     console.error(err);
     log("Error opening serial port: " + err.message);
