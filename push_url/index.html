@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LILYGO T5 – NFC / QR Controller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>LILYGO T5 – NFC / QR Controller</h1>
+    <div id="connection-panel">
+      <button id="connect-btn">Connect</button>
+      <span id="status-badge" class="status-disconnected">Disconnected</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Request Form -->
+    <section class="card">
+      <h2>Display URL</h2>
+      <form id="display-form">
+        <div class="form-row">
+          <label for="url-input">URL</label>
+          <input
+            type="url"
+            id="url-input"
+            required
+            placeholder="https://example.com/"
+          />
+        </div>
+
+        <div class="form-row inline">
+          <label>
+            <input type="checkbox" id="qr-checkbox" checked />
+            QR-Code (e-ink)
+          </label>
+          <label>
+            <input type="checkbox" id="ndef-checkbox" checked />
+            NDEF (PN532)
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="display-btn">Send “display_URL”</button>
+          <button type="button" id="clear-btn">Send “clear”</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Response / Log -->
+    <section class="card">
+      <h2>Device Logs</h2>
+      <pre id="log-output"></pre>
+      <div class="log-actions">
+        <button id="clear-log-btn">Clear Log</button>
+      </div>
+    </section>
+
+    <!-- Last Response -->
+    <section class="card">
+      <h2>Last Parsed Response</h2>
+      <pre id="last-response">{}</pre>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      Requires Chrome / Edge with WebSerial, served over HTTPS or from
+      <code>localhost</code>.
+    </small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
