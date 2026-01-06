@@ -384,7 +384,9 @@ function updatePreview() {
   let srcH = srcCanvas.height;
 
   previewCanvas.width = srcW;
+  previewCanvas.style.width = srcW + "px";
   previewCanvas.height = srcH;
+  previewCanvas.style.height = srcH + "px";
 
   // Draw grayscale
   const tmpCanvas = document.createElement('canvas');
