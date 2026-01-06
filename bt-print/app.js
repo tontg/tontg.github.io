@@ -90,10 +90,20 @@ async function ensureBlePrinterConnected() {
     optionalServices: BLE_SERVICE_CANDIDATES
   }
   */
-  const device = await navigator.bluetooth.requestDevice({
+
+
+  // leads to Chrome error "Could not find a suitable BLE Service on printer."
+  /*
+{
     filters: [
       { name: "BlueTooth Printer" }
     ]
+  }
+  */
+  const device = await navigator.bluetooth.requestDevice({
+    // acceptAllDevices: true is most robust, services go in optionalServices
+    acceptAllDevices: true,
+    optionalServices: BLE_SERVICE_CANDIDATES
   });
 
   console.log("found bluetooth device:");
