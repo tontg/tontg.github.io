@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>T5 Photo to Thermal Printer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Public Domain , OpenClipart, https://freesvg.org/thermal-printer -->
+</head>
+<body>
+  <h1>T5 Photo → POS-5809LN <img class="logo" src="favicon.svg"></h1>
+  <section id="connection-section">
+    <h2>Connection mode</h2>
+    <label>
+      <input type="radio" name="connMode" value="wifi" checked>
+      Wi-Fi via ESP32
+    </label>
+    <label id="bt-label">
+      <input type="radio" name="connMode" value="bt" id="bt-radio">
+      Direct Bluetooth (Web Bluetooth)
+    </label>
+    <p id="bt-warning" class="warning"></p>
+  </section>
+  <section id="source-section">
+    <h2>Image source</h2>
+    <button id="btn-start-camera">Take picture</button>
+    <input type="file" id="file-input" accept="image/*">
+  </section>
+  <section id="preview-section">
+    <h2>Preview & options</h2>
+    <div id="camera-container">
+      <video id="video" autoplay playsinline></video>
+      <button id="btn-capture">Capture</button>
+      <button id="btn-stop-camera">Stop camera</button>
+    </div>
+    <div id="controls">
+      <!-- Rotation is auto-applied before sending; not selectable in UI -->
+      <label>Line before image:
+        <input id="prefix-line" type="text" placeholder="Optional text to print before image">
+      </label>
+      <label>
+        <input id="print-date" type="checkbox">
+        Print date
+      </label>
+      <label>
+        <input id="enable-crop" type="checkbox">
+        Enable cropping
+      </label>
+      <label>
+        <input id="auto-fix-histogram" type="checkbox">
+        Auto fix histogram
+      </label>
+      <label>Dithering:
+        <select id="dither-select">
+          <option value="none">None</option>
+          <option value="bayer">Ordered (Bayer)</option>
+          <option value="floyd" selected>Floyd–Steinberg</option>
+          <option value="atkinson">Atkinson</option>
+        </select>
+      </label>
+    </div>
+    <div id="canvas-container" style="position: relative;">
+      <!-- Original + crop overlay could go here if you want advanced cropping later -->
+      <canvas id="work-canvas"></canvas>
+      <canvas id="crop-overlay" style="position: absolute; pointer-events: none;"></canvas>
+      <canvas id="preview-canvas"></canvas>
+    </div>
+  </section>
+  <section id="actions-section">
+    <button id="btn-process">Process (1-bit)</button>
+    <button id="btn-send">Send to printer</button>
+    <p id="status-line"></p>
+  </section>
+  <script src="app.js"></script>
+</body>
+</html>
