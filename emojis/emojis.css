@@ -15,3 +15,13 @@ button {
     width: 45px;
     height: 32px;
 }
+
+h1 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+h3 {
+    margin-top: 8px;
+    margin-bottom: 3px;
+}

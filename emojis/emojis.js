@@ -1,22 +1,32 @@
 ﻿// emojis
 
-var emojis = ["🤞", "😅", "😆", "😏", "🫢", "🙏", "💪", "⚠️", "🛈", "·", "É", "À", "¿", "≠", "•", "🇲🇦", "🇫🇷", "😲", "😮", "🤝", "🤔", "🙄", "🤦‍♂️", "✔️", "❌", "➜", "↔", "😁", "–", "…", "Ç", "“”", "×","👌", "👍", "😓", "🥲", "🤨", "📬", "😊", "📅", "😳", "🤷‍♂️", "🥳", "🎉", "🫢", "🫣", "🫡", "🫤", "🥹", "🫵"];
+var emojis = [
+{"title": "smileys", "elements": ["😅", "😆", "😏", "😲", "😮","🤔", "🙄", "😁","😓", "🥲", "🤨","😊", "😳", "🫢", "🫣", "🫡", "🫤", "🥹","🥳", "🎉", "🤦‍♂️", "🤷‍♂️", ]},
+{"title": "hand", "elements": ["🤞", "🙏","💪","🤝","👌", "👍","🫵"]},
+{"title": "ponctuation", "elements": ["⚠️", "✔️", "❌","🛈", "·", "É", "À", "¿", "≠", "•", "🇲🇦", "🇫🇷", "➜", "↔", "–", "…", "Ç", "“”", "×"]},
+{"title": "work", "elements": ["📬", "📅", "⌛"]}
+];
 
 function loadContent() {
     var container = document.getElementById("container");
-    emojis.forEach(emoji => {
-        var li = document.createElement("span");
-        var input = document.createElement("input");
-        input.setAttribute("type", "text");
-        input.setAttribute("class", "emoji");
-        input.setAttribute("value", emoji);
-        input.setAttribute("id", emoji);
-        li.appendChild(input);
-        var button = document.createElement("button");
-        button.setAttribute("onclick", "copyText('" + emoji + "')");
-        button.innerHTML = emoji;
-        li.appendChild(button);
-        container.appendChild(li);
+    emojis.forEach(emojiGroup => {
+	    var title = document.createElement("h3");
+        title.innerHTML = emojiGroup.title;
+        container.appendChild(title);
+        emojiGroup.elements.forEach(emoji => {
+            var li = document.createElement("span");
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("class", "emoji");
+            input.setAttribute("value", emoji);
+            input.setAttribute("id", emoji);
+            li.appendChild(input);
+            var button = document.createElement("button");
+            button.setAttribute("onclick", "copyText('" + emoji + "')");
+            button.innerHTML = emoji;
+            li.appendChild(button);
+            container.appendChild(li);
+        });
     });
 }
 
