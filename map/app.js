@@ -9,6 +9,16 @@ const CAMERA_CONSTRAINTS = {
 
 const MAP_ZOOM = 19;
 const DISTANCE_SWITCH_METERS = 1000;
+const GEO_FIRST_FIX_OPTIONS = {
+  enableHighAccuracy: true,
+  maximumAge: 0,
+  timeout: 20000
+};
+const GEO_WATCH_OPTIONS = {
+  enableHighAccuracy: true,
+  maximumAge: 1000,
+  timeout: 30000
+};
 
 const state = {
   user: {
@@ -413,31 +423,62 @@ async function enableOrientation() {
   return true;
 }
 
-function enableGeolocation() {
+function applyPositionUpdate(position) {
+  state.user.latitude = position.coords.latitude;
+  state.user.longitude = position.coords.longitude;
+  if (typeof position.coords.heading === "number" && !Number.isNaN(position.coords.heading)) {
+    state.user.headingDeg = normalizeAngleDeg(position.coords.heading);
+    state.user.hasHeading = true;
+  }
+  updateMapUserState();
+  updateTargetOverlay();
+}
+
+function getGeolocationErrorMessage(error) {
+  if (!error || typeof error.code !== "number") {
+    return "Unable to read location.";
+  }
+
+  if (error.code === error.PERMISSION_DENIED) {
+    return "Location permission denied by browser/device settings.";
+  }
+  if (error.code === error.POSITION_UNAVAILABLE) {
+    return "Location unavailable on this device right now.";
+  }
+  if (error.code === error.TIMEOUT) {
+    return "Location request timed out before first fix.";
+  }
+  return error.message || "Unable to read location.";
+}
+
+function getCurrentPositionOnce(options) {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+  });
+}
+
+async function enableGeolocation() {
   if (!("geolocation" in navigator)) {
     throw new Error("Geolocation is not available in this browser.");
   }
 
+  try {
+    const firstFix = await getCurrentPositionOnce(GEO_FIRST_FIX_OPTIONS);
+    applyPositionUpdate(firstFix);
+    state.ui.statusLine.textContent = "Live position tracking active.";
+  } catch (error) {
+    throw new Error(getGeolocationErrorMessage(error));
+  }
+
   state.watchers.geolocation = navigator.geolocation.watchPosition(
     (position) => {
-      state.user.latitude = position.coords.latitude;
-      state.user.longitude = position.coords.longitude;
-      if (typeof position.coords.heading === "number" && !Number.isNaN(position.coords.heading)) {
-        state.user.headingDeg = normalizeAngleDeg(position.coords.heading);
-        state.user.hasHeading = true;
-      }
+      applyPositionUpdate(position);
       state.ui.statusLine.textContent = "Live position tracking active.";
-      updateMapUserState();
-      updateTargetOverlay();
     },
     (error) => {
-      state.ui.statusLine.textContent = `Location error: ${error.message}`;
+      state.ui.statusLine.textContent = `Location error: ${getGeolocationErrorMessage(error)}`;
     },
-    {
-      enableHighAccuracy: true,
-      maximumAge: 1000,
-      timeout: 10000
-    }
+    GEO_WATCH_OPTIONS
   );
 }
 
@@ -474,7 +515,7 @@ async function startExperience() {
     const orientationEnabled = await enableOrientation();
     state.capabilities.orientationForArrows = orientationEnabled;
     await enableCamera();
-    enableGeolocation();
+    await enableGeolocation();
 
     if (!orientationEnabled) {
       clearArrowOverlay();
@@ -487,7 +528,10 @@ async function startExperience() {
     }
     updateTargetOverlay();
   } catch (error) {
-    state.ui.statusLine.textContent = `Setup failed: ${error.message}`;
+    const secureHint = !window.isSecureContext
+      ? " HTTPS is required for geolocation."
+      : " On Quest, also verify headset Location Services are enabled.";
+    state.ui.statusLine.textContent = `Setup failed: ${error.message}.${secureHint}`;
     state.ui.startButton.disabled = false;
     state.ui.startButton.textContent = "Retry start";
   }
