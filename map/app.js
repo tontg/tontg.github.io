@@ -1,3 +1,5 @@
+import * as THREE from "https://unpkg.com/three@0.162.0/build/three.module.js";
+
 const CAMERA_CONSTRAINTS = {
   audio: false,
   video: {
@@ -42,9 +44,22 @@ const state = {
   capabilities: {
     orientationForArrows: false
   },
+  app: {
+    experienceReady: false,
+    starting: false
+  },
   mapControl: {
     followUser: true,
     hasCenteredOnce: false
+  },
+  xr: {
+    supported: false,
+    session: null,
+    renderer: null,
+    scene: null,
+    camera: null,
+    arrowMeshes: new Map(),
+    fallbackHeadingDeg: 0
   }
 };
 
@@ -210,6 +225,207 @@ function clearArrowOverlay() {
 
 function enableArrowOverlay() {
   state.ui.overlayArrows.style.display = "";
+}
+
+function createXrArrowMesh(targetId) {
+  const group = new THREE.Group();
+  const cone = new THREE.Mesh(
+    new THREE.ConeGeometry(0.22, 0.48, 16),
+    new THREE.MeshStandardMaterial({
+      color: 0x7ce8ff,
+      emissive: 0x0f6278,
+      emissiveIntensity: 0.55,
+      roughness: 0.35,
+      metalness: 0.08
+    })
+  );
+  cone.rotation.x = Math.PI;
+  cone.position.y = -0.18;
+  group.add(cone);
+
+  const stem = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.22, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0x9defff,
+      emissive: 0x0f6278,
+      emissiveIntensity: 0.3,
+      roughness: 0.4,
+      metalness: 0.06
+    })
+  );
+  stem.position.y = 0.08;
+  group.add(stem);
+
+  const charSum = Array.from(targetId).reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  group.userData.floatPhase = (charSum % 37) * 0.17;
+  return group;
+}
+
+function clearXrArrows() {
+  if (!state.xr.scene) return;
+  for (const mesh of state.xr.arrowMeshes.values()) {
+    state.xr.scene.remove(mesh);
+  }
+  state.xr.arrowMeshes.clear();
+}
+
+function ensureXrArrow(target) {
+  let mesh = state.xr.arrowMeshes.get(target.id);
+  if (!mesh) {
+    mesh = createXrArrowMesh(target.id);
+    state.xr.arrowMeshes.set(target.id, mesh);
+    state.xr.scene.add(mesh);
+  }
+  return mesh;
+}
+
+function updateXrArrows(timeSeconds) {
+  if (!state.xr.session || !state.xr.scene) return;
+  if (state.user.latitude == null || state.user.longitude == null) {
+    for (const mesh of state.xr.arrowMeshes.values()) {
+      mesh.visible = false;
+    }
+    return;
+  }
+
+  const headingDeg = state.user.hasHeading ? state.user.headingDeg : state.xr.fallbackHeadingDeg;
+
+  for (const target of state.targets) {
+    const mesh = ensureXrArrow(target);
+    const distance = haversineMeters(
+      state.user.latitude,
+      state.user.longitude,
+      target.latitude,
+      target.longitude
+    );
+    const bearing = bearingDegrees(
+      state.user.latitude,
+      state.user.longitude,
+      target.latitude,
+      target.longitude
+    );
+    const signed = shortestSignedAngleDeg(headingDeg, bearing);
+    const relRad = toRad(signed);
+    const radialDistance = Math.max(1.8, Math.min(9.5, 2 + Math.log10(distance + 12) * 2.6));
+    const bobOffset = Math.sin(timeSeconds * 1.1 + mesh.userData.floatPhase) * 0.13;
+    const x = Math.sin(relRad) * radialDistance;
+    const z = -Math.cos(relRad) * radialDistance;
+    const y = 1.35 + bobOffset;
+    const scale = Math.max(0.12, Math.min(1.1, 2200 / (distance * distance + 2000)));
+
+    mesh.position.set(x, y, z);
+    mesh.scale.setScalar(scale);
+    mesh.visible = true;
+  }
+}
+
+function computeNearestTargetBearing(lat, lon) {
+  if (!state.targets.length) return 0;
+  let nearest = null;
+  for (const target of state.targets) {
+    const distance = haversineMeters(lat, lon, target.latitude, target.longitude);
+    if (!nearest || distance < nearest.distance) {
+      nearest = { target, distance };
+    }
+  }
+  if (!nearest) return 0;
+  return bearingDegrees(lat, lon, nearest.target.latitude, nearest.target.longitude);
+}
+
+function setupXrScene() {
+  const scene = new THREE.Scene();
+  const hemi = new THREE.HemisphereLight(0xe8f7ff, 0x101010, 0.95);
+  scene.add(hemi);
+  const dir = new THREE.DirectionalLight(0xffffff, 0.75);
+  dir.position.set(2, 5, 1);
+  scene.add(dir);
+
+  const camera = new THREE.PerspectiveCamera();
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.xr.enabled = true;
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.domElement.style.position = "fixed";
+  renderer.domElement.style.inset = "0";
+  renderer.domElement.style.zIndex = "1000";
+  renderer.domElement.style.pointerEvents = "none";
+  document.body.appendChild(renderer.domElement);
+
+  state.xr.scene = scene;
+  state.xr.camera = camera;
+  state.xr.renderer = renderer;
+}
+
+function teardownXrScene() {
+  clearXrArrows();
+  if (state.xr.renderer) {
+    state.xr.renderer.setAnimationLoop(null);
+    state.xr.renderer.dispose();
+    state.xr.renderer.domElement.remove();
+  }
+  state.xr.renderer = null;
+  state.xr.scene = null;
+  state.xr.camera = null;
+}
+
+async function startImmersiveArSession() {
+  if (!state.xr.supported || !navigator.xr) {
+    state.ui.statusLine.textContent = "Immersive AR is not supported on this browser/device.";
+    return;
+  }
+
+  if (!state.app.experienceReady) {
+    await startExperience();
+  }
+  if (!state.app.experienceReady) return;
+
+  if (state.xr.session) return;
+
+  const session = await navigator.xr.requestSession("immersive-ar", {
+    requiredFeatures: ["local"],
+    optionalFeatures: ["dom-overlay"],
+    domOverlay: { root: document.body }
+  });
+
+  setupXrScene();
+  await state.xr.renderer.xr.setSession(session);
+  state.xr.session = session;
+  if (state.user.latitude != null && state.user.longitude != null) {
+    state.xr.fallbackHeadingDeg = computeNearestTargetBearing(
+      state.user.latitude,
+      state.user.longitude
+    );
+  }
+  document.body.classList.add("xr-active");
+  state.ui.enterArButton.textContent = "Exit AR";
+  state.ui.statusLine.textContent = state.user.hasHeading
+    ? "Immersive AR session active."
+    : "Immersive AR active with approximate heading (nearest target is ahead).";
+
+  state.xr.renderer.setAnimationLoop((time) => {
+    updateXrArrows(time / 1000);
+    state.xr.renderer.render(state.xr.scene, state.xr.camera);
+  });
+
+  session.addEventListener("end", () => {
+    state.xr.session = null;
+    teardownXrScene();
+    document.body.classList.remove("xr-active");
+    state.ui.enterArButton.textContent = "Enter AR";
+    state.ui.statusLine.textContent = "Immersive AR session ended.";
+  });
+}
+
+async function toggleArSession() {
+  try {
+    if (state.xr.session) {
+      await state.xr.session.end();
+      return;
+    }
+    await startImmersiveArSession();
+  } catch (error) {
+    state.ui.statusLine.textContent = `Failed to start AR: ${error.message}`;
+  }
 }
 
 function createEdgeBullet(target, x, y) {
@@ -493,19 +709,29 @@ async function enableCamera() {
 async function updateXrSupportLabel() {
   if (!navigator.xr) {
     state.ui.xrSummary.textContent = "WebXR AR: not available on this device/browser.";
+    state.xr.supported = false;
+    state.ui.enterArButton.disabled = true;
     return;
   }
   try {
     const supported = await navigator.xr.isSessionSupported("immersive-ar");
+    state.xr.supported = supported;
+    state.ui.enterArButton.disabled = !supported;
     state.ui.xrSummary.textContent = supported
-      ? "WebXR AR: supported. Current UI uses 2D overlay mode."
+      ? "WebXR AR: supported. You can launch immersive AR with Enter AR."
       : "WebXR AR: API available, immersive-ar not supported.";
   } catch (error) {
+    state.xr.supported = false;
+    state.ui.enterArButton.disabled = true;
     state.ui.xrSummary.textContent = `WebXR AR check failed: ${error.message}`;
   }
 }
 
 async function startExperience() {
+  if (state.app.starting) return;
+  if (state.app.experienceReady) return;
+
+  state.app.starting = true;
   state.ui.startButton.disabled = true;
   state.ui.startButton.textContent = "Starting...";
   state.ui.statusLine.textContent = "Requesting camera, location, and orientation permissions...";
@@ -526,6 +752,8 @@ async function startExperience() {
       state.ui.statusLine.textContent =
         "Camera, location, and orientation active. If arrows are missing, rotate device to initialize compass.";
     }
+    state.app.experienceReady = true;
+    state.ui.startButton.textContent = "Experience active";
     updateTargetOverlay();
   } catch (error) {
     const secureHint = !window.isSecureContext
@@ -534,6 +762,8 @@ async function startExperience() {
     state.ui.statusLine.textContent = `Setup failed: ${error.message}.${secureHint}`;
     state.ui.startButton.disabled = false;
     state.ui.startButton.textContent = "Retry start";
+  } finally {
+    state.app.starting = false;
   }
 }
 
@@ -546,7 +776,8 @@ async function init() {
     statusLine: byId("statusLine"),
     distanceSummary: byId("distanceSummary"),
     xrSummary: byId("xrSummary"),
-    startButton: byId("startButton")
+    startButton: byId("startButton"),
+    enterArButton: byId("enterArButton")
   };
 
   await loadTargets();
@@ -554,6 +785,7 @@ async function init() {
   updateXrSupportLabel();
 
   state.ui.startButton.addEventListener("click", startExperience);
+  state.ui.enterArButton.addEventListener("click", toggleArSession);
   state.ui.mapFollowButton.addEventListener("click", () => {
     state.mapControl.followUser = true;
     state.ui.mapFollowButton.classList.remove("off");

@@ -44,6 +44,12 @@ body {
   pointer-events: none;
 }
 
+body.xr-active #cameraView,
+body.xr-active #overlayArrows,
+body.xr-active #hud {
+  display: none;
+}
+
 .target-arrow {
   position: absolute;
   top: 12%;
@@ -146,6 +152,24 @@ body {
   font-weight: 600;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
+}
+
+#enterArButton {
+  margin-top: 0.45rem;
+  margin-left: 0.4rem;
+  border: 1px solid rgba(79, 213, 255, 0.8);
+  border-radius: 9px;
+  background: rgba(14, 95, 124, 0.42);
+  color: #dff9ff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+#enterArButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 #mapContainer {
