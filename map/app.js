@@ -369,8 +369,8 @@ function teardownXrScene() {
 }
 
 async function startImmersiveArSession() {
-  if (!state.xr.supported || !navigator.xr) {
-    state.ui.statusLine.textContent = "Immersive AR is not supported on this browser/device.";
+  if (!navigator.xr) {
+    state.ui.statusLine.textContent = "WebXR is not available on this browser/device.";
     return;
   }
 
@@ -424,7 +424,8 @@ async function toggleArSession() {
     }
     await startImmersiveArSession();
   } catch (error) {
-    state.ui.statusLine.textContent = `Failed to start AR: ${error.message}`;
+    state.ui.statusLine.textContent =
+      `Failed to start AR: ${error.message}. On Quest, enable Experimental Features for WebXR/Passthrough and confirm camera permission.`;
   }
 }
 
@@ -714,16 +715,17 @@ async function updateXrSupportLabel() {
     return;
   }
   try {
-    const supported = await navigator.xr.isSessionSupported("immersive-ar");
-    state.xr.supported = supported;
-    state.ui.enterArButton.disabled = !supported;
-    state.ui.xrSummary.textContent = supported
+    const arSupported = await navigator.xr.isSessionSupported("immersive-ar");
+    const vrSupported = await navigator.xr.isSessionSupported("immersive-vr");
+    state.xr.supported = arSupported || vrSupported;
+    state.ui.enterArButton.disabled = false;
+    state.ui.xrSummary.textContent = arSupported
       ? "WebXR AR: supported. You can launch immersive AR with Enter AR."
-      : "WebXR AR: API available, immersive-ar not supported.";
+      : "WebXR is available. AR support may require Quest experimental flags; you can still try Enter AR.";
   } catch (error) {
-    state.xr.supported = false;
-    state.ui.enterArButton.disabled = true;
-    state.ui.xrSummary.textContent = `WebXR AR check failed: ${error.message}`;
+    state.xr.supported = true;
+    state.ui.enterArButton.disabled = false;
+    state.ui.xrSummary.textContent = `WebXR check uncertain (${error.message}). You can still try Enter AR.`;
   }
 }
 
