@@ -398,9 +398,12 @@ async function startImmersiveArSession() {
   }
   document.body.classList.add("xr-active");
   state.ui.enterArButton.textContent = "Exit AR";
-  state.ui.statusLine.textContent = state.user.hasHeading
-    ? "Immersive AR session active."
-    : "Immersive AR active with approximate heading (nearest target is ahead).";
+  state.ui.statusLine.textContent =
+    state.user.latitude == null || state.user.longitude == null
+      ? "Immersive AR session active. Waiting for location to place target arrows."
+      : state.user.hasHeading
+        ? "Immersive AR session active."
+        : "Immersive AR active with approximate heading (nearest target is ahead).";
 
   state.xr.renderer.setAnimationLoop((time) => {
     updateXrArrows(time / 1000);
@@ -743,7 +746,12 @@ async function startExperience() {
     const orientationEnabled = await enableOrientation();
     state.capabilities.orientationForArrows = orientationEnabled;
     await enableCamera();
-    await enableGeolocation();
+    let geolocationError = null;
+    try {
+      await enableGeolocation();
+    } catch (error) {
+      geolocationError = error;
+    }
 
     if (!orientationEnabled) {
       clearArrowOverlay();
@@ -754,6 +762,13 @@ async function startExperience() {
       state.ui.statusLine.textContent =
         "Camera, location, and orientation active. If arrows are missing, rotate device to initialize compass.";
     }
+
+    if (geolocationError) {
+      state.ui.statusLine.textContent =
+        `Camera active. Location unavailable (${geolocationError.message}). AR can still be launched.`;
+      state.ui.distanceSummary.textContent = "Location unavailable: target distance and position are paused.";
+    }
+
     state.app.experienceReady = true;
     state.ui.startButton.textContent = "Experience active";
     updateTargetOverlay();
