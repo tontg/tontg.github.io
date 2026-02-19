@@ -28,6 +28,9 @@ body {
 }
 
 #cameraView {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -37,6 +40,7 @@ body {
 #overlayArrows {
   position: absolute;
   inset: 0;
+  z-index: 20;
   pointer-events: none;
 }
 
@@ -101,6 +105,7 @@ body {
 #hud {
   position: absolute;
   inset: 0;
+  z-index: 30;
   pointer-events: none;
 }
 

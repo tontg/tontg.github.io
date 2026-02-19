@@ -394,6 +394,18 @@ async function enableOrientation() {
     if (permissionState !== "granted") {
       return false;
     }
+
+    // Some iOS versions gate orientation updates behind motion permission too.
+    if (
+      typeof window.DeviceMotionEvent !== "undefined" &&
+      typeof DeviceMotionEvent.requestPermission === "function"
+    ) {
+      try {
+        await DeviceMotionEvent.requestPermission();
+      } catch (error) {
+        // Keep going when motion permission request fails; orientation may still work.
+      }
+    }
   }
 
   window.addEventListener("deviceorientationabsolute", handleOrientationEvent, true);
@@ -458,10 +470,11 @@ async function startExperience() {
   state.ui.statusLine.textContent = "Requesting camera, location, and orientation permissions...";
 
   try {
-    await enableCamera();
-    enableGeolocation();
+    // Orientation permission should be requested as early as possible in the user gesture path.
     const orientationEnabled = await enableOrientation();
     state.capabilities.orientationForArrows = orientationEnabled;
+    await enableCamera();
+    enableGeolocation();
 
     if (!orientationEnabled) {
       clearArrowOverlay();
@@ -469,7 +482,8 @@ async function startExperience() {
         "Camera and location active. Device orientation unavailable/denied, live-view arrows disabled.";
     } else {
       enableArrowOverlay();
-      state.ui.statusLine.textContent = "Camera, location, and orientation active.";
+      state.ui.statusLine.textContent =
+        "Camera, location, and orientation active. If arrows are missing, rotate device to initialize compass.";
     }
     updateTargetOverlay();
   } catch (error) {
