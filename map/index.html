@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Geo Camera Map Overlay</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app">
+      <video id="cameraView" autoplay playsinline muted></video>
+      <div id="overlayArrows" aria-hidden="true"></div>
+
+      <section id="hud">
+        <header id="statusPanel">
+          <p id="statusLine">Tap start to request camera, location, and orientation.</p>
+          <p id="distanceSummary">No location fix yet.</p>
+          <p id="xrSummary">Checking WebXR support...</p>
+          <button id="startButton" type="button">Start experience</button>
+        </header>
+
+        <aside id="mapContainer" aria-label="Map preview">
+          <div id="map"></div>
+          <button id="mapFollowButton" type="button" aria-label="Recenter map">Following</button>
+          <div id="mapEdgeTargets" aria-hidden="true"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

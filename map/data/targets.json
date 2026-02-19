@@ -1,0 +1,7 @@
+{
+  "targets": [
+    { "id": "target-1", "latitude": 33.5645568, "longitude": -7.6563659, "radiusMeters": 5 },
+    { "id": "target-2", "latitude": 33.5647749, "longitude": -7.6571314, "radiusMeters": 5 },
+    { "id": "target-3", "latitude": 33.5639083, "longitude": -7.6567966, "radiusMeters": 5 }
+  ]
+}
