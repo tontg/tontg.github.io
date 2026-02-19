@@ -59,7 +59,8 @@ const state = {
     scene: null,
     camera: null,
     arrowMeshes: new Map(),
-    fallbackHeadingDeg: 0
+    fallbackHeadingDeg: 0,
+    waitingMesh: null
   }
 };
 
@@ -282,10 +283,18 @@ function ensureXrArrow(target) {
 function updateXrArrows(timeSeconds) {
   if (!state.xr.session || !state.xr.scene) return;
   if (state.user.latitude == null || state.user.longitude == null) {
+    if (state.xr.waitingMesh) {
+      state.xr.waitingMesh.visible = true;
+      state.xr.waitingMesh.position.y = 1.45 + Math.sin(timeSeconds * 1.2) * 0.08;
+      state.xr.waitingMesh.rotation.y += 0.008;
+    }
     for (const mesh of state.xr.arrowMeshes.values()) {
       mesh.visible = false;
     }
     return;
+  }
+  if (state.xr.waitingMesh) {
+    state.xr.waitingMesh.visible = false;
   }
 
   const headingDeg = state.user.hasHeading ? state.user.headingDeg : state.xr.fallbackHeadingDeg;
@@ -354,10 +363,42 @@ function setupXrScene() {
   state.xr.scene = scene;
   state.xr.camera = camera;
   state.xr.renderer = renderer;
+
+  const waiting = new THREE.Group();
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(0.24, 0.03, 12, 36),
+    new THREE.MeshStandardMaterial({
+      color: 0x4fd5ff,
+      emissive: 0x0e5169,
+      emissiveIntensity: 0.6,
+      roughness: 0.35,
+      metalness: 0.08
+    })
+  );
+  ring.rotation.x = Math.PI / 2;
+  waiting.add(ring);
+
+  const tip = new THREE.Mesh(
+    new THREE.ConeGeometry(0.08, 0.18, 12),
+    new THREE.MeshStandardMaterial({
+      color: 0x9defff,
+      emissive: 0x0e5169,
+      emissiveIntensity: 0.4,
+      roughness: 0.3,
+      metalness: 0.06
+    })
+  );
+  tip.rotation.x = Math.PI;
+  tip.position.y = -0.16;
+  waiting.add(tip);
+  waiting.position.set(0, 1.5, -2.1);
+  scene.add(waiting);
+  state.xr.waitingMesh = waiting;
 }
 
 function teardownXrScene() {
   clearXrArrows();
+  state.xr.waitingMesh = null;
   if (state.xr.renderer) {
     state.xr.renderer.setAnimationLoop(null);
     state.xr.renderer.dispose();

@@ -45,9 +45,14 @@ body {
 }
 
 body.xr-active #cameraView,
-body.xr-active #overlayArrows,
-body.xr-active #hud {
+body.xr-active #overlayArrows {
   display: none;
+}
+
+body.xr-active #mapContainer {
+  display: block;
+  width: min(30vw, 210px);
+  opacity: 0.94;
 }
 
 .target-arrow {
