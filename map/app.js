@@ -426,12 +426,6 @@ async function startImmersiveArSession() {
     return;
   }
 
-  if (!state.app.experienceReady) {
-    logXr("info", "Experience not ready; starting base experience first");
-    await startExperience();
-  }
-  if (!state.app.experienceReady) return;
-
   if (state.xr.session) return;
 
   const attempts = [
@@ -499,6 +493,11 @@ async function startImmersiveArSession() {
       : state.user.hasHeading
         ? "Immersive AR session active."
         : "Immersive AR active with approximate heading (nearest target is ahead).";
+
+  if (!state.app.experienceReady && !state.app.starting) {
+    logXr("info", "Starting base experience after XR session creation");
+    startExperience();
+  }
 
   state.xr.renderer.setAnimationLoop((time) => {
     updateXrArrows(time / 1000);
