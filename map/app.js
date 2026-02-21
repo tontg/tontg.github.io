@@ -60,12 +60,22 @@ const state = {
     camera: null,
     arrowMeshes: new Map(),
     fallbackHeadingDeg: 0,
-    waitingMesh: null
+    waitingMesh: null,
+    domOverlayActive: false
   }
 };
 
 function byId(id) {
   return document.getElementById(id);
+}
+
+function logXr(level, message, details) {
+  const prefix = "[XR]";
+  if (details !== undefined) {
+    console[level](`${prefix} ${message}`, details);
+  } else {
+    console[level](`${prefix} ${message}`);
+  }
 }
 
 function toRad(value) {
@@ -412,25 +422,64 @@ function teardownXrScene() {
 async function startImmersiveArSession() {
   if (!navigator.xr) {
     state.ui.statusLine.textContent = "WebXR is not available on this browser/device.";
+    logXr("error", "navigator.xr unavailable");
     return;
   }
 
   if (!state.app.experienceReady) {
+    logXr("info", "Experience not ready; starting base experience first");
     await startExperience();
   }
   if (!state.app.experienceReady) return;
 
   if (state.xr.session) return;
 
-  const session = await navigator.xr.requestSession("immersive-ar", {
-    requiredFeatures: ["local"],
-    optionalFeatures: ["dom-overlay"],
-    domOverlay: { root: document.body }
-  });
+  const attempts = [
+    {
+      label: "immersive-ar + dom-overlay",
+      options: {
+        requiredFeatures: ["local"],
+        optionalFeatures: ["dom-overlay"],
+        domOverlay: { root: document.body }
+      },
+      domOverlay: true
+    },
+    {
+      label: "immersive-ar without dom-overlay",
+      options: {
+        requiredFeatures: ["local"]
+      },
+      domOverlay: false
+    }
+  ];
+
+  let session = null;
+  let lastError = null;
+  state.xr.domOverlayActive = false;
+  for (const attempt of attempts) {
+    try {
+      logXr("info", `Requesting session (${attempt.label})`, attempt.options);
+      session = await navigator.xr.requestSession("immersive-ar", attempt.options);
+      state.xr.domOverlayActive = attempt.domOverlay;
+      logXr("info", `Session created (${attempt.label})`);
+      break;
+    } catch (error) {
+      lastError = error;
+      logXr("warn", `Session request failed (${attempt.label})`, {
+        name: error?.name,
+        message: error?.message
+      });
+    }
+  }
+  if (!session) {
+    const detail = lastError ? `${lastError.name}: ${lastError.message}` : "Unknown XR error";
+    throw new Error(`Unable to create immersive-ar session. ${detail}`);
+  }
 
   setupXrScene();
   await state.xr.renderer.xr.setSession(session);
   state.xr.session = session;
+  logXr("info", "XR renderer session attached", { domOverlayActive: state.xr.domOverlayActive });
   if (state.user.latitude != null && state.user.longitude != null) {
     state.xr.fallbackHeadingDeg = computeNearestTargetBearing(
       state.user.latitude,
@@ -439,6 +488,11 @@ async function startImmersiveArSession() {
   }
   document.body.classList.add("xr-active");
   state.ui.enterArButton.textContent = "Exit AR";
+  if (state.xr.domOverlayActive) {
+    logXr("info", "DOM overlay active in XR session");
+  } else {
+    logXr("info", "DOM overlay unavailable; running XR without DOM overlay");
+  }
   state.ui.statusLine.textContent =
     state.user.latitude == null || state.user.longitude == null
       ? "Immersive AR session active. Waiting for location to place target arrows."
@@ -452,7 +506,9 @@ async function startImmersiveArSession() {
   });
 
   session.addEventListener("end", () => {
+    logXr("info", "XR session ended");
     state.xr.session = null;
+    state.xr.domOverlayActive = false;
     teardownXrScene();
     document.body.classList.remove("xr-active");
     state.ui.enterArButton.textContent = "Enter AR";
@@ -463,11 +519,13 @@ async function startImmersiveArSession() {
 async function toggleArSession() {
   try {
     if (state.xr.session) {
+      logXr("info", "Ending XR session by user action");
       await state.xr.session.end();
       return;
     }
     await startImmersiveArSession();
   } catch (error) {
+    logXr("error", "Failed to start immersive AR", { name: error?.name, message: error?.message });
     state.ui.statusLine.textContent =
       `Failed to start AR: ${error.message}. On Quest, enable Experimental Features for WebXR/Passthrough and confirm camera permission.`;
   }
@@ -756,17 +814,23 @@ async function updateXrSupportLabel() {
     state.ui.xrSummary.textContent = "WebXR AR: not available on this device/browser.";
     state.xr.supported = false;
     state.ui.enterArButton.disabled = true;
+    logXr("warn", "WebXR unavailable during support check");
     return;
   }
   try {
     const arSupported = await navigator.xr.isSessionSupported("immersive-ar");
     const vrSupported = await navigator.xr.isSessionSupported("immersive-vr");
+    logXr("info", "Session support results", {
+      immersiveAr: arSupported,
+      immersiveVr: vrSupported
+    });
     state.xr.supported = arSupported || vrSupported;
     state.ui.enterArButton.disabled = false;
     state.ui.xrSummary.textContent = arSupported
       ? "WebXR AR: supported. You can launch immersive AR with Enter AR."
       : "WebXR is available. AR support may require Quest experimental flags; you can still try Enter AR.";
   } catch (error) {
+    logXr("warn", "Session support check failed", { name: error?.name, message: error?.message });
     state.xr.supported = true;
     state.ui.enterArButton.disabled = false;
     state.ui.xrSummary.textContent = `WebXR check uncertain (${error.message}). You can still try Enter AR.`;
