@@ -362,6 +362,7 @@ function setupXrScene() {
   const camera = new THREE.PerspectiveCamera();
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.xr.enabled = true;
+  renderer.xr.setReferenceSpaceType("local");
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.domElement.style.position = "fixed";
@@ -373,6 +374,7 @@ function setupXrScene() {
   state.xr.scene = scene;
   state.xr.camera = camera;
   state.xr.renderer = renderer;
+  logXr("info", "XR renderer configured", { referenceSpaceType: "local" });
 
   const waiting = new THREE.Group();
   const ring = new THREE.Mesh(
