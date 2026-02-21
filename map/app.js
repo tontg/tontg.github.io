@@ -12,6 +12,9 @@ const CAMERA_CONSTRAINTS = {
 const MAP_ZOOM = 19;
 const DISTANCE_SWITCH_METERS = 1000;
 const APP_VERSION = "0.3.0";
+const XR_MINIMAP_ZOOM = 17;
+const XR_MINIMAP_SIZE_PX = 512;
+const XR_MINIMAP_TILE_SIZE = 256;
 const GEO_FIRST_FIX_OPTIONS = {
   enableHighAccuracy: true,
   maximumAge: 0,
@@ -62,7 +65,13 @@ const state = {
     arrowMeshes: new Map(),
     fallbackHeadingDeg: 0,
     waitingMesh: null,
-    domOverlayActive: false
+    domOverlayActive: false,
+    mapCanvas: null,
+    mapContext: null,
+    mapTexture: null,
+    mapPlane: null,
+    mapTileCache: new Map(),
+    mapLastDrawMs: 0
   }
 };
 
@@ -273,6 +282,154 @@ function createXrArrowMesh(targetId) {
   return group;
 }
 
+function lonToTileX(lonDeg, zoom) {
+  const n = 2 ** zoom;
+  return ((lonDeg + 180) / 360) * n;
+}
+
+function latToTileY(latDeg, zoom) {
+  const latRad = toRad(latDeg);
+  const n = 2 ** zoom;
+  return (
+    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n
+  );
+}
+
+function metersPerPixel(latDeg, zoom) {
+  return (156543.03392 * Math.cos(toRad(latDeg))) / (2 ** zoom);
+}
+
+function getXrTileUrl(z, x, y) {
+  const domain = ["a", "b", "c"][Math.abs((x + y) % 3)];
+  return `https://${domain}.tile.openstreetmap.org/${z}/${x}/${y}.png`;
+}
+
+function requestXrMapTile(z, x, y) {
+  const key = `${z}/${x}/${y}`;
+  const existing = state.xr.mapTileCache.get(key);
+  if (existing) return existing;
+
+  const entry = { status: "loading", image: null };
+  state.xr.mapTileCache.set(key, entry);
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.onload = () => {
+    entry.status = "ready";
+    entry.image = img;
+  };
+  img.onerror = () => {
+    entry.status = "error";
+  };
+  img.src = getXrTileUrl(z, x, y);
+  return entry;
+}
+
+function drawXrMapPlaceholder(text) {
+  const ctx = state.xr.mapContext;
+  if (!ctx) return;
+  const size = XR_MINIMAP_SIZE_PX;
+  ctx.fillStyle = "#0a0d12";
+  ctx.fillRect(0, 0, size, size);
+  ctx.strokeStyle = "rgba(255,255,255,0.28)";
+  ctx.lineWidth = 6;
+  ctx.strokeRect(3, 3, size - 6, size - 6);
+  ctx.fillStyle = "#d6f3ff";
+  ctx.font = "26px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("XR MAP", size / 2, size / 2 - 16);
+  ctx.fillStyle = "rgba(214,243,255,0.85)";
+  ctx.font = "18px sans-serif";
+  ctx.fillText(text, size / 2, size / 2 + 18);
+  if (state.xr.mapTexture) state.xr.mapTexture.needsUpdate = true;
+}
+
+function updateXrMiniMap(timeMs) {
+  if (!state.xr.mapContext || !state.xr.mapTexture) return;
+  if (timeMs - state.xr.mapLastDrawMs < 250) return;
+  state.xr.mapLastDrawMs = timeMs;
+
+  if (state.user.latitude == null || state.user.longitude == null) {
+    drawXrMapPlaceholder("Waiting for location...");
+    return;
+  }
+
+  const ctx = state.xr.mapContext;
+  const zoom = XR_MINIMAP_ZOOM;
+  const size = XR_MINIMAP_SIZE_PX;
+  const worldSize = XR_MINIMAP_TILE_SIZE * (2 ** zoom);
+  const centerX = lonToTileX(state.user.longitude, zoom) * XR_MINIMAP_TILE_SIZE;
+  const centerY = latToTileY(state.user.latitude, zoom) * XR_MINIMAP_TILE_SIZE;
+  const left = centerX - size / 2;
+  const top = centerY - size / 2;
+  const startTileX = Math.floor(left / XR_MINIMAP_TILE_SIZE);
+  const endTileX = Math.floor((left + size) / XR_MINIMAP_TILE_SIZE);
+  const startTileY = Math.floor(top / XR_MINIMAP_TILE_SIZE);
+  const endTileY = Math.floor((top + size) / XR_MINIMAP_TILE_SIZE);
+  const tileCount = 2 ** zoom;
+
+  ctx.fillStyle = "#0b0f16";
+  ctx.fillRect(0, 0, size, size);
+
+  for (let ty = startTileY; ty <= endTileY; ty += 1) {
+    if (ty < 0 || ty >= tileCount) continue;
+    for (let tx = startTileX; tx <= endTileX; tx += 1) {
+      const wrappedTx = ((tx % tileCount) + tileCount) % tileCount;
+      const tile = requestXrMapTile(zoom, wrappedTx, ty);
+      if (tile.status !== "ready" || !tile.image) continue;
+
+      const dx = tx * XR_MINIMAP_TILE_SIZE - left;
+      const dy = ty * XR_MINIMAP_TILE_SIZE - top;
+      ctx.drawImage(tile.image, dx, dy, XR_MINIMAP_TILE_SIZE, XR_MINIMAP_TILE_SIZE);
+    }
+  }
+
+  const mpp = metersPerPixel(state.user.latitude, zoom);
+  const centerPx = { x: size / 2, y: size / 2 };
+
+  for (const target of state.targets) {
+    const targetX = lonToTileX(target.longitude, zoom) * XR_MINIMAP_TILE_SIZE;
+    const targetY = latToTileY(target.latitude, zoom) * XR_MINIMAP_TILE_SIZE;
+    let px = targetX - centerX + centerPx.x;
+    const py = targetY - centerY + centerPx.y;
+    if (px < -size) px += worldSize;
+    if (px > size * 2) px -= worldSize;
+
+    const radiusPx = Math.max(2, target.radiusMeters / Math.max(mpp, 0.01));
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgba(79,213,255,0.95)";
+    ctx.fillStyle = "rgba(79,213,255,0.15)";
+    ctx.arc(px, py, radiusPx, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  }
+
+  ctx.beginPath();
+  ctx.fillStyle = "#ffffff";
+  ctx.arc(centerPx.x, centerPx.y, 7, 0, Math.PI * 2);
+  ctx.fill();
+  if (state.user.hasHeading) {
+    const h = toRad(state.user.headingDeg);
+    ctx.strokeStyle = "#ffeb3b";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(centerPx.x, centerPx.y);
+    ctx.lineTo(centerPx.x + Math.sin(h) * 22, centerPx.y - Math.cos(h) * 22);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle = "rgba(255,255,255,0.32)";
+  ctx.lineWidth = 6;
+  ctx.strokeRect(3, 3, size - 6, size - 6);
+  ctx.fillStyle = "rgba(0,0,0,0.45)";
+  ctx.fillRect(0, size - 36, size, 36);
+  ctx.fillStyle = "#e3f7ff";
+  ctx.font = "18px sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("OpenStreetMap XR", 12, size - 13);
+  state.xr.mapTexture.needsUpdate = true;
+}
+
 function clearXrArrows() {
   if (!state.xr.scene) return;
   for (const mesh of state.xr.arrowMeshes.values()) {
@@ -377,6 +534,25 @@ function setupXrScene() {
   state.xr.renderer = renderer;
   logXr("info", "XR renderer configured", { referenceSpaceType: "local" });
 
+  const mapCanvas = document.createElement("canvas");
+  mapCanvas.width = XR_MINIMAP_SIZE_PX;
+  mapCanvas.height = XR_MINIMAP_SIZE_PX;
+  const mapContext = mapCanvas.getContext("2d");
+  const mapTexture = new THREE.CanvasTexture(mapCanvas);
+  mapTexture.colorSpace = THREE.SRGBColorSpace;
+  const mapPlane = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.78, 0.78),
+    new THREE.MeshBasicMaterial({ map: mapTexture, transparent: false })
+  );
+  mapPlane.position.set(0.58, 1.2, -1.3);
+  scene.add(mapPlane);
+  state.xr.mapCanvas = mapCanvas;
+  state.xr.mapContext = mapContext;
+  state.xr.mapTexture = mapTexture;
+  state.xr.mapPlane = mapPlane;
+  state.xr.mapLastDrawMs = 0;
+  drawXrMapPlaceholder("Loading map tiles...");
+
   const waiting = new THREE.Group();
   const ring = new THREE.Mesh(
     new THREE.TorusGeometry(0.24, 0.03, 12, 36),
@@ -412,6 +588,19 @@ function setupXrScene() {
 function teardownXrScene() {
   clearXrArrows();
   state.xr.waitingMesh = null;
+  if (state.xr.mapPlane) {
+    state.xr.scene?.remove(state.xr.mapPlane);
+    state.xr.mapPlane.geometry.dispose();
+    state.xr.mapPlane.material.dispose();
+  }
+  if (state.xr.mapTexture) {
+    state.xr.mapTexture.dispose();
+  }
+  state.xr.mapPlane = null;
+  state.xr.mapTexture = null;
+  state.xr.mapContext = null;
+  state.xr.mapCanvas = null;
+  state.xr.mapLastDrawMs = 0;
   if (state.xr.renderer) {
     state.xr.renderer.setAnimationLoop(null);
     state.xr.renderer.dispose();
@@ -518,6 +707,7 @@ async function startImmersiveArSession() {
 
   state.xr.renderer.setAnimationLoop((time) => {
     updateXrArrows(time / 1000);
+    updateXrMiniMap(time);
     state.xr.renderer.render(state.xr.scene, state.xr.camera);
   });
 
