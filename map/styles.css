@@ -138,6 +138,11 @@ body.xr-active #mapContainer {
   font-size: 0.92rem;
 }
 
+#versionLine {
+  font-size: 0.76rem !important;
+  opacity: 0.85;
+}
+
 #statusPanel .in-range {
   color: var(--ok);
   font-weight: 600;

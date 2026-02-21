@@ -11,6 +11,7 @@ const CAMERA_CONSTRAINTS = {
 
 const MAP_ZOOM = 19;
 const DISTANCE_SWITCH_METERS = 1000;
+const APP_VERSION = "0.3.0";
 const GEO_FIRST_FIX_OPTIONS = {
   enableHighAccuracy: true,
   maximumAge: 0,
@@ -456,8 +457,15 @@ async function startImmersiveArSession() {
     try {
       logXr("info", `Requesting session (${attempt.label})`, attempt.options);
       session = await navigator.xr.requestSession("immersive-ar", attempt.options);
-      state.xr.domOverlayActive = attempt.domOverlay;
-      logXr("info", `Session created (${attempt.label})`);
+      const domOverlayStateType = session.domOverlayState?.type ?? null;
+      state.xr.domOverlayActive = !!domOverlayStateType;
+      logXr("info", `Session created (${attempt.label})`, {
+        domOverlayRequested: attempt.domOverlay,
+        domOverlayStateType
+      });
+      if (attempt.domOverlay && !state.xr.domOverlayActive) {
+        logXr("warn", "DOM overlay requested but not active in created session");
+      }
       break;
     } catch (error) {
       lastError = error;
@@ -482,12 +490,19 @@ async function startImmersiveArSession() {
       state.user.longitude
     );
   }
-  document.body.classList.add("xr-active");
+  if (state.xr.domOverlayActive) {
+    document.body.classList.add("xr-active");
+  } else {
+    document.body.classList.remove("xr-active");
+  }
   state.ui.enterArButton.textContent = "Exit AR";
   if (state.xr.domOverlayActive) {
     logXr("info", "DOM overlay active in XR session");
+    state.ui.xrSummary.textContent = "WebXR DOM overlay active in AR session.";
   } else {
     logXr("info", "DOM overlay unavailable; running XR without DOM overlay");
+    state.ui.xrSummary.textContent =
+      "DOM overlay unavailable on this AR session: OpenStreetMap panel cannot be shown in-headset.";
   }
   state.ui.statusLine.textContent =
     state.user.latitude == null || state.user.longitude == null
@@ -896,12 +911,15 @@ async function init() {
     overlayArrows: byId("overlayArrows"),
     mapFollowButton: byId("mapFollowButton"),
     mapEdgeTargets: byId("mapEdgeTargets"),
+    versionLine: byId("versionLine"),
     statusLine: byId("statusLine"),
     distanceSummary: byId("distanceSummary"),
     xrSummary: byId("xrSummary"),
     startButton: byId("startButton"),
     enterArButton: byId("enterArButton")
   };
+
+  state.ui.versionLine.textContent = `Version: ${APP_VERSION}`;
 
   await loadTargets();
   setupMap();
