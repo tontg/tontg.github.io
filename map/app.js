@@ -517,8 +517,8 @@ function createXrArrowMesh(targetId) {
 
 function createXrClosestArrowMesh() {
   const group = new THREE.Group();
-  const cone = new THREE.Mesh(
-    new THREE.ConeGeometry(0.26, 0.56, 18),
+  const shaft = new THREE.Mesh(
+    new THREE.BoxGeometry(0.08, 0.06, 0.46),
     new THREE.MeshStandardMaterial({
       color: 0xfff176,
       emissive: 0x8a6d00,
@@ -527,12 +527,11 @@ function createXrClosestArrowMesh() {
       metalness: 0.1
     })
   );
-  cone.rotation.x = Math.PI;
-  cone.position.y = -0.22;
-  group.add(cone);
+  shaft.position.set(0, 0, -0.12);
+  group.add(shaft);
 
-  const stem = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.06, 0.06, 0.27, 12),
+  const tip = new THREE.Mesh(
+    new THREE.ConeGeometry(0.12, 0.26, 16),
     new THREE.MeshStandardMaterial({
       color: 0xfff9c4,
       emissive: 0x8a6d00,
@@ -541,8 +540,24 @@ function createXrClosestArrowMesh() {
       metalness: 0.08
     })
   );
-  stem.position.y = 0.1;
-  group.add(stem);
+  // Cone points forward in camera-local -Z direction.
+  tip.rotation.x = -Math.PI / 2;
+  tip.position.set(0, 0, -0.42);
+  group.add(tip);
+
+  const tail = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.03, 0.03, 0.16, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0xfff9c4,
+      emissive: 0x8a6d00,
+      emissiveIntensity: 0.35,
+      roughness: 0.4,
+      metalness: 0.05
+    })
+  );
+  tail.rotation.x = -Math.PI / 2;
+  tail.position.set(0, 0, 0.16);
+  group.add(tail);
   return group;
 }
 
@@ -812,7 +827,7 @@ function clearXrArrows() {
   }
   state.xr.arrowMeshes.clear();
   if (state.xr.closestArrowMesh) {
-    state.xr.scene.remove(state.xr.closestArrowMesh);
+    state.xr.closestArrowMesh.parent?.remove(state.xr.closestArrowMesh);
     state.xr.closestArrowMesh = null;
   }
 }
@@ -849,6 +864,7 @@ function updateXrArrows(timeSeconds) {
 
   const headingDeg = state.user.hasHeading ? state.user.headingDeg : state.xr.fallbackHeadingDeg;
   const nextStep = getNextJourneyStepInfo(state.user.latitude, state.user.longitude);
+  const xrCamera = state.xr.renderer?.xr?.getCamera(state.xr.camera) ?? null;
 
   for (const target of state.targets) {
     const mesh = ensureXrArrow(target);
@@ -881,7 +897,9 @@ function updateXrArrows(timeSeconds) {
   if (nextStep) {
     if (!state.xr.closestArrowMesh) {
       state.xr.closestArrowMesh = createXrClosestArrowMesh();
-      state.xr.scene.add(state.xr.closestArrowMesh);
+    }
+    if (xrCamera && state.xr.closestArrowMesh.parent !== xrCamera) {
+      xrCamera.add(state.xr.closestArrowMesh);
     }
     const bearing = bearingDegrees(
       state.user.latitude,
@@ -890,12 +908,10 @@ function updateXrArrows(timeSeconds) {
       nextStep.target.longitude
     );
     const signed = shortestSignedAngleDeg(headingDeg, bearing);
-    const relRad = toRad(signed);
-    const x = Math.sin(relRad) * 1.9;
-    const z = -Math.cos(relRad) * 1.9;
-    const y = 1.25 + Math.sin(timeSeconds * 1.8) * 0.07;
-    state.xr.closestArrowMesh.position.set(x, y, z);
-    state.xr.closestArrowMesh.scale.setScalar(0.92);
+    // Body-attached compass: near waist, horizontal, rotating in viewer space.
+    state.xr.closestArrowMesh.position.set(0, -0.62, -0.55);
+    state.xr.closestArrowMesh.rotation.set(0, -toRad(signed), 0);
+    state.xr.closestArrowMesh.scale.setScalar(0.9);
     state.xr.closestArrowMesh.visible = true;
   } else if (state.xr.closestArrowMesh) {
     state.xr.closestArrowMesh.visible = false;
