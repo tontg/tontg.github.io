@@ -11,7 +11,7 @@ const CAMERA_CONSTRAINTS = {
 
 const MAP_ZOOM = 19;
 const DISTANCE_SWITCH_METERS = 1000;
-const APP_VERSION = "0.3.0";
+const APP_VERSION = "0.5.0";
 const XR_MINIMAP_ZOOM = 17;
 const XR_MINIMAP_SIZE_PX = 512;
 const XR_MINIMAP_TILE_SIZE = 256;
@@ -31,9 +31,19 @@ const state = {
     latitude: null,
     longitude: null,
     headingDeg: 0,
-    hasHeading: false
+    hasHeading: false,
+    lastPositionTs: 0,
+    lastHeadingTs: 0,
+    headingSource: "none"
   },
   targets: [],
+  targetsById: new Map(),
+  journey: {
+    name: "Journey",
+    sequence: [],
+    activeStepIndex: 0,
+    totalPlannedDistanceMeters: 0
+  },
   map: null,
   ui: null,
   layers: {
@@ -71,7 +81,17 @@ const state = {
     mapTexture: null,
     mapPlane: null,
     mapTileCache: new Map(),
-    mapLastDrawMs: 0
+    mapLastDrawMs: 0,
+    hudCanvas: null,
+    hudContext: null,
+    hudTexture: null,
+    hudPlane: null,
+    hudLastDrawMs: 0,
+    closestArrowMesh: null
+  },
+  i18n: {
+    messages: null,
+    language: "en"
   }
 };
 
@@ -86,6 +106,33 @@ function logXr(level, message, details) {
   } else {
     console[level](`${prefix} ${message}`);
   }
+}
+
+function detectPreferredLanguage() {
+  const languages = Array.isArray(navigator.languages) ? navigator.languages : [navigator.language];
+  const first = String(languages?.[0] ?? "en").toLowerCase();
+  return first.startsWith("fr") ? "fr" : "en";
+}
+
+function t(key, values = {}) {
+  const lang = state.i18n.language || "en";
+  const messages = state.i18n.messages || {};
+  const template =
+    messages?.[lang]?.[key] ??
+    messages?.en?.[key] ??
+    key;
+  return String(template).replace(/\{(\w+)\}/g, (_, name) => {
+    const value = values[name];
+    return value == null ? `{${name}}` : String(value);
+  });
+}
+
+async function loadI18nMessages() {
+  const response = await fetch("./data/i18n.json");
+  if (!response.ok) {
+    throw new Error(`Unable to load i18n (${response.status}).`);
+  }
+  state.i18n.messages = await response.json();
 }
 
 function toRad(value) {
@@ -111,9 +158,171 @@ function shortestSignedAngleDeg(from, to) {
 
 function formatDistance(distanceMeters) {
   if (distanceMeters < DISTANCE_SWITCH_METERS) {
-    return `${distanceMeters.toFixed(1)} m`;
+    return `${Math.round(distanceMeters)} m`;
   }
-  return `${(distanceMeters / 1000).toFixed(2)} km`;
+  const distanceKm = distanceMeters / 1000;
+  if (distanceKm < 10) {
+    return `${distanceKm.toFixed(1)} km`;
+  }
+  return `${Math.round(distanceKm)} km`;
+}
+
+function getTargetById(targetId) {
+  return state.targetsById.get(targetId) ?? null;
+}
+
+function computeJourneyPlannedDistance(sequence) {
+  if (!Array.isArray(sequence) || sequence.length < 2) return 0;
+  let total = 0;
+  for (let index = 0; index < sequence.length - 1; index += 1) {
+    const from = getTargetById(sequence[index]);
+    const to = getTargetById(sequence[index + 1]);
+    if (!from || !to) continue;
+    total += haversineMeters(from.latitude, from.longitude, to.latitude, to.longitude);
+  }
+  return total;
+}
+
+function getJourneyRemainingDistanceMeters(lat, lon) {
+  const { sequence, activeStepIndex } = state.journey;
+  if (!sequence.length) return null;
+  if (activeStepIndex >= sequence.length) return 0;
+
+  let remaining = 0;
+  const nextTarget = getTargetById(sequence[activeStepIndex]);
+  if (nextTarget && lat != null && lon != null) {
+    remaining += haversineMeters(lat, lon, nextTarget.latitude, nextTarget.longitude);
+  }
+
+  for (let index = activeStepIndex; index < sequence.length - 1; index += 1) {
+    const from = getTargetById(sequence[index]);
+    const to = getTargetById(sequence[index + 1]);
+    if (!from || !to) continue;
+    remaining += haversineMeters(from.latitude, from.longitude, to.latitude, to.longitude);
+  }
+  return remaining;
+}
+
+function updateJourneyProgress(lat, lon) {
+  const { sequence } = state.journey;
+  if (!sequence.length) return;
+
+  while (state.journey.activeStepIndex < sequence.length) {
+    const requiredId = sequence[state.journey.activeStepIndex];
+    const requiredTarget = getTargetById(requiredId);
+    if (!requiredTarget) break;
+    const distance = haversineMeters(lat, lon, requiredTarget.latitude, requiredTarget.longitude);
+    if (distance > requiredTarget.radiusMeters) break;
+    state.journey.activeStepIndex += 1;
+  }
+}
+
+function updateJourneySummaryLine(lat, lon) {
+  const { sequence, activeStepIndex, totalPlannedDistanceMeters, name } = state.journey;
+  if (!sequence.length) {
+    state.ui.journeySummary.textContent = t("journey.notConfigured");
+    return;
+  }
+
+  if (activeStepIndex >= sequence.length) {
+    state.ui.journeySummary.textContent = t("journey.complete", {
+      name,
+      remaining: formatDistance(0),
+      planned: formatDistance(totalPlannedDistanceMeters)
+    });
+    return;
+  }
+
+  const nextTargetId = sequence[activeStepIndex];
+  const remainingMeters = getJourneyRemainingDistanceMeters(lat, lon);
+  const remainingText = remainingMeters == null ? "--" : formatDistance(remainingMeters);
+  state.ui.journeySummary.textContent = t("journey.progress", {
+    name,
+    step: activeStepIndex + 1,
+    total: sequence.length,
+    next: nextTargetId,
+    remaining: remainingText,
+    planned: formatDistance(totalPlannedDistanceMeters)
+  });
+}
+
+function applyLanguage(languageCode) {
+  state.i18n.language = languageCode === "fr" ? "fr" : "en";
+
+  if (!state.ui) return;
+  state.ui.languageLabel.textContent = t("ui.language");
+  state.ui.versionLine.textContent = t("ui.version", { version: APP_VERSION });
+  state.ui.aboutLink.textContent = t("ui.about");
+  state.ui.aboutTitle.textContent = t("ui.about");
+  state.ui.aboutCloseButton.textContent = t("ui.close");
+  state.ui.aboutCodedWithLabel.textContent = t("about.codedWithLabel");
+  state.ui.aboutLicenseLabel.textContent = t("about.licenseLabel");
+  state.ui.aboutMapDataLabel.textContent = t("about.mapDataLabel");
+  state.ui.aboutMapLibraryLabel.textContent = t("about.mapLibraryLabel");
+  state.ui.aboutXrLibraryLabel.textContent = t("about.xrLibraryLabel");
+  state.ui.aboutFaviconLabel.textContent = t("about.favicon");
+  state.ui.mapFollowButton.textContent = state.mapControl.followUser ? t("ui.following") : t("ui.recenter");
+  if (state.app.starting) state.ui.startButton.textContent = t("ui.starting");
+  else if (state.app.experienceReady) state.ui.startButton.textContent = t("ui.active");
+  else state.ui.startButton.textContent = t("ui.start");
+  state.ui.enterArButton.textContent = state.xr.session ? t("ui.exitAr") : t("ui.enterAr");
+
+  if (state.app.starting) {
+    state.ui.statusLine.textContent = t("status.requestingPermissions");
+  } else if (!state.app.experienceReady) {
+    state.ui.statusLine.textContent = t("status.tapStart");
+  }
+
+  if (state.user.latitude == null || state.user.longitude == null) {
+    state.ui.distanceSummary.textContent = state.app.experienceReady
+      ? t("distance.locationUnavailable")
+      : t("distance.noFix");
+  } else {
+    updateTargetOverlay();
+  }
+
+  updateJourneySummaryLine(state.user.latitude, state.user.longitude);
+}
+
+function getNextJourneyStepInfo(lat, lon) {
+  const { sequence, activeStepIndex } = state.journey;
+  if (!sequence.length || activeStepIndex >= sequence.length) return null;
+  const targetId = sequence[activeStepIndex];
+  const target = getTargetById(targetId);
+  if (!target) return null;
+  const distance =
+    lat == null || lon == null ? null : haversineMeters(lat, lon, target.latitude, target.longitude);
+  return {
+    target,
+    targetId,
+    stepIndex: activeStepIndex,
+    totalSteps: sequence.length,
+    distance
+  };
+}
+
+function computeXrConfidence(nowMs) {
+  if (state.user.latitude == null || state.user.longitude == null || state.user.lastPositionTs <= 0) {
+    return { label: t("confidence.low"), detail: t("confidence.noLocation"), color: "#ff5d5d" };
+  }
+
+  const locAgeSec = (nowMs - state.user.lastPositionTs) / 1000;
+  const headingAgeSec =
+    state.user.hasHeading && state.user.lastHeadingTs > 0
+      ? (nowMs - state.user.lastHeadingTs) / 1000
+      : Number.POSITIVE_INFINITY;
+
+  let score = 2;
+  if (locAgeSec > 20) score -= 2;
+  else if (locAgeSec > 8) score -= 1;
+
+  if (headingAgeSec > 20) score -= 2;
+  else if (headingAgeSec > 8) score -= 1;
+
+  if (!state.user.hasHeading) score -= 1;
+  if (score >= 2) return { label: t("confidence.high"), detail: t("confidence.stable"), color: "#46dd7a" };
+  if (score >= 1) return { label: t("confidence.med"), detail: t("confidence.someDrift"), color: "#ffd05a" };
+  return { label: t("confidence.low"), detail: t("confidence.stale"), color: "#ff5d5d" };
 }
 
 function haversineMeters(lat1, lon1, lat2, lon2) {
@@ -150,21 +359,45 @@ async function loadTargets() {
     throw new Error(`Unable to load targets (${response.status}).`);
   }
   const data = await response.json();
-  if (!Array.isArray(data.targets)) {
-    throw new Error("targets.json must contain a `targets` array.");
+  const pointsSource = Array.isArray(data.points) ? data.points : data.targets;
+  if (!Array.isArray(pointsSource)) {
+    throw new Error("targets.json must contain a `points` array (or legacy `targets` array).");
   }
-  state.targets = data.targets.map((target, index) => ({
+  state.targets = pointsSource.map((target, index) => ({
     id: target.id ?? `target-${index + 1}`,
     latitude: Number(target.latitude),
     longitude: Number(target.longitude),
     radiusMeters: Number(target.radiusMeters)
   }));
+  state.targetsById = new Map(state.targets.map((target) => [target.id, target]));
+
+  let journeySequence = [];
+  let journeyName = "Journey";
+  if (Array.isArray(data.journey?.sequence)) {
+    journeySequence = data.journey.sequence.map((value) => String(value));
+    if (typeof data.journey.name === "string" && data.journey.name.trim()) {
+      journeyName = data.journey.name.trim();
+    }
+  } else {
+    journeySequence = state.targets.map((target) => target.id);
+  }
+
+  const missingIds = journeySequence.filter((targetId) => !state.targetsById.has(targetId));
+  if (missingIds.length) {
+    throw new Error(`Journey sequence references unknown point ids: ${missingIds.join(", ")}`);
+  }
+
+  state.journey.name = journeyName;
+  state.journey.sequence = journeySequence;
+  state.journey.activeStepIndex = 0;
+  state.journey.totalPlannedDistanceMeters = computeJourneyPlannedDistance(journeySequence);
 }
 
 function setupMap() {
+  // attribution is displayed in the about section
   const map = L.map("map", {
     zoomControl: false,
-    attributionControl: true
+    attributionControl: false
   }).setView([0, 0], 2);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -215,7 +448,7 @@ function setupMap() {
     if (!state.mapControl.followUser) return;
     state.mapControl.followUser = false;
     state.ui.mapFollowButton.classList.add("off");
-    state.ui.mapFollowButton.textContent = "Recenter";
+    state.ui.mapFollowButton.textContent = t("ui.recenter");
   };
   ["pointerdown", "touchstart", "mousedown", "wheel"].forEach((eventName) => {
     mapDom.addEventListener(eventName, disableFollow, { passive: true });
@@ -279,6 +512,37 @@ function createXrArrowMesh(targetId) {
 
   const charSum = Array.from(targetId).reduce((sum, char) => sum + char.charCodeAt(0), 0);
   group.userData.floatPhase = (charSum % 37) * 0.17;
+  return group;
+}
+
+function createXrClosestArrowMesh() {
+  const group = new THREE.Group();
+  const cone = new THREE.Mesh(
+    new THREE.ConeGeometry(0.26, 0.56, 18),
+    new THREE.MeshStandardMaterial({
+      color: 0xfff176,
+      emissive: 0x8a6d00,
+      emissiveIntensity: 0.65,
+      roughness: 0.28,
+      metalness: 0.1
+    })
+  );
+  cone.rotation.x = Math.PI;
+  cone.position.y = -0.22;
+  group.add(cone);
+
+  const stem = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.27, 12),
+    new THREE.MeshStandardMaterial({
+      color: 0xfff9c4,
+      emissive: 0x8a6d00,
+      emissiveIntensity: 0.45,
+      roughness: 0.36,
+      metalness: 0.08
+    })
+  );
+  stem.position.y = 0.1;
+  group.add(stem);
   return group;
 }
 
@@ -430,12 +694,127 @@ function updateXrMiniMap(timeMs) {
   state.xr.mapTexture.needsUpdate = true;
 }
 
+function drawXrHud(textLine1, textLine2, textLine3 = "", confidence = null) {
+  const ctx = state.xr.hudContext;
+  if (!ctx || !state.xr.hudTexture) return;
+
+  const width = 640;
+  const height = 220;
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = "rgba(2, 8, 14, 0.72)";
+  ctx.fillRect(0, 0, width, height);
+  ctx.strokeStyle = "rgba(157, 239, 255, 0.9)";
+  ctx.lineWidth = 6;
+  ctx.strokeRect(3, 3, width - 6, height - 6);
+  ctx.fillStyle = "#e7fbff";
+  ctx.font = "bold 38px sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText(textLine1, 24, 72);
+  ctx.fillStyle = "rgba(231, 251, 255, 0.95)";
+  ctx.font = "30px sans-serif";
+  ctx.fillText(textLine2, 24, 128);
+  ctx.fillStyle = "rgba(231, 251, 255, 0.9)";
+  ctx.font = "24px sans-serif";
+  ctx.fillText(textLine3, 24, 176);
+
+  if (confidence) {
+    ctx.fillStyle = confidence.color;
+    ctx.fillRect(width - 170, 18, 146, 42);
+    ctx.fillStyle = "#061018";
+    ctx.font = "bold 24px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(confidence.label, width - 97, 46);
+    ctx.textAlign = "left";
+  }
+  state.xr.hudTexture.needsUpdate = true;
+}
+
+function updateXrHud(timeMs) {
+  if (!state.xr.session || !state.xr.hudPlane || !state.xr.renderer || !state.xr.hudContext) return;
+  if (timeMs - state.xr.hudLastDrawMs < 180) return;
+  state.xr.hudLastDrawMs = timeMs;
+
+  const xrCamera = state.xr.renderer.xr.getCamera(state.xr.camera);
+  const camPos = new THREE.Vector3();
+  const camDir = new THREE.Vector3();
+  xrCamera.getWorldPosition(camPos);
+  xrCamera.getWorldDirection(camDir);
+  const hudPos = camPos.clone().add(camDir.multiplyScalar(1.2));
+  hudPos.y = camPos.y - 0.2;
+  state.xr.hudPlane.position.copy(hudPos);
+  state.xr.hudPlane.lookAt(camPos);
+  const confidence = computeXrConfidence(timeMs);
+
+  if (state.user.latitude == null || state.user.longitude == null) {
+    updateJourneySummaryLine(null, null);
+    drawXrHud(
+      t("xr.nextWaiting"),
+      t("xr.distanceUnknown"),
+      t("xr.turnUnknown"),
+      confidence
+    );
+    return;
+  }
+
+  const nextStep = getNextJourneyStepInfo(state.user.latitude, state.user.longitude);
+  if (!nextStep) {
+    updateJourneySummaryLine(state.user.latitude, state.user.longitude);
+    drawXrHud(t("xr.nextComplete"), t("xr.distanceZero"), t("xr.turnUnknown"), confidence);
+    return;
+  }
+
+  updateJourneyProgress(state.user.latitude, state.user.longitude);
+  updateJourneySummaryLine(state.user.latitude, state.user.longitude);
+
+  const headingDeg = state.user.hasHeading ? state.user.headingDeg : state.xr.fallbackHeadingDeg;
+  const bearing = bearingDegrees(
+    state.user.latitude,
+    state.user.longitude,
+    nextStep.target.latitude,
+    nextStep.target.longitude
+  );
+  const signedTurn = shortestSignedAngleDeg(headingDeg, bearing);
+  const turnText =
+    Math.abs(signedTurn) < 5
+      ? t("turn.ahead")
+      : signedTurn > 0
+        ? t("turn.right", { deg: Math.abs(signedTurn).toFixed(0) })
+        : t("turn.left", { deg: Math.abs(signedTurn).toFixed(0) });
+  const inRange = nextStep.distance != null && nextStep.distance <= nextStep.target.radiusMeters;
+  const { sequence, activeStepIndex, totalPlannedDistanceMeters } = state.journey;
+  const nextWaypointId =
+    sequence.length && activeStepIndex < sequence.length ? sequence[activeStepIndex] : "done";
+  const remainingJourney = getJourneyRemainingDistanceMeters(state.user.latitude, state.user.longitude);
+  const remainingJourneyText = remainingJourney == null ? "--" : formatDistance(remainingJourney);
+  drawXrHud(
+    t("xr.lineNext", {
+      id: nextStep.targetId,
+      inRange: inRange ? t("xr.inRangeSuffix") : ""
+    }),
+    t("xr.lineDistance", {
+      distance: nextStep.distance == null ? "--" : formatDistance(nextStep.distance),
+      remaining: remainingJourneyText
+    }),
+    t("xr.lineTurn", {
+      turn: turnText,
+      heading: state.user.hasHeading ? t("heading.compass") : t("heading.fallback"),
+      planned: formatDistance(totalPlannedDistanceMeters),
+      confidence: confidence.detail
+    }),
+    confidence
+  );
+}
+
 function clearXrArrows() {
   if (!state.xr.scene) return;
   for (const mesh of state.xr.arrowMeshes.values()) {
     state.xr.scene.remove(mesh);
   }
   state.xr.arrowMeshes.clear();
+  if (state.xr.closestArrowMesh) {
+    state.xr.scene.remove(state.xr.closestArrowMesh);
+    state.xr.closestArrowMesh = null;
+  }
 }
 
 function ensureXrArrow(target) {
@@ -459,6 +838,9 @@ function updateXrArrows(timeSeconds) {
     for (const mesh of state.xr.arrowMeshes.values()) {
       mesh.visible = false;
     }
+    if (state.xr.closestArrowMesh) {
+      state.xr.closestArrowMesh.visible = false;
+    }
     return;
   }
   if (state.xr.waitingMesh) {
@@ -466,6 +848,7 @@ function updateXrArrows(timeSeconds) {
   }
 
   const headingDeg = state.user.hasHeading ? state.user.headingDeg : state.xr.fallbackHeadingDeg;
+  const nextStep = getNextJourneyStepInfo(state.user.latitude, state.user.longitude);
 
   for (const target of state.targets) {
     const mesh = ensureXrArrow(target);
@@ -494,19 +877,35 @@ function updateXrArrows(timeSeconds) {
     mesh.scale.setScalar(scale);
     mesh.visible = true;
   }
+
+  if (nextStep) {
+    if (!state.xr.closestArrowMesh) {
+      state.xr.closestArrowMesh = createXrClosestArrowMesh();
+      state.xr.scene.add(state.xr.closestArrowMesh);
+    }
+    const bearing = bearingDegrees(
+      state.user.latitude,
+      state.user.longitude,
+      nextStep.target.latitude,
+      nextStep.target.longitude
+    );
+    const signed = shortestSignedAngleDeg(headingDeg, bearing);
+    const relRad = toRad(signed);
+    const x = Math.sin(relRad) * 1.9;
+    const z = -Math.cos(relRad) * 1.9;
+    const y = 1.25 + Math.sin(timeSeconds * 1.8) * 0.07;
+    state.xr.closestArrowMesh.position.set(x, y, z);
+    state.xr.closestArrowMesh.scale.setScalar(0.92);
+    state.xr.closestArrowMesh.visible = true;
+  } else if (state.xr.closestArrowMesh) {
+    state.xr.closestArrowMesh.visible = false;
+  }
 }
 
 function computeNearestTargetBearing(lat, lon) {
-  if (!state.targets.length) return 0;
-  let nearest = null;
-  for (const target of state.targets) {
-    const distance = haversineMeters(lat, lon, target.latitude, target.longitude);
-    if (!nearest || distance < nearest.distance) {
-      nearest = { target, distance };
-    }
-  }
-  if (!nearest) return 0;
-  return bearingDegrees(lat, lon, nearest.target.latitude, nearest.target.longitude);
+  const nextStep = getNextJourneyStepInfo(lat, lon);
+  if (!nextStep) return 0;
+  return bearingDegrees(lat, lon, nextStep.target.latitude, nextStep.target.longitude);
 }
 
 function setupXrScene() {
@@ -552,6 +951,25 @@ function setupXrScene() {
   state.xr.mapPlane = mapPlane;
   state.xr.mapLastDrawMs = 0;
   drawXrMapPlaceholder("Loading map tiles...");
+
+  const hudCanvas = document.createElement("canvas");
+  hudCanvas.width = 640;
+  hudCanvas.height = 220;
+  const hudContext = hudCanvas.getContext("2d");
+  const hudTexture = new THREE.CanvasTexture(hudCanvas);
+  hudTexture.colorSpace = THREE.SRGBColorSpace;
+  const hudPlane = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.92, 0.32),
+    new THREE.MeshBasicMaterial({ map: hudTexture, transparent: true })
+  );
+  hudPlane.position.set(0, 1.2, -1.2);
+  scene.add(hudPlane);
+  state.xr.hudCanvas = hudCanvas;
+  state.xr.hudContext = hudContext;
+  state.xr.hudTexture = hudTexture;
+  state.xr.hudPlane = hudPlane;
+  state.xr.hudLastDrawMs = 0;
+  drawXrHud(t("xr.nextWaiting"), t("xr.distanceUnknown"), t("xr.turnUnknown"));
 
   const waiting = new THREE.Group();
   const ring = new THREE.Mesh(
@@ -601,6 +1019,19 @@ function teardownXrScene() {
   state.xr.mapContext = null;
   state.xr.mapCanvas = null;
   state.xr.mapLastDrawMs = 0;
+  if (state.xr.hudPlane) {
+    state.xr.scene?.remove(state.xr.hudPlane);
+    state.xr.hudPlane.geometry.dispose();
+    state.xr.hudPlane.material.dispose();
+  }
+  if (state.xr.hudTexture) {
+    state.xr.hudTexture.dispose();
+  }
+  state.xr.hudPlane = null;
+  state.xr.hudTexture = null;
+  state.xr.hudContext = null;
+  state.xr.hudCanvas = null;
+  state.xr.hudLastDrawMs = 0;
   if (state.xr.renderer) {
     state.xr.renderer.setAnimationLoop(null);
     state.xr.renderer.dispose();
@@ -613,7 +1044,7 @@ function teardownXrScene() {
 
 async function startImmersiveArSession() {
   if (!navigator.xr) {
-    state.ui.statusLine.textContent = "WebXR is not available on this browser/device.";
+    state.ui.statusLine.textContent = t("status.webxrUnavailable");
     logXr("error", "navigator.xr unavailable");
     return;
   }
@@ -684,21 +1115,20 @@ async function startImmersiveArSession() {
   } else {
     document.body.classList.remove("xr-active");
   }
-  state.ui.enterArButton.textContent = "Exit AR";
+  state.ui.enterArButton.textContent = t("ui.exitAr");
   if (state.xr.domOverlayActive) {
     logXr("info", "DOM overlay active in XR session");
-    state.ui.xrSummary.textContent = "WebXR DOM overlay active in AR session.";
+    state.ui.xrSummary.textContent = t("xr.summaryDomOverlayOn");
   } else {
     logXr("info", "DOM overlay unavailable; running XR without DOM overlay");
-    state.ui.xrSummary.textContent =
-      "DOM overlay unavailable on this AR session: OpenStreetMap panel cannot be shown in-headset.";
+    state.ui.xrSummary.textContent = t("xr.summaryDomOverlayOff");
   }
   state.ui.statusLine.textContent =
     state.user.latitude == null || state.user.longitude == null
-      ? "Immersive AR session active. Waiting for location to place target arrows."
+      ? t("status.xrWaitingLocation")
       : state.user.hasHeading
-        ? "Immersive AR session active."
-        : "Immersive AR active with approximate heading (nearest target is ahead).";
+        ? t("status.xrActive")
+        : t("status.xrApproxHeading");
 
   if (!state.app.experienceReady && !state.app.starting) {
     logXr("info", "Starting base experience after XR session creation");
@@ -708,6 +1138,7 @@ async function startImmersiveArSession() {
   state.xr.renderer.setAnimationLoop((time) => {
     updateXrArrows(time / 1000);
     updateXrMiniMap(time);
+    updateXrHud(time);
     state.xr.renderer.render(state.xr.scene, state.xr.camera);
   });
 
@@ -717,8 +1148,8 @@ async function startImmersiveArSession() {
     state.xr.domOverlayActive = false;
     teardownXrScene();
     document.body.classList.remove("xr-active");
-    state.ui.enterArButton.textContent = "Enter AR";
-    state.ui.statusLine.textContent = "Immersive AR session ended.";
+    state.ui.enterArButton.textContent = t("ui.enterAr");
+    state.ui.statusLine.textContent = t("status.xrEnded");
   });
 }
 
@@ -732,8 +1163,7 @@ async function toggleArSession() {
     await startImmersiveArSession();
   } catch (error) {
     logXr("error", "Failed to start immersive AR", { name: error?.name, message: error?.message });
-    state.ui.statusLine.textContent =
-      `Failed to start AR: ${error.message}. On Quest, enable Experimental Features for WebXR/Passthrough and confirm camera permission.`;
+    state.ui.statusLine.textContent = t("status.failedStartAr", { error: error.message });
   }
 }
 
@@ -845,24 +1275,19 @@ function updateTargetOverlay() {
   const { latitude, longitude, headingDeg } = state.user;
   if (latitude == null || longitude == null) return;
 
-  let nearestTarget = null;
-  let insideTarget = null;
-
-  state.targets.forEach((target) => {
-    const distance = haversineMeters(latitude, longitude, target.latitude, target.longitude);
-
-    if (!nearestTarget || distance < nearestTarget.distance) {
-      nearestTarget = { target, distance };
-    }
-    if (distance <= target.radiusMeters && !insideTarget) {
-      insideTarget = { target, distance };
-    }
-  });
-
-  if (insideTarget) {
-    state.ui.distanceSummary.innerHTML = `<span class="in-range">Inside ${insideTarget.target.id} zone (${insideTarget.target.radiusMeters}m)</span>`;
-  } else if (nearestTarget) {
-    state.ui.distanceSummary.innerHTML = `<span class="out-range">Nearest: ${nearestTarget.target.id} at ${formatDistance(nearestTarget.distance)}</span>`;
+  updateJourneyProgress(latitude, longitude);
+  updateJourneySummaryLine(latitude, longitude);
+  const nextStep = getNextJourneyStepInfo(latitude, longitude);
+  if (!nextStep) {
+    state.ui.distanceSummary.innerHTML = `<span class="in-range">${t("distance.journeyComplete")}</span>`;
+  } else if (nextStep.distance != null && nextStep.distance <= nextStep.target.radiusMeters) {
+    state.ui.distanceSummary.innerHTML =
+      `<span class="in-range">${t("distance.insideNextStep", { id: nextStep.targetId, radius: nextStep.target.radiusMeters })}</span>`;
+  } else if (nextStep.distance != null) {
+    state.ui.distanceSummary.innerHTML =
+      `<span class="out-range">${t("distance.nextStep", { id: nextStep.targetId, distance: formatDistance(nextStep.distance) })}</span>`;
+  } else {
+    state.ui.distanceSummary.innerHTML = `<span class="out-range">${t("distance.waitingNextStep")}</span>`;
   }
 
   if (!state.capabilities.orientationForArrows || !state.user.hasHeading) {
@@ -910,6 +1335,8 @@ function handleOrientationEvent(event) {
   if (heading == null) return;
   state.user.headingDeg = heading;
   state.user.hasHeading = true;
+  state.user.lastHeadingTs = Date.now();
+  state.user.headingSource = "compass";
   updateMapUserState();
   updateTargetOverlay();
 }
@@ -951,9 +1378,12 @@ async function enableOrientation() {
 function applyPositionUpdate(position) {
   state.user.latitude = position.coords.latitude;
   state.user.longitude = position.coords.longitude;
+  state.user.lastPositionTs = Date.now();
   if (typeof position.coords.heading === "number" && !Number.isNaN(position.coords.heading)) {
     state.user.headingDeg = normalizeAngleDeg(position.coords.heading);
     state.user.hasHeading = true;
+    state.user.lastHeadingTs = Date.now();
+    state.user.headingSource = "geolocation";
   }
   updateMapUserState();
   updateTargetOverlay();
@@ -961,19 +1391,19 @@ function applyPositionUpdate(position) {
 
 function getGeolocationErrorMessage(error) {
   if (!error || typeof error.code !== "number") {
-    return "Unable to read location.";
+    return t("geo.unableRead");
   }
 
   if (error.code === error.PERMISSION_DENIED) {
-    return "Location permission denied by browser/device settings.";
+    return t("geo.permissionDenied");
   }
   if (error.code === error.POSITION_UNAVAILABLE) {
-    return "Location unavailable on this device right now.";
+    return t("geo.positionUnavailable");
   }
   if (error.code === error.TIMEOUT) {
-    return "Location request timed out before first fix.";
+    return t("geo.timeout");
   }
-  return error.message || "Unable to read location.";
+  return error.message || t("geo.unableRead");
 }
 
 function getCurrentPositionOnce(options) {
@@ -990,7 +1420,7 @@ async function enableGeolocation() {
   try {
     const firstFix = await getCurrentPositionOnce(GEO_FIRST_FIX_OPTIONS);
     applyPositionUpdate(firstFix);
-    state.ui.statusLine.textContent = "Live position tracking active.";
+    state.ui.statusLine.textContent = t("status.liveTracking");
   } catch (error) {
     throw new Error(getGeolocationErrorMessage(error));
   }
@@ -998,10 +1428,12 @@ async function enableGeolocation() {
   state.watchers.geolocation = navigator.geolocation.watchPosition(
     (position) => {
       applyPositionUpdate(position);
-      state.ui.statusLine.textContent = "Live position tracking active.";
+      state.ui.statusLine.textContent = t("status.liveTracking");
     },
     (error) => {
-      state.ui.statusLine.textContent = `Location error: ${getGeolocationErrorMessage(error)}`;
+      state.ui.statusLine.textContent = t("status.locationError", {
+        error: getGeolocationErrorMessage(error)
+      });
     },
     GEO_WATCH_OPTIONS
   );
@@ -1017,7 +1449,7 @@ async function enableCamera() {
 
 async function updateXrSupportLabel() {
   if (!navigator.xr) {
-    state.ui.xrSummary.textContent = "WebXR AR: not available on this device/browser.";
+    state.ui.xrSummary.textContent = t("xr.summaryUnavailable");
     state.xr.supported = false;
     state.ui.enterArButton.disabled = true;
     logXr("warn", "WebXR unavailable during support check");
@@ -1032,14 +1464,12 @@ async function updateXrSupportLabel() {
     });
     state.xr.supported = arSupported || vrSupported;
     state.ui.enterArButton.disabled = false;
-    state.ui.xrSummary.textContent = arSupported
-      ? "WebXR AR: supported. You can launch immersive AR with Enter AR."
-      : "WebXR is available. AR support may require Quest experimental flags; you can still try Enter AR.";
+    state.ui.xrSummary.textContent = arSupported ? t("xr.summarySupported") : t("xr.summaryTryAr");
   } catch (error) {
     logXr("warn", "Session support check failed", { name: error?.name, message: error?.message });
     state.xr.supported = true;
     state.ui.enterArButton.disabled = false;
-    state.ui.xrSummary.textContent = `WebXR check uncertain (${error.message}). You can still try Enter AR.`;
+    state.ui.xrSummary.textContent = t("xr.summaryUncertain", { error: error.message });
   }
 }
 
@@ -1049,8 +1479,8 @@ async function startExperience() {
 
   state.app.starting = true;
   state.ui.startButton.disabled = true;
-  state.ui.startButton.textContent = "Starting...";
-  state.ui.statusLine.textContent = "Requesting camera, location, and orientation permissions...";
+  state.ui.startButton.textContent = t("ui.starting");
+  state.ui.statusLine.textContent = t("status.requestingPermissions");
 
   try {
     // Orientation permission should be requested as early as possible in the user gesture path.
@@ -1066,30 +1496,31 @@ async function startExperience() {
 
     if (!orientationEnabled) {
       clearArrowOverlay();
-      state.ui.statusLine.textContent =
-        "Camera and location active. Device orientation unavailable/denied, live-view arrows disabled.";
+      state.ui.statusLine.textContent = t("status.orientationUnavailable");
     } else {
       enableArrowOverlay();
-      state.ui.statusLine.textContent =
-        "Camera, location, and orientation active. If arrows are missing, rotate device to initialize compass.";
+      state.ui.statusLine.textContent = t("status.orientationActive");
     }
 
     if (geolocationError) {
-      state.ui.statusLine.textContent =
-        `Camera active. Location unavailable (${geolocationError.message}). AR can still be launched.`;
-      state.ui.distanceSummary.textContent = "Location unavailable: target distance and position are paused.";
+      state.ui.statusLine.textContent = t("status.locationUnavailableArOk", {
+        error: geolocationError.message
+      });
+      state.ui.distanceSummary.textContent = t("distance.locationUnavailable");
+      updateJourneySummaryLine(null, null);
     }
 
     state.app.experienceReady = true;
-    state.ui.startButton.textContent = "Experience active";
+    state.ui.startButton.textContent = t("ui.active");
     updateTargetOverlay();
   } catch (error) {
-    const secureHint = !window.isSecureContext
-      ? " HTTPS is required for geolocation."
-      : " On Quest, also verify headset Location Services are enabled.";
-    state.ui.statusLine.textContent = `Setup failed: ${error.message}.${secureHint}`;
+    const secureHint = !window.isSecureContext ? t("hint.httpsRequired") : t("hint.questLocation");
+    state.ui.statusLine.textContent = t("status.setupFailed", {
+      error: error.message,
+      hint: secureHint
+    });
     state.ui.startButton.disabled = false;
-    state.ui.startButton.textContent = "Retry start";
+    state.ui.startButton.textContent = t("ui.retry");
   } finally {
     state.app.starting = false;
   }
@@ -1101,15 +1532,35 @@ async function init() {
     overlayArrows: byId("overlayArrows"),
     mapFollowButton: byId("mapFollowButton"),
     mapEdgeTargets: byId("mapEdgeTargets"),
+    languageLabel: byId("languageLabel"),
+    languageSelect: byId("languageSelect"),
     versionLine: byId("versionLine"),
     statusLine: byId("statusLine"),
     distanceSummary: byId("distanceSummary"),
+    journeySummary: byId("journeySummary"),
     xrSummary: byId("xrSummary"),
     startButton: byId("startButton"),
-    enterArButton: byId("enterArButton")
+    enterArButton: byId("enterArButton"),
+    aboutLink: byId("aboutLink"),
+    aboutModal: byId("aboutModal"),
+    aboutCloseButton: byId("aboutCloseButton"),
+    aboutTitle: byId("aboutTitle"),
+    aboutCodedWithLabel: byId("aboutCodedWithLabel"),
+    aboutLicenseLabel: byId("aboutLicenseLabel"),
+    aboutMapDataLabel: byId("aboutMapDataLabel"),
+    aboutMapLibraryLabel: byId("aboutMapLibraryLabel"),
+    aboutXrLibraryLabel: byId("aboutXrLibraryLabel"),
+    aboutFaviconLabel: byId("aboutFaviconLabel")
   };
 
-  state.ui.versionLine.textContent = `Version: ${APP_VERSION}`;
+  await loadI18nMessages();
+  const preferredLanguage = detectPreferredLanguage();
+  state.ui.languageSelect.value = preferredLanguage;
+  applyLanguage(preferredLanguage);
+  state.ui.statusLine.textContent = t("status.tapStart");
+  state.ui.distanceSummary.textContent = t("distance.noFix");
+  state.ui.xrSummary.textContent = t("xr.summaryChecking");
+  updateJourneySummaryLine(null, null);
 
   await loadTargets();
   setupMap();
@@ -1117,10 +1568,34 @@ async function init() {
 
   state.ui.startButton.addEventListener("click", startExperience);
   state.ui.enterArButton.addEventListener("click", toggleArSession);
+  state.ui.languageSelect.addEventListener("change", () => {
+    applyLanguage(state.ui.languageSelect.value);
+    updateXrSupportLabel();
+    updateTargetOverlay();
+  });
+  state.ui.aboutLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    state.ui.aboutModal.classList.add("open");
+    state.ui.aboutModal.setAttribute("aria-hidden", "false");
+  });
+  state.ui.aboutCloseButton.addEventListener("click", () => {
+    state.ui.aboutModal.classList.remove("open");
+    state.ui.aboutModal.setAttribute("aria-hidden", "true");
+  });
+  state.ui.aboutModal.addEventListener("click", (event) => {
+    if (event.target !== state.ui.aboutModal) return;
+    state.ui.aboutModal.classList.remove("open");
+    state.ui.aboutModal.setAttribute("aria-hidden", "true");
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    state.ui.aboutModal.classList.remove("open");
+    state.ui.aboutModal.setAttribute("aria-hidden", "true");
+  });
   state.ui.mapFollowButton.addEventListener("click", () => {
     state.mapControl.followUser = true;
     state.ui.mapFollowButton.classList.remove("off");
-    state.ui.mapFollowButton.textContent = "Following";
+    state.ui.mapFollowButton.textContent = t("ui.following");
     updateMapUserState();
   });
 }

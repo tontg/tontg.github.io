@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico"><!-- source https://www.flaticon.com/free-icon/path-a-to-b_106147 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Geo Camera Map Overlay</title>
     <link
@@ -19,10 +20,19 @@
 
       <section id="hud">
         <header id="statusPanel">
+          <p>
+            <label for="languageSelect" id="languageLabel">Language</label>
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+          </p>
           <p id="versionLine">Version: -</p>
           <p id="statusLine">Tap start to request camera, location, and orientation.</p>
           <p id="distanceSummary">No location fix yet.</p>
+          <p id="journeySummary">Journey: not configured.</p>
           <p id="xrSummary">Checking WebXR support...</p>
+          <p><a id="aboutLink" href="#" aria-haspopup="dialog">About</a></p>
           <button id="startButton" type="button">Start experience</button>
           <button id="enterArButton" type="button" disabled>Enter AR</button>
         </header>
@@ -34,6 +44,23 @@
         </aside>
       </section>
     </main>
+
+    <section id="aboutModal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+      <article class="modal-card">
+        <header class="modal-header">
+          <h2 id="aboutTitle">About</h2>
+          <button id="aboutCloseButton" type="button" aria-label="Close about dialog">Close</button>
+        </header>
+        <div class="modal-body">
+          <p><span id="aboutCodedWithLabel">Coded with</span> <a href="https://chatgpt.com/codex" target="_blank">GPT-5.3-Codex</a></p>
+          <p><span id="aboutLicenseLabel">License:</span> <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a></p>
+          <p><span id="aboutMapDataLabel">Map data:</span> <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors</p>
+          <p><span id="aboutMapLibraryLabel">Map library:</span> <a href="https://leafletjs.com/" target="_blank">Leaflet</a></p>
+          <p><span id="aboutXrLibraryLabel">3D/XR library:</span> <a href="https://threejs.org/" target="_blank">Three.js</a></p>
+          <p><span id="aboutFaviconLabel">Favicon source:</span> <a href="https://www.flaticon.com/free-icon/path-a-to-b_106147" target="_blank" rel="noopener noreferrer">Path A To B free icon from Freepik</a></p>
+        </div>
+      </article>
+    </section>
 
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

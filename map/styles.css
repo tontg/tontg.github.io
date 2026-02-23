@@ -138,6 +138,30 @@ body.xr-active #mapContainer {
   font-size: 0.92rem;
 }
 
+#languageLabel {
+  margin-right: 0.35rem;
+  font-size: 0.84rem;
+}
+
+#languageSelect {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 7px;
+  background: rgb(50, 50, 50);
+  color: #f4f8ff;
+  font-size: 0.82rem;
+  padding: 0.12rem 0.28rem;
+}
+
+#languageSelect option {
+  background-color: rgb(50, 50, 50);
+  color: #f4f8ff;
+}
+
+#languageSelect:open {
+  background-color: rgb(50, 50, 50);
+  color: #f4f8ff;
+}
+
 #versionLine {
   font-size: 0.76rem !important;
   opacity: 0.85;
@@ -150,6 +174,15 @@ body.xr-active #mapContainer {
 
 #statusPanel .out-range {
   color: var(--warn);
+}
+
+#aboutLink {
+  color: #bfefff;
+  font-size: 0.85rem;
+}
+
+#aboutLink:visited {
+  color: #bfefff;
 }
 
 #startButton {
@@ -262,6 +295,65 @@ body.xr-active #mapContainer {
   font-weight: 900;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.95);
   transform-origin: center center;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-card {
+  width: min(92vw, 34rem);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  background: rgba(8, 11, 15, 0.95);
+  color: #eef8ff;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+#aboutCloseButton {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eef8ff;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 0.75rem 0.9rem 0.95rem;
+}
+
+.modal-body p {
+  margin: 0.45rem 0;
+  line-height: 1.35;
+}
+
+.modal-body a {
+  color: #8de0ff;
 }
 
 @media (max-width: 700px) {

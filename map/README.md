@@ -1,6 +1,6 @@
 # Geo Camera Map Overlay
 
-Simple web project for smartphones and WebXR-capable browsers (2D overlay mode).
+Web project for smartphones and Meta Quest browser (2D camera mode + immersive WebXR AR mode).
 
 ## Features
 
@@ -13,25 +13,41 @@ Simple web project for smartphones and WebXR-capable browsers (2D overlay mode).
 - Arrow size scales as inverse square of distance
 - In-range state when user enters a target radius
 - Distances displayed in meters and kilometers
+- Journey/track sequence support with repeated points
+- Estimated planned route distance and live remaining distance
+- Immersive AR rendering with Three.js on supported devices
+- In-app About modal with credits/licensing links
+- Internationalization (English/French) with browser auto-detect + manual switch
 
 ## Files
 
 - `index.html`: page structure + CDN imports
 - `styles.css`: UI layout and visual styles
-- `app.js`: camera, geolocation, orientation, map, and overlay logic
+- `app.js`: camera, geolocation, orientation, map, journey, and XR logic
 - `data/targets.json`: editable target definitions
+- `data/i18n.json`: translation strings (`en`, `fr`)
 
-## Edit target positions
+## Edit points and journey
 
 Update `data/targets.json`:
 
 ```json
 {
-  "targets": [
-    { "id": "target-1", "latitude": 33.5645568, "longitude": -7.6563659, "radiusMeters": 5 }
-  ]
+  "points": [
+    { "id": "A", "latitude": 33.5645568, "longitude": -7.6563659, "radiusMeters": 5 },
+    { "id": "B", "latitude": 33.5647749, "longitude": -7.6571314, "radiusMeters": 5 },
+    { "id": "C", "latitude": 33.5639083, "longitude": -7.6567966, "radiusMeters": 5 }
+  ],
+  "journey": {
+    "name": "Demo Journey",
+    "sequence": ["A", "B", "C", "A", "C"]
+  }
 }
 ```
+
+- `points`: unique waypoint definitions.
+- `journey.sequence`: ordered waypoint IDs to visit (supports repeats).
+- Progress auto-advances when the user enters the radius of the next required point.
 
 ## Run
 
@@ -41,7 +57,24 @@ Use HTTPS (mandatory for camera/geolocation/orientation on mobile browsers):
 2. Open the page on iOS/Android/Quest browser.
 3. Tap `Start experience` and grant permissions.
 
+## Internationalization
+
+- Language auto-detect uses browser language (`fr*` => French, otherwise English).
+- Manual switch is available in the status panel.
+- All translations are in `data/i18n.json`.
+
 ## Notes
 
 - On iOS, orientation permission is requested after user interaction.
-- WebXR status is shown in the HUD; current implementation uses 2D overlays.
+- WebXR status is shown in the HUD.
+- Immersive AR uses `Three.js`.
+- If `dom-overlay` is unsupported on a headset, HTML panels may not appear in immersive AR; XR-native overlays still work.
+
+## Credits
+
+- Coded with GPT-5.3-Codex
+- License: Apache License, Version 2.0
+- Map data: OpenStreetMap contributors
+- Map library: Leaflet
+- 3D/XR library: Three.js
+- Favicon source: https://www.flaticon.com/free-icon/path-a-to-b_106147
