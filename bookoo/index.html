@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookoo Scale Logger</title>
+  <link rel='icon' type='image/svg+xml' href='./favicon.svg' />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js" integrity="sha384-pPi0zxBAoDu6+JXW/C68UZLvBUUtU+7zonhif43rqj7pxsGyqyqzcian2Rj37Rss" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <h1 class="title">Bookoo Coffee Scale - BLE Session Logger</h1>
+      <div class="badge"><span id="status-dot" class="dot"></span><span id="status-text">Disconnected</span></div>
+    </div>
+
+    <section class="panel">
+      <div class="controls">
+        <button id="connect-btn" class="primary">Connect Scale</button>
+        <button id="disconnect-btn" class="danger" disabled>Disconnect</button>
+        <button id="tare-btn" class="warn" disabled>Tare</button>
+        <button id="start-session-btn" disabled>Start Session</button>
+        <button id="stop-session-btn" disabled>Stop Session</button>
+        <button id="export-btn" disabled>Export Selected CSV</button>
+        <button id="theme-toggle-btn" type="button">Dark Mode</button>
+      </div>
+      <div class="meta" id="meta">Web Bluetooth requires HTTPS or localhost and a user gesture to connect.</div>
+    </section>
+
+    <section class="panel grid-2">
+      <div>
+        <strong>Scale Settings</strong>
+        <div class="settings-grid">
+          <label>Beep Level
+            <select id="beep-level" class="field">
+              <option value="0">0 (Off)</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+          <label>Auto-off (minutes)
+            <input id="autooff-min" class="field" type="number" min="5" max="30" value="10" />
+          </label>
+          <label>Flow Smoothing
+            <select id="flow-smoothing" class="field">
+              <option value="1">On</option>
+              <option value="0">Off</option>
+            </select>
+          </label>
+          <label>Auto-mode Stop Condition
+            <select id="stop-condition" class="field">
+              <option value="0">Stop liquid flow</option>
+              <option value="1">Container removed</option>
+            </select>
+          </label>
+          <label>Low Battery Threshold (%)
+            <input id="low-battery-threshold" class="field" type="number" min="1" max="99" value="20" />
+          </label>
+        </div>
+        <div class="controls compact">
+          <button id="apply-beep-btn" disabled>Apply Beep</button>
+          <button id="apply-autooff-btn" disabled>Apply Auto-off</button>
+          <button id="apply-smoothing-btn" disabled>Apply Smoothing</button>
+          <button id="apply-stop-cond-btn" disabled>Apply Stop Condition</button>
+        </div>
+      </div>
+
+      <div>
+        <strong>Timer and Modes</strong>
+        <div class="controls compact">
+          <button id="timer-start-btn" disabled>Start Timer</button>
+          <button id="timer-stop-btn" disabled>Stop Timer</button>
+          <button id="timer-reset-btn" disabled>Reset Timer</button>
+          <button id="tare-start-btn" class="warn" disabled>Tare + Start</button>
+          <button id="calibrate-btn" class="danger" disabled>Calibration Command</button>
+        </div>
+        <div class="toggles">
+          <label><input type="checkbox" id="show-flow" checked /> Show Flow on Chart</label>
+          <label><input type="checkbox" id="auto-start" checked /> Auto-start session when weight rises from near-zero</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel stats">
+      <div class="stat"><div class="k">Current Weight</div><div class="v" id="current-weight">-</div></div>
+      <div class="stat"><div class="k">Current Flow</div><div class="v" id="current-flow">-</div></div>
+      <div class="stat"><div class="k">Battery</div><div class="v" id="battery">-</div></div>
+      <div class="stat"><div class="k">Standby</div><div class="v" id="standby">-</div></div>
+      <div class="stat"><div class="k">Active Session</div><div class="v" id="active-session">None</div></div>
+      <div class="stat"><div class="k">Packets</div><div class="v" id="packet-count">0</div></div>
+      <div class="stat"><div class="k">Checksum Errors</div><div class="v" id="checksum-errors">0</div></div>
+      <div class="stat"><div class="k">Packet Rate</div><div class="v" id="packet-rate">0.00 /s</div></div>
+      <div class="stat"><div class="k">Last Valid Packet</div><div class="v" id="last-packet">-</div></div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <div id="chart"></div>
+      </div>
+      <div class="panel">
+        <div class="session-head">
+          <strong>Sessions</strong>
+          <span id="session-count" class="muted-small">0</span>
+        </div>
+        <div id="sessions" class="sessions"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <strong>Selected Session Samples</strong>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>t (s)</th>
+              <th>Scale ms</th>
+              <th>Weight (g)</th>
+              <th>Flow (g/s)</th>
+              <th>Battery (%)</th>
+              <th>Standby (min)</th>
+              <th>Unit</th>
+            </tr>
+          </thead>
+          <tbody id="samples-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
