@@ -17,7 +17,7 @@ const XR_MINIMAP_ZOOM = 17;
 const XR_MINIMAP_SIZE_PX = 512;
 const XR_MINIMAP_TILE_SIZE = 256;
 const APPROXIMATE_LOCATION_TIMEOUT_MS = 4000;
-const APPROXIMATE_LOCATION_URL = "https://ipwho.is/?fields=success,message,latitude,longitude";
+const APPROXIMATE_LOCATION_URL = "https://ipapi.co/json/";
 const GEO_FIRST_FIX_OPTIONS = {
   enableHighAccuracy: true,
   maximumAge: 0,
@@ -1444,8 +1444,8 @@ async function fetchApproximateLocationFromIp() {
     }
 
     const data = await response.json();
-    if (data?.success !== true) {
-      throw new Error(data?.message || "Approximate location lookup failed.");
+    if (data?.error === true) {
+      throw new Error(data?.reason || data?.message || "Approximate location lookup failed.");
     }
 
     const latitude = Number(data.latitude);
