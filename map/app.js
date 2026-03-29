@@ -427,24 +427,24 @@ function setupMap() {
     icon: createHeadingIcon(0)
   });
 
-  state.targets.forEach((target) => {
-    const circle = L.circle([target.latitude, target.longitude], {
-      radius: target.radiusMeters,
-      color: "#4fd5ff",
-      weight: 2,
-      fillColor: "#4fd5ff",
-      fillOpacity: 0.2
-    }).addTo(map);
+    state.targets.forEach((target) => {
+      const circle = L.circle([target.latitude, target.longitude], {
+        radius: target.radiusMeters,
+        color: "#000000",
+        weight: 4,
+        fillColor: "#4fd5ff",
+        fillOpacity: 0.2
+      }).addTo(map);
     circle.bindTooltip(`${target.id} (${target.radiusMeters}m)`);
     state.layers.targetCircles.push(circle);
 
-    const marker = L.circleMarker([target.latitude, target.longitude], {
-      radius: 4,
-      color: "#4fd5ff",
-      weight: 2,
-      fillColor: "#4fd5ff",
-      fillOpacity: 1
-    }).addTo(map);
+      const marker = L.circleMarker([target.latitude, target.longitude], {
+        radius: 4,
+        color: "#000000",
+        weight: 3,
+        fillColor: "#4fd5ff",
+        fillOpacity: 1
+      }).addTo(map);
     marker.bindTooltip(target.id);
     state.layers.targetMarkers.push(marker);
   });
