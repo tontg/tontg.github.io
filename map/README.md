@@ -6,7 +6,7 @@ Web project for smartphones and Meta Quest browser (2D camera mode + immersive W
 
 - Full-screen live camera view
 - Bottom-right square mini-map (Leaflet + OpenStreetMap, no API key)
-- Approximate pre-permission map centering via `https://ipapi.co/json/`
+- Approximate pre-permission map centering via `https://ip-intelligence.abstractapi.com/v1/`
 - Live user location (with browser permission)
 - User heading arrow on map (device orientation / compass)
 - Target circles loaded from static JSON
@@ -68,14 +68,14 @@ Use HTTPS (mandatory for camera/geolocation/orientation on mobile browsers):
 - `manifest.webmanifest` enables installability on browsers that support PWAs.
 - The manifest includes PNG icons because some browsers and OS install flows ignore SVG-only icon sets.
 - `sw.js` caches the local app shell for faster reloads and limited offline startup.
-- Camera, geolocation, map tiles, and the `ipapi.co` lookup still require network/device support at runtime.
+- Camera, geolocation, map tiles, and the `ip-intelligence.abstractapi.com` lookup still require network/device support at runtime.
 
 ## Approximate location fallback
 
-- Before explicit geolocation is granted, the app tries `https://ipapi.co/json/` to get an approximate IP-based latitude/longitude.
+- Before explicit geolocation is granted, the app calls `https://ip-intelligence.abstractapi.com/v1/` with `fields=location` to get approximate IP-based latitude/longitude.
 - This is only used to center the map roughly while waiting for a real browser geolocation fix.
 - When real geolocation arrives, it replaces the IP-based position immediately.
-- The `ipapi.co` request is best-effort and can fail because of network policy, CORS, privacy tooling, or timeout without breaking the app.
+- The Abstract API request is best-effort and can fail because of network policy, CORS, privacy tooling, timeout, or quota/rate limits without breaking the app.
 
 ## Internationalization
 
@@ -97,5 +97,5 @@ Use HTTPS (mandatory for camera/geolocation/orientation on mobile browsers):
 - Map data: OpenStreetMap contributors
 - Map library: Leaflet
 - 3D/XR library: Three.js
-- Approximate geolocation bootstrap: ipapi.co
+- Approximate geolocation bootstrap: Abstract IP Intelligence API
 - Favicon source: https://www.flaticon.com/free-icon/path-a-to-b_106147

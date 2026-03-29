@@ -17,7 +17,9 @@ const XR_MINIMAP_ZOOM = 17;
 const XR_MINIMAP_SIZE_PX = 512;
 const XR_MINIMAP_TILE_SIZE = 256;
 const APPROXIMATE_LOCATION_TIMEOUT_MS = 4000;
-const APPROXIMATE_LOCATION_URL = "https://ipapi.co/json/";
+const APPROXIMATE_LOCATION_API_KEY = "86f387292cda4ed9bcac3daaac7f1d60";
+const APPROXIMATE_LOCATION_URL =
+  `https://ip-intelligence.abstractapi.com/v1/?api_key=${APPROXIMATE_LOCATION_API_KEY}&fields=location`;
 const GEO_FIRST_FIX_OPTIONS = {
   enableHighAccuracy: true,
   maximumAge: 0,
@@ -1442,14 +1444,17 @@ async function fetchApproximateLocationFromIp() {
     if (!response.ok) {
       throw new Error(`Approximate location lookup failed (${response.status}).`);
     }
+    if (response.status === 204) {
+      throw new Error("Approximate location lookup returned no coordinates.");
+    }
 
     const data = await response.json();
-    if (data?.error === true) {
+    if (data?.error) {
       throw new Error(data?.reason || data?.message || "Approximate location lookup failed.");
     }
 
-    const latitude = Number(data.latitude);
-    const longitude = Number(data.longitude);
+    const latitude = Number(data?.location?.latitude);
+    const longitude = Number(data?.location?.longitude);
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
       throw new Error("Approximate location lookup returned invalid coordinates.");
     }

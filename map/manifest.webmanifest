@@ -39,5 +39,6 @@
       "type": "image/svg+xml",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "display_override": ["window-controls-overlay"]
 }
