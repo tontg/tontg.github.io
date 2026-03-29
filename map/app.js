@@ -10,11 +10,14 @@ const CAMERA_CONSTRAINTS = {
 };
 
 const MAP_ZOOM = 19;
+const APPROXIMATE_MAP_ZOOM = 11;
 const DISTANCE_SWITCH_METERS = 1000;
-const APP_VERSION = "0.5.0";
+const APP_VERSION = "0.6.0";
 const XR_MINIMAP_ZOOM = 17;
 const XR_MINIMAP_SIZE_PX = 512;
 const XR_MINIMAP_TILE_SIZE = 256;
+const APPROXIMATE_LOCATION_TIMEOUT_MS = 4000;
+const APPROXIMATE_LOCATION_URL = "http://ip-api.com/json/?fields=status,message,lat,lon";
 const GEO_FIRST_FIX_OPTIONS = {
   enableHighAccuracy: true,
   maximumAge: 0,
@@ -30,6 +33,7 @@ const state = {
   user: {
     latitude: null,
     longitude: null,
+    locationSource: "none",
     headingDeg: 0,
     hasHeading: false,
     lastPositionTs: 0,
@@ -269,6 +273,8 @@ function applyLanguage(languageCode) {
 
   if (state.app.starting) {
     state.ui.statusLine.textContent = t("status.requestingPermissions");
+  } else if (!state.app.experienceReady && state.user.locationSource === "ip") {
+    state.ui.statusLine.textContent = t("status.tapStartApprox");
   } else if (!state.app.experienceReady) {
     state.ui.statusLine.textContent = t("status.tapStart");
   }
@@ -1279,7 +1285,9 @@ function updateMapUserState() {
   }
 
   if (state.mapControl.followUser) {
-    const targetZoom = state.mapControl.hasCenteredOnce ? state.map.getZoom() : MAP_ZOOM;
+    const targetZoom = state.mapControl.hasCenteredOnce
+      ? state.map.getZoom()
+      : (state.user.locationSource === "ip" ? APPROXIMATE_MAP_ZOOM : MAP_ZOOM);
     state.map.setView(latLng, targetZoom, { animate: false });
     state.mapControl.hasCenteredOnce = true;
   }
@@ -1392,9 +1400,14 @@ async function enableOrientation() {
 }
 
 function applyPositionUpdate(position) {
+  const previousSource = state.user.locationSource;
   state.user.latitude = position.coords.latitude;
   state.user.longitude = position.coords.longitude;
+  state.user.locationSource = "geolocation";
   state.user.lastPositionTs = Date.now();
+  if (previousSource !== "geolocation") {
+    state.mapControl.hasCenteredOnce = false;
+  }
   if (typeof position.coords.heading === "number" && !Number.isNaN(position.coords.heading)) {
     state.user.headingDeg = normalizeAngleDeg(position.coords.heading);
     state.user.hasHeading = true;
@@ -1403,6 +1416,72 @@ function applyPositionUpdate(position) {
   }
   updateMapUserState();
   updateTargetOverlay();
+}
+
+function applyApproximatePositionUpdate(latitude, longitude) {
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return;
+  if (state.user.locationSource === "geolocation") return;
+
+  state.user.latitude = latitude;
+  state.user.longitude = longitude;
+  state.user.locationSource = "ip";
+  state.user.lastPositionTs = Date.now();
+  updateMapUserState();
+  updateTargetOverlay();
+}
+
+async function fetchApproximateLocationFromIp() {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), APPROXIMATE_LOCATION_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(APPROXIMATE_LOCATION_URL, {
+      method: "GET",
+      signal: controller.signal
+    });
+    if (!response.ok) {
+      throw new Error(`Approximate location lookup failed (${response.status}).`);
+    }
+
+    const data = await response.json();
+    if (data?.status !== "success") {
+      throw new Error(data?.message || "Approximate location lookup failed.");
+    }
+
+    const latitude = Number(data.lat);
+    const longitude = Number(data.lon);
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+      throw new Error("Approximate location lookup returned invalid coordinates.");
+    }
+
+    return { latitude, longitude };
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+}
+
+async function bootstrapApproximateLocation() {
+  try {
+    const approximateLocation = await fetchApproximateLocationFromIp();
+    applyApproximatePositionUpdate(approximateLocation.latitude, approximateLocation.longitude);
+    if (!state.app.experienceReady && state.user.locationSource === "ip") {
+      state.ui.statusLine.textContent = t("status.tapStartApprox");
+    }
+  } catch (error) {
+    if (error?.name === "AbortError") return;
+    console.warn("[geo] Approximate IP lookup unavailable.", error);
+  }
+}
+
+async function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  if (!window.isSecureContext) return;
+
+  try {
+    await navigator.serviceWorker.register("./sw.js");
+  } catch (error) {
+    console.warn("[pwa] Service worker registration failed.", error);
+  }
 }
 
 function getGeolocationErrorMessage(error) {
@@ -1543,6 +1622,7 @@ async function startExperience() {
 }
 
 async function init() {
+  void registerServiceWorker();
   state.ui = {
     cameraView: byId("cameraView"),
     overlayArrows: byId("overlayArrows"),
@@ -1580,6 +1660,7 @@ async function init() {
 
   await loadTargets();
   setupMap();
+  void bootstrapApproximateLocation();
   updateXrSupportLabel();
 
   state.ui.startButton.addEventListener("click", startExperience);
