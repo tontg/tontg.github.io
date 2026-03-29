@@ -6,7 +6,7 @@ Web project for smartphones and Meta Quest browser (2D camera mode + immersive W
 
 - Full-screen live camera view
 - Bottom-right square mini-map (Leaflet + OpenStreetMap, no API key)
-- Approximate pre-permission map centering via `http://ip-api.com/json/`
+- Approximate pre-permission map centering via `https://ipwho.is/`
 - Live user location (with browser permission)
 - User heading arrow on map (device orientation / compass)
 - Target circles loaded from static JSON
@@ -68,14 +68,14 @@ Use HTTPS (mandatory for camera/geolocation/orientation on mobile browsers):
 - `manifest.webmanifest` enables installability on browsers that support PWAs.
 - The manifest includes PNG icons because some browsers and OS install flows ignore SVG-only icon sets.
 - `sw.js` caches the local app shell for faster reloads and limited offline startup.
-- Camera, geolocation, map tiles, and the `ip-api.com` lookup still require network/device support at runtime.
+- Camera, geolocation, map tiles, and the `ipwho.is` lookup still require network/device support at runtime.
 
 ## Approximate location fallback
 
-- Before explicit geolocation is granted, the app tries `http://ip-api.com/json/` to get an approximate IP-based latitude/longitude.
+- Before explicit geolocation is granted, the app tries `https://ipwho.is/` to get an approximate IP-based latitude/longitude.
 - This is only used to center the map roughly while waiting for a real browser geolocation fix.
 - When real geolocation arrives, it replaces the IP-based position immediately.
-- The `ip-api.com` request is best-effort and can fail because of network policy, CORS, privacy tooling, timeout, or HTTPS mixed-content rules without breaking the app.
+- The `ipwho.is` request is best-effort and can fail because of network policy, CORS, privacy tooling, or timeout without breaking the app.
 
 ## Internationalization
 
@@ -97,5 +97,5 @@ Use HTTPS (mandatory for camera/geolocation/orientation on mobile browsers):
 - Map data: OpenStreetMap contributors
 - Map library: Leaflet
 - 3D/XR library: Three.js
-- Approximate geolocation bootstrap: ip-api.com
+- Approximate geolocation bootstrap: ipwho.is
 - Favicon source: https://www.flaticon.com/free-icon/path-a-to-b_106147
