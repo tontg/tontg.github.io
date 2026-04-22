@@ -54,7 +54,9 @@
 
         .brand {
             display: flex;
+            align-items: center;
             justify-content: center;
+            gap: 18px;
             margin-bottom: 20px;
         }
 
@@ -67,9 +69,9 @@
 
         h1 {
             color: #172033;
-            margin-bottom: 10px;
+            margin-bottom: 0;
             font-size: 2.35rem;
-            text-align: center;
+            text-align: left;
             line-height: 1.12;
         }
 
@@ -233,8 +235,14 @@
                 padding: 30px 20px;
             }
 
+            .brand {
+                flex-direction: column;
+                gap: 14px;
+            }
+
             h1 {
                 font-size: 2rem;
+                text-align: center;
             }
 
             .job-link {
@@ -265,8 +273,8 @@
     <div class="container">
         <div class="brand">
             <img src="./favicon.png" alt="HPS" class="brand-logo">
+            <h1>Build the future of payments with HPS</h1>
         </div>
-        <h1>Build the future of payments with HPS</h1>
         <p class="subtitle">Explore open roles, learn more about HPS, or send an open application.</p>
 
         <div class="links-section">
