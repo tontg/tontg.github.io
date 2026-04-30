@@ -11,6 +11,48 @@
     <meta property="og:image" content="https://tontg.github.io/joinhps/favicon.png">
     <link rel="icon" href="favicon.png">
     <style>
+        :root {
+            color-scheme: light dark;
+            --page-gradient: linear-gradient(180deg, rgba(0, 84, 135, 0.08) 0%, rgba(255, 255, 255, 0) 40%);
+            --body-bg: #f4f7fb;
+            --surface-bg: #ffffff;
+            --surface-border: #d9e3ee;
+            --surface-shadow: rgba(21, 42, 68, 0.12);
+            --text-primary: #172033;
+            --text-secondary: #536579;
+            --brand-primary: #005487;
+            --brand-primary-hover: #00466f;
+            --brand-shadow: rgba(0, 84, 135, 0.22);
+            --brand-shadow-hover: rgba(0, 84, 135, 0.28);
+            --secondary-bg: #eef5fb;
+            --secondary-hover: #e4eff8;
+            --secondary-border: #bdd4e8;
+            --panel-bg: #f7fafc;
+            --panel-border: #e0e8f0;
+            --link-hover: #003d61;
+            --focus-ring: #f4b000;
+        }
+
+        :root[data-theme="dark"] {
+            --page-gradient: linear-gradient(180deg, rgba(0, 84, 135, 0.2) 0%, rgba(10, 17, 28, 0) 42%);
+            --body-bg: #0d1520;
+            --surface-bg: #121d2b;
+            --surface-border: #243448;
+            --surface-shadow: rgba(0, 0, 0, 0.35);
+            --text-primary: #edf3fb;
+            --text-secondary: #b5c4d6;
+            --brand-primary: #0d6ea8;
+            --brand-primary-hover: #1683c4;
+            --brand-shadow: rgba(13, 110, 168, 0.28);
+            --brand-shadow-hover: rgba(13, 110, 168, 0.36);
+            --secondary-bg: #1a2a3b;
+            --secondary-hover: #203246;
+            --secondary-border: #324861;
+            --panel-bg: #162230;
+            --panel-border: #26384c;
+            --link-hover: #61b1e3;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -21,20 +63,21 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
                 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
             background:
-                linear-gradient(180deg, rgba(0, 84, 135, 0.08) 0%, rgba(255, 255, 255, 0) 40%),
-                #f4f7fb;
+                var(--page-gradient),
+                var(--body-bg);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            color: var(--text-primary);
         }
 
         .container {
-            background: white;
-            border: 1px solid #d9e3ee;
+            background: var(--surface-bg);
+            border: 1px solid var(--surface-border);
             border-radius: 10px;
-            box-shadow: 0 16px 45px rgba(21, 42, 68, 0.12);
+            box-shadow: 0 16px 45px var(--surface-shadow);
             max-width: 600px;
             width: 100%;
             padding: 40px;
@@ -64,11 +107,11 @@
             width: 78px;
             height: 78px;
             border-radius: 18px;
-            box-shadow: 0 8px 22px rgba(21, 42, 68, 0.12);
+            box-shadow: 0 8px 22px var(--surface-shadow);
         }
 
         h1 {
-            color: #172033;
+            color: var(--text-primary);
             margin-bottom: 0;
             font-size: 2.35rem;
             text-align: left;
@@ -76,7 +119,7 @@
         }
 
         .subtitle {
-            color: #536579;
+            color: var(--text-secondary);
             text-align: center;
             margin-bottom: 28px;
             font-size: 1.1rem;
@@ -92,20 +135,20 @@
         .job-link {
             display: block;
             padding: 20px;
-            background: #005487;
+            background: var(--brand-primary);
             color: white;
             text-decoration: none;
             border-radius: 8px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
             font-weight: 600;
             text-align: center;
-            box-shadow: 0 7px 18px rgba(0, 84, 135, 0.22);
+            box-shadow: 0 7px 18px var(--brand-shadow);
         }
 
         .job-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 26px rgba(0, 84, 135, 0.28);
-            background: #00466f;
+            box-shadow: 0 10px 26px var(--brand-shadow-hover);
+            background: var(--brand-primary-hover);
         }
 
         .job-link:active {
@@ -116,20 +159,20 @@
         .alternative-section a:focus-visible,
         .info-section a:focus-visible,
         .social-section a:focus-visible {
-            outline: 3px solid #f4b000;
+            outline: 3px solid var(--focus-ring);
             outline-offset: 3px;
         }
 
         .job-link.secondary {
-            background: #eef5fb;
-            color: #005487;
-            border: 1px solid #bdd4e8;
+            background: var(--secondary-bg);
+            color: var(--brand-primary);
+            border: 1px solid var(--secondary-border);
             box-shadow: none;
         }
 
         .job-link.secondary:hover {
-            background: #e4eff8;
-            box-shadow: 0 8px 18px rgba(21, 42, 68, 0.1);
+            background: var(--secondary-hover);
+            box-shadow: 0 8px 18px var(--surface-shadow);
         }
 
         .link-title {
@@ -146,7 +189,7 @@
         }
 
         .links-section p {
-            color: #536579;
+            color: var(--text-secondary);
             line-height: 1.55;
             text-align: center;
         }
@@ -162,22 +205,22 @@
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            background: #f7fafc;
-            border: 1px solid #e0e8f0;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
             border-radius: 8px;
-            color: #172033;
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
         .alternative-section a {
-            color: #005487;
+            color: var(--brand-primary);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .alternative-section a:hover {
-            color: #003d61;
+            color: var(--link-hover);
             text-decoration: underline;
         }
 
@@ -185,23 +228,23 @@
             text-align: center;
             margin-top: 20px;
             padding: 15px;
-            background: #f7fafc;
-            border: 1px solid #e0e8f0;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
             border-radius: 8px;
-            color: #172033;
+            color: var(--text-primary);
             line-height: 1.6;
             font-size: 0.95rem;
         }
 
         .info-section a {
-            color: #005487;
+            color: var(--brand-primary);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .info-section a:hover {
-            color: #003d61;
+            color: var(--link-hover);
             text-decoration: underline;
         }
 
@@ -209,23 +252,23 @@
             text-align: center;
             margin-top: 20px;
             padding: 15px;
-            background: #f7fafc;
-            border: 1px solid #e0e8f0;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
             border-radius: 8px;
-            color: #172033;
+            color: var(--text-primary);
             line-height: 1.6;
             font-size: 0.95rem;
         }
 
         .social-section a {
-            color: #005487;
+            color: var(--brand-primary);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .social-section a:hover {
-            color: #003d61;
+            color: var(--link-hover);
             text-decoration: underline;
         }
 
@@ -273,39 +316,155 @@
     <div class="container">
         <div class="brand">
             <img src="./favicon.png" alt="HPS" class="brand-logo">
-            <h1>Build the future of payments with HPS</h1>
+            <h1 data-i18n="heroTitle">Build the future of payments with HPS</h1>
         </div>
-        <p class="subtitle">Explore open roles, learn more about HPS, or send an open application.</p>
+        <p class="subtitle" data-i18n="subtitle">Explore open roles, learn more about HPS, or send an open application.</p>
 
         <div class="links-section">
             <a href="https://www.linkedin.com/company/hps/jobs/" class="job-link" target="_blank" rel="noopener noreferrer">
-                <span class="link-title">View jobs on LinkedIn</span>
+                <span class="link-title" data-i18n="linkedinJobs">View jobs on LinkedIn</span>
                 <!--span class="link-url">linkedin.com/company/hps/jobs/</span-->
             </a>
             
-            <a href="https://hps.csod.com/ux/ats/careersite/1/home?c=hps" class="job-link" target="_blank" rel="noopener noreferrer">
-                <span class="link-title">View jobs on HPS Careers</span>
+            <a href="https://hps.csod.com/ux/ats/careersite/1/home?c=hps&lang=en-GB" class="job-link" target="_blank" rel="noopener noreferrer" data-i18n-href="careerSiteHref">
+                <span class="link-title" data-i18n="careerSiteJobs">View jobs on HPS Careers</span>
                 <!--span class="link-url">hps.csod.com/ux/ats/careersite/1/home</span-->
             </a>
 
-            <p>We encourage you to consult both opportunity lists periodically.</p>
+            <p data-i18n="jobListNote">We encourage you to consult both opportunity lists periodically.</p>
         </div>
 
         <div class="alternative-section">
-            <p><strong>Send an open application:</strong> <a href="mailto:careers@hps-worldwide.com" target="_blank" rel="noopener noreferrer">careers@hps-worldwide.com</a></p>
+            <p><strong data-i18n="openApplicationLabel">Send an open application:</strong> <a href="mailto:careers@hps-worldwide.com" target="_blank" rel="noopener noreferrer">careers@hps-worldwide.com</a></p>
         </div>
 
         <div class="info-section">
-            <p><strong>Want to know more about HPS?</strong> <a href="https://www.hps-worldwide.com/sites/default/files/investor/fr/HPS%20RFA_2024.pdf" target="_blank" rel="noopener noreferrer">Read the 2024 annual report</a></p>
+            <p><strong data-i18n="annualReportIntro">Want to know more about HPS?</strong> <a href="https://www.hps-worldwide.com/sites/default/files/investor/en/HPS%20RFA_2024.pdf" target="_blank" rel="noopener noreferrer" data-i18n="annualReportLink" data-i18n-href="annualReportHref">Read the latest annual report</a></p>
         </div>
 
         <div class="social-section">
-            <p><strong>Follow us on</strong> <a href="https://www.linkedin.com/company/hps/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, <a href="https://www.instagram.com/lifeathps/" target="_blank" rel="noopener noreferrer">Instagram</a> and <a href="https://www.youtube.com/@hpsworldwide4248" target="_blank" rel="noopener noreferrer">YouTube</a></p>
+            <p><strong data-i18n="followUs">Follow us on</strong> <a href="https://www.linkedin.com/company/hps/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, <a href="https://www.instagram.com/lifeathps/" target="_blank" rel="noopener noreferrer">Instagram</a> <span data-i18n="andConnector">and</span> <a href="https://www.youtube.com/@hpsworldwide4248" target="_blank" rel="noopener noreferrer">YouTube</a></p>
         </div>
 
         <!--div class="footer">
             <p>© 2026 HPS. All rights reserved.</p>
         </div-->
     </div>
+    <script>
+        (function () {
+            var translations = {
+                en: {
+                    pageTitle: "Join HPS",
+                    metaDescription: "Explore career opportunities at HPS, learn more about the company, and send an open application.",
+                    ogTitle: "Join HPS",
+                    ogDescription: "Build the future of payments with HPS. Explore open roles and connect with us.",
+                    heroTitle: "Build the future of payments with HPS",
+                    subtitle: "Explore open roles, learn more about HPS, or send an open application.",
+                    linkedinJobs: "View jobs on LinkedIn",
+                    careerSiteHref: "https://hps.csod.com/ux/ats/careersite/1/home?c=hps&lang=en-GB",
+                    careerSiteJobs: "View jobs on HPS Careers",
+                    jobListNote: "We encourage you to consult both opportunity lists periodically.",
+                    openApplicationLabel: "Send an open application:",
+                    annualReportIntro: "Want to know more about HPS?",
+                    annualReportHref: "https://www.hps-worldwide.com/sites/default/files/investor/en/HPS%20RFA_2024.pdf",
+                    annualReportLink: "Read the 2024 annual report",
+                    followUs: "Follow us on",
+                    andConnector: "and"
+                },
+                fr: {
+                    pageTitle: "Rejoignez HPS",
+                    metaDescription: "Decouvrez les opportunites de carriere chez HPS, apprenez-en plus sur l'entreprise et envoyez une candidature spontanée.",
+                    ogTitle: "Rejoignez HPS",
+                    ogDescription: "Construisez l'avenir des paiements avec HPS. Consultez les offres et entrez en contact avec nous.",
+                    heroTitle: "Construisez l'avenir des paiements avec HPS",
+                    subtitle: "Consultez les offres, decouvrez HPS ou envoyez une candidature spontanée.",
+                    linkedinJobs: "Voir les offres sur LinkedIn",
+                    careerSiteHref: "https://hps.csod.com/ux/ats/careersite/1/home?c=hps&lang=fr-FR",
+                    careerSiteJobs: "Voir les offres sur HPS Careers",
+                    jobListNote: "Nous vous encourageons à consulter regulierement les deux listes d'offres.",
+                    openApplicationLabel: "Envoyer une candidature spontanée :",
+                    annualReportIntro: "Vous voulez en savoir plus sur HPS ?",
+                    annualReportHref: "https://www.hps-worldwide.com/sites/default/files/investor/fr/HPS%20RFA_2024.pdf",
+                    annualReportLink: "Lire notre dernier rapport annuel",
+                    followUs: "Suivez-nous sur",
+                    andConnector: "et"
+                }
+            };
+
+            function detectLanguage() {
+                var browserLanguages = navigator.languages && navigator.languages.length
+                    ? navigator.languages
+                    : [navigator.language || "en"];
+
+                for (var i = 0; i < browserLanguages.length; i += 1) {
+                    var language = String(browserLanguages[i] || "").toLowerCase();
+                    if (language.indexOf("fr") === 0) {
+                        return "fr";
+                    }
+                    if (language.indexOf("en") === 0) {
+                        return "en";
+                    }
+                }
+
+                return "en";
+            }
+
+            function applyTranslations(language) {
+                var dictionary = translations[language] || translations.en;
+
+                document.documentElement.lang = language;
+                document.title = dictionary.pageTitle;
+
+                var descriptionMeta = document.querySelector('meta[name="description"]');
+                var ogTitleMeta = document.querySelector('meta[property="og:title"]');
+                var ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+
+                if (descriptionMeta) {
+                    descriptionMeta.setAttribute("content", dictionary.metaDescription);
+                }
+                if (ogTitleMeta) {
+                    ogTitleMeta.setAttribute("content", dictionary.ogTitle);
+                }
+                if (ogDescriptionMeta) {
+                    ogDescriptionMeta.setAttribute("content", dictionary.ogDescription);
+                }
+
+                var translatableNodes = document.querySelectorAll("[data-i18n]");
+                translatableNodes.forEach(function (node) {
+                    var key = node.getAttribute("data-i18n");
+                    if (dictionary[key]) {
+                        node.textContent = dictionary[key];
+                    }
+                });
+
+                var translatableLinks = document.querySelectorAll("[data-i18n-href]");
+                translatableLinks.forEach(function (node) {
+                    var hrefKey = node.getAttribute("data-i18n-href");
+                    if (dictionary[hrefKey]) {
+                        node.setAttribute("href", dictionary[hrefKey]);
+                    }
+                });
+            }
+
+            function applyTheme(mediaQuery) {
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    mediaQuery.matches ? "dark" : "light"
+                );
+            }
+
+            var preferredLanguage = detectLanguage();
+            applyTranslations(preferredLanguage);
+
+            var darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+            applyTheme(darkModeQuery);
+
+            if (typeof darkModeQuery.addEventListener === "function") {
+                darkModeQuery.addEventListener("change", applyTheme);
+            } else if (typeof darkModeQuery.addListener === "function") {
+                darkModeQuery.addListener(applyTheme);
+            }
+        }());
+    </script>
 </body>
 </html>
