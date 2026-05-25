@@ -9,6 +9,7 @@
     <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script defer src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script defer src="app.js"></script>
   </head>
   <body>
@@ -16,17 +17,17 @@
       <section class="workspace" aria-labelledby="app-title">
         <div class="title-row">
           <div>
-            <p class="eyebrow">Browser-only XLSX merge</p>
+            <p class="eyebrow">Browser-only Excel merge</p>
             <h1 id="app-title">Excel Append PWA</h1>
           </div>
           <span id="pwa-state" class="status-pill">Web app</span>
         </div>
 
         <label class="drop-zone" for="file-input" id="drop-zone">
-          <input id="file-input" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+          <input id="file-input" type="file" accept=".xls,.xlsx,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
           <span class="upload-mark" aria-hidden="true">+</span>
           <span class="drop-title">Choose Excel spreadsheets</span>
-          <span class="drop-meta">.xlsx</span>
+          <span class="drop-meta">.xls or .xlsx</span>
         </label>
 
         <div class="panel-grid">

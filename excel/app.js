@@ -43,9 +43,9 @@ for (const eventName of ["dragleave", "drop"]) {
 }
 
 dropZone.addEventListener("drop", (event) => {
-  const files = Array.from(event.dataTransfer.files || []).filter(isXlsxFile);
+  const files = Array.from(event.dataTransfer.files || []).filter(isSpreadsheetFile);
   if (files.length === 0) {
-    setMessage("Select one or more .xlsx files.", "error");
+    setMessage("Select one or more .xls or .xlsx files.", "error");
     return;
   }
   renderFiles(files);
@@ -57,8 +57,8 @@ async function mergeFiles(files) {
     return;
   }
 
-  if (!window.ExcelJS) {
-    setMessage("ExcelJS did not load. Check the network connection and reload once.", "error");
+  if (!window.ExcelJS || !window.XLSX) {
+    setMessage("The Excel libraries did not load. Check the network connection and reload once.", "error");
     return;
   }
 
@@ -69,36 +69,17 @@ async function mergeFiles(files) {
   setProgress(5, "Reading");
 
   try {
-    const validFiles = files.filter(isXlsxFile);
+    const validFiles = files.filter(isSpreadsheetFile);
     if (validFiles.length !== files.length) {
-      throw new Error("Only .xlsx files are supported.");
+      throw new Error("Only .xls and .xlsx files are supported.");
     }
 
-    const outputWorkbook = await loadWorkbook(validFiles[0]);
-    const outputSheet = outputWorkbook.worksheets[0];
-
-    if (!outputSheet) {
-      throw new Error(`${validFiles[0].name} does not contain a worksheet.`);
+    if (isXlsxFile(validFiles[0])) {
+      await mergeWithExcelJsBase(validFiles);
+    } else {
+      await mergeWithSheetJsBase(validFiles);
     }
 
-    for (let fileIndex = 1; fileIndex < validFiles.length; fileIndex += 1) {
-      const file = validFiles[fileIndex];
-      setMessage(`Appending ${file.name}.`);
-      setProgress(calculateProgress(fileIndex, validFiles.length, 20, 80), "Appending");
-
-      const sourceWorkbook = await loadWorkbook(file);
-      const sourceSheet = sourceWorkbook.worksheets[0];
-      if (!sourceSheet) {
-        continue;
-      }
-
-      appendSheetRows(outputSheet, sourceSheet);
-    }
-
-    setMessage("Creating download.");
-    setProgress(90, "Writing");
-    const buffer = await outputWorkbook.xlsx.writeBuffer();
-    downloadBuffer(buffer, buildOutputName());
     setProgress(100, "Done");
     setMessage("Merged workbook downloaded.", "success");
   } catch (error) {
@@ -112,7 +93,58 @@ async function mergeFiles(files) {
   }
 }
 
-function appendSheetRows(outputSheet, sourceSheet) {
+async function mergeWithExcelJsBase(files) {
+  const outputWorkbook = await loadExcelJsWorkbook(files[0]);
+  const outputSheet = outputWorkbook.worksheets[0];
+
+  if (!outputSheet) {
+    throw new Error(`${files[0].name} does not contain a worksheet.`);
+  }
+
+  for (let fileIndex = 1; fileIndex < files.length; fileIndex += 1) {
+    const file = files[fileIndex];
+    setMessage(`Appending ${file.name}.`);
+    setProgress(calculateProgress(fileIndex, files.length, 20, 80), "Appending");
+
+    if (isXlsxFile(file)) {
+      const sourceWorkbook = await loadExcelJsWorkbook(file);
+      const sourceSheet = sourceWorkbook.worksheets[0];
+      if (sourceSheet) {
+        appendExcelJsSheetRows(outputSheet, sourceSheet);
+      }
+    } else {
+      appendRowsToExcelJsSheet(outputSheet, await readSheetRows(file, 1));
+    }
+  }
+
+  setMessage("Creating download.");
+  setProgress(90, "Writing");
+  downloadBuffer(await outputWorkbook.xlsx.writeBuffer(), buildOutputName());
+}
+
+async function mergeWithSheetJsBase(files) {
+  const outputWorkbook = await loadSheetJsWorkbook(files[0]);
+  const outputSheetName = outputWorkbook.SheetNames[0];
+
+  if (!outputSheetName) {
+    throw new Error(`${files[0].name} does not contain a worksheet.`);
+  }
+
+  const outputSheet = outputWorkbook.Sheets[outputSheetName];
+
+  for (let fileIndex = 1; fileIndex < files.length; fileIndex += 1) {
+    const file = files[fileIndex];
+    setMessage(`Appending ${file.name}.`);
+    setProgress(calculateProgress(fileIndex, files.length, 20, 80), "Appending");
+    appendRowsToSheetJsSheet(outputSheet, await readSheetRows(file, 1));
+  }
+
+  setMessage("Creating download.");
+  setProgress(90, "Writing");
+  downloadBuffer(XLSX.write(outputWorkbook, { bookType: "xlsx", type: "array" }), buildOutputName());
+}
+
+function appendExcelJsSheetRows(outputSheet, sourceSheet) {
   let nextRowNumber = outputSheet.rowCount + 1;
 
   for (let rowNumber = 2; rowNumber <= sourceSheet.rowCount; rowNumber += 1) {
@@ -140,11 +172,103 @@ function appendSheetRows(outputSheet, sourceSheet) {
   }
 }
 
-async function loadWorkbook(file) {
+function appendRowsToExcelJsSheet(outputSheet, rows) {
+  let nextRowNumber = outputSheet.rowCount + 1;
+
+  for (const row of rows) {
+    const destinationRow = outputSheet.getRow(nextRowNumber);
+    nextRowNumber += 1;
+
+    row.forEach((value, index) => {
+      destinationRow.getCell(index + 1).value = clone(value);
+    });
+  }
+}
+
+function appendRowsToSheetJsSheet(outputSheet, rows) {
+  const range = outputSheet["!ref"]
+    ? XLSX.utils.decode_range(outputSheet["!ref"])
+    : { s: { r: 0, c: 0 }, e: { r: -1, c: 0 } };
+  const startRow = range.e.r + 1;
+  let maxColumn = range.e.c;
+
+  rows.forEach((row, rowIndex) => {
+    row.forEach((value, columnIndex) => {
+      maxColumn = Math.max(maxColumn, columnIndex);
+      if (value == null) {
+        return;
+      }
+
+      outputSheet[XLSX.utils.encode_cell({ r: startRow + rowIndex, c: columnIndex })] = createSheetJsCell(value);
+    });
+  });
+
+  outputSheet["!ref"] = XLSX.utils.encode_range({
+    s: {
+      r: range.s.r,
+      c: Math.min(range.s.c, 0)
+    },
+    e: {
+      r: Math.max(range.e.r, startRow + rows.length - 1),
+      c: Math.max(range.e.c, maxColumn)
+    }
+  });
+}
+
+async function readSheetRows(file, skipRows = 0) {
+  const workbook = await loadSheetJsWorkbook(file);
+  const sheetName = workbook.SheetNames[0];
+
+  if (!sheetName) {
+    return [];
+  }
+
+  const worksheet = workbook.Sheets[sheetName];
+  const range = worksheet["!ref"] ? XLSX.utils.decode_range(worksheet["!ref"]) : null;
+
+  if (!range) {
+    return [];
+  }
+
+  const rows = [];
+  for (let rowNumber = range.s.r + skipRows; rowNumber <= range.e.r; rowNumber += 1) {
+    const row = [];
+    for (let columnNumber = 0; columnNumber <= range.e.c; columnNumber += 1) {
+      const cell = worksheet[XLSX.utils.encode_cell({ r: rowNumber, c: columnNumber })];
+      row.push(cell ? clone(cell.v) : null);
+    }
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+async function loadExcelJsWorkbook(file) {
   const workbook = new ExcelJS.Workbook();
-  const buffer = await file.arrayBuffer();
-  await workbook.xlsx.load(buffer);
+  await workbook.xlsx.load(await file.arrayBuffer());
   return workbook;
+}
+
+async function loadSheetJsWorkbook(file) {
+  return XLSX.read(await file.arrayBuffer(), {
+    type: "array",
+    cellDates: true
+  });
+}
+
+function createSheetJsCell(value) {
+  if (value instanceof Date) {
+    return { t: "d", v: value };
+  }
+
+  switch (typeof value) {
+    case "number":
+      return { t: "n", v: value };
+    case "boolean":
+      return { t: "b", v: value };
+    default:
+      return { t: "s", v: String(value) };
+  }
 }
 
 function clone(value) {
@@ -180,6 +304,10 @@ function renderFiles(files) {
     item.textContent = `${file.name} (${formatBytes(file.size)})`;
     fileList.append(item);
   }
+}
+
+function isSpreadsheetFile(file) {
+  return /\.(xls|xlsx)$/i.test(file.name);
 }
 
 function isXlsxFile(file) {

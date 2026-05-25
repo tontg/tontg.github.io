@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "excel-append-pwa-v1";
+const CACHE_NAME = "excel-append-pwa-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -8,7 +8,8 @@ const ASSETS = [
   "./app.js",
   "./manifest.webmanifest",
   "./icons/icon.svg",
-  "https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"
+  "https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js",
+  "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
 ];
 
 self.addEventListener("install", (event) => {
