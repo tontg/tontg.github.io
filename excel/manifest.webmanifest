@@ -1,0 +1,18 @@
+{
+  "name": "Excel Append PWA",
+  "short_name": "Excel Append",
+  "description": "Merge multiple XLSX spreadsheets in the browser and download the appended workbook.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef3f2",
+  "theme_color": "#235c67",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

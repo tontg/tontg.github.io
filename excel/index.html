@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#235c67">
+    <title>Excel Append PWA</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">Browser-only XLSX merge</p>
+            <h1 id="app-title">Excel Append PWA</h1>
+          </div>
+          <span id="pwa-state" class="status-pill">Web app</span>
+        </div>
+
+        <label class="drop-zone" for="file-input" id="drop-zone">
+          <input id="file-input" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+          <span class="upload-mark" aria-hidden="true">+</span>
+          <span class="drop-title">Choose Excel spreadsheets</span>
+          <span class="drop-meta">.xlsx</span>
+        </label>
+
+        <div class="panel-grid">
+          <section class="panel" aria-labelledby="file-list-title">
+            <div class="panel-heading">
+              <h2 id="file-list-title">Selected Files</h2>
+              <button class="ghost-button" type="button" id="clear-button" disabled>Clear</button>
+            </div>
+            <ol id="file-list" class="file-list">
+              <li class="empty-state">No spreadsheets selected</li>
+            </ol>
+          </section>
+
+          <section class="panel" aria-labelledby="activity-title">
+            <div class="panel-heading">
+              <h2 id="activity-title">Activity</h2>
+              <span id="progress-label" class="muted">Idle</span>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progress-bar" class="progress-bar"></span>
+            </div>
+            <p id="message" class="message" role="status" aria-live="polite">
+              Waiting for files.
+            </p>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
