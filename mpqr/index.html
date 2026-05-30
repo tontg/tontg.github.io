@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b5b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EMV QR">
+    <title>EMV Merchant QR Tools</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-192.png">
+    <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#176b5b">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <h1>EMV Merchant QR tools</h1>
+        </div>
+        <div class="intro-actions">
+          <p class="lede">Choose a page to parse, generate, validate, or inspect EMV Merchant-Presented QR codes.</p>
+        </div>
+      </section>
+
+      <section class="result-panel">
+        <div class="about-list">
+          <article>
+            <h3>Parser</h3>
+            <p>Parse a payment QR code from image, camera, or payload text.</p>
+            <p><a class="button-link" href="parser.html">Open parser</a></p>
+          </article>
+
+          <article>
+            <h3>Generator</h3>
+            <p>Generate EMV Merchant-Presented QR payloads and QR images from YAML.</p>
+            <p><a class="button-link" href="generator.html">Open generator</a></p>
+          </article>
+
+          <article>
+            <h3>Checkout</h3>
+            <p>Generate a fixed-merchant checkout QR code with amount and reference inputs.</p>
+            <p><a class="button-link" href="checkout.html">Open checkout</a></p>
+          </article>
+
+          <article>
+            <h3>Validator</h3>
+            <p>Validate multiple QR image files and export ZIP, TXT, CSV, YAML, and Markdown reports.</p>
+            <p><a class="button-link" href="validator.html">Open validator</a></p>
+          </article>
+
+          <article>
+            <h3>About</h3>
+            <p>Review libraries, licenses, and EMV specification references used by this project.</p>
+            <p><a class="button-link" href="about.html">Open about</a></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script defer src="site-menu.js"></script>
+    <script defer src="pwa.js"></script>
+  </body>
+</html>

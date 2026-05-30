@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b5b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EMV QR">
+    <title>EMV Merchant QR Parser</title>
+    <script>
+      (function () {
+        const isLocalhost = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
+        if (window.location.protocol === 'http:' && !isLocalhost) {
+          window.location.replace(`https://${window.location.host}${window.location.pathname}${window.location.search}${window.location.hash}`);
+        }
+      }());
+    </script>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-192.png">
+    <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#176b5b">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <h1>Parse a payment QR code</h1>
+        </div>
+        <div class="intro-actions">
+          <p class="lede">Select an image, scan with the camera, or paste the QR payload text.</p>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="QR inputs and parsed output">
+        <div class="capture-panel">
+          <div class="input-group">
+            <label for="fileInput">Image file</label>
+            <input id="fileInput" type="file" accept="image/*">
+          </div>
+          <div id="imagePreview" class="image-preview" hidden></div>
+
+          <div class="camera-controls">
+            <button id="startCamera" type="button">Start camera</button>
+            <button id="stopCamera" type="button">Stop camera</button>
+            <label class="checkbox">
+              <input id="useOpenCv" type="checkbox" checked>
+              <span>OpenCV preprocessing</span>
+            </label>
+          </div>
+
+          <div id="videoWrap" class="video-wrap" hidden>
+            <video id="video" playsinline muted></video>
+            <canvas id="canvas"></canvas>
+          </div>
+
+          <div class="input-group">
+            <label for="payloadInput">QR payload</label>
+            <textarea id="payloadInput" spellcheck="false" placeholder="Paste EMV QR payload text here"></textarea>
+          </div>
+          <button id="parseText" type="button">Parse payload</button>
+          <p id="status" class="status">Ready.</p>
+        </div>
+
+        <div class="result-panel">
+          <div class="summary-grid">
+            <div>
+              <span>Valid</span>
+              <strong id="validState">-</strong>
+            </div>
+            <div>
+              <span>Bytes</span>
+              <strong id="byteCount">0</strong>
+            </div>
+            <div>
+              <span>Characters</span>
+              <strong id="charCount">0</strong>
+            </div>
+          </div>
+
+          <div class="result-block">
+            <h2>Raw hexadecimal data</h2>
+            <pre id="hexOutput"></pre>
+          </div>
+
+          <div class="result-block">
+            <h2>Validation</h2>
+            <ul id="validationList" class="messages"></ul>
+          </div>
+
+          <div class="result-block">
+            <h2>Arborescence</h2>
+            <div id="treeOutput" class="tree"></div>
+          </div>
+
+          <div class="result-block">
+            <h2>QR-Code TLV content as YAML</h2>
+            <div class="generator-actions">
+              <button id="exportYamlButton" type="button" class="secondary-button" disabled>Export YAML</button>
+            </div>
+            <pre id="yamlOutput" class="yaml-output"></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script defer src="vendor/jsQR.js"></script>
+    <script defer src="emv-core.js"></script>
+    <script defer src="emv-analyzer.js"></script>
+    <script defer src="vendor/mcc-codes.js"></script>
+    <script>
+      window.__cvReady = false;
+      window.Module = {
+        onRuntimeInitialized() {
+          window.__cvReady = true;
+          window.dispatchEvent(new Event('opencv-ready'));
+        }
+      };
+    </script>
+    <script
+      defer
+      src="vendor/opencv.js"
+      integrity="sha256-8MN0SC5bm+i3eoCSvLsWHT5qP28/nBuXwidRknc3quk="
+    ></script>
+    <script defer src="site-menu.js"></script>
+    <script defer src="pwa.js"></script>
+    <script defer src="app.js"></script>
+  </body>
+</html>

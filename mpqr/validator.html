@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b5b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EMV QR">
+    <title>EMV Merchant QR Validator</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-192.png">
+    <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#176b5b">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="validator-page">
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <h1>Validate QR image files</h1>
+        </div>
+        <div class="intro-actions">
+          <p class="lede">Select one or more image files and check which contain valid EMV payment QR codes.</p>
+        </div>
+      </section>
+
+      <section class="capture-panel">
+        <div class="generator-actions">
+          <div class="input-group validator-file-input">
+            <label for="validatorFiles">Image files</label>
+            <input id="validatorFiles" type="file" accept="image/*" multiple>
+          </div>
+          <label class="checkbox">
+            <input id="validatorUseOpenCv" type="checkbox" checked>
+            <span>OpenCV preprocessing</span>
+          </label>
+          <label class="select-label" for="validatorDisplayFilter">
+            <span>Display</span>
+            <select id="validatorDisplayFilter">
+              <option value="all" selected>All</option>
+              <option value="valid">Only valid</option>
+              <option value="invalid">Only invalid</option>
+            </select>
+          </label>
+          <button id="downloadValidatorZipButton" type="button" class="secondary-button" disabled>Download report zip</button>
+          <button id="printValidatorButton" type="button" class="secondary-button">Print</button>
+        </div>
+        <div id="validatorStatus" class="status-box">Ready.</div>
+      </section>
+
+      <section class="result-panel validator-results">
+        <div class="summary-grid">
+          <div>
+            <span>Files</span>
+            <strong id="validatorTotal">0</strong>
+          </div>
+          <div>
+            <span>Valid EMV QR</span>
+            <strong id="validatorValid">0</strong>
+          </div>
+          <div>
+            <span>Invalid or unreadable</span>
+            <strong id="validatorInvalid">0</strong>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="validator-table">
+            <thead>
+              <tr>
+                <th>File name</th>
+                <th>Thumbnail</th>
+                <th>QR</th>
+                <th>EMV valid</th>
+                <th>Bytes</th>
+                <th>Errors</th>
+                <th>Warnings</th>
+                <th>Messages</th>
+              </tr>
+            </thead>
+            <tbody id="validatorRows">
+              <tr>
+                <td colspan="8">No files selected.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <canvas id="validatorCanvas" hidden></canvas>
+
+    <script defer src="vendor/jsQR.js"></script>
+    <script defer src="emv-core.js"></script>
+    <script defer src="emv-analyzer.js"></script>
+    <script>
+      window.__cvReady = false;
+      window.Module = {
+        onRuntimeInitialized() {
+          window.__cvReady = true;
+          window.dispatchEvent(new Event('opencv-ready'));
+        }
+      };
+    </script>
+    <script
+      defer
+      src="vendor/opencv.js"
+      integrity="sha256-8MN0SC5bm+i3eoCSvLsWHT5qP28/nBuXwidRknc3quk="
+    ></script>
+    <script defer src="site-menu.js"></script>
+    <script defer src="pwa.js"></script>
+    <script defer src="validator.js"></script>
+  </body>
+</html>

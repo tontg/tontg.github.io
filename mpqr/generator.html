@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b5b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EMV QR">
+    <title>EMV Merchant QR Generator</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-192.png">
+    <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#176b5b">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <h1>Generate a payment QR code</h1>
+        </div>
+        <div class="intro-actions">
+          <p class="lede">Enter YAML fields like <code>- "00": "01"</code>. CRC ID 63 length 04 is generated automatically unless it is already present.</p>
+        </div>
+      </section>
+
+      <section class="workspace generator-workspace" aria-label="QR generator input and output">
+        <div class="capture-panel">
+          <div class="generator-actions">
+            <button id="loadSampleButton" type="button" class="secondary-button">Load sample</button>
+            <button id="loadYamlFileButton" type="button" class="secondary-button">Load YAML file</button>
+            <input id="yamlFileInput" class="hidden-input" type="file" accept=".yaml,.yml,text/yaml,text/x-yaml,text/plain">
+            <label class="select-label" for="errorCorrectionSelect">
+              QR-Code error correction
+              <select id="errorCorrectionSelect">
+                <option value="L" selected>low</option>
+                <option value="M">standard</option>
+                <option value="Q">quartile</option>
+                <option value="H">high</option>
+              </select>
+            </label>
+            <a class="button-link" href="samples/valid-emvqr-without-crc.yaml" target="_blank" rel="noreferrer">Sample YAML</a>
+          </div>
+          <div class="input-group">
+            <label for="yamlInput">YAML input</label>
+            <textarea id="yamlInput" class="generator-input" spellcheck="false"></textarea>
+          </div>
+          <div id="generatorStatus" class="status-box">Ready.</div>
+        </div>
+
+        <div class="result-panel">
+          <div class="summary-grid">
+            <div>
+              <span>Characters</span>
+              <strong id="generatedChars">0</strong>
+            </div>
+            <div>
+              <span>Bytes</span>
+              <strong id="generatedBytes">0</strong>
+            </div>
+            <div>
+              <span>CRC</span>
+              <strong id="generatedCrc">-</strong>
+            </div>
+          </div>
+
+          <div class="result-block">
+            <h2>QR-Code image</h2>
+            <div class="generator-actions">
+              <button id="downloadQrSvgButton" type="button" class="secondary-button" disabled>Download SVG</button>
+              <button id="downloadQrPngButton" type="button" class="secondary-button" disabled>Download PNG</button>
+            </div>
+            <div id="qrImage" class="qr-output" data-resizable="true" data-resize-default="320" data-resize-min="180"></div>
+          </div>
+
+          <div class="result-block">
+            <h2 id="generatedTextTitle">Generated text</h2>
+            <pre id="generatedText"></pre>
+          </div>
+
+          <div class="result-block">
+            <h2 id="generatedHexTitle">Generated hexadecimal string</h2>
+            <pre id="generatedHex"></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const EMVQR_GENERATOR_STATIC_FIELDS = {
+        fields: [
+          { "00": "01" },
+          { "01": "11" },
+          {
+            "26": [
+              { "00": "COM.EXAMPLE.PAY" },
+              { "01": "MERCHANT123" }
+            ]
+          },
+          { "52": "5812" },
+          { "53": "840" },
+          { "54": "12.34" },
+          { "58": "US" },
+          { "59": "EXAMPLE MERCHANT" },
+          { "60": "NEW YORK" },
+          {
+            "62": [
+              { "05": "INV-1001" }
+            ]
+          }
+        ]
+      };
+      window.emvQrGeneratorConfig = EMVQR_GENERATOR_STATIC_FIELDS;
+    </script>
+    <script defer src="vendor/js-yaml.min.js"></script>
+    <script defer src="vendor/qrcode-generator.js"></script>
+    <script defer src="emv-core.js"></script>
+    <script defer src="qr-resizer.js"></script>
+    <script defer src="qr-output.js"></script>
+    <script defer src="site-menu.js"></script>
+    <script defer src="pwa.js"></script>
+    <script defer src="generator.js"></script>
+  </body>
+</html>

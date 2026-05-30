@@ -1,0 +1,16 @@
+# EMV Merchant-Presented QR sample.
+# Field 63 CRC is intentionally omitted; the generator appends 6304 + CRC.
+fields:
+  - "00": "01"
+  - "01": "11"
+  - "26":
+      - "00": "COM.EXAMPLE.PAY"
+      - "01": "MERCHANT123"
+  - "52": "5812"
+  - "53": "840"
+  - "54": "12.34"
+  - "58": "US"
+  - "59": "EXAMPLE MERCHANT"
+  - "60": "NEW YORK"
+  - "62":
+      - "05": "INV-1001"
