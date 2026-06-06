@@ -9,6 +9,7 @@
   const checkoutQrImage = document.getElementById('checkoutQrImage');
   const downloadCheckoutSvgButton = document.getElementById('downloadCheckoutSvgButton');
   const downloadCheckoutPngButton = document.getElementById('downloadCheckoutPngButton');
+  const downloadCheckoutWebpButton = document.getElementById('downloadCheckoutWebpButton');
   const checkoutTextTitle = document.getElementById('checkoutTextTitle');
   const checkoutText = document.getElementById('checkoutText');
   const checkoutHexTitle = document.getElementById('checkoutHexTitle');
@@ -18,8 +19,10 @@
   const qrQuietZoneModules = 2;
   let currentQrSvg = '';
   let renderTimer = null;
+  const webpSupported = Boolean(window.emvQrOutput && window.emvQrOutput.supportsWebp && window.emvQrOutput.supportsWebp());
 
   if (window.emvQrOutput) window.emvQrOutput.initResizable(checkoutQrImage);
+  downloadCheckoutWebpButton.hidden = !webpSupported;
 
   function setStatus(message, type = 'info') {
     checkoutStatus.textContent = message;
@@ -147,6 +150,7 @@
       checkoutChars.textContent = String(result.text.length);
       checkoutBytes.textContent = String(bytes.length);
       checkoutCrc.textContent = result.crc;
+      downloadCheckoutWebpButton.disabled = !webpSupported;
       checkoutTextTitle.textContent = `Generated text (${result.text.length} chars)`;
       checkoutHexTitle.textContent = `Generated hexadecimal string (${bytes.length} bytes)`;
       setStatus('QR code generated.');
@@ -157,6 +161,7 @@
       checkoutQrImage.innerHTML = '';
       downloadCheckoutSvgButton.disabled = true;
       downloadCheckoutPngButton.disabled = true;
+      downloadCheckoutWebpButton.disabled = true;
       checkoutText.textContent = '';
       checkoutHex.textContent = '';
       checkoutChars.textContent = '0';
@@ -186,6 +191,15 @@
     );
   }
 
+  function downloadWebp() {
+    window.emvQrOutput.downloadWebpFromContainer(
+      checkoutQrImage,
+      currentQrSvg,
+      `checkout-qr-${checkoutCrc.textContent || 'code'}.webp`,
+      () => setStatus('Unable to render WebP download.', 'error'),
+    );
+  }
+
   function loadFromUrl() {
     const params = new URLSearchParams(window.location.search);
     if (params.has('a')) amountInput.value = params.get('a') || '';
@@ -196,6 +210,7 @@
   referenceInput.addEventListener('input', scheduleRender);
   downloadCheckoutSvgButton.addEventListener('click', downloadSvg);
   downloadCheckoutPngButton.addEventListener('click', downloadPng);
+  downloadCheckoutWebpButton.addEventListener('click', downloadWebp);
 
   loadFromUrl();
   render();

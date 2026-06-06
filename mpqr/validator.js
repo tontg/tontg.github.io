@@ -5,6 +5,8 @@
   const downloadValidatorZipButton = document.getElementById('downloadValidatorZipButton');
   const printValidatorButton = document.getElementById('printValidatorButton');
   const validatorStatus = document.getElementById('validatorStatus');
+  const validatorProgressBar = document.getElementById('validatorProgressBar');
+  const validatorProgressText = document.getElementById('validatorProgressText');
   const validatorTotal = document.getElementById('validatorTotal');
   const validatorValid = document.getElementById('validatorValid');
   const validatorInvalid = document.getElementById('validatorInvalid');
@@ -26,6 +28,41 @@
     validatorStatus.classList.toggle('error', type === 'error');
   }
 
+  function formatSeconds(value) {
+    return Number.isFinite(value) ? value.toFixed(3) : '0.000';
+  }
+
+  function currencyDescription(value) {
+    const code = String(value || '');
+    if (!/^\d{3}$/.test(code) || !window.iso4217Codes) return '';
+    const entry = window.iso4217Codes[code];
+    if (!entry) return '';
+    return `${entry.alpha}, ${entry.name}`;
+  }
+
+  function countryDescription(value) {
+    const code = String(value || '').trim().toUpperCase();
+    if (!/^[A-Z]{2}$/.test(code) || !window.iso3166Alpha2Codes) return '';
+    return window.iso3166Alpha2Codes[code] || '';
+  }
+
+  function languageDescription(value) {
+    const code = String(value || '').trim().toLowerCase();
+    if (!/^[a-z]{2}$/.test(code) || !window.iso639LanguageCodes) return '';
+    return window.iso639LanguageCodes[code] || '';
+  }
+
+  function addSlowScanWarning(warnings, elapsedSeconds, qrFound) {
+    if (!qrFound || !Number.isFinite(elapsedSeconds) || elapsedSeconds <= 1.5) return warnings;
+    return warnings.concat(`QR decoding took ${formatSeconds(elapsedSeconds)} s, which is slower than the 1.500 s warning threshold.`);
+  }
+
+  function updateProgress(completed, total) {
+    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+    validatorProgressBar.style.width = `${percent}%`;
+    validatorProgressText.textContent = `${completed}/${total} (${percent}%)`;
+  }
+
   function drawImageToCanvas(image, options = {}) {
     const maxSide = options.maxSide || 1400;
     const scale = options.scale || 1;
@@ -38,6 +75,80 @@
     validatorCanvas.height = height;
     ctx.imageSmoothingEnabled = scale <= 1;
     ctx.drawImage(image, 0, 0, width, height);
+  }
+
+  function drawRotatedImageToCanvas(image, angleDegrees, options = {}) {
+    const maxSide = options.maxSide || 2800;
+    const scale = options.scale || 1;
+    const sourceWidth = image.naturalWidth;
+    const sourceHeight = image.naturalHeight;
+    const ratio = Math.min(scale, maxSide / Math.max(sourceWidth, sourceHeight));
+    const width = Math.max(1, Math.round(sourceWidth * ratio));
+    const height = Math.max(1, Math.round(sourceHeight * ratio));
+    const radians = angleDegrees * Math.PI / 180;
+    const cos = Math.abs(Math.cos(radians));
+    const sin = Math.abs(Math.sin(radians));
+    const targetWidth = Math.max(1, Math.ceil(width * cos + height * sin));
+    const targetHeight = Math.max(1, Math.ceil(width * sin + height * cos));
+    validatorCanvas.width = targetWidth;
+    validatorCanvas.height = targetHeight;
+    ctx.save();
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, targetWidth, targetHeight);
+    ctx.translate(targetWidth / 2, targetHeight / 2);
+    ctx.rotate(radians);
+    ctx.imageSmoothingEnabled = scale <= 1;
+    ctx.drawImage(image, -width / 2, -height / 2, width, height);
+    ctx.restore();
+  }
+
+  function grayscaleVariant(imageData) {
+    const copy = new ImageData(new Uint8ClampedArray(imageData.data), imageData.width, imageData.height);
+    for (let index = 0; index < copy.data.length; index += 4) {
+      const gray = Math.round((copy.data[index] * 299 + copy.data[index + 1] * 587 + copy.data[index + 2] * 114) / 1000);
+      copy.data[index] = gray;
+      copy.data[index + 1] = gray;
+      copy.data[index + 2] = gray;
+      copy.data[index + 3] = 255;
+    }
+    return copy;
+  }
+
+  function thresholdVariant(imageData, threshold, contrast = 1) {
+    const gray = grayscaleVariant(imageData);
+    for (let index = 0; index < gray.data.length; index += 4) {
+      const centered = (gray.data[index] - 128) * contrast + 128;
+      const value = centered >= threshold ? 255 : 0;
+      gray.data[index] = value;
+      gray.data[index + 1] = value;
+      gray.data[index + 2] = value;
+      gray.data[index + 3] = 255;
+    }
+    return gray;
+  }
+
+  function tryDecodeWithJsQr(imageData) {
+    return jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: 'attemptBoth' });
+  }
+
+  function decodeWithOpenCvDetector() {
+    if (!validatorUseOpenCv.checked || !cvReady || !window.cv || typeof cv.QRCodeDetector !== 'function') return null;
+    let src;
+    let detector;
+    try {
+      src = cv.imread(validatorCanvas);
+      detector = new cv.QRCodeDetector();
+      const decoded = detector.detectAndDecode(src);
+      if (typeof decoded === 'string' && decoded) return { data: decoded };
+      if (Array.isArray(decoded) && typeof decoded[0] === 'string' && decoded[0]) return { data: decoded[0] };
+      if (decoded && typeof decoded.data === 'string' && decoded.data) return { data: decoded.data };
+      return null;
+    } catch (error) {
+      return null;
+    } finally {
+      if (detector) detector.delete();
+      if (src) src.delete();
+    }
   }
 
   function preprocessWithOpenCv() {
@@ -66,16 +177,23 @@
     }
   }
 
-  function decodeCanvas() {
+  function decodeCanvas(tryHarder = false) {
     const original = ctx.getImageData(0, 0, validatorCanvas.width, validatorCanvas.height);
     const variants = [original];
     const openCvVariant = preprocessWithOpenCv();
     if (openCvVariant) variants.push(openCvVariant);
+    if (tryHarder) {
+      variants.push(grayscaleVariant(original));
+      variants.push(thresholdVariant(original, 128, 1.2));
+      variants.push(thresholdVariant(original, 160, 1.5));
+      variants.push(thresholdVariant(original, 192, 1.8));
+    }
 
     for (const imageData of variants) {
-      const code = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: 'attemptBoth' });
+      const code = tryDecodeWithJsQr(imageData);
       if (code && code.data) return code;
     }
+    if (tryHarder) return decodeWithOpenCvDetector();
     return null;
   }
 
@@ -85,8 +203,17 @@
     if (code) return code;
 
     drawImageToCanvas(image, { maxSide: 2800, scale: 2 });
-    code = decodeCanvas();
-    return code;
+    code = decodeCanvas(true);
+    if (code) return code;
+
+    const angles = [0, -12, -8, -4, 4, 8, 12];
+    for (const angle of angles) {
+      drawRotatedImageToCanvas(image, angle, { maxSide: 3600, scale: 3 });
+      code = decodeCanvas(true);
+      if (code) return code;
+    }
+
+    return null;
   }
 
   function loadImage(file) {
@@ -152,6 +279,10 @@
     bytes.textContent = result.byteCount === null ? '-' : String(result.byteCount);
     row.appendChild(bytes);
 
+    const seconds = document.createElement('td');
+    seconds.textContent = formatSeconds(result.elapsedSeconds);
+    row.appendChild(seconds);
+
     const errors = document.createElement('td');
     errors.textContent = String(result.errors.length);
     row.appendChild(errors);
@@ -181,12 +312,12 @@
     validatorRows.innerHTML = '';
 
     if (!results.length) {
-      validatorRows.innerHTML = '<tr><td colspan="8">No files selected.</td></tr>';
+      validatorRows.innerHTML = '<tr><td colspan="9">No files selected.</td></tr>';
       return;
     }
 
     if (!rows.length) {
-      validatorRows.innerHTML = '<tr><td colspan="8">No files match the selected display filter.</td></tr>';
+      validatorRows.innerHTML = '<tr><td colspan="9">No files match the selected display filter.</td></tr>';
       return;
     }
 
@@ -230,12 +361,13 @@
 
   function resultToYaml(result) {
     const lines = [
-      '# EMV Merchant-Presented QR validation export.',
+      '# Merchant-Presented QR-Code validation export.',
       `# source_file: ${yamlComment(result.file.name)}`,
       `# qr_found: ${result.qrFound ? 'true' : 'false'}`,
       `# emv_valid: ${result.valid ? 'true' : 'false'}`,
       `# nb_errors: ${result.errors.length}`,
       `# nb_warnings: ${result.warnings.length}`,
+      `# decode_parse_seconds: ${formatSeconds(result.elapsedSeconds)}`,
     ];
 
     if (result.byteCount !== null) lines.push(`# nbbytes: ${result.byteCount}`);
@@ -262,17 +394,22 @@
     return lines.join('\n');
   }
 
-  function renderMarkdownNodes(nodes, indent = 0) {
+  function renderMarkdownNodes(nodes, indent = 0, parentId = null) {
     const lines = [];
     const prefix = `${'  '.repeat(indent)}- `;
 
     for (const node of nodes || []) {
       lines.push(`${prefix}**${node.id}** ${node.name} _(len ${node.length}, offset ${node.offset})_`);
       if (node.value !== undefined) {
-        lines.push(`${'  '.repeat(indent + 1)}- Value: \`${String(node.value || '').replace(/`/g, '\\`')}\``);
+        const country = node.id === '58' ? countryDescription(node.value) : '';
+        const currency = node.id === '53' ? currencyDescription(node.value) : '';
+        const language = parentId === '64' && node.id === '00' ? languageDescription(node.value) : '';
+        const annotation = country || currency || language;
+        const textValue = String(node.value || '').replace(/`/g, '\\`');
+        lines.push(`${'  '.repeat(indent + 1)}- Value: \`${textValue}\`${annotation ? ` (${annotation})` : ''}`);
       }
       if (node.children && node.children.length) {
-        lines.push(...renderMarkdownNodes(node.children, indent + 1));
+        lines.push(...renderMarkdownNodes(node.children, indent + 1, node.id));
       }
     }
 
@@ -288,6 +425,7 @@
       `- EMV valid: \`${result.valid ? 'true' : 'false'}\``,
       `- Errors: \`${result.errors.length}\``,
       `- Warnings: \`${result.warnings.length}\``,
+      `- Decode/parse seconds: \`${formatSeconds(result.elapsedSeconds)}\``,
     ];
 
     if (result.byteCount !== null) lines.push(`- Bytes: \`${result.byteCount}\``);
@@ -439,6 +577,7 @@
       `   QR found: ${result.qrFound ? 'true' : 'false'}`,
       `   EMV valid: ${result.valid ? 'true' : 'false'}`,
       `   bytes: ${result.byteCount === null ? '-' : result.byteCount}`,
+      `   seconds: ${formatSeconds(result.elapsedSeconds)}`,
       `   errors: ${result.errors.length}`,
       ...result.errors.map(error => `     - ERROR: ${error}`),
       `   warnings: ${result.warnings.length}`,
@@ -471,6 +610,7 @@
       'qr_error_correction_level',
       'payload_chars',
       'payload_bytes',
+      'decode_parse_seconds',
       'root_field_count',
       'total_node_count',
       'root_field_ids',
@@ -504,6 +644,7 @@
         result.qrErrorCorrectionLevel,
         result.charCount,
         result.byteCount,
+        formatSeconds(result.elapsedSeconds),
         result.tree.length,
         countNodes(result.tree),
         result.tree.map(node => node.id).join(' '),
@@ -529,14 +670,16 @@
     const validCount = results.filter(result => result.valid).length;
     const validPercent = results.length ? Math.round((validCount / results.length) * 100) : 0;
     const invalidPercent = results.length ? Math.round(((results.length - validCount) / results.length) * 100) : 0;
+    const totalSeconds = totalElapsedSeconds(results);
     const generatedAt = new Date();
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'local time';
     return [
-      'EMV Merchant-Presented QR validation report',
+      'Merchant-Presented QR-Code validation report',
       `Generated: ${formatLocalDateTime(generatedAt)} ${timeZone}`,
       `Files: ${results.length}`,
       `Valid EMV QR: ${validCount} (${validPercent}%)`,
       `Invalid or unreadable: ${results.length - validCount} (${invalidPercent}%)`,
+      `Total scanning time: ${formatSeconds(totalSeconds)} s`,
       '',
       ...results.map(resultSummaryLine),
     ].join('\n');
@@ -641,7 +784,12 @@
     validatorInvalid.textContent = `${total - validCount} (${invalidPercent}%)`;
   }
 
+  function totalElapsedSeconds(results) {
+    return results.reduce((sum, result) => sum + (Number.isFinite(result.elapsedSeconds) ? result.elapsedSeconds : 0), 0);
+  }
+
   async function validateFile(file) {
+    const startedAt = performance.now();
     try {
       const loaded = await loadImage(file);
       const code = decodeImage(loaded.image);
@@ -655,6 +803,7 @@
           valid: false,
           byteCount: null,
           charCount: null,
+          elapsedSeconds: (performance.now() - startedAt) / 1000,
           rawText: '',
           rawHex: '',
           tree: [],
@@ -670,6 +819,8 @@
       }
 
       const analysis = window.emvAnalyzer.analyzePayload(code.data);
+      const elapsedSeconds = (performance.now() - startedAt) / 1000;
+      const warnings = addSlowScanWarning(analysis.validation.warnings, elapsedSeconds, true);
       return {
         file,
         imageWidth: loaded.image.naturalWidth,
@@ -679,6 +830,7 @@
         valid: analysis.validation.valid,
         byteCount: analysis.byteCount,
         charCount: analysis.charCount,
+        elapsedSeconds,
         rawText: analysis.rawText,
         rawHex: analysis.rawHex,
         tree: analysis.tree,
@@ -689,7 +841,7 @@
         crcActual: analysis.validation.crc.actual || '',
         crcMessage: analysis.validation.crc.message || '',
         errors: analysis.validation.errors,
-        warnings: analysis.validation.warnings,
+        warnings,
       };
     } catch (error) {
       return {
@@ -701,6 +853,7 @@
         valid: false,
         byteCount: null,
         charCount: null,
+        elapsedSeconds: (performance.now() - startedAt) / 1000,
         rawText: '',
         rawHex: '',
         tree: [],
@@ -724,8 +877,9 @@
     latestResults = [];
     downloadValidatorZipButton.disabled = true;
     updateSummary([]);
+    updateProgress(0, fileList.length);
     if (!fileList.length) {
-      validatorRows.innerHTML = '<tr><td colspan="8">No files selected.</td></tr>';
+      validatorRows.innerHTML = '<tr><td colspan="9">No files selected.</td></tr>';
       setStatus('Ready.');
       return;
     }
@@ -740,12 +894,21 @@
       latestResults = results.slice();
       renderResultsTable(latestResults);
       updateSummary(results);
+      updateProgress(index + 1, fileList.length);
       setStatus(`Validating ${index + 1}/${fileList.length} files.`);
     }
 
     const validCount = results.filter(result => result.valid).length;
     downloadValidatorZipButton.disabled = results.length === 0;
-    setStatus(`Done. ${validCount}/${results.length} files contain valid EMV QR payloads.`);
+    updateProgress(results.length, results.length);
+    setStatus(`Done. ${validCount}/${results.length} files contain valid EMV QR payloads. Total scanning time: ${formatSeconds(totalElapsedSeconds(results))} s.`);
+    if (results.length && runId === currentRun) {
+      try {
+        await downloadReportZip();
+      } catch (error) {
+        setStatus(`Done, but unable to create report zip: ${error.message}`, 'error');
+      }
+    }
   }
 
   validatorFiles.addEventListener('change', () => {

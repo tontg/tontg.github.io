@@ -42,7 +42,7 @@
                 <option value="H">high</option>
               </select>
             </label>
-            <a class="button-link" href="samples/valid-emvqr-without-crc.yaml" target="_blank" rel="noreferrer">Sample YAML</a>
+            <!--a class="button-link" href="samples/valid-emvqr-without-crc.yaml" target="_blank" rel="noreferrer">Sample YAML</a-->
           </div>
           <div class="input-group">
             <label for="yamlInput">YAML input</label>
@@ -72,12 +72,16 @@
             <div class="generator-actions">
               <button id="downloadQrSvgButton" type="button" class="secondary-button" disabled>Download SVG</button>
               <button id="downloadQrPngButton" type="button" class="secondary-button" disabled>Download PNG</button>
+              <button id="downloadQrWebpButton" type="button" class="secondary-button" disabled hidden>Download WebP</button>
             </div>
             <div id="qrImage" class="qr-output" data-resizable="true" data-resize-default="320" data-resize-min="180"></div>
           </div>
 
           <div class="result-block">
             <h2 id="generatedTextTitle">Generated text</h2>
+            <div class="generator-actions">
+              <button id="parseGeneratedTextButton" type="button" class="secondary-button" disabled>Parse text</button>
+            </div>
             <pre id="generatedText"></pre>
           </div>
 
@@ -117,7 +121,8 @@
     </script>
     <script defer src="vendor/js-yaml.min.js"></script>
     <script defer src="vendor/qrcode-generator.js"></script>
-    <script defer src="emv-core.js"></script>
+    <script defer src="CRC16.js"></script>
+    <script defer src="emv-analyzer.js"></script>
     <script defer src="qr-resizer.js"></script>
     <script defer src="qr-output.js"></script>
     <script defer src="site-menu.js"></script>

@@ -79,6 +79,10 @@
               <span>Characters</span>
               <strong id="charCount">0</strong>
             </div>
+            <div>
+              <span>Seconds</span>
+              <strong id="decodeSeconds">0.000</strong>
+            </div>
           </div>
 
           <div class="result-block">
@@ -100,6 +104,7 @@
             <h2>QR-Code TLV content as YAML</h2>
             <div class="generator-actions">
               <button id="exportYamlButton" type="button" class="secondary-button" disabled>Export YAML</button>
+              <button id="generateQrButton" type="button" class="secondary-button" disabled>Generate QR-Code</button>
             </div>
             <pre id="yamlOutput" class="yaml-output"></pre>
           </div>
@@ -108,9 +113,12 @@
     </main>
 
     <script defer src="vendor/jsQR.js"></script>
-    <script defer src="emv-core.js"></script>
+    <script defer src="CRC16.js"></script>
     <script defer src="emv-analyzer.js"></script>
     <script defer src="vendor/mcc-codes.js"></script>
+    <script defer src="vendor/iso4217-codes.js"></script>
+    <script defer src="vendor/iso3166-alpha2-codes.js"></script>
+    <script defer src="vendor/iso639-language-codes.js"></script>
     <script>
       window.__cvReady = false;
       window.Module = {

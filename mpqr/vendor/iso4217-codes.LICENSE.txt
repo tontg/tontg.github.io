@@ -1,0 +1,11 @@
+Source dataset: datasets/currency-codes
+Source URL: https://github.com/datasets/currency-codes
+
+The source repository README states:
+
+"Placing in the Public Domain under the Public Domain Dedication and License.
+The original site states no restriction on use and the data is small and
+completely factual."
+
+This vendored file is a derived static JavaScript lookup generated from the
+current ISO 4217 entries in that dataset, keyed by numeric code.

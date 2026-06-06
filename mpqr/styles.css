@@ -193,7 +193,7 @@ h2 {
 
 .generator-input {
   font-family: Consolas, 'Liberation Mono', Menlo, monospace;
-  min-height: 520px;
+  min-height: 362px;
 }
 
 .qr-output {
@@ -375,6 +375,31 @@ canvas {
   background: #fff0ed;
   border-color: #f1b9ae;
   color: #8a2619;
+}
+
+.progress-block {
+  margin-top: 12px;
+}
+
+.progress-track {
+  background: #eef4ef;
+  border: 1px solid #d7ded1;
+  border-radius: 8px;
+  height: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.progress-fill {
+  background: #176b5b;
+  height: 100%;
+  transition: width 0.2s ease;
+}
+
+.progress-text {
+  color: #526052;
+  font-size: 0.92rem;
+  margin-top: 6px;
 }
 
 .summary-grid {
@@ -686,6 +711,7 @@ a {
   body.validator-page .site-menu-backdrop,
   body.validator-page .site-menu-panel,
   body.validator-page .capture-panel,
+  body.validator-page .progress-block,
   body.validator-page #validatorCanvas {
     display: none !important;
   }

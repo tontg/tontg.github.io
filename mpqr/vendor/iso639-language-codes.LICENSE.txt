@@ -1,0 +1,8 @@
+Source dataset: datasets/language-codes
+Source URL: https://github.com/datasets/language-codes
+
+The source repository states that this material is licensed by its maintainers
+under the Public Domain Dedication and License (PDDL).
+
+This vendored file is a derived static JavaScript lookup generated from the
+ISO 639 alpha-2 language code data, keyed by the two-letter language code.

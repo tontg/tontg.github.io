@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b5b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EMV QR">
+    <title>MerchantPresentedQrCode.render sample</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-192.png">
+    <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#176b5b">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <h1>Render API sample</h1>
+        </div>
+        <div class="intro-actions">
+          <p class="lede">Minimal example using <code>window.MerchantPresentedQrCode.render(...)</code>.</p>
+        </div>
+      </section>
+
+      <section class="workspace generator-workspace">
+        <div class="capture-panel">
+          <pre><code>&lt;div id="qr"&gt;&lt;/div&gt;
+&lt;script src="vendor/qrcode-generator.js"&gt;&lt;/script&gt;
+&lt;script src="CRC16.js"&gt;&lt;/script&gt;
+&lt;script src="qr-output.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+const fields = [
+  { "26": [{ "00": "COM.EXAMPLE.PAY" }, { "01": "MERCHANT123" }] },
+  { "52": "5812" },
+  { "53": "840" },
+  { "54": "12.34" },
+  { "58": "US" },
+  { "59": "EXAMPLE MERCHANT" },
+  { "60": "NEW YORK" }
+];
+
+window.MerchantPresentedQrCode.render(document.getElementById('qr'), fields);
+&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-block">
+            <h2>Rendered QR-Code</h2>
+            <div id="renderSampleQr" class="qr-output"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script defer src="vendor/qrcode-generator.js"></script>
+    <script defer src="CRC16.js"></script>
+    <script defer src="qr-output.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        window.MerchantPresentedQrCode.render(
+          document.getElementById('renderSampleQr'),
+          [
+            { "26": [{ "00": "COM.EXAMPLE.PAY" }, { "01": "MERCHANT123" }] },
+            { "52": "5812" },
+            { "53": "840" },
+            { "54": "12.34" },
+            { "58": "US" },
+            { "59": "EXAMPLE MERCHANT" },
+            { "60": "NEW YORK" }
+          ]
+        );
+      });
+    </script>
+    <script defer src="site-menu.js"></script>
+    <script defer src="pwa.js"></script>
+  </body>
+</html>

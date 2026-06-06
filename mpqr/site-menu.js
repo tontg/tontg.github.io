@@ -4,6 +4,7 @@
     { href: 'parser.html', label: 'Parser' },
     { href: 'generator.html', label: 'Generator' },
     { href: 'checkout.html', label: 'Checkout' },
+    { href: 'render.html', label: 'Render API' },
     { href: 'validator.html', label: 'Validator' },
     { href: 'about.html', label: 'About' },
   ];

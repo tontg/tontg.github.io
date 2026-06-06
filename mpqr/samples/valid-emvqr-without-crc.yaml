@@ -1,4 +1,4 @@
-# EMV Merchant-Presented QR sample.
+# Merchant-Presented QR-Code sample.
 # Field 63 CRC is intentionally omitted; the generator appends 6304 + CRC.
 fields:
   - "00": "01"

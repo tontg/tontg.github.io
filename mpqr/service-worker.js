@@ -1,4 +1,4 @@
-const CACHE_NAME = 'emvqr-pwa-v40';
+const CACHE_NAME = 'emvqr-pwa-v56';
 
 const ASSETS = [
   './',
@@ -7,6 +7,7 @@ const ASSETS = [
   './about.html',
   './generator.html',
   './checkout.html',
+  './render.html',
   './validator.html',
   './styles.css',
   './app.js',
@@ -15,8 +16,9 @@ const ASSETS = [
   './validator.js',
   './qr-output.js',
   './qr-resizer.js',
+  './cbor-base64url.js',
   './site-menu.js',
-  './emv-core.js',
+  './CRC16.js',
   './emv-analyzer.js',
   './pwa.js',
   './manifest.webmanifest',
@@ -27,6 +29,12 @@ const ASSETS = [
   './vendor/js-yaml.min.js',
   './vendor/mcc-codes.js',
   './vendor/mcc-codes.LICENSE.txt',
+  './vendor/iso4217-codes.js',
+  './vendor/iso4217-codes.LICENSE.txt',
+  './vendor/iso3166-alpha2-codes.js',
+  './vendor/iso3166-alpha2-codes.LICENSE.txt',
+  './vendor/iso639-language-codes.js',
+  './vendor/iso639-language-codes.LICENSE.txt',
   './vendor/qrcode-generator.js',
   './vendor/opencv.js',
 ];

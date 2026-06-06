@@ -19,7 +19,7 @@
     <main class="shell">
       <section class="intro">
         <div>
-          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <p class="eyebrow">Merchant-Presented QR-Code</p>
           <h1>Validate QR image files</h1>
         </div>
         <div class="intro-actions">
@@ -49,6 +49,12 @@
           <button id="printValidatorButton" type="button" class="secondary-button">Print</button>
         </div>
         <div id="validatorStatus" class="status-box">Ready.</div>
+        <div class="progress-block" aria-label="Validation progress">
+          <div class="progress-track">
+            <div id="validatorProgressBar" class="progress-fill" style="width: 0%"></div>
+          </div>
+          <div id="validatorProgressText" class="progress-text">0/0 (0%)</div>
+        </div>
       </section>
 
       <section class="result-panel validator-results">
@@ -76,6 +82,7 @@
                 <th>QR</th>
                 <th>EMV valid</th>
                 <th>Bytes</th>
+                <th>Seconds</th>
                 <th>Errors</th>
                 <th>Warnings</th>
                 <th>Messages</th>
@@ -83,7 +90,7 @@
             </thead>
             <tbody id="validatorRows">
               <tr>
-                <td colspan="8">No files selected.</td>
+                <td colspan="9">No files selected.</td>
               </tr>
             </tbody>
           </table>
@@ -94,8 +101,11 @@
     <canvas id="validatorCanvas" hidden></canvas>
 
     <script defer src="vendor/jsQR.js"></script>
-    <script defer src="emv-core.js"></script>
+    <script defer src="CRC16.js"></script>
     <script defer src="emv-analyzer.js"></script>
+    <script defer src="vendor/iso4217-codes.js"></script>
+    <script defer src="vendor/iso3166-alpha2-codes.js"></script>
+    <script defer src="vendor/iso639-language-codes.js"></script>
     <script>
       window.__cvReady = false;
       window.Module = {

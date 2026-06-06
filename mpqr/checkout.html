@@ -68,6 +68,7 @@
             <div class="generator-actions">
               <button id="downloadCheckoutSvgButton" type="button" class="secondary-button" disabled>Download SVG</button>
               <button id="downloadCheckoutPngButton" type="button" class="secondary-button" disabled>Download PNG</button>
+              <button id="downloadCheckoutWebpButton" type="button" class="secondary-button" disabled hidden>Download WebP</button>
             </div>
             <div id="checkoutQrImage" class="qr-output" data-resizable="true" data-resize-default="320" data-resize-min="180"></div>
           </div>
@@ -112,7 +113,7 @@
       window.emvQrCheckoutConfig = EMVQR_CHECKOUT_STATIC_FIELDS;
     </script>
     <script defer src="vendor/qrcode-generator.js"></script>
-    <script defer src="emv-core.js"></script>
+    <script defer src="CRC16.js"></script>
     <script defer src="qr-resizer.js"></script>
     <script defer src="qr-output.js"></script>
     <script defer src="site-menu.js"></script>

@@ -14,5 +14,6 @@
     return crc.toString(16).toUpperCase().padStart(4, '0');
   }
 
-  global.emvCore = { computeCRC };
+  global.CRC16 = { computeCRC };
+  global.emvCore = global.CRC16;
 }(window));

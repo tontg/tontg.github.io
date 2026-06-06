@@ -35,6 +35,20 @@
     '02': 'Merchant City - Alternate Language',
   };
 
+  function merchantAccountInformationName(id) {
+    const n = Number(id);
+    if (n >= 2 && n <= 3) return 'Merchant Account Information (Visa)';
+    if (n >= 4 && n <= 5) return 'Merchant Account Information (Mastercard)';
+    if (n >= 6 && n <= 8) return 'Merchant Account Information (Reserved by EMVCo)';
+    if (n >= 9 && n <= 10) return 'Merchant Account Information (Discover)';
+    if (n >= 11 && n <= 12) return 'Merchant Account Information (Amex)';
+    if (n >= 13 && n <= 14) return 'Merchant Account Information (JCB)';
+    if (n >= 15 && n <= 16) return 'Merchant Account Information (UnionPay)';
+    if (n >= 17 && n <= 25) return 'Merchant Account Information (Reserved by EMVCo)';
+    if (n >= 26 && n <= 51) return 'Merchant Account Information (Private Use)';
+    return 'Merchant Account Information';
+  }
+
   function isTemplate(id) {
     const n = Number(id);
     return (n >= 2 && n <= 51) || id === '62' || id === '64' || (n >= 65 && n <= 99);
@@ -59,7 +73,7 @@
       if (n >= 1 && n <= 99) return 'Context Specific Data';
     }
     if (TAG_NAMES[id]) return TAG_NAMES[id];
-    if (n >= 2 && n <= 51) return 'Merchant Account Information';
+    if (n >= 2 && n <= 51) return merchantAccountInformationName(id);
     if (n >= 65 && n <= 79) return 'RFU for EMVCo';
     if (n >= 80 && n <= 99) return 'Unreserved Template';
     return 'Unknown';

@@ -11,6 +11,8 @@
   const qrImage = document.getElementById('qrImage');
   const downloadQrSvgButton = document.getElementById('downloadQrSvgButton');
   const downloadQrPngButton = document.getElementById('downloadQrPngButton');
+  const downloadQrWebpButton = document.getElementById('downloadQrWebpButton');
+  const parseGeneratedTextButton = document.getElementById('parseGeneratedTextButton');
   const generatedTextTitle = document.getElementById('generatedTextTitle');
   const generatedText = document.getElementById('generatedText');
   const generatedHexTitle = document.getElementById('generatedHexTitle');
@@ -58,8 +60,54 @@
     ].join('\n');
   }
 
+  function yamlFromFields(fields) {
+    return [
+      '# EMV Merchant-Presented QR content from URL parameter.',
+      'fields:',
+      ...renderConfigFields((fields || []).filter(field => !Object.prototype.hasOwnProperty.call(field || {}, '63')), 2),
+      '',
+    ].join('\n');
+  }
+
+  function hasTopLevelCrcField(fields) {
+    return (fields || []).some(field => Object.prototype.hasOwnProperty.call(field || {}, '63'));
+  }
+
+  function withFixedTopLevelCrc(fields, crc) {
+    return (fields || []).map(field => {
+      if (Object.prototype.hasOwnProperty.call(field || {}, '63')) return { '63': crc };
+      return field;
+    });
+  }
+
+  function yamlDocumentFromFields(fields) {
+    return [
+      'fields:',
+      ...renderConfigFields(fields, 2),
+      '',
+    ].join('\n');
+  }
+
+  function renderNodesToYaml(nodes, indent) {
+    const lines = [];
+    const prefix = ' '.repeat(indent);
+
+    for (const node of nodes || []) {
+      if (node.children && node.children.length) {
+        lines.push(`${prefix}- ${yamlScalar(node.id)}:`);
+        lines.push(...renderNodesToYaml(node.children, indent + 4));
+      } else {
+        lines.push(`${prefix}- ${yamlScalar(node.id)}: ${yamlScalar(node.value || '')}`);
+      }
+    }
+
+    return lines;
+  }
+
   yamlInput.value = sampleYaml();
   if (window.emvQrOutput) window.emvQrOutput.initResizable(qrImage);
+  const webpSupported = Boolean(window.emvQrOutput && window.emvQrOutput.supportsWebp && window.emvQrOutput.supportsWebp());
+  downloadQrWebpButton.hidden = !webpSupported;
 
   function setStatus(message, type = 'info') {
     generatorStatus.textContent = message;
@@ -98,66 +146,38 @@
     return { id: key, value };
   }
 
-  function encodeLength(value, id) {
-    const length = String(value).length;
-    if (length > 99) throw new Error(`Field ${id} is ${length} characters long; EMV TLV length must fit in two digits.`);
-    return String(length).padStart(2, '0');
-  }
-
-  function encodeField(field) {
+  function toShorthandField(field) {
     field = normalizeField(field);
     const id = normalizeId(field.id);
-
-    let value;
     if (Array.isArray(field.children)) {
-      value = field.children.map(encodeField).join('');
-    } else if (Object.prototype.hasOwnProperty.call(field, 'value')) {
-      value = String(field.value);
-    } else {
-      throw new Error(`Field ${id} must define either "value" or "children".`);
+      return { [id]: field.children.map(toShorthandField) };
     }
-
-    return `${id}${encodeLength(value, id)}${value}`;
+    if (Object.prototype.hasOwnProperty.call(field, 'value')) {
+      return { [id]: String(field.value) };
+    }
+    throw new Error(`Field ${id} must define either "value" or "children".`);
   }
 
-  function generateTextFromYaml(yamlText) {
+  function parseYamlFields(yamlText) {
     const document = jsyaml.load(yamlText);
     const fields = normalizeFields(document);
-    const normalizedFields = fields.map(normalizeField);
-    const fieldIds = normalizedFields.map(field => normalizeId(field.id));
-    const crcIndex = fieldIds.indexOf('63');
-    if (crcIndex !== -1 && crcIndex !== fieldIds.length - 1) {
-      throw new Error('Field 63, when present, must be the final field.');
-    }
-
-    const encoded = normalizedFields.map(encodeField).join('');
-    if (crcIndex === -1) {
-      const crcInput = `${encoded}6304`;
-      const crc = window.emvCore.computeCRC(crcInput);
-      return { text: `${crcInput}${crc}`, crc };
-    }
-
-    const crcMatch = encoded.match(/6304([0-9A-Fa-f]{4})$/);
-    if (crcMatch) {
-      return { text: encoded, crc: crcMatch[1].toUpperCase() };
-    }
-
-    throw new Error('Field 63, when present, must be the final field with length 04 and a four-character CRC value.');
+    return fields.map(toShorthandField);
   }
 
-  function renderQr(text) {
-    const qr = qrcode(0, errorCorrectionSelect.value);
-    qr.addData(text);
-    qr.make();
-    currentQrSvg = qr.createSvgTag(
-      qrCellSize,
-      qrCellSize * qrQuietZoneModules,
-      'Generated EMV QR code',
-      'Generated EMV QR code',
-    );
-    window.emvQrOutput.renderSvg(qrImage, currentQrSvg);
-    downloadQrSvgButton.disabled = false;
-    downloadQrPngButton.disabled = false;
+  function loadQrFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const qr = params.get('qr');
+    if (!qr) return false;
+    if (!window.emvAnalyzer) throw new Error('EMV analyzer is not available.');
+    const result = window.emvAnalyzer.analyzePayload(qr);
+    yamlInput.value = [
+      '# EMV Merchant-Presented QR content from URL parameter.',
+      `# payload: ${String(qr).replace(/\r?\n/g, ' ')}`,
+      'fields:',
+      ...renderNodesToYaml((result.tree || []).filter(node => node.id !== '63'), 2),
+      '',
+    ].join('\n');
+    return true;
   }
 
   function downloadQrSvg() {
@@ -173,17 +193,46 @@
     );
   }
 
+  function downloadQrWebp() {
+    window.emvQrOutput.downloadWebpFromContainer(
+      qrImage,
+      currentQrSvg,
+      `emv-merchant-qr-${generatedCrc.textContent || 'code'}.webp`,
+      () => setStatus('Unable to render WebP download.'),
+    );
+  }
+
+  function openParserWithText() {
+    const payload = String(generatedText.textContent || '').trim();
+    if (!payload) return;
+    window.location.href = `parser.html?qr=${encodeURIComponent(payload)}`;
+  }
+
   function generate() {
     try {
-      const result = generateTextFromYaml(yamlInput.value);
-      const bytes = new TextEncoder().encode(result.text);
-      renderQr(result.text);
-      generatedText.textContent = result.text;
-      generatedHex.textContent = window.emvQrOutput.toHex(result.text);
-      generatedChars.textContent = String(result.text.length);
-      generatedBytes.textContent = String(bytes.length);
-      generatedTextTitle.textContent = `Generated text (${result.text.length} chars)`;
-      generatedHexTitle.textContent = `Generated hexadecimal string (${bytes.length} bytes)`;
+      let fields = parseYamlFields(yamlInput.value);
+      const result = window.MerchantPresentedQrCode.render(qrImage, fields, {
+        altText: 'Generated EMV QR code',
+        cellSize: qrCellSize,
+        errorCorrection: errorCorrectionSelect.value,
+        quietZoneModules: qrQuietZoneModules,
+      });
+      if (hasTopLevelCrcField(fields)) {
+        fields = withFixedTopLevelCrc(fields, result.crc);
+        const normalizedYaml = yamlDocumentFromFields(fields);
+        if (yamlInput.value !== normalizedYaml) yamlInput.value = normalizedYaml;
+      }
+      currentQrSvg = result.svg;
+      downloadQrSvgButton.disabled = false;
+      downloadQrPngButton.disabled = false;
+      downloadQrWebpButton.disabled = !webpSupported;
+      parseGeneratedTextButton.disabled = false;
+      generatedText.textContent = result.payload;
+      generatedHex.textContent = result.hex;
+      generatedChars.textContent = String(result.characters);
+      generatedBytes.textContent = String(result.bytes);
+      generatedTextTitle.textContent = `Generated text (${result.characters} chars)`;
+      generatedHexTitle.textContent = `Generated hexadecimal string (${result.bytes} bytes)`;
       generatedCrc.textContent = result.crc;
       setStatus('QR code generated.');
     } catch (error) {
@@ -192,6 +241,8 @@
       currentQrSvg = '';
       downloadQrSvgButton.disabled = true;
       downloadQrPngButton.disabled = true;
+      downloadQrWebpButton.disabled = true;
+      parseGeneratedTextButton.disabled = true;
       generatedText.textContent = '';
       generatedHex.textContent = '';
       generatedTextTitle.textContent = 'Generated text';
@@ -211,6 +262,8 @@
   errorCorrectionSelect.addEventListener('change', generate);
   downloadQrSvgButton.addEventListener('click', downloadQrSvg);
   downloadQrPngButton.addEventListener('click', downloadQrPng);
+  downloadQrWebpButton.addEventListener('click', downloadQrWebp);
+  parseGeneratedTextButton.addEventListener('click', openParserWithText);
   loadSampleButton.addEventListener('click', () => {
     yamlInput.value = sampleYaml();
     generate();
@@ -238,6 +291,13 @@
     };
     reader.readAsText(file);
   });
+
+  try {
+    if (!loadQrFromUrl()) yamlInput.value = sampleYaml();
+  } catch (error) {
+    yamlInput.value = sampleYaml();
+    setStatus(`Unable to load QR parameter: ${error.message}`, 'error');
+  }
 
   generate();
 }());
