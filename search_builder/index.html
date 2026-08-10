@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="theme-color" name="theme-color" content="#f6f7fb">
+    <meta name="description" content="Build focused Google and DuckDuckGo searches.">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <title></title>
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="app-header">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <circle cx="10.5" cy="10.5" r="6.5"></circle>
+            <path d="m15.2 15.2 4.3 4.3"></path>
+            <path d="M8 10.5h5M10.5 8v5"></path>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <h1 data-i18n="appTitle"></h1>
+          <p data-i18n="appSubtitle"></p>
+        </div>
+        <div class="theme-control">
+          <label for="theme" data-i18n="themeLabel"></label>
+          <select id="theme" name="theme">
+            <option value="system" data-i18n="themeSystem"></option>
+            <option value="light" data-i18n="themeLight"></option>
+            <option value="dark" data-i18n="themeDark"></option>
+          </select>
+        </div>
+      </header>
+
+      <section class="card" aria-labelledby="form-heading">
+        <h2 id="form-heading" class="sr-only" data-i18n="formHeading"></h2>
+        <form id="search-form" novalidate>
+          <div class="query-group">
+            <label for="query" data-i18n="queryLabel"></label>
+            <input id="query" name="query" type="search" required autocomplete="off" data-i18n-placeholder="queryPlaceholder" aria-describedby="query-error">
+            <p id="query-error" class="field-error" hidden></p>
+          </div>
+
+          <div class="option-grid">
+            <fieldset>
+              <legend data-i18n="engineLegend"></legend>
+              <div class="segmented">
+                <input id="engine-google" name="engine" type="radio" value="google" checked>
+                <label for="engine-google" data-i18n="google"></label>
+                <input id="engine-duckduckgo" name="engine" type="radio" value="duckduckgo">
+                <label for="engine-duckduckgo" data-i18n="duckduckgo"></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend data-i18n="languageLegend"></legend>
+              <div class="segmented segmented-three">
+                <input id="language-undefined" name="language" type="radio" value="undefined">
+                <label for="language-undefined" data-i18n="languageUndefined"></label>
+                <input id="language-fr" name="language" type="radio" value="fr">
+                <label for="language-fr" data-i18n="french"></label>
+                <input id="language-en" name="language" type="radio" value="en">
+                <label for="language-en" data-i18n="english"></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend data-i18n="typeLegend"></legend>
+              <div class="segmented segmented-four">
+                <input id="type-web" name="type" type="radio" value="web" checked>
+                <label for="type-web" data-i18n="web"></label>
+                <input id="type-images" name="type" type="radio" value="images">
+                <label for="type-images" data-i18n="images"></label>
+                <input id="type-news" name="type" type="radio" value="news">
+                <label for="type-news" data-i18n="news"></label>
+                <input id="type-news2" name="type" type="radio" value="news2">
+                <label for="type-news2" data-i18n="news2"></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filters">
+              <legend data-i18n="filtersLegend"></legend>
+              <div class="check-row">
+                <input id="restrict-site" name="restrictSite" type="checkbox">
+                <label for="restrict-site" data-i18n="restrictSite"></label>
+              </div>
+              <div id="site-field" class="site-field" hidden>
+                <label for="website" class="sr-only" data-i18n="websiteLabel"></label>
+                <input id="website" name="website" type="text" inputmode="url" autocomplete="url" data-i18n-placeholder="websitePlaceholder" aria-describedby="website-hint website-error" disabled>
+                <p id="website-hint" class="field-hint" data-i18n="websiteHint"></p>
+                <p id="website-error" class="field-error" hidden></p>
+              </div>
+              <div class="check-row">
+                <input id="pdf-only" name="pdfOnly" type="checkbox">
+                <label for="pdf-only" data-i18n="pdfOnly"></label>
+              </div>
+              <p id="pdf-hint" class="field-hint" data-i18n="pdfImagesHint" hidden></p>
+            </fieldset>
+          </div>
+
+          <div class="preview-section">
+            <div class="preview-heading">
+              <label for="url-preview" data-i18n="previewLabel"></label>
+              <button id="copy-button" class="button button-quiet" type="button" data-i18n="copyUrl"></button>
+            </div>
+            <output id="url-preview" for="query engine-google engine-duckduckgo language-undefined language-fr language-en type-web type-news type-news2 type-images restrict-site website pdf-only" tabindex="0"></output>
+            <p id="copy-status" class="status" role="status" aria-live="polite"></p>
+          </div>
+
+          <button class="button button-primary" type="submit">
+            <span data-i18n="search"></span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"></path></svg>
+          </button>
+        </form>
+      </section>
+      <p id="offline-status" class="offline-status" role="status" data-i18n="offline" hidden></p>
+    </main>
+  </body>
+</html>
