@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'search-builder-';
-const CACHE_NAME = `${CACHE_PREFIX}v2`;
+const CACHE_NAME = `${CACHE_PREFIX}v4`;
 const APP_SHELL = [
   './',
   './index.html',

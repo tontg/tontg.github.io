@@ -473,6 +473,74 @@ output[data-empty="true"] {
   text-align: center;
 }
 
+.keyword-help {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.keyword-help h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.keyword-help > p {
+  margin: var(--space-1) 0 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.keyword-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+}
+
+.keyword-list > div {
+  min-width: 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface-subtle);
+}
+
+.keyword-list dt,
+.keyword-list dd {
+  margin: 0;
+}
+
+.keyword-list code,
+.keyword-example code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+.keyword-list code {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.keyword-list dd {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.keyword-help .keyword-example {
+  margin-top: var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.keyword-example code {
+  color: var(--text);
+  font-size: 0.74rem;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -516,6 +584,10 @@ output[data-empty="true"] {
 
   .segmented-four {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .keyword-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .filters {

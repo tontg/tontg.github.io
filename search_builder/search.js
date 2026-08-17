@@ -48,6 +48,38 @@ export function buildSearchExpression({ query, domain = null, pdfOnly = false })
   return parts.filter(Boolean).join(' ');
 }
 
+export function extractQueryActions(input) {
+  const actions = {
+    query: '',
+    pdfOnly: false,
+    type: null,
+    language: null,
+    website: null,
+  };
+  const queryParts = [];
+
+  for (const token of input.trim().split(/\s+/).filter(Boolean)) {
+    if (token === 'PDF') {
+      actions.pdfOnly = true;
+    } else if (token === 'IMG') {
+      actions.type = 'images';
+    } else if (token === 'NEWS') {
+      actions.type = 'news';
+    } else if (token === 'NEWS2') {
+      actions.type = 'news2';
+    } else if (token === 'FR' || token === 'EN') {
+      actions.language = token.toLowerCase();
+    } else if (/^https?:\/\//i.test(token) && normalizeDomain(token)) {
+      actions.website = token;
+    } else {
+      queryParts.push(token);
+    }
+  }
+
+  actions.query = queryParts.join(' ');
+  return actions;
+}
+
 export function buildGoogleUrl({ expression, language = 'en', type = 'web' }) {
   if (type === 'news2') return buildGoogleNewsUrl({ expression, language });
 

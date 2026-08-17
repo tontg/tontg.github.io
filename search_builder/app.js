@@ -1,6 +1,7 @@
 import {
   buildSearchUrl,
   detectUiLanguage,
+  extractQueryActions,
   normalizeDomain,
 } from './search.js';
 
@@ -45,6 +46,21 @@ const MESSAGES = {
     search: 'Search',
     popupBlocked: 'Your browser blocked the new tab. Allow pop-ups and try again.',
     offline: 'You are offline. The builder still works, but searches need a connection.',
+    keywordHelpTitle: 'Query shortcuts',
+    keywordHelpIntro: 'Add uppercase shortcuts as standalone terms. They are applied and removed when you press Enter or Search; compatible shortcuts can be combined.',
+    keywordPdf: 'PDF',
+    keywordPdfDescription: 'Search PDF files only.',
+    keywordImg: 'IMG',
+    keywordImgDescription: 'Switch to image search.',
+    keywordNews: 'NEWS',
+    keywordNewsDescription: 'Switch to news search.',
+    keywordNews2: 'NEWS2',
+    keywordNews2Description: 'Search Google News and select Google automatically.',
+    keywordFrEn: 'FR / EN',
+    keywordFrEnDescription: 'Set the search-result language.',
+    keywordUrl: 'https://example.com',
+    keywordUrlDescription: 'Restrict results to the URL’s registrable domain.',
+    keywordExample: 'Example: casablanca PDF FR https://lemonde.fr',
   },
   fr: {
     appTitle: 'Créateur de recherche',
@@ -86,20 +102,35 @@ const MESSAGES = {
     search: 'Rechercher',
     popupBlocked: 'Le navigateur a bloqué le nouvel onglet. Autorisez les fenêtres contextuelles et réessayez.',
     offline: 'Vous êtes hors ligne. Le générateur fonctionne, mais les recherches nécessitent une connexion.',
+    keywordHelpTitle: 'Raccourcis de requête',
+    keywordHelpIntro: 'Ajoutez ces raccourcis en majuscules comme termes indépendants. Ils sont appliqués puis retirés lorsque vous appuyez sur Entrée ou Rechercher ; les raccourcis compatibles peuvent être combinés.',
+    keywordPdf: 'PDF',
+    keywordPdfDescription: 'Rechercher uniquement des fichiers PDF.',
+    keywordImg: 'IMG',
+    keywordImgDescription: 'Passer à la recherche d’images.',
+    keywordNews: 'NEWS',
+    keywordNewsDescription: 'Passer à la recherche d’actualités.',
+    keywordNews2: 'NEWS2',
+    keywordNews2Description: 'Rechercher dans Google Actualités et sélectionner Google automatiquement.',
+    keywordFrEn: 'FR / EN',
+    keywordFrEnDescription: 'Définir la langue des résultats de recherche.',
+    keywordUrl: 'https://example.com',
+    keywordUrlDescription: 'Limiter les résultats au domaine enregistrable de l’URL.',
+    keywordExample: 'Exemple : casablanca PDF FR https://lemonde.fr',
   },
 };
 
 const STORAGE_KEYS = {
   engine: 'search-builder.engine',
   language: 'search-builder.search-language',
-  type: 'search-builder.type',
   theme: 'search-builder.theme',
 };
+
+const LEGACY_TYPE_STORAGE_KEY = 'search-builder.type';
 
 const VALID_PREFERENCES = {
   engine: ['google', 'duckduckgo'],
   language: ['undefined', 'fr', 'en'],
-  type: ['web', 'news', 'news2', 'images'],
   theme: ['system', 'light', 'dark'],
 };
 
@@ -166,7 +197,12 @@ function getRadioValue(name) {
 function restorePreferences() {
   setRadioValue('engine', readPreference('engine', 'google'));
   setRadioValue('language', readPreference('language', uiLanguage));
-  setRadioValue('type', readPreference('type', 'web'));
+  setRadioValue('type', 'web');
+  try {
+    localStorage.removeItem(LEGACY_TYPE_STORAGE_KEY);
+  } catch {
+    // Storage can be unavailable in restricted browser contexts.
+  }
   elements.theme.value = readPreference('theme', 'system');
   applyTheme(elements.theme.value);
 }
@@ -221,7 +257,6 @@ function updateFilterState() {
   elements.news2.disabled = duckDuckGo;
   if (duckDuckGo && getRadioValue('type') === 'news2') {
     setRadioValue('type', 'news');
-    savePreference('type', 'news');
   }
 
   const images = getRadioValue('type') === 'images';
@@ -274,6 +309,7 @@ async function copyUrl() {
 
 function launchSearch(event) {
   event.preventDefault();
+  applyQueryActions();
   const url = updatePreview({ showErrors: true });
   if (!url) {
     const invalid = elements.form.querySelector('[aria-invalid="true"]');
@@ -288,8 +324,28 @@ function launchSearch(event) {
   link.click();
 }
 
+function applyQueryActions() {
+  const actions = extractQueryActions(elements.query.value);
+  elements.query.value = actions.query;
+
+  if (actions.pdfOnly) elements.pdfOnly.checked = true;
+  if (actions.type === 'news2') {
+    setRadioValue('engine', 'google');
+    savePreference('engine', 'google');
+  }
+  if (actions.type) setRadioValue('type', actions.type);
+  if (actions.language) {
+    setRadioValue('language', actions.language);
+    savePreference('language', actions.language);
+  }
+  if (actions.website) {
+    elements.restrictSite.checked = true;
+    elements.website.value = actions.website;
+  }
+}
+
 function persistChangedPreference(event) {
-  if (event.target.matches('input[name="engine"], input[name="language"], input[name="type"]')) {
+  if (event.target.matches('input[name="engine"], input[name="language"]')) {
     savePreference(event.target.name, event.target.value);
   }
 }
