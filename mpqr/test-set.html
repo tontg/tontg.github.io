@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b5b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EMV QR">
+    <title>EMV QR Scanner Test Set</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-192.png">
+    <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#176b5b">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="test-set-page">
+    <main class="shell">
+      <header class="intro">
+        <div>
+          <p class="eyebrow">EMV Merchant-Presented QR</p>
+          <h1 id="testSetTitle">Scanner test set</h1>
+        </div>
+      </header>
+      <p id="testSetDescription">Fictional merchants. Do not use for payments.</p>
+      <div class="generator-actions">
+        <a class="button-link" href="samples/qr-test-set.yaml" download>Download test set YAML</a>
+        <button id="reloadTestSet" type="button" class="secondary-button">Reload test set</button>
+      </div>
+      <p id="testSetStatus" class="status-box" role="status">Loading test set...</p>
+
+      <div id="testSetDeck" hidden>
+        <div class="test-set-toolbar">
+          <div class="input-group">
+            <label for="testCodeSelect">Test case</label>
+            <select id="testCodeSelect"></select>
+          </div>
+          <div>
+            <label id="testProgressLabel" for="testProgress">0 of 0 tested</label>
+            <progress id="testProgress" max="1" value="0"></progress>
+          </div>
+          <button id="resetTestProgress" type="button" class="secondary-button">Reset progress</button>
+        </div>
+
+        <div class="test-set-layout">
+          <section class="test-set-stage" aria-labelledby="testCodeTitle">
+            <h2 id="testCodeTitle"></h2>
+            <p id="testCodeDescription"></p>
+            <div id="testQr" class="qr-output" data-resizable="true" data-resize-default="360" data-resize-min="180"></div>
+            <p id="testQrMetadata" class="status"></p>
+            <nav class="test-set-navigation" aria-label="Test cases">
+              <button id="previousTestCode" type="button" class="secondary-button">Previous</button>
+              <span id="testCodePosition" aria-live="polite" aria-atomic="true"></span>
+              <button id="nextTestCode" type="button">Next</button>
+            </nav>
+            <label class="checkbox" for="testCodeTested">
+              <input id="testCodeTested" type="checkbox">Tested with my scanner
+            </label>
+            <p class="status">Mark each code after checking your scanner's result. Progress resets when this page is reloaded.</p>
+          </section>
+
+          <section class="test-set-content" aria-label="Expected QR content">
+            <h2 id="testPayloadTitle">Expected text</h2>
+            <pre id="testPayload" dir="ltr"></pre>
+            <p id="testValidation" class="status-box"></p>
+            <div class="result-block">
+              <h2>YAML content</h2>
+              <pre id="testYaml" dir="ltr"></pre>
+            </div>
+            <details class="result-block">
+              <summary id="testHexTitle">Hexadecimal data</summary>
+              <pre id="testHex" dir="ltr"></pre>
+            </details>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script defer src="vendor/js-yaml.min.js" integrity="sha256-MjkVYGAZkLtuDaq9gQajWmpTneCIUyQTkxpwpMtPR2k="></script>
+    <script defer src="vendor/qrcode-generator.js" integrity="sha256-eeyG+ChWAFsciHkFz8z8++w4Icphx/1alS+qX3ePeRw="></script>
+    <script defer src="CRC16.js" integrity="sha256-9+sdLG+ch++VxVYVDeel9+UaVrOBhpzxqW2nzOO2Gzo="></script>
+    <script defer src="emv-codec.js" integrity="sha256-/qzuIrXv2bQIe7ONvnC15vGVOawwkd5rD3bco2HbkzY="></script>
+    <script defer src="emv-yaml.js" integrity="sha256-VONJIrBQGC1YAwyE0Fxb7l5gwx9T0GeqW3ykSEO6juE="></script>
+    <script defer src="emv-analyzer.js" integrity="sha256-7faZSBmj0bLtX3QsWs46tQaHCUrp7MpqNVzHNZOe9GI="></script>
+    <script defer src="emv-format.js" integrity="sha256-/r8ha7wXTOK4n0viXICikC62+IcsvFBz2Wo3NEBrUok="></script>
+    <script defer src="qr-resizer.js" integrity="sha256-GhlHkglDXB+Bmr93tbevAYWPO/JRnIDvtUAMRmxkXYs="></script>
+    <script defer src="qr-output.js" integrity="sha256-mkyaLx9xlhyG20GwLqZi2vFtCFpsSXV83Y4pwD9kArM="></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
+    <script defer src="test-set.js" integrity="sha256-PtxRMelfMU28tUSDzAFoXykCfL7IqqZFdOFzBN7tGIk="></script>
+  </body>
+</html>

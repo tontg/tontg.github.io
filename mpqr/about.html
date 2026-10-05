@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#176b5b">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,17 +30,17 @@
       </section>
 
       <section class="result-panel">
-        <p class="modal-copy">Libraries and references used by this project.</p>
+        <p class="modal-copy"><a href="vendor/manifest.json">Dependency versions and checksums</a> | <a href="vendor/PATCHES.md">Source revisions, licenses and local patches</a></p>
         <div class="about-list">
           <article>
-            <h3>Local EMV TLV parser</h3>
+            <h3>Overall project</h3>
             <dl>
               <dt>Version</dt>
-              <dd>0.9.1</dd>
+              <dd>0.10.0</dd>
               <dt>License</dt>
               <dd>Apache-2.0, Copyright Gilles Reant</dd>
               <dt>Website</dt>
-              <dd>Local files: <code>CRC16.js</code> and <code>emv-analyzer.js</code></dd>
+              <dd><a href="https://github.com/tontg/merchant-presented-qr">github.com/tontg/merchant-presented-qr</a>></dd>
             </dl>
           </article>
 
@@ -58,7 +60,7 @@
             <h3>OpenCV.js</h3>
             <dl>
               <dt>Version</dt>
-              <dd>4.x, local vendored copy from the official OpenCV documentation build</dd>
+              <dd>4.14.0-pre, revision 723670c33d (2026-04-14)</dd>
               <dt>License</dt>
               <dd>Apache-2.0</dd>
               <dt>Website</dt>
@@ -70,7 +72,7 @@
             <h3>js-yaml</h3>
             <dl>
               <dt>Version</dt>
-              <dd>4.1.1</dd>
+              <dd>4.3.2</dd>
               <dt>License</dt>
               <dd>MIT</dd>
               <dt>Website</dt>
@@ -154,13 +156,13 @@
             <dd>EMVCo Merchant-Presented QR Specification</dd>
             <dt>Version</dt>
             <dd>v1.1</dd>
-            <dd><a href="https://www.emvco.com/specifications/?post_id=12641" target="_blank" rel="noreferrer">EMVCo-Merchant-Presented-QR-Specification-v1.1-1.pdf</a></dd>
+            <dd><a href="https://www.emvco.com/emv-technologies/qr-codes/" target="_blank" rel="noreferrer">EMV QRCPS Merchant-Presented Mode v1.1 (November 2020)</a></dd>
           </dl>
         </div>
       </section>
     </main>
 
-    <script defer src="site-menu.js"></script>
-    <script defer src="pwa.js"></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
   </body>
 </html>

@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-BFy38ze2n3zCvXUHek+Ejz/BM2vIZG5/Iatrnzpzp8k='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#176b5b">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,7 +25,7 @@
           <h1>Generate a payment QR code</h1>
         </div>
         <div class="intro-actions">
-          <p class="lede">Enter YAML fields like <code>- "00": "01"</code>. CRC ID 63 length 04 is generated automatically unless it is already present.</p>
+          <p class="lede">Enter YAML fields like <code>- "00": "01"</code>. CRC ID 63 length 04 is calculated automatically.</p>
         </div>
       </section>
 
@@ -46,7 +48,7 @@
           </div>
           <div class="input-group">
             <label for="yamlInput">YAML input</label>
-            <textarea id="yamlInput" class="generator-input" spellcheck="false"></textarea>
+            <textarea id="yamlInput" maxlength="65536" class="generator-input" spellcheck="false"></textarea>
           </div>
           <div id="generatorStatus" class="status-box">Ready.</div>
         </div>
@@ -119,14 +121,17 @@
       };
       window.emvQrGeneratorConfig = EMVQR_GENERATOR_STATIC_FIELDS;
     </script>
-    <script defer src="vendor/js-yaml.min.js"></script>
-    <script defer src="vendor/qrcode-generator.js"></script>
-    <script defer src="CRC16.js"></script>
-    <script defer src="emv-analyzer.js"></script>
-    <script defer src="qr-resizer.js"></script>
-    <script defer src="qr-output.js"></script>
-    <script defer src="site-menu.js"></script>
-    <script defer src="pwa.js"></script>
-    <script defer src="generator.js"></script>
+    <script defer src="vendor/js-yaml.min.js" integrity="sha256-MjkVYGAZkLtuDaq9gQajWmpTneCIUyQTkxpwpMtPR2k="></script>
+    <script defer src="vendor/qrcode-generator.js" integrity="sha256-eeyG+ChWAFsciHkFz8z8++w4Icphx/1alS+qX3ePeRw="></script>
+    <script defer src="CRC16.js" integrity="sha256-9+sdLG+ch++VxVYVDeel9+UaVrOBhpzxqW2nzOO2Gzo="></script>
+    <script defer src="emv-codec.js" integrity="sha256-/qzuIrXv2bQIe7ONvnC15vGVOawwkd5rD3bco2HbkzY="></script>
+    <script defer src="emv-format.js" integrity="sha256-/r8ha7wXTOK4n0viXICikC62+IcsvFBz2Wo3NEBrUok="></script>
+    <script defer src="emv-analyzer.js" integrity="sha256-7faZSBmj0bLtX3QsWs46tQaHCUrp7MpqNVzHNZOe9GI="></script>
+    <script defer src="qr-resizer.js" integrity="sha256-GhlHkglDXB+Bmr93tbevAYWPO/JRnIDvtUAMRmxkXYs="></script>
+    <script defer src="qr-output.js" integrity="sha256-mkyaLx9xlhyG20GwLqZi2vFtCFpsSXV83Y4pwD9kArM="></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
+    <script defer src="emv-yaml.js" integrity="sha256-VONJIrBQGC1YAwyE0Fxb7l5gwx9T0GeqW3ykSEO6juE="></script>
+    <script defer src="generator.js" integrity="sha256-3/E08C/ru3jYLNRZ8OldYBO67yKxbjBLQ2CRx+tY/bw="></script>
   </body>
 </html>

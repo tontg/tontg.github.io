@@ -6,6 +6,7 @@
     { href: 'checkout.html', label: 'Checkout' },
     { href: 'render.html', label: 'Render API' },
     { href: 'validator.html', label: 'Validator' },
+    { href: 'test-set.html', label: 'Scanner test set' },
     { href: 'about.html', label: 'About' },
   ];
 

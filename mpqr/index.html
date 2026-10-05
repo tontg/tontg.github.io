@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#176b5b">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -60,6 +62,12 @@
           </article>
 
           <article>
+            <h3>Scanner test set</h3>
+            <p>Scan labeled test cases and compare the decoded content. Mark each case as tested.</p>
+            <p><a class="button-link" href="test-set.html">Open test set</a></p>
+          </article>
+
+          <article>
             <h3>About</h3>
             <p>Review libraries, licenses, and EMV specification references used by this project.</p>
             <p><a class="button-link" href="about.html">Open about</a></p>
@@ -68,7 +76,7 @@
       </section>
     </main>
 
-    <script defer src="site-menu.js"></script>
-    <script defer src="pwa.js"></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
   </body>
 </html>

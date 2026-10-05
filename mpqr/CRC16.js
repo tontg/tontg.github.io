@@ -16,4 +16,4 @@
 
   global.CRC16 = { computeCRC };
   global.emvCore = global.CRC16;
-}(window));
+}(globalThis));

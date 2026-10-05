@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#176b5b">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,10 +50,10 @@
           <button id="downloadValidatorZipButton" type="button" class="secondary-button" disabled>Download report zip</button>
           <button id="printValidatorButton" type="button" class="secondary-button">Print</button>
         </div>
-        <div id="validatorStatus" class="status-box">Ready.</div>
+        <div id="validatorStatus" class="status-box" role="status" aria-live="polite">Ready.</div>
         <div class="progress-block" aria-label="Validation progress">
           <div class="progress-track">
-            <div id="validatorProgressBar" class="progress-fill" style="width: 0%"></div>
+            <div id="validatorProgressBar" class="progress-fill" role="progressbar" aria-label="Scanned images" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
           </div>
           <div id="validatorProgressText" class="progress-text">0/0 (0%)</div>
         </div>
@@ -98,30 +100,21 @@
       </section>
     </main>
 
-    <canvas id="validatorCanvas" hidden></canvas>
+    <script defer src="vendor/mcc-codes.js" integrity="sha256-C/k8kFHVHgzhqjr5VX91fL068Xf7ol3kc8it9EfQiew="></script>
 
-    <script defer src="vendor/jsQR.js"></script>
-    <script defer src="CRC16.js"></script>
-    <script defer src="emv-analyzer.js"></script>
-    <script defer src="vendor/iso4217-codes.js"></script>
-    <script defer src="vendor/iso3166-alpha2-codes.js"></script>
-    <script defer src="vendor/iso639-language-codes.js"></script>
-    <script>
-      window.__cvReady = false;
-      window.Module = {
-        onRuntimeInitialized() {
-          window.__cvReady = true;
-          window.dispatchEvent(new Event('opencv-ready'));
-        }
-      };
-    </script>
-    <script
-      defer
-      src="vendor/opencv.js"
-      integrity="sha256-8MN0SC5bm+i3eoCSvLsWHT5qP28/nBuXwidRknc3quk="
-    ></script>
-    <script defer src="site-menu.js"></script>
-    <script defer src="pwa.js"></script>
-    <script defer src="validator.js"></script>
+    <script defer src="vendor/jsQR.js" integrity="sha256-SKB/b/wsYfVr6NwKNlay20k5MzYJfDHxxLCUnS5iwtM="></script>
+    <script defer src="CRC16.js" integrity="sha256-9+sdLG+ch++VxVYVDeel9+UaVrOBhpzxqW2nzOO2Gzo="></script>
+    <script defer src="emv-codec.js" integrity="sha256-/qzuIrXv2bQIe7ONvnC15vGVOawwkd5rD3bco2HbkzY="></script>
+    <script defer src="emv-format.js" integrity="sha256-/r8ha7wXTOK4n0viXICikC62+IcsvFBz2Wo3NEBrUok="></script>
+    <script defer src="emv-analyzer.js" integrity="sha256-7faZSBmj0bLtX3QsWs46tQaHCUrp7MpqNVzHNZOe9GI="></script>
+    <script defer src="vendor/iso4217-codes.js" integrity="sha256-AGCqpbNruXAO0nBXU5w5KigVdigaZowqYANooo+LNlI="></script>
+    <script defer src="vendor/iso3166-alpha2-codes.js" integrity="sha256-orBO1ApKPuOXKK+M1X+piHfz4oEybrEgVh1MibteAPs="></script>
+    <script defer src="vendor/iso639-language-codes.js" integrity="sha256-IBDooHeqZP5q++PHWsUTxRp52qS4PU5sX18krKp8mbM="></script>
+    <script defer src="opencv-loader.js" integrity="sha256-1Ts2cQLyNEcFreMh+llv6JYodtJOyLX5utJEbdDYpDM="></script>
+    <script defer src="qr-decoder.js" integrity="sha256-6DJuTZKM8aVP+lVNx7ZwHs4Q+7LbRWwVrEjNY159xbM="></script>
+    <script defer src="qr-scanner.js" integrity="sha256-nMP/c/WdNGgnTT+reuUOHlC/WA7Exe6WwY9RfhKMzOQ="></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
+    <script defer src="validator.js" integrity="sha256-ku5HVTJgQEB50dN4QXntTTqVaFFxHAI53wtgbakiGqs="></script>
   </body>
 </html>

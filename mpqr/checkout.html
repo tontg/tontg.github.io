@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-v3hAeHXpUYRHXnJ1di5J06tueCbK2N7J7Qr9xWn60po='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#176b5b">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,16 +33,16 @@
         <div class="capture-panel">
           <div class="input-group">
             <label for="amountInput">Amount, field 54</label>
-            <input id="amountInput" type="text" inputmode="decimal" placeholder="12.34">
+            <input id="amountInput" maxlength="13" type="text" inputmode="decimal" placeholder="12.34">
           </div>
 
           <div class="input-group">
             <label for="referenceInput">Reference Label, field 62-05</label>
-            <input id="referenceInput" type="text" placeholder="INV-1001">
+            <input id="referenceInput" maxlength="25" type="text" placeholder="INV-1001">
           </div>
 
           <p class="status">
-            URL parameters: <code>?a=12.34&amp;l=INV-1001</code>
+            URL parameters: <code>#a=12.34&amp;l=INV-1001</code>
             <br>
             Current link: <a id="checkoutPermalink" href="checkout.html">checkout.html</a>
           </p>
@@ -112,12 +114,14 @@
       };
       window.emvQrCheckoutConfig = EMVQR_CHECKOUT_STATIC_FIELDS;
     </script>
-    <script defer src="vendor/qrcode-generator.js"></script>
-    <script defer src="CRC16.js"></script>
-    <script defer src="qr-resizer.js"></script>
-    <script defer src="qr-output.js"></script>
-    <script defer src="site-menu.js"></script>
-    <script defer src="pwa.js"></script>
-    <script defer src="checkout.js"></script>
+    <script defer src="vendor/qrcode-generator.js" integrity="sha256-eeyG+ChWAFsciHkFz8z8++w4Icphx/1alS+qX3ePeRw="></script>
+    <script defer src="CRC16.js" integrity="sha256-9+sdLG+ch++VxVYVDeel9+UaVrOBhpzxqW2nzOO2Gzo="></script>
+    <script defer src="emv-codec.js" integrity="sha256-/qzuIrXv2bQIe7ONvnC15vGVOawwkd5rD3bco2HbkzY="></script>
+    <script defer src="emv-format.js" integrity="sha256-/r8ha7wXTOK4n0viXICikC62+IcsvFBz2Wo3NEBrUok="></script>
+    <script defer src="qr-resizer.js" integrity="sha256-GhlHkglDXB+Bmr93tbevAYWPO/JRnIDvtUAMRmxkXYs="></script>
+    <script defer src="qr-output.js" integrity="sha256-mkyaLx9xlhyG20GwLqZi2vFtCFpsSXV83Y4pwD9kArM="></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
+    <script defer src="checkout.js" integrity="sha256-TmlyCA+t7zLcvm6mR3ypA4vE326lweWwDZcznjN2QKo="></script>
   </body>
 </html>

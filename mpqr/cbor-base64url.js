@@ -4,11 +4,12 @@
   }
 
   function decodeUtf8(bytes) {
-    return new TextDecoder().decode(bytes);
+    return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
   }
 
   function concatBytes(parts) {
     const total = parts.reduce((sum, part) => sum + part.length, 0);
+    if (total > 65536) throw new RangeError('CBOR exceeds 64 KiB.');
     const out = new Uint8Array(total);
     let offset = 0;
     for (const part of parts) {
@@ -57,13 +58,15 @@
     return concatBytes([Uint8Array.of(0xfb), new Uint8Array(buffer)]);
   }
 
-  function encodeValue(value) {
+  function encodeValue(value, depth = 0) {
+    if (depth > 16) throw new RangeError('CBOR is cyclic or too deeply nested.');
     if (value === false) return Uint8Array.of(0xf4);
     if (value === true) return Uint8Array.of(0xf5);
     if (value === null) return Uint8Array.of(0xf6);
     if (value === undefined) return Uint8Array.of(0xf7);
     if (typeof value === 'number') return encodeNumber(value);
     if (typeof value === 'string') {
+      if (value.length > 65536) throw new RangeError('CBOR text is too long.');
       const bytes = encodeUtf8(value);
       return concatBytes([encodeLength(3, bytes.length), bytes]);
     }
@@ -71,15 +74,17 @@
       return concatBytes([encodeLength(2, value.length), value]);
     }
     if (Array.isArray(value)) {
-      const items = value.map(encodeValue);
+      if (value.length > 1024) throw new RangeError('Too many CBOR entries.');
+      const items = value.map(item => encodeValue(item, depth + 1));
       return concatBytes([encodeLength(4, items.length), ...items]);
     }
     if (typeof value === 'object') {
       const entries = Object.entries(value);
+      if (entries.length > 1024) throw new RangeError('Too many CBOR entries.');
       const encodedEntries = [];
       for (const [key, entryValue] of entries) {
-        encodedEntries.push(encodeValue(key));
-        encodedEntries.push(encodeValue(entryValue));
+        encodedEntries.push(encodeValue(key, depth + 1));
+        encodedEntries.push(encodeValue(entryValue, depth + 1));
       }
       return concatBytes([encodeLength(5, entries.length), ...encodedEntries]);
     }
@@ -87,12 +92,14 @@
   }
 
   function bytesToBase64Url(bytes) {
+    if (bytes.length > 65536) throw new RangeError('CBOR exceeds 64 KiB.');
     let binary = '';
     for (const byte of bytes) binary += String.fromCharCode(byte);
     return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
   }
 
   function base64UrlToBytes(text) {
+    if (typeof text !== 'string' || text.length > 87384 || !/^[A-Za-z0-9_-]*$/.test(text)) throw new TypeError('Invalid or oversized Base64URL input.');
     const normalized = String(text).replace(/-/g, '+').replace(/_/g, '/');
     const padded = normalized + '==='.slice((normalized.length + 3) % 4);
     const binary = atob(padded);
@@ -104,6 +111,8 @@
   }
 
   function readLength(bytes, offset, additionalInfo) {
+    const width = ({ 24: 1, 25: 2, 26: 4, 27: 8 })[additionalInfo] || 0;
+    if (offset + width > bytes.length) throw new Error('Truncated CBOR length.');
     if (additionalInfo < 24) {
       return { length: additionalInfo, offset };
     }
@@ -128,7 +137,8 @@
     throw new Error('Indefinite-length CBOR items are not supported by this helper.');
   }
 
-  function decodeValue(bytes, startOffset = 0) {
+  function decodeValue(bytes, startOffset = 0, depth = 0) {
+    if (depth > 16) throw new RangeError('CBOR is too deeply nested.');
     const initialByte = bytes[startOffset];
     if (initialByte === undefined) throw new Error('Unexpected end of CBOR input.');
 
@@ -148,6 +158,7 @@
     if (majorType === 2) {
       const lengthInfo = readLength(bytes, offset, additionalInfo);
       const end = lengthInfo.offset + lengthInfo.length;
+      if (end > bytes.length) throw new Error('Truncated CBOR bytes.');
       return {
         value: bytes.slice(lengthInfo.offset, end),
         offset: end,
@@ -157,6 +168,7 @@
     if (majorType === 3) {
       const lengthInfo = readLength(bytes, offset, additionalInfo);
       const end = lengthInfo.offset + lengthInfo.length;
+      if (end > bytes.length) throw new Error('Truncated CBOR text.');
       return {
         value: decodeUtf8(bytes.slice(lengthInfo.offset, end)),
         offset: end,
@@ -168,7 +180,7 @@
       const items = [];
       offset = lengthInfo.offset;
       for (let index = 0; index < lengthInfo.length; index += 1) {
-        const decoded = decodeValue(bytes, offset);
+        const decoded = decodeValue(bytes, offset, depth + 1);
         items.push(decoded.value);
         offset = decoded.offset;
       }
@@ -180,9 +192,10 @@
       const out = {};
       offset = lengthInfo.offset;
       for (let index = 0; index < lengthInfo.length; index += 1) {
-        const keyResult = decodeValue(bytes, offset);
-        const valueResult = decodeValue(bytes, keyResult.offset);
-        out[String(keyResult.value)] = valueResult.value;
+        const keyResult = decodeValue(bytes, offset, depth + 1);
+        const valueResult = decodeValue(bytes, keyResult.offset, depth + 1);
+        if (typeof keyResult.value !== 'string' || Object.hasOwn(out, keyResult.value)) throw new TypeError('CBOR map keys must be unique strings.');
+        Object.defineProperty(out, keyResult.value, { value: valueResult.value, enumerable: true, configurable: true, writable: true });
         offset = valueResult.offset;
       }
       return { value: out, offset };
@@ -211,6 +224,7 @@
   }
 
   function decodeFromCborBytes(bytes) {
+    if (!(bytes instanceof Uint8Array) || bytes.length > 65536) throw new TypeError('Expected at most 64 KiB of CBOR bytes.');
     const result = decodeValue(bytes, 0);
     if (result.offset !== bytes.length) {
       throw new Error('Trailing bytes remain after CBOR decode.');
@@ -232,4 +246,4 @@
     encodeToBase64Url,
     encodeToCborBytes,
   };
-}(window));
+}(globalThis));

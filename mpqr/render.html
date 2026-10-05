@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CpGfeJL4j6CpN7Qph/igSlOjveWjtp3CKya8hw8UNGQ='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#176b5b">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,19 +34,39 @@
           <pre><code>&lt;div id="qr"&gt;&lt;/div&gt;
 &lt;script src="vendor/qrcode-generator.js"&gt;&lt;/script&gt;
 &lt;script src="CRC16.js"&gt;&lt;/script&gt;
+&lt;script src="emv-codec.js"&gt;&lt;/script&gt;
 &lt;script src="qr-output.js"&gt;&lt;/script&gt;
 &lt;script&gt;
+const {
+  Fields: F,
+  AdditionalDataFields: A,
+  TemplateFields: T,
+  render
+} = window.MerchantPresentedQrCode;
+
+// Field IDs chosen by the COM.EXAMPLE.PAY scheme.
+const ExamplePay = Object.freeze({
+  MERCHANT_ACCOUNT_INFORMATION: "26",
+  MERCHANT_ID: "01"
+});
+
 const fields = [
-  { "26": [{ "00": "COM.EXAMPLE.PAY" }, { "01": "MERCHANT123" }] },
-  { "52": "5812" },
-  { "53": "840" },
-  { "54": "12.34" },
-  { "58": "US" },
-  { "59": "EXAMPLE MERCHANT" },
-  { "60": "NEW YORK" }
+  { [ExamplePay.MERCHANT_ACCOUNT_INFORMATION]: [
+    { [T.GLOBALLY_UNIQUE_IDENTIFIER]: "COM.EXAMPLE.PAY" },
+    { [ExamplePay.MERCHANT_ID]: "MERCHANT123" }
+  ] },
+  { [F.MERCHANT_CATEGORY_CODE]: "5812" },
+  { [F.TRANSACTION_CURRENCY]: "840" },
+  { [F.TRANSACTION_AMOUNT]: "12.34" },
+  { [F.COUNTRY_CODE]: "US" },
+  { [F.MERCHANT_NAME]: "EXAMPLE MERCHANT" },
+  { [F.MERCHANT_CITY]: "NEW YORK" },
+  { [F.ADDITIONAL_DATA_FIELD_TEMPLATE]: [
+    { [A.REFERENCE_LABEL]: "INV-1001" }
+  ] }
 ];
 
-window.MerchantPresentedQrCode.render(document.getElementById('qr'), fields);
+render('#qr', fields);
 &lt;/script&gt;</code></pre>
         </div>
 
@@ -57,26 +79,38 @@ window.MerchantPresentedQrCode.render(document.getElementById('qr'), fields);
       </section>
     </main>
 
-    <script defer src="vendor/qrcode-generator.js"></script>
-    <script defer src="CRC16.js"></script>
-    <script defer src="qr-output.js"></script>
+    <script defer src="vendor/qrcode-generator.js" integrity="sha256-eeyG+ChWAFsciHkFz8z8++w4Icphx/1alS+qX3ePeRw="></script>
+    <script defer src="CRC16.js" integrity="sha256-9+sdLG+ch++VxVYVDeel9+UaVrOBhpzxqW2nzOO2Gzo="></script>
+    <script defer src="emv-codec.js" integrity="sha256-/qzuIrXv2bQIe7ONvnC15vGVOawwkd5rD3bco2HbkzY="></script>
+    <script defer src="emv-format.js" integrity="sha256-/r8ha7wXTOK4n0viXICikC62+IcsvFBz2Wo3NEBrUok="></script>
+    <script defer src="qr-output.js" integrity="sha256-mkyaLx9xlhyG20GwLqZi2vFtCFpsSXV83Y4pwD9kArM="></script>
     <script>
       window.addEventListener('DOMContentLoaded', () => {
-        window.MerchantPresentedQrCode.render(
+        const { Fields: F, AdditionalDataFields: A, TemplateFields: T, render } = window.MerchantPresentedQrCode;
+        // Field IDs chosen by the COM.EXAMPLE.PAY scheme.
+        const ExamplePay = Object.freeze({
+          MERCHANT_ACCOUNT_INFORMATION: "26",
+          MERCHANT_ID: "01"
+        });
+        render(
           document.getElementById('renderSampleQr'),
           [
-            { "26": [{ "00": "COM.EXAMPLE.PAY" }, { "01": "MERCHANT123" }] },
-            { "52": "5812" },
-            { "53": "840" },
-            { "54": "12.34" },
-            { "58": "US" },
-            { "59": "EXAMPLE MERCHANT" },
-            { "60": "NEW YORK" }
+            { [ExamplePay.MERCHANT_ACCOUNT_INFORMATION]: [
+              { [T.GLOBALLY_UNIQUE_IDENTIFIER]: "COM.EXAMPLE.PAY" },
+              { [ExamplePay.MERCHANT_ID]: "MERCHANT123" }
+            ] },
+            { [F.MERCHANT_CATEGORY_CODE]: "5812" },
+            { [F.TRANSACTION_CURRENCY]: "840" },
+            { [F.TRANSACTION_AMOUNT]: "12.34" },
+            { [F.COUNTRY_CODE]: "US" },
+            { [F.MERCHANT_NAME]: "EXAMPLE MERCHANT" },
+            { [F.MERCHANT_CITY]: "NEW YORK" },
+            { [F.ADDITIONAL_DATA_FIELD_TEMPLATE]: [{ [A.REFERENCE_LABEL]: "INV-1001" }] }
           ]
         );
       });
     </script>
-    <script defer src="site-menu.js"></script>
-    <script defer src="pwa.js"></script>
+    <script defer src="site-menu.js" integrity="sha256-HxZM7+yYx7CmbhMsPzWFDT/VN/bvmsYMdwyWmjkTWTQ="></script>
+    <script defer src="pwa.js" integrity="sha256-9mKDGo+H6ascu4XSmDlyb4SitC3SZWJgCepU76LMAms="></script>
   </body>
 </html>

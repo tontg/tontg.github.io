@@ -26,29 +26,7 @@
     return window.emvQrGeneratorConfig || { fields: [] };
   }
 
-  function yamlScalar(value) {
-    return JSON.stringify(String(value));
-  }
-
-  function renderConfigFields(fields, indent) {
-    const lines = [];
-    const prefix = ' '.repeat(indent);
-
-    for (const field of fields || []) {
-      const keys = Object.keys(field || {});
-      if (keys.length !== 1) continue;
-      const key = keys[0];
-      const value = field[key];
-      if (Array.isArray(value)) {
-        lines.push(`${prefix}- ${yamlScalar(key)}:`);
-        lines.push(...renderConfigFields(value, indent + 4));
-      } else {
-        lines.push(`${prefix}- ${yamlScalar(key)}: ${yamlScalar(value)}`);
-      }
-    }
-
-    return lines;
-  }
+  const renderConfigFields = (fields, indent) => window.emvFormat.fieldsYaml(fields, indent);
 
   function sampleYaml() {
     return [
@@ -56,15 +34,6 @@
       '# Field 63 CRC is intentionally omitted; the generator appends 6304 + CRC.',
       'fields:',
       ...renderConfigFields(defaultGeneratorConfig().fields, 2),
-      '',
-    ].join('\n');
-  }
-
-  function yamlFromFields(fields) {
-    return [
-      '# EMV Merchant-Presented QR content from URL parameter.',
-      'fields:',
-      ...renderConfigFields((fields || []).filter(field => !Object.prototype.hasOwnProperty.call(field || {}, '63')), 2),
       '',
     ].join('\n');
   }
@@ -88,22 +57,6 @@
     ].join('\n');
   }
 
-  function renderNodesToYaml(nodes, indent) {
-    const lines = [];
-    const prefix = ' '.repeat(indent);
-
-    for (const node of nodes || []) {
-      if (node.children && node.children.length) {
-        lines.push(`${prefix}- ${yamlScalar(node.id)}:`);
-        lines.push(...renderNodesToYaml(node.children, indent + 4));
-      } else {
-        lines.push(`${prefix}- ${yamlScalar(node.id)}: ${yamlScalar(node.value || '')}`);
-      }
-    }
-
-    return lines;
-  }
-
   yamlInput.value = sampleYaml();
   if (window.emvQrOutput) window.emvQrOutput.initResizable(qrImage);
   const webpSupported = Boolean(window.emvQrOutput && window.emvQrOutput.supportsWebp && window.emvQrOutput.supportsWebp());
@@ -114,67 +67,19 @@
     generatorStatus.classList.toggle('error', type === 'error');
   }
 
-  function normalizeFields(document) {
-    if (Array.isArray(document)) return document;
-    if (document && Array.isArray(document.fields)) return document.fields;
-    throw new Error('YAML must be a sequence of fields or an object with a "fields" sequence.');
-  }
-
-  function normalizeId(id) {
-    const text = String(id).trim();
-    if (!/^\d{1,2}$/.test(text)) throw new Error(`Invalid field id "${id}". Use a one or two digit numeric ID.`);
-    return text.padStart(2, '0');
-  }
-
-  function normalizeField(field) {
-    if (!field || typeof field !== 'object' || Array.isArray(field)) {
-      throw new Error('Each YAML field must be an object.');
-    }
-
-    if (Object.prototype.hasOwnProperty.call(field, 'id')) {
-      return field;
-    }
-
-    const keys = Object.keys(field);
-    if (keys.length !== 1) {
-      throw new Error('Shorthand YAML fields must contain exactly one EMV ID key.');
-    }
-
-    const key = keys[0];
-    const value = field[key];
-    if (Array.isArray(value)) return { id: key, children: value };
-    return { id: key, value };
-  }
-
-  function toShorthandField(field) {
-    field = normalizeField(field);
-    const id = normalizeId(field.id);
-    if (Array.isArray(field.children)) {
-      return { [id]: field.children.map(toShorthandField) };
-    }
-    if (Object.prototype.hasOwnProperty.call(field, 'value')) {
-      return { [id]: String(field.value) };
-    }
-    throw new Error(`Field ${id} must define either "value" or "children".`);
-  }
-
-  function parseYamlFields(yamlText) {
-    const document = jsyaml.load(yamlText);
-    const fields = normalizeFields(document);
-    return fields.map(toShorthandField);
-  }
+  const parseYamlFields = text => window.emvYaml.parse(text);
 
   function loadQrFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    const qr = params.get('qr');
+    const qr = window.emvFormat.qrParameter(window.location);
     if (!qr) return false;
     if (!window.emvAnalyzer) throw new Error('EMV analyzer is not available.');
     const result = window.emvAnalyzer.analyzePayload(qr);
+    if (result.validation.diagnostics.some(item => item.code.startsWith('tlv.'))) throw new Error('Malformed TLV input cannot be imported without losing data.');
     yamlInput.value = [
       '# EMV Merchant-Presented QR content from URL parameter.',
-      `# payload: ${String(qr).replace(/\r?\n/g, ' ')}`,
+      `# payload: ${window.emvFormat.comment(qr)}`,
       'fields:',
-      ...renderNodesToYaml((result.tree || []).filter(node => node.id !== '63'), 2),
+      ...window.emvFormat.nodesYaml((result.tree || []).filter(node => node.id !== '63'), 2),
       '',
     ].join('\n');
     return true;
@@ -203,9 +108,9 @@
   }
 
   function openParserWithText() {
-    const payload = String(generatedText.textContent || '').trim();
+    const payload = String(generatedText.textContent || '');
     if (!payload) return;
-    window.location.href = `parser.html?qr=${encodeURIComponent(payload)}`;
+    window.location.href = `parser.html#qr=${encodeURIComponent(payload)}`;
   }
 
   function generate() {
@@ -274,8 +179,8 @@
   yamlFileInput.addEventListener('change', () => {
     const file = yamlFileInput.files && yamlFileInput.files[0];
     if (!file) return;
-    if (file.size > 1024 * 1024) {
-      setStatus('YAML file is too large. Maximum size is 1 MB.', 'error');
+    if (file.size > window.emvYaml.maxBytes) {
+      setStatus('YAML file is too large. Maximum size is 64 KiB.', 'error');
       yamlFileInput.value = '';
       return;
     }
@@ -294,10 +199,10 @@
 
   try {
     if (!loadQrFromUrl()) yamlInput.value = sampleYaml();
+    generate();
   } catch (error) {
-    yamlInput.value = sampleYaml();
+    yamlInput.value = '';
     setStatus(`Unable to load QR parameter: ${error.message}`, 'error');
   }
 
-  generate();
 }());

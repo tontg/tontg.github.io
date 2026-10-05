@@ -1,0 +1,90 @@
+{
+  "formatVersion": 1,
+  "dependencies": [
+    {
+      "file": "jsQR.js",
+      "name": "jsQR",
+      "version": "1.4.0",
+      "license": "Apache-2.0",
+      "licenseFile": "jsQR.LICENSE.txt",
+      "source": "https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js",
+      "patches": "Exposes errorCorrectionLevel in decoder result and public result; see PATCHES.md.",
+      "sha256": "sha256-SKB/b/wsYfVr6NwKNlay20k5MzYJfDHxxLCUnS5iwtM="
+    },
+    {
+      "file": "js-yaml.min.js",
+      "name": "js-yaml",
+      "version": "4.3.2",
+      "license": "MIT",
+      "licenseFile": "js-yaml.LICENSE.txt",
+      "source": "https://cdn.jsdelivr.net/npm/js-yaml@4.3.2/dist/js-yaml.min.js",
+      "sha256": "sha256-MjkVYGAZkLtuDaq9gQajWmpTneCIUyQTkxpwpMtPR2k="
+    },
+    {
+      "file": "qrcode-generator.js",
+      "name": "qrcode-generator",
+      "version": "2.0.4",
+      "license": "MIT",
+      "licenseFile": "qrcode-generator.LICENSE.txt",
+      "source": "https://cdn.jsdelivr.net/npm/qrcode-generator@2.0.4/dist/qrcode.js",
+      "sha256": "sha256-eeyG+ChWAFsciHkFz8z8++w4Icphx/1alS+qX3ePeRw="
+    },
+    {
+      "file": "opencv.js",
+      "name": "OpenCV.js",
+      "version": "4.14.0-pre (4.13.0-178-g723670c33d)",
+      "revision": "723670c33d748f481ebead9d7f12a6a83382b043",
+      "license": "Apache-2.0",
+      "licenseFile": "opencv.LICENSE.txt",
+      "source": "https://docs.opencv.org/4.x/opencv.js",
+      "buildTimestamp": "2026-04-14T04:08:02Z",
+      "patches": "Legacy rolling-documentation artifact, pinned by checksum. Includes Mat.clone compatibility hook; see PATCHES.md. Not claimed to be byte-reproducible from source.",
+      "bundledNotices": [
+        "opencv-zlib.LICENSE.txt",
+        "opencv-protobuf.LICENSE.txt",
+        "opencv-flatbuffers.LICENSE.txt"
+      ],
+      "sha256": "sha256-8MN0SC5bm+i3eoCSvLsWHT5qP28/nBuXwidRknc3quk="
+    },
+    {
+      "file": "mcc-codes.js",
+      "name": "mcc-codes",
+      "version": "df792275c567946119a8903d36dbd33e44a248bf",
+      "license": "Unlicense",
+      "licenseFile": "mcc-codes.LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/greggles/mcc-codes/df792275c567946119a8903d36dbd33e44a248bf/mcc_codes.json",
+      "generator": "tools/generate-lookups.ps1",
+      "sha256": "sha256-C/k8kFHVHgzhqjr5VX91fL068Xf7ol3kc8it9EfQiew="
+    },
+    {
+      "file": "iso4217-codes.js",
+      "name": "currency-codes",
+      "version": "7cdc784a3090d253721a1f00cfd5843b46a4dc64",
+      "license": "PDDL-1.0",
+      "licenseFile": "PDDL-1.0.txt",
+      "source": "https://raw.githubusercontent.com/datasets/currency-codes/7cdc784a3090d253721a1f00cfd5843b46a4dc64/data/codes-all.csv",
+      "generator": "tools/generate-lookups.ps1",
+      "sha256": "sha256-AGCqpbNruXAO0nBXU5w5KigVdigaZowqYANooo+LNlI="
+    },
+    {
+      "file": "iso3166-alpha2-codes.js",
+      "name": "country-codes",
+      "version": "6a595f1a6f10b3d00175fe67375da88f64f7f76b",
+      "license": "PDDL-1.0",
+      "licenseFile": "PDDL-1.0.txt",
+      "source": "https://raw.githubusercontent.com/datasets/country-codes/6a595f1a6f10b3d00175fe67375da88f64f7f76b/data/country-codes.csv",
+      "generator": "tools/generate-lookups.ps1",
+      "sha256": "sha256-orBO1ApKPuOXKK+M1X+piHfz4oEybrEgVh1MibteAPs="
+    },
+    {
+      "file": "iso639-language-codes.js",
+      "name": "language-codes",
+      "version": "2787e945225a6daaa75d9f3812a977c9f89c61bc",
+      "license": "PDDL-1.0",
+      "licenseFile": "PDDL-1.0.txt",
+      "source": "https://raw.githubusercontent.com/datasets/language-codes/2787e945225a6daaa75d9f3812a977c9f89c61bc/data/language-codes.csv",
+      "generator": "tools/generate-lookups.ps1",
+      "sha256": "sha256-IBDooHeqZP5q++PHWsUTxRp52qS4PU5sX18krKp8mbM="
+    }
+  ]
+}

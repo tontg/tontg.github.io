@@ -11,231 +11,30 @@
   const validatorValid = document.getElementById('validatorValid');
   const validatorInvalid = document.getElementById('validatorInvalid');
   const validatorRows = document.getElementById('validatorRows');
-  const validatorCanvas = document.getElementById('validatorCanvas');
-  const ctx = validatorCanvas.getContext('2d', { willReadFrequently: true });
-
-  let cvReady = Boolean(window.__cvReady);
+  const scanner = window.emvScanner.createScanner();
+  let controller = null;
+  let rowCache = new WeakMap();
   let runId = 0;
   let latestResults = [];
-
-  window.addEventListener('opencv-ready', () => {
-    cvReady = true;
-    setStatus('OpenCV preprocessing is ready.');
-  });
 
   function setStatus(message, type = 'info') {
     validatorStatus.textContent = message;
     validatorStatus.classList.toggle('error', type === 'error');
   }
 
-  function formatSeconds(value) {
-    return Number.isFinite(value) ? value.toFixed(3) : '0.000';
-  }
-
-  function currencyDescription(value) {
-    const code = String(value || '');
-    if (!/^\d{3}$/.test(code) || !window.iso4217Codes) return '';
-    const entry = window.iso4217Codes[code];
-    if (!entry) return '';
-    return `${entry.alpha}, ${entry.name}`;
-  }
-
-  function countryDescription(value) {
-    const code = String(value || '').trim().toUpperCase();
-    if (!/^[A-Z]{2}$/.test(code) || !window.iso3166Alpha2Codes) return '';
-    return window.iso3166Alpha2Codes[code] || '';
-  }
-
-  function languageDescription(value) {
-    const code = String(value || '').trim().toLowerCase();
-    if (!/^[a-z]{2}$/.test(code) || !window.iso639LanguageCodes) return '';
-    return window.iso639LanguageCodes[code] || '';
-  }
-
-  function addSlowScanWarning(warnings, elapsedSeconds, qrFound) {
-    if (!qrFound || !Number.isFinite(elapsedSeconds) || elapsedSeconds <= 1.5) return warnings;
-    return warnings.concat(`QR decoding took ${formatSeconds(elapsedSeconds)} s, which is slower than the 1.500 s warning threshold.`);
-  }
+  const formatSeconds = window.emvFormat.seconds;
 
   function updateProgress(completed, total) {
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
     validatorProgressBar.style.width = `${percent}%`;
+    validatorProgressBar.setAttribute('aria-valuenow', String(percent));
     validatorProgressText.textContent = `${completed}/${total} (${percent}%)`;
   }
 
-  function drawImageToCanvas(image, options = {}) {
-    const maxSide = options.maxSide || 1400;
-    const scale = options.scale || 1;
-    const sourceWidth = image.naturalWidth;
-    const sourceHeight = image.naturalHeight;
-    const ratio = Math.min(scale, maxSide / Math.max(sourceWidth, sourceHeight));
-    const width = Math.max(1, Math.round(sourceWidth * ratio));
-    const height = Math.max(1, Math.round(sourceHeight * ratio));
-    validatorCanvas.width = width;
-    validatorCanvas.height = height;
-    ctx.imageSmoothingEnabled = scale <= 1;
-    ctx.drawImage(image, 0, 0, width, height);
-  }
-
-  function drawRotatedImageToCanvas(image, angleDegrees, options = {}) {
-    const maxSide = options.maxSide || 2800;
-    const scale = options.scale || 1;
-    const sourceWidth = image.naturalWidth;
-    const sourceHeight = image.naturalHeight;
-    const ratio = Math.min(scale, maxSide / Math.max(sourceWidth, sourceHeight));
-    const width = Math.max(1, Math.round(sourceWidth * ratio));
-    const height = Math.max(1, Math.round(sourceHeight * ratio));
-    const radians = angleDegrees * Math.PI / 180;
-    const cos = Math.abs(Math.cos(radians));
-    const sin = Math.abs(Math.sin(radians));
-    const targetWidth = Math.max(1, Math.ceil(width * cos + height * sin));
-    const targetHeight = Math.max(1, Math.ceil(width * sin + height * cos));
-    validatorCanvas.width = targetWidth;
-    validatorCanvas.height = targetHeight;
-    ctx.save();
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, targetWidth, targetHeight);
-    ctx.translate(targetWidth / 2, targetHeight / 2);
-    ctx.rotate(radians);
-    ctx.imageSmoothingEnabled = scale <= 1;
-    ctx.drawImage(image, -width / 2, -height / 2, width, height);
-    ctx.restore();
-  }
-
-  function grayscaleVariant(imageData) {
-    const copy = new ImageData(new Uint8ClampedArray(imageData.data), imageData.width, imageData.height);
-    for (let index = 0; index < copy.data.length; index += 4) {
-      const gray = Math.round((copy.data[index] * 299 + copy.data[index + 1] * 587 + copy.data[index + 2] * 114) / 1000);
-      copy.data[index] = gray;
-      copy.data[index + 1] = gray;
-      copy.data[index + 2] = gray;
-      copy.data[index + 3] = 255;
-    }
-    return copy;
-  }
-
-  function thresholdVariant(imageData, threshold, contrast = 1) {
-    const gray = grayscaleVariant(imageData);
-    for (let index = 0; index < gray.data.length; index += 4) {
-      const centered = (gray.data[index] - 128) * contrast + 128;
-      const value = centered >= threshold ? 255 : 0;
-      gray.data[index] = value;
-      gray.data[index + 1] = value;
-      gray.data[index + 2] = value;
-      gray.data[index + 3] = 255;
-    }
-    return gray;
-  }
-
-  function tryDecodeWithJsQr(imageData) {
-    return jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: 'attemptBoth' });
-  }
-
-  function decodeWithOpenCvDetector() {
-    if (!validatorUseOpenCv.checked || !cvReady || !window.cv || typeof cv.QRCodeDetector !== 'function') return null;
-    let src;
-    let detector;
-    try {
-      src = cv.imread(validatorCanvas);
-      detector = new cv.QRCodeDetector();
-      const decoded = detector.detectAndDecode(src);
-      if (typeof decoded === 'string' && decoded) return { data: decoded };
-      if (Array.isArray(decoded) && typeof decoded[0] === 'string' && decoded[0]) return { data: decoded[0] };
-      if (decoded && typeof decoded.data === 'string' && decoded.data) return { data: decoded.data };
-      return null;
-    } catch (error) {
-      return null;
-    } finally {
-      if (detector) detector.delete();
-      if (src) src.delete();
-    }
-  }
-
-  function preprocessWithOpenCv() {
-    if (!validatorUseOpenCv.checked || !cvReady || !window.cv || validatorCanvas.width === 0 || validatorCanvas.height === 0) return null;
-    let src;
-    let gray;
-    let blurred;
-    let thresh;
-    try {
-      src = cv.imread(validatorCanvas);
-      gray = new cv.Mat();
-      blurred = new cv.Mat();
-      thresh = new cv.Mat();
-      cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
-      cv.GaussianBlur(gray, blurred, new cv.Size(3, 3), 0, 0, cv.BORDER_DEFAULT);
-      cv.adaptiveThreshold(blurred, thresh, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 31, 5);
-      cv.imshow(validatorCanvas, thresh);
-      return ctx.getImageData(0, 0, validatorCanvas.width, validatorCanvas.height);
-    } catch (error) {
-      return null;
-    } finally {
-      if (src) src.delete();
-      if (gray) gray.delete();
-      if (blurred) blurred.delete();
-      if (thresh) thresh.delete();
-    }
-  }
-
-  function decodeCanvas(tryHarder = false) {
-    const original = ctx.getImageData(0, 0, validatorCanvas.width, validatorCanvas.height);
-    const variants = [original];
-    const openCvVariant = preprocessWithOpenCv();
-    if (openCvVariant) variants.push(openCvVariant);
-    if (tryHarder) {
-      variants.push(grayscaleVariant(original));
-      variants.push(thresholdVariant(original, 128, 1.2));
-      variants.push(thresholdVariant(original, 160, 1.5));
-      variants.push(thresholdVariant(original, 192, 1.8));
-    }
-
-    for (const imageData of variants) {
-      const code = tryDecodeWithJsQr(imageData);
-      if (code && code.data) return code;
-    }
-    if (tryHarder) return decodeWithOpenCvDetector();
-    return null;
-  }
-
-  function decodeImage(image) {
-    drawImageToCanvas(image);
-    let code = decodeCanvas();
-    if (code) return code;
-
-    drawImageToCanvas(image, { maxSide: 2800, scale: 2 });
-    code = decodeCanvas(true);
-    if (code) return code;
-
-    const angles = [0, -12, -8, -4, 4, 8, 12];
-    for (const angle of angles) {
-      drawRotatedImageToCanvas(image, angle, { maxSide: 3600, scale: 3 });
-      code = decodeCanvas(true);
-      if (code) return code;
-    }
-
-    return null;
-  }
-
-  function loadImage(file) {
-    return new Promise((resolve, reject) => {
-      const url = URL.createObjectURL(file);
-      const image = new Image();
-      image.onload = () => {
-        URL.revokeObjectURL(url);
-        resolve({ image, url });
-      };
-      image.onerror = () => {
-        URL.revokeObjectURL(url);
-        reject(new Error('Unable to load image.'));
-      };
-      image.src = url;
-    });
-  }
-
-  function thumbnail(file) {
-    const url = URL.createObjectURL(file);
+  function thumbnail(result) {
+    const url = URL.createObjectURL(result.thumbnail);
     const img = document.createElement('img');
-    img.alt = `${file.name} thumbnail`;
+    img.alt = `${result.file.name} thumbnail`;
     img.src = url;
     img.onload = () => URL.revokeObjectURL(url);
     img.onerror = () => URL.revokeObjectURL(url);
@@ -255,7 +54,10 @@
   }
 
   function renderRow(result) {
+    if (rowCache.has(result)) return rowCache.get(result);
     const row = document.createElement('tr');
+    row.dataset.result = 'true';
+    rowCache.set(result, row);
     row.className = result.valid ? 'valid-row' : 'invalid-row';
 
     const name = document.createElement('td');
@@ -264,7 +66,7 @@
 
     const thumb = document.createElement('td');
     thumb.className = 'thumbnail-cell';
-    thumb.appendChild(thumbnail(result.file));
+    if (result.thumbnail) thumb.appendChild(thumbnail(result));
     row.appendChild(thumb);
 
     const qr = document.createElement('td');
@@ -326,30 +128,6 @@
     validatorRows.appendChild(fragment);
   }
 
-  function yamlScalar(value) {
-    return JSON.stringify(String(value));
-  }
-
-  function yamlComment(value) {
-    return String(value || '').replace(/\r?\n/g, ' ');
-  }
-
-  function renderYamlNodes(nodes, indent) {
-    const lines = [];
-    const prefix = ' '.repeat(indent);
-
-    for (const node of nodes || []) {
-      if (node.children && node.children.length) {
-        lines.push(`${prefix}- ${yamlScalar(node.id)}:`);
-        lines.push(...renderYamlNodes(node.children, indent + 4));
-      } else {
-        lines.push(`${prefix}- ${yamlScalar(node.id)}: ${yamlScalar(node.value || '')}`);
-      }
-    }
-
-    return lines;
-  }
-
   function countNodes(nodes) {
     let total = 0;
     for (const node of nodes || []) {
@@ -360,38 +138,10 @@
   }
 
   function resultToYaml(result) {
-    const lines = [
-      '# Merchant-Presented QR-Code validation export.',
-      `# source_file: ${yamlComment(result.file.name)}`,
-      `# qr_found: ${result.qrFound ? 'true' : 'false'}`,
-      `# emv_valid: ${result.valid ? 'true' : 'false'}`,
-      `# nb_errors: ${result.errors.length}`,
-      `# nb_warnings: ${result.warnings.length}`,
-      `# decode_parse_seconds: ${formatSeconds(result.elapsedSeconds)}`,
-    ];
-
-    if (result.byteCount !== null) lines.push(`# nbbytes: ${result.byteCount}`);
-    if (result.charCount !== null) lines.push(`# nbchars: ${result.charCount}`);
-    if (result.rawHex) lines.push(`# hexastring: ${result.rawHex}`);
-
-    lines.push('# errors:');
-    if (result.errors.length) {
-      result.errors.forEach(error => lines.push(`#   - ${yamlComment(error)}`));
-    } else {
-      lines.push('#   - none');
-    }
-
-    lines.push('# warnings:');
-    if (result.warnings.length) {
-      result.warnings.forEach(warning => lines.push(`#   - ${yamlComment(warning)}`));
-    } else {
-      lines.push('#   - none');
-    }
-
-    lines.push('fields:');
-    lines.push(...renderYamlNodes(result.tree, 2));
-    lines.push('');
-    return lines.join('\n');
+    return window.emvFormat.yamlExport({
+      ...result, qrInfo: { version: result.qrVersion, errorCorrectionLevel: result.qrErrorCorrectionLevel },
+      validation: { errors: result.errors, warnings: result.warnings },
+    }, [`# source_file: ${window.emvFormat.comment(result.file.name)}`, `# qr_found: ${result.qrFound}`, `# emv_valid: ${result.valid}`]);
   }
 
   function renderMarkdownNodes(nodes, indent = 0, parentId = null) {
@@ -401,12 +151,8 @@
     for (const node of nodes || []) {
       lines.push(`${prefix}**${node.id}** ${node.name} _(len ${node.length}, offset ${node.offset})_`);
       if (node.value !== undefined) {
-        const country = node.id === '58' ? countryDescription(node.value) : '';
-        const currency = node.id === '53' ? currencyDescription(node.value) : '';
-        const language = parentId === '64' && node.id === '00' ? languageDescription(node.value) : '';
-        const annotation = country || currency || language;
-        const textValue = String(node.value || '').replace(/`/g, '\\`');
-        lines.push(`${'  '.repeat(indent + 1)}- Value: \`${textValue}\`${annotation ? ` (${annotation})` : ''}`);
+        const annotation = window.emvFormat.description(node.id, node.value, parentId);
+        lines.push(`${'  '.repeat(indent + 1)}- Value: ${window.emvFormat.markdown(node.value)}${annotation ? ' (' + window.emvFormat.markdown(annotation) + ')' : ''}`);
       }
       if (node.children && node.children.length) {
         lines.push(...renderMarkdownNodes(node.children, indent + 1, node.id));
@@ -420,7 +166,7 @@
     const lines = [
       '# EMV Merchant-Presented QR validation export',
       '',
-      `- Source file: \`${result.file.name}\``,
+      `- Source file: ${window.emvFormat.markdown(result.file.name)}`,
       `- QR found: \`${result.qrFound ? 'true' : 'false'}\``,
       `- EMV valid: \`${result.valid ? 'true' : 'false'}\``,
       `- Errors: \`${result.errors.length}\``,
@@ -436,7 +182,7 @@
     lines.push('## Errors');
     lines.push('');
     if (result.errors.length) {
-      result.errors.forEach(error => lines.push(`- ${error}`));
+      result.errors.forEach(error => lines.push(`- ${window.emvFormat.markdown(error)}`));
     } else {
       lines.push('- none');
     }
@@ -445,7 +191,7 @@
     lines.push('## Warnings');
     lines.push('');
     if (result.warnings.length) {
-      result.warnings.forEach(warning => lines.push(`- ${warning}`));
+      result.warnings.forEach(warning => lines.push(`- ${window.emvFormat.markdown(warning)}`));
     } else {
       lines.push('- none');
     }
@@ -504,7 +250,9 @@
     return new Uint8Array(await entry.blob.arrayBuffer());
   }
 
-  async function createZip(entries) {
+  async function createZip(entries, checkCurrent) {
+    const size = entries.reduce((sum, entry) => sum + (entry.blob?.size ?? new TextEncoder().encode(entry.content).length) + 256, 0);
+    if (size > window.emvDecoder.limits.zipBytes || entries.length > 65535) throw new RangeError('Report exceeds the 128 MiB ZIP limit.');
     const encoder = new TextEncoder();
     const now = dosDateTime();
     const localParts = [];
@@ -512,11 +260,15 @@
     let offset = 0;
 
     for (const entry of entries) {
+      checkCurrent();
+      await new Promise(resolve => setTimeout(resolve, 0));
+      checkCurrent();
       const nameBytes = encoder.encode(entry.name);
       const dataBytes = await entryData(entry);
+      checkCurrent();
       const checksum = crc32(dataBytes);
 
-      const local = new Uint8Array(30 + nameBytes.length + dataBytes.length);
+      const local = new Uint8Array(30 + nameBytes.length);
       writeUint32(local, 0, 0x04034b50);
       writeUint16(local, 4, 20);
       writeUint16(local, 6, 0x0800);
@@ -529,8 +281,7 @@
       writeUint16(local, 26, nameBytes.length);
       writeUint16(local, 28, 0);
       local.set(nameBytes, 30);
-      local.set(dataBytes, 30 + nameBytes.length);
-      localParts.push(local);
+      localParts.push(local, dataBytes);
 
       const central = new Uint8Array(46 + nameBytes.length);
       writeUint32(central, 0, 0x02014b50);
@@ -553,7 +304,7 @@
       central.set(nameBytes, 46);
       centralParts.push(central);
 
-      offset += local.length;
+      offset += local.length + dataBytes.length;
     }
 
     const centralOffset = offset;
@@ -573,24 +324,20 @@
 
   function resultSummaryLine(result, index) {
     return [
-      `${index + 1}. ${result.file.name}`,
+      `${index + 1}. ${window.emvFormat.comment(result.file.name)}`,
       `   QR found: ${result.qrFound ? 'true' : 'false'}`,
       `   EMV valid: ${result.valid ? 'true' : 'false'}`,
       `   bytes: ${result.byteCount === null ? '-' : result.byteCount}`,
       `   seconds: ${formatSeconds(result.elapsedSeconds)}`,
       `   errors: ${result.errors.length}`,
-      ...result.errors.map(error => `     - ERROR: ${error}`),
+      ...result.errors.map(error => `     - ERROR: ${window.emvFormat.comment(error)}`),
       `   warnings: ${result.warnings.length}`,
-      ...result.warnings.map(warning => `     - WARNING: ${warning}`),
+      ...result.warnings.map(warning => `     - WARNING: ${window.emvFormat.comment(warning)}`),
       '',
     ].join('\n');
   }
 
-  function csvValue(value) {
-    const text = String(value === null || value === undefined ? '' : value);
-    if (/[",\r\n]/.test(text)) return `"${text.replace(/"/g, '""')}"`;
-    return text;
-  }
+  const csvValue = window.emvFormat.csvValue;
 
   function csvLine(values) {
     return values.map(csvValue).join(',');
@@ -726,23 +473,26 @@
     ].join('');
   }
 
-  async function downloadReportZip() {
-    if (!latestResults.length) return;
+  async function downloadReportZip(results = latestResults.slice(), expectedRun = runId) {
+    if (!results.length) return;
+    const checkCurrent = () => { if (runId !== expectedRun) throw new DOMException('Report cancelled.', 'AbortError'); };
+    checkCurrent();
     const seen = new Map();
     const reportRows = [];
     const entries = [{
       name: 'report.txt',
-      content: buildTextReport(latestResults),
+      content: buildTextReport(results),
     }];
 
-    for (const result of latestResults) {
-      const base = sanitizeBaseName(result.file.name);
+    for (const result of results) {
+      const base = `${String(reportRows.length + 1).padStart(3, '0')}-${sanitizeBaseName(result.file.name).slice(0, 100)}`;
       const count = seen.get(base) || 0;
       seen.set(base, count + 1);
       const suffix = count ? `-${count + 1}` : '';
       const yamlName = `yaml/${base}${suffix}.yaml`;
       const markdownName = `markdown/${base}${suffix}.md`;
-      const pictureName = `pictures/${base}${suffix}-${result.file.name}`;
+      const extension = result.file.name.match(/\.[a-z0-9]{1,8}$/i)?.[0] || '.bin';
+      const pictureName = `pictures/${base}${suffix}${extension}`;
       reportRows.push({ result, yamlName, markdownName, pictureName });
       entries.push({
         name: yamlName,
@@ -763,7 +513,8 @@
       content: buildCsvReport(reportRows),
     });
 
-    const blob = await createZip(entries);
+    const blob = await createZip(entries, checkCurrent);
+    checkCurrent();
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -788,88 +539,57 @@
     return results.reduce((sum, result) => sum + (Number.isFinite(result.elapsedSeconds) ? result.elapsedSeconds : 0), 0);
   }
 
-  async function validateFile(file) {
+  async function validateFile(file, options) {
     const startedAt = performance.now();
+    const result = {
+      file, imageWidth: null, imageHeight: null, openCvEnabled: options.useOpenCv,
+      qrFound: false, valid: false, byteCount: null, charCount: null, elapsedSeconds: 0,
+      rawText: '', rawHex: '', tree: [], qrVersion: null, qrErrorCorrectionLevel: '',
+      crcOk: false, crcExpected: '', crcActual: '', crcMessage: '', errors: [], warnings: [],
+    };
     try {
-      const loaded = await loadImage(file);
-      const code = decodeImage(loaded.image);
-      if (!code) {
-        return {
-          file,
-          imageWidth: loaded.image.naturalWidth,
-          imageHeight: loaded.image.naturalHeight,
-          openCvEnabled: validatorUseOpenCv.checked,
-          qrFound: false,
-          valid: false,
-          byteCount: null,
-          charCount: null,
-          elapsedSeconds: (performance.now() - startedAt) / 1000,
-          rawText: '',
-          rawHex: '',
-          tree: [],
-          qrVersion: null,
-          qrErrorCorrectionLevel: '',
-          crcOk: false,
-          crcExpected: '',
-          crcActual: '',
-          crcMessage: '',
-          errors: ['No QR code could be decoded from this image.'],
-          warnings: [],
-        };
+      const decoded = await scanner.scanFile(file, options);
+      window.emvDecoder.checkAbort(options.signal);
+      result.imageWidth = decoded.width;
+      result.imageHeight = decoded.height;
+      result.thumbnail = decoded.thumbnail;
+      result.warnings = decoded.warnings;
+      if (!decoded.code) result.errors.push('No QR code could be decoded from this image.');
+      else {
+        const analysis = window.emvAnalyzer.analyzePayload(decoded.code.data);
+        const qr = window.emvFormat.metadata(decoded.code);
+        Object.assign(result, {
+          qrFound: true, valid: analysis.validation.valid, byteCount: analysis.byteCount, charCount: analysis.charCount,
+          rawText: analysis.rawText, rawHex: analysis.rawHex, tree: analysis.tree,
+          qrVersion: qr.version, qrErrorCorrectionLevel: qr.errorCorrectionLevel || '',
+          crcOk: analysis.validation.crc.ok, crcExpected: analysis.validation.crc.expected || '',
+          crcActual: analysis.validation.crc.actual || '', crcMessage: analysis.validation.crc.message,
+          errors: analysis.validation.errors, warnings: result.warnings.concat(analysis.validation.warnings),
+        });
       }
-
-      const analysis = window.emvAnalyzer.analyzePayload(code.data);
-      const elapsedSeconds = (performance.now() - startedAt) / 1000;
-      const warnings = addSlowScanWarning(analysis.validation.warnings, elapsedSeconds, true);
-      return {
-        file,
-        imageWidth: loaded.image.naturalWidth,
-        imageHeight: loaded.image.naturalHeight,
-        openCvEnabled: validatorUseOpenCv.checked,
-        qrFound: true,
-        valid: analysis.validation.valid,
-        byteCount: analysis.byteCount,
-        charCount: analysis.charCount,
-        elapsedSeconds,
-        rawText: analysis.rawText,
-        rawHex: analysis.rawHex,
-        tree: analysis.tree,
-        qrVersion: code.version || null,
-        qrErrorCorrectionLevel: code.errorCorrectionLevel || '',
-        crcOk: analysis.validation.crc.ok,
-        crcExpected: analysis.validation.crc.expected || '',
-        crcActual: analysis.validation.crc.actual || '',
-        crcMessage: analysis.validation.crc.message || '',
-        errors: analysis.validation.errors,
-        warnings,
-      };
     } catch (error) {
-      return {
-        file,
-        imageWidth: null,
-        imageHeight: null,
-        openCvEnabled: validatorUseOpenCv.checked,
-        qrFound: false,
-        valid: false,
-        byteCount: null,
-        charCount: null,
-        elapsedSeconds: (performance.now() - startedAt) / 1000,
-        rawText: '',
-        rawHex: '',
-        tree: [],
-        qrVersion: null,
-        qrErrorCorrectionLevel: '',
-        crcOk: false,
-        crcExpected: '',
-        crcActual: '',
-        crcMessage: '',
-        errors: [error.message],
-        warnings: [],
-      };
+      if (error.name === 'AbortError') throw error;
+      result.errors.push(error.message);
     }
+    result.elapsedSeconds = (performance.now() - startedAt) / 1000;
+    result.warnings = window.emvFormat.slowWarnings(result.warnings, result.elapsedSeconds);
+    return result;
+  }
+
+  function appendResultRow(result) {
+    if (!visibleResults([result]).length) {
+      if (!validatorRows.querySelector('[data-result]')) validatorRows.innerHTML = '<tr><td colspan="9">No files match the selected display filter.</td></tr>';
+      return;
+    }
+    if (!validatorRows.querySelector('[data-result]')) validatorRows.innerHTML = '';
+    validatorRows.appendChild(renderRow(result));
   }
 
   async function validateFiles(files) {
+    controller?.abort();
+    controller = new AbortController();
+    const options = { signal: controller.signal, useOpenCv: validatorUseOpenCv.checked };
+    rowCache = new WeakMap();
     const currentRun = runId + 1;
     runId = currentRun;
     const fileList = Array.from(files);
@@ -878,6 +598,7 @@
     downloadValidatorZipButton.disabled = true;
     updateSummary([]);
     updateProgress(0, fileList.length);
+    try { window.emvDecoder.checkBatch(fileList); } catch (error) { setStatus(error.message, 'error'); return; }
     if (!fileList.length) {
       validatorRows.innerHTML = '<tr><td colspan="9">No files selected.</td></tr>';
       setStatus('Ready.');
@@ -889,10 +610,13 @@
 
     for (let index = 0; index < fileList.length; index += 1) {
       if (runId !== currentRun) return;
-      const result = await validateFile(fileList[index]);
+      let result;
+      try { result = await validateFile(fileList[index], options); }
+      catch (error) { if (error.name === 'AbortError') return; throw error; }
+      if (runId !== currentRun || options.signal.aborted) return;
       results.push(result);
       latestResults = results.slice();
-      renderResultsTable(latestResults);
+      appendResultRow(result);
       updateSummary(results);
       updateProgress(index + 1, fileList.length);
       setStatus(`Validating ${index + 1}/${fileList.length} files.`);
@@ -903,16 +627,20 @@
     updateProgress(results.length, results.length);
     setStatus(`Done. ${validCount}/${results.length} files contain valid EMV QR payloads. Total scanning time: ${formatSeconds(totalElapsedSeconds(results))} s.`);
     if (results.length && runId === currentRun) {
+      downloadValidatorZipButton.disabled = true;
       try {
-        await downloadReportZip();
+        await downloadReportZip(results.slice(), currentRun);
       } catch (error) {
+        if (runId !== currentRun || error.name === 'AbortError') return;
         setStatus(`Done, but unable to create report zip: ${error.message}`, 'error');
+      } finally {
+        if (runId === currentRun) downloadValidatorZipButton.disabled = false;
       }
     }
   }
 
   validatorFiles.addEventListener('change', () => {
-    validateFiles(validatorFiles.files);
+    validateFiles(validatorFiles.files).catch(error => setStatus(error.message, 'error'));
   });
   validatorDisplayFilter.addEventListener('change', () => {
     renderResultsTable(latestResults);
@@ -921,6 +649,9 @@
     window.print();
   });
   downloadValidatorZipButton.addEventListener('click', () => {
-    downloadReportZip().catch(error => setStatus(`Unable to create report zip: ${error.message}`, 'error'));
+    const expectedRun = runId;
+    downloadValidatorZipButton.disabled = true;
+    downloadReportZip().catch(error => { if (runId === expectedRun && error.name !== 'AbortError') setStatus(`Unable to create report zip: ${error.message}`, 'error'); }).finally(() => { if (runId === expectedRun) downloadValidatorZipButton.disabled = !latestResults.length; });
   });
+  window.addEventListener('pagehide', () => { runId++; controller?.abort(); scanner.dispose(); });
 }());

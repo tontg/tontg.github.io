@@ -40,119 +40,43 @@
     url.search = '';
     const amount = normalizeAmountInput();
     const reference = referenceInput.value.trim();
-    if (amount) url.searchParams.set('a', amount);
-    if (reference) url.searchParams.set('l', reference);
-    const currentPath = `${url.pathname}${url.search}`;
+    const params = new URLSearchParams();
+    if (amount) params.set('a', amount);
+    if (reference) params.set('l', reference);
+    url.hash = params.toString();
+    const currentPath = `${url.pathname}${url.hash}`;
     window.history.replaceState(null, '', currentPath);
     checkoutPermalink.href = currentPath;
-    checkoutPermalink.textContent = `${url.pathname.split('/').pop() || 'index.html'}${url.search}`;
+    checkoutPermalink.textContent = `${url.pathname.split('/').pop() || 'index.html'}${url.hash}`;
   }
 
-  function encodeLength(value, id) {
-    const length = String(value).length;
-    if (length > 99) throw new Error(`Field ${id} is ${length} characters long; EMV TLV length must fit in two digits.`);
-    return String(length).padStart(2, '0');
-  }
-
-  function encodeField(id, value) {
-    return `${id}${encodeLength(value, id)}${value}`;
-  }
-
-  function normalizeId(id) {
-    const text = String(id).trim();
-    if (!/^\d{1,2}$/.test(text)) throw new Error(`Invalid field id "${id}". Use a one or two digit numeric ID.`);
-    return text.padStart(2, '0');
-  }
-
-  function checkoutConfig() {
-    return window.emvQrCheckoutConfig || { fields: [] };
-  }
-
-  function resolveValue(value, dynamicValues) {
-    if (value === '{{amount}}') return dynamicValues.amount;
-    if (value === '{{reference}}') return dynamicValues.reference;
-    return String(value);
-  }
-
-  function encodeConfiguredField(field, dynamicValues) {
-    if (!field || typeof field !== 'object' || Array.isArray(field)) {
-      throw new Error('Each configured checkout field must be an object.');
+  function configuredFields() {
+    const values = { '{{amount}}': normalizeAmountInput(), '{{reference}}': referenceInput.value.trim() };
+    if (values['{{amount}}'] && (!/^\d+(\.\d*)?$/.test(values['{{amount}}']) || values['{{amount}}'].length > 13 || Number(values['{{amount}}']) <= 0)) throw new Error('Amount must be positive, numeric, and at most 13 characters.');
+    function resolve(fields) {
+      return fields.flatMap(field => {
+        const [id, value] = Object.entries(field)[0];
+        const resolved = Array.isArray(value) ? resolve(value) : Object.hasOwn(values, value) ? values[value] : value;
+        return resolved === '' || (Array.isArray(resolved) && !resolved.length) ? [] : [{ [id]: resolved }];
+      });
     }
-
-    const keys = Object.keys(field);
-    if (keys.length !== 1) {
-      throw new Error('Each configured checkout field must contain exactly one EMV ID key.');
-    }
-
-    const id = normalizeId(keys[0]);
-    const value = field[keys[0]];
-    if (Array.isArray(value)) {
-      const children = value
-        .map(child => encodeConfiguredField(child, dynamicValues))
-        .filter(Boolean)
-        .join('');
-      if (!children) return '';
-      return encodeField(id, children);
-    }
-
-    const resolved = resolveValue(value, dynamicValues);
-    if (resolved === '') return '';
-    return encodeField(id, resolved);
-  }
-
-  function encodeConfiguredFields(fields, dynamicValues) {
-    return (fields || [])
-      .map(field => encodeConfiguredField(field, dynamicValues))
-      .filter(Boolean);
-  }
-
-  function validateAmount(amount) {
-    if (!amount) return '';
-    if (!/^\d{1,13}(\.\d{1,2})?$/.test(amount)) {
-      throw new Error('Amount must be numeric with up to two decimal places.');
-    }
-    return amount;
-  }
-
-  function buildPayload() {
-    const amount = validateAmount(normalizeAmountInput());
-    const reference = referenceInput.value.trim();
-    const fields = encodeConfiguredFields(checkoutConfig().fields, { amount, reference });
-
-    const crcInput = `${fields.join('')}6304`;
-    const crc = window.emvCore.computeCRC(crcInput);
-    return { text: `${crcInput}${crc}`, crc };
-  }
-
-  function renderQr(text) {
-    const qr = qrcode(0, 'L');
-    qr.addData(text);
-    qr.make();
-    currentQrSvg = qr.createSvgTag(
-      qrCellSize,
-      qrCellSize * qrQuietZoneModules,
-      'Checkout EMV QR code',
-      'Checkout EMV QR code',
-    );
-    window.emvQrOutput.renderSvg(checkoutQrImage, currentQrSvg);
-    downloadCheckoutSvgButton.disabled = false;
-    downloadCheckoutPngButton.disabled = false;
+    return resolve(window.emvCodec.normalizeFields(window.emvQrCheckoutConfig?.fields || []));
   }
 
   function render() {
     try {
       updatePermalink();
-      const result = buildPayload();
-      const bytes = new TextEncoder().encode(result.text);
-      renderQr(result.text);
-      checkoutText.textContent = result.text;
-      checkoutHex.textContent = window.emvQrOutput.toHex(result.text);
-      checkoutChars.textContent = String(result.text.length);
-      checkoutBytes.textContent = String(bytes.length);
+      const result = window.MerchantPresentedQrCode.render(checkoutQrImage, configuredFields(), { cellSize: qrCellSize, quietZoneModules: qrQuietZoneModules, altText: 'Checkout EMV QR code' });
+      currentQrSvg = result.svg;
+      downloadCheckoutSvgButton.disabled = downloadCheckoutPngButton.disabled = false;
+      checkoutText.textContent = result.payload;
+      checkoutHex.textContent = window.emvQrOutput.toHex(result.payload);
+      checkoutChars.textContent = String(result.characters);
+      checkoutBytes.textContent = String(result.bytes);
       checkoutCrc.textContent = result.crc;
       downloadCheckoutWebpButton.disabled = !webpSupported;
-      checkoutTextTitle.textContent = `Generated text (${result.text.length} chars)`;
-      checkoutHexTitle.textContent = `Generated hexadecimal string (${bytes.length} bytes)`;
+      checkoutTextTitle.textContent = `Generated text (${result.characters} chars)`;
+      checkoutHexTitle.textContent = `Generated hexadecimal string (${result.bytes} bytes)`;
       setStatus('QR code generated.');
     } catch (error) {
       updatePermalink();
@@ -201,7 +125,7 @@
   }
 
   function loadFromUrl() {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.hash.slice(1) || window.location.search);
     if (params.has('a')) amountInput.value = params.get('a') || '';
     if (params.has('l')) referenceInput.value = params.get('l') || '';
   }

@@ -1,4 +1,5 @@
 (function () {
+  const handles = new WeakMap();
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
   }
@@ -22,7 +23,13 @@
   }
 
   function install(element) {
-    if (!element || element.dataset.qrResizableReady === 'true') return;
+    if (!element) return;
+    const existingHandle = handles.get(element);
+    if (existingHandle) {
+      if (existingHandle.parentElement !== element) element.appendChild(existingHandle);
+      applySize(element, currentSize(element));
+      return;
+    }
     element.dataset.qrResizableReady = 'true';
     element.classList.add('qr-resizable');
 
@@ -30,6 +37,7 @@
     handle.className = 'qr-resize-handle';
     handle.setAttribute('aria-hidden', 'true');
     element.appendChild(handle);
+    handles.set(element, handle);
 
     const defaultSize = Number(element.dataset.resizeDefault || 320);
     applySize(element, defaultSize);
@@ -71,10 +79,6 @@
   }
 
   function refresh(element) {
-    if (!element) return;
-    element.dataset.qrResizableReady = 'false';
-    const handle = element.querySelector('.qr-resize-handle');
-    if (handle) handle.remove();
     install(element);
   }
 

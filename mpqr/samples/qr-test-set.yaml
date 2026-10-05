@@ -1,0 +1,121 @@
+# Copyright 2026 Gilles Reant. SPDX-License-Identifier: Apache-2.0
+# Edit or duplicate entries below. Array order is the presentation order.
+# Each id must be unique. errorCorrection: L, M, Q or H (default: L).
+# Missing 00=01 and 01=11 are inserted; field 63 is always recalculated.
+# Names and accounts are fictional, not credentials for a real payment scheme.
+# Unicode escapes in double-quoted YAML strings become actual UTF-8 text.
+title: Scanner test set
+description: Fictional merchants. Do not use for payments.
+codes:
+  - id: static-no-amount
+    title: Static merchant without an amount
+    description: Basic ASCII payload. The payer supplies the amount. Low error correction.
+    errorCorrection: L
+    fields:
+      - "26":
+          - "00": "COM.EXAMPLE.PAY"
+          - "01": "MERCHANT001"
+      - "52": "5812"
+      - "53": "840"
+      - "58": "US"
+      - "59": "EXAMPLE MERCHANT"
+      - "60": "NEW YORK"
+
+  - id: usd-reference
+    title: USD amount and invoice reference
+    description: USD 12.34 with a dynamic initiation method and reference INV-1001.
+    errorCorrection: M
+    fields:
+      - "00": "01"
+      - "01": "12"
+      - "26":
+          - "00": "COM.EXAMPLE.PAY"
+          - "01": "MERCHANT002"
+      - "52": "5812"
+      - "53": "840"
+      - "54": "12.34"
+      - "58": "US"
+      - "59": "EXAMPLE MERCHANT"
+      - "60": "NEW YORK"
+      - "62":
+          - "05": "INV-1001"
+
+  - id: euro-small-amount
+    title: Small euro amount
+    description: EUR 0.01 with a leading-zero reference. Quartile error correction.
+    errorCorrection: Q
+    fields:
+      - "26":
+          - "00": "COM.EXAMPLE.PAY"
+          - "01": "MERCHANT003"
+      - "52": "5812"
+      - "53": "978"
+      - "54": "0.01"
+      - "58": "FR"
+      - "59": "EXAMPLE CAFE"
+      - "60": "PARIS"
+      - "62":
+          - "05": "00001234"
+
+  - id: dense-metadata
+    title: Dense payload with extra metadata
+    description: Multiple additional-data fields and an unreserved template. High error correction.
+    errorCorrection: H
+    fields:
+      - "26":
+          - "00": "COM.EXAMPLE.PAY"
+          - "01": "MERCHANT004"
+      - "52": "5411"
+      - "53": "840"
+      - "54": "1234.56"
+      - "58": "US"
+      - "59": "EXAMPLE GROCERY MARKET"
+      - "60": "SAN FRANCISCO"
+      - "61": "94103"
+      - "62":
+          - "01": "BILL-2026-1004"
+          - "03": "STORE-004"
+          - "05": "ORDER-2026-001234"
+          - "07": "POS-04"
+          - "08": "GROCERIES"
+      - "80":
+          - "00": "COM.EXAMPLE.TEST"
+          - "01": "BATCH-2026-10-SCANNER-REGRESSION-TEST-004"
+
+  - id: chinese-language
+    title: Chinese alternate merchant name
+    description: SGD 28.50 with Chinese text in language template 64. Compare the decoded Unicode text.
+    errorCorrection: Q
+    fields:
+      - "26":
+          - "00": "COM.EXAMPLE.PAY"
+          - "01": "MERCHANT005"
+      - "52": "5812"
+      - "53": "702"
+      - "54": "28.50"
+      - "58": "SG"
+      - "59": "EXAMPLE SHOP"
+      - "60": "SINGAPORE"
+      - "64":
+          - "00": "zh"
+          - "01": "\u793a\u4f8b\u5546\u5e97"
+          - "02": "\u65b0\u52a0\u5761"
+
+  - id: arabic-language
+    title: Arabic alternate merchant name
+    description: AED 99.00 with Arabic text in language template 64. Compare the decoded Unicode text.
+    errorCorrection: H
+    fields:
+      - "26":
+          - "00": "COM.EXAMPLE.PAY"
+          - "01": "MERCHANT006"
+      - "52": "5411"
+      - "53": "784"
+      - "54": "99.00"
+      - "58": "AE"
+      - "59": "EXAMPLE STORE"
+      - "60": "DUBAI"
+      - "64":
+          - "00": "ar"
+          - "01": "\u0645\u062a\u062c\u0631 \u062a\u062c\u0631\u064a\u0628\u064a"
+          - "02": "\u062f\u0628\u064a"
