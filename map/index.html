@@ -7,7 +7,9 @@
     <link rel="apple-touch-icon" sizes="192x192" href="./icons/icon-192.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#06141d">
-    <meta name="description" content="Camera-first map overlay with live geolocation, approximate IP fallback, and immersive WebXR support.">
+    <meta name="description" content="Camera-first map overlay with permission-based geolocation, journeys, and immersive WebXR support.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://unpkg.com https://tile.openstreetmap.org; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -39,7 +41,21 @@
           <p id="statusLine">Tap start to request camera, location, and orientation.</p>
           <p id="distanceSummary">No location fix yet.</p>
           <p id="journeySummary">Journey: not configured.</p>
+          <p id="journeyState"></p>
+          <p id="arrivalNotice" role="status" aria-live="polite"></p>
+          <p id="saveStatus"></p>
           <p id="xrSummary">Checking WebXR support...</p>
+          <details id="sensorDetails">
+            <summary data-i18n="diagnostics.title">Sensor diagnostics</summary>
+            <p id="sensorLocation"></p>
+            <p id="sensorCompass"></p>
+            <p id="sensorXr"></p>
+            <p id="sensorFeedback"></p>
+          </details>
+          <div class="control-row">
+            <button id="journeyPause" type="button">Pause journey</button>
+            <button id="toolsButton" type="button" data-i18n="tools.title">Journey tools</button>
+          </div>
           <p><a id="aboutLink" href="#" aria-haspopup="dialog">About</a></p>
           <button id="startButton" type="button">Start experience</button>
           <button id="enterArButton" type="button" disabled>Enter AR</button>
@@ -53,6 +69,103 @@
       </section>
     </main>
 
+    <dialog id="toolsDialog" class="tool-dialog" aria-labelledby="toolsTitle">
+      <header class="modal-header">
+        <h2 id="toolsTitle" data-i18n="tools.title">Journey tools</h2>
+        <button id="toolsClose" type="button" data-i18n="ui.close">Close</button>
+      </header>
+      <div class="tool-content">
+        <section>
+          <h3 data-i18n="tools.journey">Journey</h3>
+          <div class="control-row">
+            <button id="journeyRestart" type="button" data-i18n="journey.restart">Restart journey</button>
+            <button id="manualArrival" type="button" data-i18n="journey.confirmArrival">Confirm arrival (manual)</button>
+            <button id="editorOpen" type="button" data-i18n="editor.title">Edit / import journey</button>
+            <button id="defaultRoute" type="button" data-i18n="editor.defaultRoute">Use configured route</button>
+          </div>
+        </section>
+        <section>
+          <h3 data-i18n="position.title">Position</h3>
+          <p data-i18n="position.help">Manual position is fixed, not live GPS. Update it or confirm arrival as you move.</p>
+          <label><span data-i18n="position.waypoint">Copy a waypoint position</span><select id="manualWaypoint"></select></label>
+          <form id="manualPositionForm">
+            <div class="field-grid">
+              <label><span data-i18n="point.latitude">Latitude</span><input id="manualLatitude" type="number" step="any" min="-90" max="90" required></label>
+              <label><span data-i18n="point.longitude">Longitude</span><input id="manualLongitude" type="number" step="any" min="-180" max="180" required></label>
+            </div>
+            <div class="control-row">
+              <button id="pickPosition" type="button" data-i18n="position.pick">Pick on map</button>
+              <button type="submit" data-i18n="position.useManual">Use manual position</button>
+              <button id="useGps" type="button" data-i18n="position.useGps">Use GPS</button>
+            </div>
+          </form>
+        </section>
+        <section>
+          <h3 data-i18n="calibration.title">XR north alignment</h3>
+          <p data-i18n="calibration.help">Use a known north reference. After starting alignment, face that direction and hold still for 3 seconds. Calibration lasts for this XR session only.</p>
+          <label><span data-i18n="calibration.bearing">Known bearing (0 = north, 90 = east)</span><input id="calibrationBearing" type="number" min="0" max="359" step="1" value="0"></label>
+          <button id="calibrateNorth" type="button" data-i18n="calibration.start">Align in AR</button>
+        </section>
+        <section>
+          <h3 data-i18n="feedback.title">Arrival feedback</h3>
+          <label class="check-label"><input id="soundEnabled" type="checkbox"><span data-i18n="feedback.sound">Sound</span></label>
+          <label class="check-label"><input id="hapticsEnabled" type="checkbox"><span data-i18n="feedback.haptics">Haptics (when supported)</span></label>
+          <button id="testFeedback" type="button" data-i18n="feedback.test">Test feedback</button>
+        </section>
+        <p id="toolsMessage" role="status"></p>
+      </div>
+    </dialog>
+
+    <dialog id="editorDialog" class="tool-dialog editor-dialog" aria-labelledby="editorTitle">
+      <header class="modal-header">
+        <h2 id="editorTitle" data-i18n="editor.title">Edit / import journey</h2>
+        <button id="editorClose" type="button" data-i18n="ui.close">Close</button>
+      </header>
+      <div class="tool-content">
+        <p data-i18n="editor.help">Click the map to add a point; drag markers to move them. Edits are a draft until applied. Point field changes need Save point. Applying starts a new, paused journey.</p>
+        <label><span data-i18n="editor.name">Journey name</span><input id="editorName" maxlength="120"></label>
+        <div id="editorMap" role="region" aria-label="Journey editor map"></div>
+        <div class="editor-columns">
+          <section>
+            <label><span data-i18n="editor.point">Edit point</span><select id="editorPointSelect"></select></label>
+            <form id="editorPointForm">
+              <fieldset>
+                <label><span data-i18n="point.id">Point ID</span><input id="editorPointId" maxlength="120" required></label>
+                <div class="field-grid">
+                  <label><span data-i18n="point.latitude">Latitude</span><input id="editorLatitude" type="number" step="any" min="-90" max="90" required></label>
+                  <label><span data-i18n="point.longitude">Longitude</span><input id="editorLongitude" type="number" step="any" min="-180" max="180" required></label>
+                </div>
+                <label><span data-i18n="point.radius">Radius (m)</span><input id="editorRadius" type="number" step="any" min="0.1" required></label>
+                <div class="control-row">
+                  <button type="submit" data-i18n="editor.savePoint">Save point</button>
+                  <button id="editorDeletePoint" type="button" data-i18n="editor.deletePoint">Delete point</button>
+                </div>
+              </fieldset>
+            </form>
+            <button id="editorAddStep" type="button" data-i18n="editor.addStep">Append selected point to journey</button>
+          </section>
+          <section>
+            <h3 data-i18n="editor.steps">Journey steps</h3>
+            <ol id="editorSteps"></ol>
+            <p id="editorLength"></p>
+          </section>
+        </div>
+        <section>
+          <label><span data-i18n="editor.import">Import GPX or targets JSON (up to 2 MB)</span><input id="editorFile" type="file" accept=".gpx,.json,application/gpx+xml,application/json"></label>
+          <p data-i18n="editor.importHelp">Choose one route, track segment, or waypoint list. Each point becomes a step; maximum 500 points. Dense tracks should be simplified first.</p>
+          <div id="editorImportOptions" hidden>
+            <select id="editorImportChoice" aria-label="Imported routes"></select>
+            <button id="editorLoadImport" type="button" data-i18n="editor.loadImport">Load into draft</button>
+          </div>
+        </section>
+        <p id="editorMessage" role="status"></p>
+        <div class="control-row">
+          <button id="editorApply" type="button" data-i18n="editor.apply">Apply journey</button>
+          <button id="editorExport" type="button" data-i18n="editor.export">Download targets.json</button>
+        </div>
+      </div>
+    </dialog>
+
     <section id="aboutModal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
       <article class="modal-card">
         <header class="modal-header">
@@ -60,11 +173,11 @@
           <button id="aboutCloseButton" type="button" aria-label="Close about dialog">Close</button>
         </header>
         <div class="modal-body">
-          <p><span id="aboutCodedWithLabel">Coded with</span> <a href="https://chatgpt.com/codex" target="_blank">GPT-5.3-Codex</a></p>
-          <p><span id="aboutLicenseLabel">License:</span> <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a></p>
-          <p><span id="aboutMapDataLabel">Map data:</span> <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors</p>
-          <p><span id="aboutMapLibraryLabel">Map library:</span> <a href="https://leafletjs.com/" target="_blank">Leaflet</a></p>
-          <p><span id="aboutXrLibraryLabel">3D/XR library:</span> <a href="https://threejs.org/" target="_blank">Three.js</a></p>
+          <p><span id="aboutCodedWithLabel">Coded with</span> <a href="https://chatgpt.com/codex" target="_blank" rel="noopener noreferrer">GPT-5.3-Codex</a></p>
+          <p><span id="aboutLicenseLabel">License:</span> <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache License, Version 2.0</a></p>
+          <p><span id="aboutMapDataLabel">Map data:</span> <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors</p>
+          <p><span id="aboutMapLibraryLabel">Map library:</span> <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a></p>
+          <p><span id="aboutXrLibraryLabel">3D/XR library:</span> <a href="https://threejs.org/" target="_blank" rel="noopener noreferrer">Three.js</a></p>
           <p><span id="aboutFaviconLabel">Favicon source:</span> <a href="https://www.flaticon.com/free-icon/path-a-to-b_106147" target="_blank" rel="noopener noreferrer">Path A To B free icon from Freepik</a></p>
         </div>
       </article>

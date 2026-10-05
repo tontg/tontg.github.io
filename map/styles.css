@@ -124,7 +124,9 @@ body.xr-active #mapContainer {
   position: absolute;
   bottom: max(0.8rem, env(safe-area-inset-bottom));
   left: max(0.8rem, env(safe-area-inset-left));
-  max-width: min(90vw, 26rem);
+  max-width: min(calc(100vw - min(34vw, 230px) - 3rem), 26rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
   padding: 0.7rem 0.9rem;
   border: 1px solid var(--hud-border);
   border-radius: 12px;
@@ -287,7 +289,14 @@ body.xr-active #mapContainer {
   line-height: 1;
   color: #ffffff;
   white-space: nowrap;
+  max-width: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.map-edge-bullet[hidden] { display: none; }
+
+.leaflet-control-attribution { font-size: 9px; }
 
 .user-heading-marker {
   color: #ffeb3b;
@@ -314,6 +323,8 @@ body.xr-active #mapContainer {
 
 .modal-card {
   width: min(92vw, 34rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 12px;
   background: rgba(8, 11, 15, 0.95);
@@ -358,10 +369,72 @@ body.xr-active #mapContainer {
 
 @media (max-width: 700px) {
   #statusPanel {
-    max-width: calc(100vw - 1.6rem);
+    max-width: calc(100vw - min(42vw, 190px) - 2.4rem);
+    padding: 0.55rem;
+    overflow-wrap: anywhere;
   }
 
   #mapContainer {
     width: min(42vw, 190px);
   }
 }
+
+@media (max-width: 440px) {
+  #statusPanel { max-width: calc(100vw - 138px - 2.4rem); }
+  #mapContainer, body.xr-active #mapContainer { width: 138px; }
+  #statusPanel p { font-size: 0.78rem; }
+  #enterArButton { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .target-arrow .arrow-3d { animation: none; }
+}
+
+:focus-visible { outline: 2px solid var(--target); outline-offset: 3px; }
+
+.control-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.45rem 0; }
+.control-row button, .tool-dialog button {
+  border: 1px solid var(--hud-border); border-radius: 7px; background: #153645;
+  color: var(--text); padding: 0.45rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.84rem;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+#sensorDetails { font-size: 0.78rem; margin: 0.4rem 0; }
+#sensorDetails p, #saveStatus, #journeyState { font-size: 0.75rem; }
+#arrivalNotice { color: var(--ok); }
+#saveStatus { color: var(--warn); }
+.tool-dialog {
+  color: var(--text); background: #091b25; border: 1px solid var(--hud-border); border-radius: 12px;
+  width: min(95vw, 42rem); max-height: 92dvh; padding: 0; overflow: auto;
+  color-scheme: dark;
+}
+.tool-dialog::backdrop { background: rgba(0, 0, 0, 0.75); }
+.tool-dialog .modal-header { position: sticky; top: 0; background: #091b25; z-index: 1100; }
+.tool-content { padding: 0.9rem; }
+.tool-content section { margin-bottom: 1rem; }
+.tool-content p { line-height: 1.45; font-size: 0.88rem; }
+.tool-content h3 { margin: 0.4rem 0; font-size: 1rem; color: var(--target); }
+.tool-content label { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.55rem; font-size: 0.86rem; }
+.tool-content input, .tool-content select {
+  color: var(--text); background: #17313e; border: 1px solid var(--hud-border); border-radius: 5px;
+  padding: 0.5rem; width: 100%; min-width: 0; font-family: inherit; font-size: 16px;
+}
+.tool-content .check-label { flex-direction: row; align-items: center; }
+.tool-content select {
+  -webkit-appearance: none; appearance: none; padding-right: 1.6rem;
+  background-image: linear-gradient(45deg, transparent 50%, #f6f7f9 50%), linear-gradient(135deg, #f6f7f9 50%, transparent 50%);
+  background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%;
+  background-size: 5px 5px; background-repeat: no-repeat;
+}
+.tool-content option { background: #17313e; color: #f6f7f9; }
+.check-label input { width: auto; }
+.field-grid, .editor-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+.editor-dialog { width: min(96vw, 65rem); }
+#editorMap { height: min(38dvh, 350px); min-height: 180px; margin: 0.7rem 0; }
+.editor-marker { border: 2px solid #071520; border-radius: 50%; background: #ffbd59; }
+#editorSteps { max-height: 24rem; overflow-y: auto; list-style: none; padding: 0; }
+#editorSteps li { display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.3rem; border-bottom: 1px solid var(--hud-border); }
+#editorSteps li span { width: 100%; overflow-wrap: anywhere; }
+.tool-content fieldset { margin: 0; padding: 0; border: 0; }
+#editorMessage, #toolsMessage { color: var(--warn); }
+#mapContainer.picking { outline: 3px solid var(--warn); }
+@media (max-width: 650px) { .editor-columns { grid-template-columns: 1fr; } }
