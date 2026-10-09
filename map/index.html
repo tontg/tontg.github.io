@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#06141d">
     <meta name="description" content="Camera-first map overlay with permission-based geolocation, journeys, and immersive WebXR support.">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://unpkg.com https://tile.openstreetmap.org; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://tile.openstreetmap.org; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -17,7 +17,7 @@
     <title>Geo Camera Map Overlay</title>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      href="./vendor/leaflet/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     >
@@ -184,7 +184,7 @@
     </section>
 
     <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      src="./vendor/leaflet/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
