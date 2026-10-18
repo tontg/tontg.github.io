@@ -1,7 +1,7 @@
 "use strict";
 const worker = self;
 const CACHE_PREFIX = `geo-camera-map:${worker.registration.scope}:`;
-const CACHE_NAME = `${CACHE_PREFIX}0.9.1`;
+const CACHE_NAME = `${CACHE_PREFIX}0.9.2`;
 const LEGACY_CACHES = new Set(["geo-camera-map-overlay-v2", "geo-camera-map-runtime-v1"]);
 const APP_SHELL_URLS = [
     "./", "./index.html", "./styles.css", "./app.js", "./navigation.js",
