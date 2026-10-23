@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "src": "./gallery/26-02-big-slider-mobile-fdfc9f1c29a6a8d2.webp",
+      "alt": "Croquis en plongée d’une voiture bleue à deux bandes blanches, avec l’habitacle visible à travers le pare-brise.",
+      "description": "Vue extérieure en plongée.",
+      "credit": "© Renault s.a.s."
+    },
+    {
+      "src": "./gallery/r-dam-1830204-big-slider-mobile-7672cafbf8aceb28.webp",
+      "alt": "Illustration d’un habitacle rouge et violet avec des sièges au premier plan et un large écran sur le tableau de bord.",
+      "description": "Détail du tableau de bord dans un habitacle rouge et violet.",
+      "credit": "© Renault s.a.s."
+    },
+    {
+      "src": "./gallery/r-dam-1830216-big-slider-mobile-bcc8762299ea533e.webp",
+      "alt": "Vue en plongée d’un habitacle rouge et violet équipé de quatre sièges individuels et d’un volant.",
+      "description": "Vue d’ensemble des quatre sièges et du poste de conduite.",
+      "credit": "© Renault s.a.s."
+    }
+  ]
+}
