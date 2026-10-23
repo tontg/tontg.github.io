@@ -1,0 +1,97 @@
+{
+  "libraries": [
+    {
+      "name": "@google/model-viewer",
+      "version": "4.4.0",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/google/model-viewer#readme"
+    },
+    {
+      "name": "@lit-labs/ssr-dom-shim",
+      "version": "1.6.0",
+      "license": "BSD-3-Clause",
+      "homepage": "https://github.com/lit/lit/tree/main/packages/labs/ssr-dom-shim"
+    },
+    {
+      "name": "@lit/reactive-element",
+      "version": "2.1.2",
+      "license": "BSD-3-Clause",
+      "homepage": "https://lit.dev/"
+    },
+    {
+      "name": "@monogrid/gainmap-js",
+      "version": "3.7.2",
+      "license": "MIT",
+      "homepage": "https://github.com/MONOGRID/gainmap-js#readme"
+    },
+    {
+      "name": "@types/trusted-types",
+      "version": "2.0.7",
+      "license": "MIT",
+      "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/trusted-types"
+    },
+    {
+      "name": "Basis Universal",
+      "version": "fourni avec three.js",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/BinomialLLC/basis_universal"
+    },
+    {
+      "name": "Draco",
+      "version": "fourni avec three.js",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/google/draco"
+    },
+    {
+      "name": "immediate",
+      "version": "3.0.6",
+      "license": "MIT"
+    },
+    {
+      "name": "is-promise",
+      "version": "2.2.2",
+      "license": "MIT"
+    },
+    {
+      "name": "lie",
+      "version": "3.3.0",
+      "license": "MIT"
+    },
+    {
+      "name": "lit",
+      "version": "3.3.3",
+      "license": "BSD-3-Clause",
+      "homepage": "https://lit.dev/"
+    },
+    {
+      "name": "lit-element",
+      "version": "4.2.2",
+      "license": "BSD-3-Clause",
+      "homepage": "https://lit.dev/"
+    },
+    {
+      "name": "lit-html",
+      "version": "3.3.3",
+      "license": "BSD-3-Clause",
+      "homepage": "https://lit.dev/"
+    },
+    {
+      "name": "Meshoptimizer",
+      "version": "1.0",
+      "license": "MIT",
+      "homepage": "https://github.com/zeux/meshoptimizer"
+    },
+    {
+      "name": "promise-worker-transferable",
+      "version": "1.0.4",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/terikon/promise-worker-transferable#readme"
+    },
+    {
+      "name": "three",
+      "version": "0.183.0",
+      "license": "MIT",
+      "homepage": "https://threejs.org/"
+    }
+  ]
+}

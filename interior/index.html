@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr" data-access-state="locked">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explorez en 3D un concept d’intérieur automobile signé Amandine Grohens. Une étude de design à découvrir sous tous les angles." />
+    <meta name="theme-color" content="#f6f4ef" />
+    <style>html[data-access-state="locked"] body > :not(#access-gate):not(noscript){display:none!important}</style>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Habitacle — Amandine Grohens</title>
+    <script type="module" crossorigin src="./assets/index-CC3o8TaE.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/access-tulGyvRz.js">
+    <link rel="stylesheet" crossorigin href="./assets/access-BW2vY3kF.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-BOGqvBnV.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="wordmark" href="./index.html" aria-label="Amandine Grohens — accueil">
+        <span class="brand-symbol" aria-hidden="true">ag.</span>
+        <span>Amandine Grohens<span class="brand-subtitle">Design d’intérieur automobile</span></span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="./index.html" aria-current="page">Explorer le concept</a>
+        <a href="./a-propos.html">À propos <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenu">
+      <section class="introduction" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow"><span class="tiny-line" aria-hidden="true"></span> Étude de design · Intérieur automobile</p>
+          <h1 id="page-title">L’habitacle,<br /><em>autrement.</em></h1>
+        </div>
+        <div class="intro-note">
+          <p>Une autre manière d’imaginer l’espace intérieur.<br class="desktop-break" /> Entrez dans le concept, changez de perspective<br class="desktop-break" /> et explorez chaque angle en 3D.</p>
+          <a class="inline-link explore-link" href="#exploration">Explorer le modèle <span aria-hidden="true">↙</span></a>
+        </div>
+      </section>
+
+      <aside id="apple-quick-look" hidden></aside>
+
+      <section id="exploration" class="exploration" aria-label="Exploration du modèle 3D">
+        <div class="viewer-meta">
+          <p><span class="section-index">01</span> Exploration interactive</p>
+          <a class="temporary-label" href="./a-propos.html#modele-provisoire"><span aria-hidden="true">◌</span> Modèle provisoire</a>
+        </div>
+        <div id="viewer-stage" class="viewer-stage" aria-busy="true">
+          <div class="stage-corner stage-corner-tl" aria-hidden="true"></div>
+          <div class="stage-corner stage-corner-br" aria-hidden="true"></div>
+          <div class="stage-heading" aria-hidden="true"><span class="status-dot"></span> <span id="view-name">Vue d’ensemble</span><span class="stage-type">3D / GLB</span></div>
+
+          <model-viewer id="interior-model" alt="Modèle 3D provisoire d’un habitacle automobile, avec sièges, tableau de bord et volant." camera-controls auto-rotate-delay="0" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" touch-action="pan-y" interaction-prompt="none" interpolation-decay="100" min-camera-orbit="auto 5deg 15%" max-camera-orbit="auto 175deg 250%" min-field-of-view="15deg" max-field-of-view="55deg" loading="eager" reveal="auto" aria-label="Explorateur 3D de l’habitacle">
+            <div slot="progress-bar"></div>
+            <div slot="ar-button"></div>
+            <button slot="exit-webxr-ar-button" class="button ar-exit">Quitter la réalité augmentée</button>
+          </model-viewer>
+
+          <div id="loading-overlay" class="loading-overlay">
+            <span class="loading-mark" aria-hidden="true">ag.</span>
+            <p>Un instant, le modèle prend place.</p>
+            <div class="loading-track" aria-hidden="true"><div id="loading-progress"></div></div>
+          </div>
+          <div id="model-error" class="model-error" hidden>
+            <span class="error-symbol" aria-hidden="true">↻</span>
+            <h2>Le modèle n’a pas pu être chargé.</h2>
+            <p>Vérifiez votre connexion et la compatibilité 3D de votre navigateur, puis réessayez.</p>
+            <button id="retry-model" class="button button-dark" type="button">Réessayer</button>
+          </div>
+
+          <div class="camera-tools" role="group" aria-label="Commandes de la caméra">
+            <button id="zoom-in" class="icon-button" type="button" aria-label="Rapprocher" title="Rapprocher" data-requires-model disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></button>
+            <button id="zoom-out" class="icon-button" type="button" aria-label="Éloigner" title="Éloigner" data-requires-model disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /></svg></button>
+            <span class="tool-divider" aria-hidden="true"></span>
+            <button id="reset-camera" class="icon-button" type="button" aria-label="Réinitialiser la vue" title="Réinitialiser la vue" data-requires-model disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" /></svg></button>
+            <button id="fullscreen" class="icon-button" type="button" aria-label="Plein écran" title="Plein écran" data-requires-model disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" /></svg></button>
+          </div>
+
+          <div class="stage-bottom">
+            <button id="rotate-model" class="rotation-button" type="button" aria-pressed="false" data-requires-model disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9a7 7 0 0 1 12-3l2 3M19 3v6h-6M19 15A7 7 0 0 1 7 18l-2-3m0 6v-6h6" /></svg><span>Rotation automatique</span><span class="toggle-track" aria-hidden="true"></span></button>
+            <button id="ar-button" class="button button-dark ar-button" type="button" data-requires-model disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 9v9m0-9 8-4.5M12 12 4 7.5" /></svg> Réalité augmentée <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+
+        <div class="viewer-bottom">
+          <div class="view-presets" role="group" aria-label="Points de vue">
+            <button type="button" data-view="overview" aria-pressed="true" data-requires-model disabled><span aria-hidden="true">↗</span> Vue d’ensemble</button>
+            <button type="button" data-view="front" aria-pressed="false" data-requires-model disabled><span aria-hidden="true">▱</span> Vue de face</button>
+            <button type="button" data-view="side" aria-pressed="false" data-requires-model disabled><span aria-hidden="true">◧</span> Vue de profil</button>
+          </div>
+          <button id="help-button" class="help-button" type="button" aria-label="Aide à la navigation"><span class="help-icon" aria-hidden="true">?</span> Comment explorer</button>
+        </div>
+        <div class="viewer-caption"><p id="viewer-status" role="status" aria-live="polite">Chargement du modèle…</p><p>Faites glisser pour tourner · Pincez ou défilez pour zoomer</p></div>
+        <p id="action-message" class="action-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <aside class="project-note" aria-label="À propos du projet">
+        <span class="note-label">Une exploration libre.</span>
+        <p>Un concept d’intérieur automobile imaginé par Amandine Grohens.<br /> Ce design est un concept indépendant non affilié à l'entreprise Renault.</p>
+        <a class="inline-link" href="./a-propos.html">À propos du projet <span aria-hidden="true">↗</span></a>
+      </aside>
+    </main>
+
+    <footer class="site-footer"><p>Design © Amandine Grohens</p><p>Concept automobile <span aria-hidden="true">·</span> <a href="./a-propos.html">Crédits &amp; mentions</a></p><p>Version <span data-version></span></p></footer>
+
+    <dialog id="help-dialog" aria-labelledby="help-title">
+      <button class="dialog-close icon-button" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg></button>
+      <p class="eyebrow">Prenez les commandes</p><h2 id="help-title">À vous de voir.</h2>
+      <dl class="help-list"><div><dt>Tourner autour du modèle</dt><dd>Faites glisser avec la souris ou avec un doigt.</dd></div><div><dt>Rapprocher ou éloigner</dt><dd>Utilisez la molette, pincez avec deux doigts ou utilisez les boutons + et −.</dd></div><div><dt>Déplacer le point de vue</dt><dd>Faites glisser avec le bouton droit ou avec deux doigts.</dd></div><div><dt>Explorer au clavier</dt><dd>Placez le focus sur le modèle avec Tab, puis utilisez les flèches pour tourner. Les commandes de zoom sont accessibles avec Tab.</dd></div></dl>
+      <p class="dialog-note">Les points de vue et le bouton de réinitialisation vous permettent de retrouver vos repères.</p>
+    </dialog>
+    <dialog id="ar-dialog" aria-labelledby="ar-title">
+      <button class="dialog-close icon-button" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg></button>
+      <p class="eyebrow">Réalité augmentée · WebXR</p><h2 id="ar-title">Une autre dimension.</h2>
+      <p>La réalité augmentée n’est pas disponible dans ce navigateur. Ouvrez cette page en <strong>HTTPS sur un smartphone compatible</strong>, puis touchez « Réalité augmentée ».</p>
+      <p>Selon l’appareil, la visite utilise WebXR, Scene Viewer sur Android ou Quick Look sur iPhone et iPad. L’accès à la caméra peut être demandé par votre appareil.</p>
+      <p class="dialog-note">La visualisation 3D reste accessible ici, sur ordinateur comme sur mobile.</p>
+    </dialog>
+    <noscript><div class="noscript-notice">Activez JavaScript pour saisir le mot de passe et accéder au projet.</div></noscript>
+  </body>
+</html>
