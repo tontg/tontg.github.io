@@ -1,22 +1,88 @@
 {
   "images": [
     {
-      "src": "./gallery/26-02-big-slider-mobile-fdfc9f1c29a6a8d2.webp",
-      "alt": "Croquis en plongée d’une voiture bleue à deux bandes blanches, avec l’habitacle visible à travers le pare-brise.",
-      "description": "Vue extérieure en plongée.",
-      "credit": "© Renault s.a.s."
+      "src": "./gallery/croquis1-610f6ae795d4d492.jpeg",
+      "alt": "Croquis en perspective des sièges avant et du tableau de bord, avec le volant en U, les pédales et un rétroviseur ovale.",
+      "description": "Vue en perspective de l’habitacle, avec un tableau de bord épuré et un volant en U.",
+      "credit": "© Amandine Grohens"
     },
     {
-      "src": "./gallery/r-dam-1830204-big-slider-mobile-7672cafbf8aceb28.webp",
-      "alt": "Illustration d’un habitacle rouge et violet avec des sièges au premier plan et un large écran sur le tableau de bord.",
-      "description": "Détail du tableau de bord dans un habitacle rouge et violet.",
-      "credit": "© Renault s.a.s."
+      "src": "./gallery/croquis2-9bda66e3e8b5bb2f.jpeg",
+      "alt": "Croquis annoté de l’habitacle vu de dessus, montrant les sièges, le volant, l’écran, la boîte à gants et la console centrale.",
+      "description": "Vue de dessus montrant la disposition des sièges, une console centrale compacte et les rangements du tableau de bord.",
+      "credit": "© Amandine Grohens"
     },
     {
-      "src": "./gallery/r-dam-1830216-big-slider-mobile-bcc8762299ea533e.webp",
-      "alt": "Vue en plongée d’un habitacle rouge et violet équipé de quatre sièges individuels et d’un volant.",
-      "description": "Vue d’ensemble des quatre sièges et du poste de conduite.",
-      "credit": "© Renault s.a.s."
+      "src": "./gallery/croquis3-1083423883814723.jpeg",
+      "alt": "Croquis annoté d’un siège au dossier courbe, accompagné d’une vue de profil avec une silhouette assise.",
+      "description": "Étude d’un siège au dossier enveloppant, avec une assise profilée et un pied central qui dégage l’espace au sol.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/croquis4-c17a7f6c4289ce53.jpeg",
+      "alt": "Croquis annoté d’un écran horizontal encastré dans le tableau de bord, affichant le chiffre zéro et un pictogramme de voiture.",
+      "description": "Un écran discret intégré en retrait dans le tableau de bord, centré sur les informations essentielles.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/croquis5-ac1d0d837d2414b5.jpeg",
+      "alt": "Croquis annoté d’un volant en U, présenté de face et de profil, avec deux commandes ovales sur les branches latérales.",
+      "description": "Un volant en U avec des commandes au pouce et un airbag intégré, étudié de face et de profil.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/1-habitacle-auto-rangements-terracotta-et-boite-ouverte-5b7fa63689de308d.png",
+      "alt": "Vue en perspective d’un habitacle crème avec des sièges vert olive, un rangement ouvert dans le tableau de bord et des vide-poches terracotta.",
+      "description": "Vue de jour avec rangement de tableau de bord ouvert et vide-poches terracotta.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/2-poignees-ovales-creme-dans-l-habitacle-58d951ac93a90ab1.png",
+      "alt": "Vue de face de l’habitacle crème, avec deux sièges vert olive, des poignées de porte ovales et une console centrale portant un téléphone.",
+      "description": "Vue de jour sur les poignées ovales crème et la console centrale.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/3-habitacle-crepusculaire-aux-poignees-ovales-terracotta-a20a3ddbeb884bbc.png",
+      "alt": "Vue de face de l’habitacle au crépuscule, avec un éclairage d’ambiance orange, des sièges vert olive et des poignées de porte ovales crème.",
+      "description": "Ambiance au crépuscule, éclairage orange et rangements terracotta.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/4-volant-creme-ecran-epure-5f7b1503f3216836.png",
+      "alt": "Gros plan du volant crème à deux commandes ovales vert olive, devant un écran noir affichant 0 km/h.",
+      "description": "Détail du volant crème et de ses deux commandes ovales.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/5-boite-a-gants-ouverte-finition-creme-246803ea14875e36.png",
+      "alt": "Rangement ouvert dans le tableau de bord crème, avec un fond terracotta et un éclairage orange en dessous.",
+      "description": "Boîte à gants ouverte et fond terracotta.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/6-detail-de-portiere-poignee-ovale-creme-3035dbc1e0b79e5e.png",
+      "alt": "Détail d’une portière avec une poignée ovale crème, un accoudoir textile vert olive, une commande de vitre et un vide-poches terracotta.",
+      "description": "Poignée de porte ovale crème et accoudoir en textile vert olive.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/7-ecran-conducteur-noir-interface-minimaliste-95cc7ac0bac09c41.png",
+      "alt": "Écran noir encastré dans le tableau de bord crème, affichant 0 km/h, une voiture entre deux lignes et des pictogrammes blancs.",
+      "description": "Détail de l’écran conducteur et de son interface sur fond noir.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/8-detail-du-siege-conducteur-creme-et-olive-791bf86bd1b4c7d6.png",
+      "alt": "Détail du siège conducteur avec une coque crème et une assise en textile vert olive, à côté d’une console centrale portant un téléphone.",
+      "description": "Assise vert olive, coque crème et console centrale compacte.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/9-deux-pedales-alignees-sous-le-volant-5c5d3a82266135a7.png",
+      "alt": "Deux pédales vert olive sous le volant, avec une rangée de commandes crème et un bouton orange au pictogramme triangulaire.",
+      "description": "Détail des pédales et des commandes sous le tableau de bord.",
+      "credit": "© Amandine Grohens"
     }
   ]
 }

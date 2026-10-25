@@ -8,10 +8,10 @@
     <style>html[data-access-state="locked"] body > :not(#access-gate):not(noscript){display:none!important}</style>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Habitacle — Amandine Grohens</title>
-    <script type="module" crossorigin src="./assets/index-jFqQWnYw.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/access-PihZUd_y.js">
-    <link rel="stylesheet" crossorigin href="./assets/access-DBojJYk5.css">
-    <link rel="stylesheet" crossorigin href="./assets/index-C1gCFQUg.css">
+    <script type="module" crossorigin src="./assets/index-CbCKDiEG.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/access-D5haooDe.js">
+    <link rel="stylesheet" crossorigin href="./assets/access-CXqaorJb.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-B5wfKyrA.css">
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -38,12 +38,46 @@
         </div>
       </section>
 
+      <section id="image-gallery" class="image-gallery" aria-labelledby="gallery-title" aria-roledescription="carrousel" tabindex="0" hidden>
+        <div class="gallery-heading"><p class="eyebrow"><span class="section-index">01</span> Galerie d’images</p><h2 id="gallery-title">En images.</h2></div>
+        <figure class="gallery-figure">
+          <div class="gallery-media">
+            <img id="gallery-image" alt="" loading="lazy" decoding="async" draggable="false" />
+            <button id="gallery-expand" class="button gallery-expand" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" /></svg>Agrandir l’image</button>
+          </div>
+          <figcaption class="gallery-meta">
+            <div><p id="gallery-description" class="gallery-description" hidden></p><p id="gallery-credit" class="gallery-credit" hidden></p></div>
+            <div class="gallery-navigation" role="group" aria-label="Navigation dans les images"><button type="button" aria-label="Image précédente" data-gallery-step="-1">←</button><span id="gallery-position" class="gallery-position" role="status" aria-live="polite"></span><button type="button" aria-label="Image suivante" data-gallery-step="1">→</button></div>
+          </figcaption>
+        </figure>
+        <div class="gallery-thumbnail-picker">
+          <p id="gallery-thumbnails-label" class="gallery-thumbnail-label">Toutes les images</p>
+          <ol id="gallery-thumbnails" class="gallery-thumbnails" aria-labelledby="gallery-thumbnails-label" role="list"></ol>
+        </div>
+      </section>
+
+      <section id="design-intention" class="design-intention" aria-labelledby="design-intention-title">
+        <header class="design-intention-heading">
+          <p class="eyebrow"><span class="section-index">02</span> Le regard de la designer</p>
+          <h2 id="design-intention-title">Un petit salon roulant.</h2>
+          <p class="design-intention-author">Amandine Grohens<span>Designer d’objets</span></p>
+        </header>
+        <blockquote id="designer-description" class="designer-description" aria-label="Texte d’Amandine Grohens">
+          <p>J’ai cherché à imaginer l’intérieur d’une petite voiture de ville comme un petit salon roulant, plutôt que comme un cockpit plein de boutons et d’écrans. Je suis designer d’objets, donc je suis parti de ce que je connais : le mobilier, les produits du quotidien, les gestes simples.</p>
+          <p>Je voulais mettre en valeur trois choses : une ambiance apaisante, des matières et des couleurs chaleureuses, et des fonctions qu’on comprend tout de suite. Le tout pour quelqu’un qui souhaiterait un objet agréable pour ses trajets de tous les jours : le travail, les courses, avec un sac, un téléphone et une bouteille à poser quelque part.</p>
+          <p>Mon idée de forme repose sur un seul principe : une grande ligne horizontale. C’est le bandeau du tableau de bord, avec une volonté de le prolonger dans les portes pour devenir l’accoudoir. Autour, j’ai voulu un siège pensé comme un fauteuil, enveloppant mais pas trop massif, et un sol le plus dégagé possible pour donner une impression de légèreté. Et pour ne pas que ce soit trop sage et trop fade, j’ai ajouté un élément un peu malicieux : le volant en forme de boucle, avec les commandes sous les pouces et une ouverture en haut pour voir l’écran. Ça donne un petit côté ludique, sans faire de gadget.</p>
+          <p>Côté inspirations, je pense au siège-fauteuil de Pierre Paulin ou Olivier Mourgue pour les formes enveloppantes et un peu rigolotes. Pour le tableau de bord simple et pratique, je regarde du côté de la Fiat Panda de Giugiaro, de la Renault 4 et de la Twingo 1. Pour la personnalité, je pense à la Citroën Ami, à la Fiat 500 d’origine et à la Honda e. Et pour des commandes évidentes, je m’inspire de l’esprit Braun et Dieter Rams : un bouton, une fonction.</p>
+          <p>L’objectif, c’est de montrer qu’avec peu d’éléments bien choisis, on peut faire un habitacle simple, accueillant et qui donne envie de s’en servir. Chaque élément doit avoir soit une fonction claire, soit une vraie identité, idéalement les deux.</p>
+          <p>C’est une proposition conceptuelle : je n’ai pas à ce stade validé la sécurité (position airbags, ...), la fabrication ni l’ergonomie en détail, mais je tenais à poser une vision claire pour pouvoir la développer ensuite.</p>
+        </blockquote>
+      </section>
+
       <aside id="apple-quick-look" hidden></aside>
       <aside id="google-scene-viewer" hidden></aside>
 
       <section id="exploration" class="exploration" aria-label="Exploration du modèle 3D">
         <div class="viewer-meta">
-          <p><span class="section-index">01</span> Exploration interactive</p>
+          <p><span class="section-index">03</span> Exploration interactive</p>
           <a class="temporary-label" href="./a-propos.html#modele-provisoire"><span aria-hidden="true">◌</span> Modèle provisoire</a>
         </div>
         <div id="viewer-stage" class="viewer-stage" aria-busy="true">
@@ -93,20 +127,6 @@
         </div>
         <div class="viewer-caption"><p id="viewer-status" role="status" aria-live="polite">Chargement du modèle…</p><p>Faites glisser pour tourner · Pincez ou défilez pour zoomer</p></div>
         <p id="action-message" class="action-message" role="status" aria-live="polite"></p>
-      </section>
-
-      <section id="image-gallery" class="image-gallery" aria-labelledby="gallery-title" aria-roledescription="carrousel" tabindex="0" hidden>
-        <div class="gallery-heading"><p class="eyebrow"><span class="section-index">02</span> Galerie d’images</p><h2 id="gallery-title">En images.</h2></div>
-        <figure class="gallery-figure">
-          <div class="gallery-media">
-            <img id="gallery-image" alt="" loading="lazy" decoding="async" draggable="false" />
-            <button id="gallery-expand" class="button gallery-expand" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" /></svg>Agrandir l’image</button>
-          </div>
-          <figcaption class="gallery-meta">
-            <div><p id="gallery-description" class="gallery-description" hidden></p><p id="gallery-credit" class="gallery-credit" hidden></p></div>
-            <div class="gallery-navigation" role="group" aria-label="Navigation dans les images"><button type="button" aria-label="Image précédente" data-gallery-step="-1">←</button><span id="gallery-position" class="gallery-position" role="status" aria-live="polite"></span><button type="button" aria-label="Image suivante" data-gallery-step="1">→</button></div>
-          </figcaption>
-        </figure>
       </section>
 
       <aside class="project-note" aria-label="À propos du projet">
