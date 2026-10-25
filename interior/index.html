@@ -1,16 +1,29 @@
 <!doctype html>
-<html lang="fr" data-access-state="locked">
+<html lang="fr" prefix="og: https://ogp.me/ns#" data-access-state="locked">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Explorez en 3D un concept d’intérieur automobile signé Amandine Grohens. Une étude de design à découvrir sous tous les angles." />
     <meta name="theme-color" content="#f6f4ef" />
     <style>html[data-access-state="locked"] body > :not(#access-gate):not(noscript){display:none!important}</style>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Habitacle — Amandine Grohens</title>
-    <script type="module" crossorigin src="./assets/index-CbCKDiEG.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/access-D5haooDe.js">
-    <link rel="stylesheet" crossorigin href="./assets/access-CXqaorJb.css">
+    <meta name="description" content="Découvrez les croquis, les rendus et le modèle 3D du concept d’intérieur automobile d’Amandine Grohens, à explorer aussi en réalité augmentée." />
+    <link rel="canonical" href="https://tontg.github.io/interior/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Habitacle — Amandine Grohens" />
+    <meta property="og:title" content="Habitacle — Amandine Grohens" />
+    <meta property="og:description" content="Découvrez les croquis, les rendus et le modèle 3D du concept d’intérieur automobile d’Amandine Grohens, à explorer aussi en réalité augmentée." />
+    <meta property="og:url" content="https://tontg.github.io/interior/" />
+    <meta property="og:image" content="https://tontg.github.io/interior/social-preview-5b7fa63689de308d.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:image:alt" content="Vue du concept d’habitacle crème et vert olive, avec volant, sièges et rangements terracotta." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" crossorigin src="./assets/index-DXNAJeuk.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/access-_wdkmE6J.js">
+    <link rel="stylesheet" crossorigin href="./assets/access-Cu0xIxgn.css">
     <link rel="stylesheet" crossorigin href="./assets/index-B5wfKyrA.css">
   </head>
   <body>
@@ -78,14 +91,15 @@
       <section id="exploration" class="exploration" aria-label="Exploration du modèle 3D">
         <div class="viewer-meta">
           <p><span class="section-index">03</span> Exploration interactive</p>
-          <a class="temporary-label" href="./a-propos.html#modele-provisoire"><span aria-hidden="true">◌</span> Modèle provisoire</a>
+          <a class="model-credit-link" href="./a-propos.html#modele-projet"><span aria-hidden="true">◌</span> Modèle du projet</a>
         </div>
+        <p id="model-quality-note" class="model-quality-note">La qualité visuelle du modèle 3D interactif est inférieure à celle des rendus photoréalistes présentés dans la <a href="#image-gallery">galerie d’images</a>.</p>
         <div id="viewer-stage" class="viewer-stage" aria-busy="true">
           <div class="stage-corner stage-corner-tl" aria-hidden="true"></div>
           <div class="stage-corner stage-corner-br" aria-hidden="true"></div>
           <div class="stage-heading" aria-hidden="true"><span class="status-dot"></span> <span id="view-name">Vue d’ensemble</span><span class="stage-type">3D / GLB</span></div>
 
-          <model-viewer id="interior-model" alt="Modèle 3D provisoire d’un habitacle automobile, avec sièges, tableau de bord et volant." camera-controls auto-rotate-delay="0" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" touch-action="pan-y" interaction-prompt="none" interpolation-decay="100" min-camera-orbit="auto 5deg 15%" max-camera-orbit="auto 175deg 250%" min-field-of-view="15deg" max-field-of-view="55deg" loading="eager" reveal="auto" aria-label="Explorateur 3D de l’habitacle">
+          <model-viewer id="interior-model" alt="Modèle 3D du concept d’intérieur automobile d’Amandine Grohens, avec sièges, tableau de bord et volant." camera-controls auto-rotate-delay="0" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" touch-action="pan-y" interaction-prompt="none" interpolation-decay="100" min-camera-orbit="auto 5deg 15%" max-camera-orbit="auto 175deg 250%" min-field-of-view="15deg" max-field-of-view="55deg" loading="eager" reveal="auto" aria-label="Explorateur 3D de l’habitacle" aria-describedby="model-quality-note">
             <div slot="progress-bar"></div>
             <div slot="ar-button"></div>
             <button id="exit-webxr-ar" slot="exit-webxr-ar-button" class="button ar-exit" type="button" hidden>Revenir au site</button>
