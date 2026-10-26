@@ -15,16 +15,17 @@
     <meta property="og:title" content="Habitacle — Amandine Grohens" />
     <meta property="og:description" content="Découvrez les croquis, les rendus et le modèle 3D du concept d’intérieur automobile d’Amandine Grohens, à explorer aussi en réalité augmentée." />
     <meta property="og:url" content="https://tontg.github.io/interior/" />
-    <meta property="og:image" content="https://tontg.github.io/interior/social-preview-5b7fa63689de308d.png" />
+    <meta property="og:image" content="https://tontg.github.io/interior/social-preview-21c798cb0222cd00.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1672" />
     <meta property="og:image:height" content="941" />
-    <meta property="og:image:alt" content="Vue du concept d’habitacle crème et vert olive, avec volant, sièges et rangements terracotta." />
+    <meta property="og:image:alt" content="Vue panoramique de l’habitacle ivoire et olive, avec volant sculptural, sièges en textile jacquard et rangements terracotta." />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="module" crossorigin src="./assets/index-DXNAJeuk.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/access-_wdkmE6J.js">
-    <link rel="stylesheet" crossorigin href="./assets/access-Cu0xIxgn.css">
-    <link rel="stylesheet" crossorigin href="./assets/index-B5wfKyrA.css">
+    <script type="module" crossorigin src="./assets/index-qTOpXmr5.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/access-C0N0BpZy.js">
+    <link rel="modulepreload" crossorigin href="./assets/model-settings-BAFSMqxR.js">
+    <link rel="stylesheet" crossorigin href="./assets/access-nr_pz_BA.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-o7wOESQm.css">
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -45,10 +46,12 @@
           <p class="eyebrow"><span class="tiny-line" aria-hidden="true"></span> Étude de design · Intérieur automobile</p>
           <h1 id="page-title">L’habitacle,<br /><em>autrement.</em></h1>
         </div>
+        
         <div class="intro-note">
           <p>Une autre manière d’imaginer l’espace intérieur.<br class="desktop-break" /> Entrez dans le concept, changez de perspective<br class="desktop-break" /> et explorez chaque angle en 3D.</p>
           <a class="inline-link explore-link" href="#exploration">Explorer le modèle <span aria-hidden="true">↙</span></a>
         </div>
+        
       </section>
 
       <section id="image-gallery" class="image-gallery" aria-labelledby="gallery-title" aria-roledescription="carrousel" tabindex="0" hidden>
@@ -85,6 +88,7 @@
         </blockquote>
       </section>
 
+      
       <aside id="apple-quick-look" hidden></aside>
       <aside id="google-scene-viewer" hidden></aside>
 
@@ -93,13 +97,13 @@
           <p><span class="section-index">03</span> Exploration interactive</p>
           <a class="model-credit-link" href="./a-propos.html#modele-projet"><span aria-hidden="true">◌</span> Modèle du projet</a>
         </div>
-        <p id="model-quality-note" class="model-quality-note">La qualité visuelle du modèle 3D interactif est inférieure à celle des rendus photoréalistes présentés dans la <a href="#image-gallery">galerie d’images</a>.</p>
+        <p id="model-quality-note" class="model-quality-note"><strong>Modèle 3D fortement compressé :</strong> la qualité de son rendu est inférieure à celle des rendus photoréalistes. Pour apprécier le rendu visuel du projet, consultez la <a href="#image-gallery">galerie d’images</a>.</p>
         <div id="viewer-stage" class="viewer-stage" aria-busy="true">
           <div class="stage-corner stage-corner-tl" aria-hidden="true"></div>
           <div class="stage-corner stage-corner-br" aria-hidden="true"></div>
           <div class="stage-heading" aria-hidden="true"><span class="status-dot"></span> <span id="view-name">Vue d’ensemble</span><span class="stage-type">3D / GLB</span></div>
 
-          <model-viewer id="interior-model" alt="Modèle 3D du concept d’intérieur automobile d’Amandine Grohens, avec sièges, tableau de bord et volant." camera-controls auto-rotate-delay="0" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" touch-action="pan-y" interaction-prompt="none" interpolation-decay="100" min-camera-orbit="auto 5deg 15%" max-camera-orbit="auto 175deg 250%" min-field-of-view="15deg" max-field-of-view="55deg" loading="eager" reveal="auto" aria-label="Explorateur 3D de l’habitacle" aria-describedby="model-quality-note">
+          <model-viewer id="interior-model" alt="Modèle 3D du concept d’intérieur automobile d’Amandine Grohens, avec sièges, tableau de bord et volant." camera-controls auto-rotate-delay="0" ar ar-modes="webxr scene-viewer" ar-scale="auto" touch-action="pan-y" interaction-prompt="none" interpolation-decay="100" min-camera-orbit="auto 5deg 15%" max-camera-orbit="auto 175deg 250%" min-field-of-view="15deg" max-field-of-view="55deg" loading="eager" reveal="auto" aria-label="Explorateur 3D de l’habitacle" aria-describedby="model-quality-note">
             <div slot="progress-bar"></div>
             <div slot="ar-button"></div>
             <button id="exit-webxr-ar" slot="exit-webxr-ar-button" class="button ar-exit" type="button" hidden>Revenir au site</button>
@@ -134,13 +138,24 @@
         <div class="viewer-bottom">
           <div class="view-presets" role="group" aria-label="Points de vue">
             <button type="button" data-view="overview" aria-pressed="true" data-requires-model disabled><span aria-hidden="true">↗</span> Vue d’ensemble</button>
-            <button type="button" data-view="front" aria-pressed="false" data-requires-model disabled><span aria-hidden="true">▱</span> Vue de face</button>
-            <button type="button" data-view="side" aria-pressed="false" data-requires-model disabled><span aria-hidden="true">◧</span> Vue de profil</button>
+            <button type="button" data-view="profile" aria-pressed="false" data-requires-model disabled><span aria-hidden="true">▱</span> Vue de profil</button>
+            <button type="button" data-view="rear" aria-pressed="false" data-requires-model disabled><span aria-hidden="true">◧</span> Vue arrière</button>
           </div>
           <button id="help-button" class="help-button" type="button" aria-label="Aide à la navigation"><span class="help-icon" aria-hidden="true">?</span> Comment explorer</button>
         </div>
         <div class="viewer-caption"><p id="viewer-status" role="status" aria-live="polite">Chargement du modèle…</p><p>Faites glisser pour tourner · Pincez ou défilez pour zoomer</p></div>
         <p id="action-message" class="action-message" role="status" aria-live="polite"></p>
+      </section>
+      
+
+      <section id="pdf-downloads" class="pdf-downloads" aria-labelledby="pdf-downloads-title">
+        <header class="pdf-downloads-heading"><div><p class="eyebrow"><span class="section-index">04</span> Document à télécharger</p><h2 id="pdf-downloads-title">Le projet à emporter.</h2></div><p class="pdf-downloads-intro">Retrouvez la proposition de design dans ce document PDF.</p></header>
+        <ul class="pdf-download-list">
+        <li class="pdf-download-item">
+          <div><h3 class="pdf-document-title">Amandine Grohens proposition design</h3><p class="pdf-document-details">PDF · 40,4 Mo</p></div>
+          <a class="button button-dark pdf-download-link" href="./documents/amandine-grohens-proposition-design-503dc48385b611a3.pdf" download="Amandine_Grohens_proposition_design.pdf" aria-label="Télécharger Amandine Grohens proposition design (PDF, 40,4 Mo)">Télécharger le PDF <span aria-hidden="true">↓</span></a>
+        </li>
+        </ul>
       </section>
 
       <aside class="project-note" aria-label="À propos du projet">
@@ -163,6 +178,7 @@
       </div>
     </dialog>
 
+    
     <dialog id="help-dialog" aria-labelledby="help-title">
       <button class="dialog-close icon-button" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg></button>
       <p class="eyebrow">Prenez les commandes</p><h2 id="help-title">À vous de voir.</h2>
@@ -173,9 +189,10 @@
       <button class="dialog-close icon-button" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg></button>
       <p class="eyebrow">Réalité augmentée · WebXR</p><h2 id="ar-title">Une autre dimension.</h2>
       <p>La réalité augmentée n’est pas disponible dans ce navigateur. Ouvrez cette page en <strong>HTTPS sur un smartphone compatible</strong>, puis touchez « Réalité augmentée ».</p>
-      <p>Selon l’appareil, la visite utilise WebXR, Google Scene Viewer sur Android ou Quick Look sur iPhone et iPad. Scene Viewer s’ouvre d’abord en 3D ; vous pouvez ensuite passer en réalité augmentée si votre appareil le permet. L’accès à la caméra peut être demandé par votre appareil. En WebXR, touchez « Revenir au site » pour quitter la réalité augmentée. Si votre appareil n’affiche pas les boutons de la page, utilisez sa commande système de sortie.</p>
+      <p>Selon l’appareil, la visite utilise WebXR ou Google Scene Viewer sur Android. Sur iPhone et iPad, AR Quick Look est activé uniquement lorsqu’un fichier USDZ est fourni. Scene Viewer s’ouvre d’abord en 3D ; vous pouvez ensuite passer en réalité augmentée si votre appareil le permet. L’accès à la caméra peut être demandé par votre appareil. En WebXR, touchez « Revenir au site » pour quitter la réalité augmentée. Si votre appareil n’affiche pas les boutons de la page, utilisez sa commande système de sortie.</p>
       <p class="dialog-note">La visualisation 3D reste accessible ici, sur ordinateur comme sur mobile.</p>
     </dialog>
+    
     <noscript><div class="noscript-notice">Activez JavaScript pour saisir le mot de passe et accéder au projet.</div></noscript>
   </body>
 </html>
