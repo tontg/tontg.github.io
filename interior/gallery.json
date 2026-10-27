@@ -1,94 +1,200 @@
 {
   "images": [
     {
-      "src": "./gallery/01-croquis1-610f6ae795d4d492.jpeg",
-      "alt": "Croquis en perspective des sièges avant et du tableau de bord, avec le volant en U, les pédales et un rétroviseur ovale.",
-      "description": "Vue en perspective de l’habitacle, avec un tableau de bord épuré et un volant en U.",
+      "src": "./gallery/01-croquis1-10864e44231a9d90.jpg",
+      "alt": "Croquis d’une console centrale aux formes arrondies, avec un plateau creux, une vue de profil et une vue accueillant un téléphone et une clé.",
+      "description": "Une console centrale compacte, aux formes arrondies, accueille les petits objets du quotidien sur un plateau en retrait.",
       "credit": "© Amandine Grohens"
     },
     {
-      "src": "./gallery/02-croquis2-9bda66e3e8b5bb2f.jpeg",
-      "alt": "Croquis annoté de l’habitacle vu de dessus, montrant les sièges, le volant, l’écran, la boîte à gants et la console centrale.",
-      "description": "Vue de dessus montrant la disposition des sièges, une console centrale compacte et les rangements du tableau de bord.",
+      "src": "./gallery/02-croquis2-6ec3d4d9c76009cc.jpg",
+      "alt": "Croquis d’un volant en boucle échancré à la base, présenté de face et de profil, avec deux commandes ovales et une étude de la prise en main.",
+      "description": "Un volant sculptural avec des commandes au pouce, étudié de face et de profil pour préciser sa prise en main.",
       "credit": "© Amandine Grohens"
     },
     {
-      "src": "./gallery/03-croquis3-1083423883814723.jpeg",
-      "alt": "Croquis annoté d’un siège au dossier courbe, accompagné d’une vue de profil avec une silhouette assise.",
-      "description": "Étude d’un siège au dossier enveloppant, avec une assise profilée et un pied central qui dégage l’espace au sol.",
-      "credit": "© Amandine Grohens"
-    },
-    {
-      "src": "./gallery/04-croquis4-c17a7f6c4289ce53.jpeg",
-      "alt": "Croquis annoté d’un écran horizontal encastré dans le tableau de bord, affichant le chiffre zéro et un pictogramme de voiture.",
+      "src": "./gallery/03-croquis3-e6cb77602ea4f445.jpg",
+      "alt": "Croquis d’un écran horizontal encastré dans le tableau de bord, affichant le chiffre zéro, une voiture et des informations représentées par des lignes.",
       "description": "Un écran discret intégré en retrait dans le tableau de bord, centré sur les informations essentielles.",
       "credit": "© Amandine Grohens"
     },
     {
-      "src": "./gallery/05-croquis5-ac1d0d837d2414b5.jpeg",
-      "alt": "Croquis annoté d’un volant en U, présenté de face et de profil, avec deux commandes ovales sur les branches latérales.",
-      "description": "Un volant en U avec des commandes au pouce et un airbag intégré, étudié de face et de profil.",
+      "src": "./gallery/04-croquis4-a27732022afbfaea.jpg",
+      "alt": "Croquis coté des proportions de l’habitacle, avec une silhouette debout et une silhouette assise de profil face au volant, au tableau de bord et au siège incliné.",
+      "description": "Étude des proportions du poste de conduite, de la position assise et des dimensions du siège et du tableau de bord.",
       "credit": "© Amandine Grohens"
     },
     {
-      "src": "./gallery/06-habitacle-ivoire-et-olive-vue-panoramique-21c798cb0222cd00.png",
+      "src": "./gallery/05-croquis5-0ffc28be9153f772.jpg",
+      "alt": "Croquis en perspective de l’habitacle, avec les sièges avant, le volant en boucle, le tableau de bord horizontal, les pédales et un rétroviseur ovale.",
+      "description": "Vue en perspective de l’habitacle, avec des sièges enveloppants et un tableau de bord épuré prolongé dans les portes.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/06-croquis6-601bd4a3ac78531e.jpg",
+      "alt": "Croquis du raccord entre le tableau de bord et la porte passager, avec un bandeau lumineux jaune, une poignée ovale, un accoudoir vert et un vide-poches terracotta.",
+      "description": "Une ligne lumineuse souligne la continuité entre le tableau de bord et les portes et accompagne les formes douces de l’habitacle.",
+      "credit": "© Amandine Grohens"
+    },
+    {
+      "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-21c798cb0222cd00.png",
       "alt": "Vue panoramique d’un habitacle ivoire avec sièges en textile olive, volant à deux commandes, éclairage orange et vide-poches terracotta.",
       "description": "Vue d’ensemble de l’habitacle : des lignes horizontales, une palette ivoire et olive et des rangements terracotta.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-41b59c43ee631eb4.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-b2f1e6fef777506d.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/07-pod-central-creme-et-terracotta-469110260dac7557.png",
+      "src": "./gallery/08-pod-central-creme-et-terracotta-469110260dac7557.png",
       "alt": "Console centrale ivoire à plateau terracotta portant un téléphone et une clé, à côté d’un siège en textile olive.",
       "description": "Une console centrale compacte accueille les petits objets du quotidien à portée de main.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/08-pod-central-creme-et-terracotta-2447c9cde033f329.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/08-pod-central-creme-et-terracotta-3b758ec8905249ec.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/08-volant-sculptural-ecran-d-instrumentation-encastre-a8061fe9802edf37.png",
+      "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-a8061fe9802edf37.png",
       "alt": "Gros plan du volant ivoire aux branches arrondies, avec deux commandes olive devant un écran d’instrumentation noir encastré.",
       "description": "Un volant aux formes arrondies et deux commandes au pouce, devant un écran intégré au tableau de bord.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-adcff6e4a87249ca.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-6e148bf0ea0ce9e6.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/09-porte-passager-ivoire-poignee-ovale-29822bb1e4ffe381.png",
+      "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-29822bb1e4ffe381.png",
       "alt": "Détail de la porte passager ivoire avec poignée ovale, accoudoir en textile olive, commande de vitre et vide-poches terracotta contenant une bouteille.",
       "description": "La porte associe poignée ovale, accoudoir textile et rangement bas dans la continuité du tableau de bord.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-9ba3345f3d4de8e2.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-8fff33cc15d122a1.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/10-ecran-conducteur-encastre-en-ivoire-68766ab94f31b9a7.png",
+      "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-68766ab94f31b9a7.png",
       "alt": "Écran noir encastré dans le tableau de bord ivoire, affichant la vitesse, une voiture entre deux lignes, la charge, l’autonomie et l’heure.",
       "description": "Un écran conducteur en retrait regroupe les informations de conduite dans une interface épurée.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-ad35b641e1c289bd.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-d25675720fcc0382.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/11-vide-poche-passager-en-terracotta-2762ef0c4b7862bc.png",
+      "src": "./gallery/12-vide-poche-passager-en-terracotta-2762ef0c4b7862bc.png",
       "alt": "Rangement ouvert dans le tableau de bord ivoire, avec plateau terracotta portant un téléphone, des lunettes et une clé.",
       "description": "Un rangement passager à volet coulissant accueille les objets du quotidien sur un plateau terracotta.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/12-vide-poche-passager-en-terracotta-a3cc3c57a9b41755.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/12-vide-poche-passager-en-terracotta-fa33de1483834a26.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/12-deux-pedales-alignees-sous-le-volant-5c5d3a82266135a7.png",
+      "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-5c5d3a82266135a7.png",
       "alt": "Deux pédales olive sous le volant, devant un sol clair à motifs, sous une rangée de commandes ivoire et un bouton orange au pictogramme triangulaire.",
       "description": "Détail des pédales et des commandes regroupées sous le bandeau du tableau de bord.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-c20676bbe4f16610.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-ffa8b69afcd681b1.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/13-coussin-jacquard-olive-et-coque-ivoire-a460bf62134f08c6.png",
+      "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-a460bf62134f08c6.png",
       "alt": "Gros plan d’un coussin de siège en textile jacquard olive à motifs géométriques, posé dans une coque ivoire.",
       "description": "Le textile jacquard olive et la coque ivoire soulignent l’esprit de fauteuil du siège.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-330ebcce20cff414.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-a0d3d55828277db5.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/14-habitacle-nocturne-aux-commandes-raffinees-8d140bad42440426.png",
+      "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-8d140bad42440426.png",
       "alt": "Vue nocturne de l’habitacle ivoire et olive, souligné par un éclairage orange continu sur le tableau de bord et les portes.",
       "description": "Ambiance nocturne : un éclairage chaud accompagne la ligne horizontale du tableau de bord.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-df16f4263e789760.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-78bf3a42878ed7ce.avif"
+        }
+      ]
     },
     {
-      "src": "./gallery/15-matieres-2c780b7244a48113.png",
+      "src": "./gallery/16-matieres-2c780b7244a48113.png",
       "alt": "Planche de matières avec textile jacquard olive et échantillons ivoire, terracotta, olive rainuré, noir brillant et métal clair.",
       "description": "Une palette de matières et de textures associant jacquard olive, tons ivoire, terracotta et touches métalliques.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/16-matieres-aa146f0eaeadd4ec.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/16-matieres-ddca508b5d0ec9fc.avif"
+        }
+      ]
     }
   ]
 }
