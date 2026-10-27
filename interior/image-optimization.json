@@ -2,25 +2,25 @@
   "minimumSaving": 0.1,
   "images": [
     {
-      "source": "01.croquis1.jpg",
-      "originalBytes": 251309,
+      "source": "01.croquis5.jpg",
+      "originalBytes": 423312,
       "results": [
         {
           "format": "avif",
-          "originalBytes": 251309,
-          "bytes": 608433,
-          "savedBytes": -357124,
-          "saving": -1.4210553541655888,
+          "originalBytes": 423312,
+          "bytes": 996400,
+          "savedBytes": -573088,
+          "saving": -1.3538194050723815,
           "accepted": false,
           "lossless": true,
           "reason": "Gain inférieur à 10 %."
         },
         {
           "format": "webp",
-          "originalBytes": 251309,
-          "bytes": 350908,
-          "savedBytes": -99599,
-          "saving": -0.3963208639563247,
+          "originalBytes": 423312,
+          "bytes": 687506,
+          "savedBytes": -264194,
+          "saving": -0.6241117662622369,
           "accepted": false,
           "lossless": true,
           "reason": "Gain inférieur à 10 %."
@@ -28,59 +28,7 @@
       ]
     },
     {
-      "source": "02.croquis2.jpg",
-      "originalBytes": 324606,
-      "results": [
-        {
-          "format": "avif",
-          "originalBytes": 324606,
-          "bytes": 843484,
-          "savedBytes": -518878,
-          "saving": -1.5984855486343443,
-          "accepted": false,
-          "lossless": true,
-          "reason": "Gain inférieur à 10 %."
-        },
-        {
-          "format": "webp",
-          "originalBytes": 324606,
-          "bytes": 493032,
-          "savedBytes": -168426,
-          "saving": -0.5188628675994897,
-          "accepted": false,
-          "lossless": true,
-          "reason": "Gain inférieur à 10 %."
-        }
-      ]
-    },
-    {
-      "source": "03.croquis3.jpg",
-      "originalBytes": 299101,
-      "results": [
-        {
-          "format": "avif",
-          "originalBytes": 299101,
-          "bytes": 817242,
-          "savedBytes": -518141,
-          "saving": -1.7323278758680178,
-          "accepted": false,
-          "lossless": true,
-          "reason": "Gain inférieur à 10 %."
-        },
-        {
-          "format": "webp",
-          "originalBytes": 299101,
-          "bytes": 468458,
-          "savedBytes": -169357,
-          "saving": -0.5662201062517345,
-          "accepted": false,
-          "lossless": true,
-          "reason": "Gain inférieur à 10 %."
-        }
-      ]
-    },
-    {
-      "source": "04.croquis4.jpg",
+      "source": "02.croquis4.jpg",
       "originalBytes": 234551,
       "results": [
         {
@@ -106,25 +54,77 @@
       ]
     },
     {
-      "source": "05.croquis5.jpg",
-      "originalBytes": 423312,
+      "source": "03.croquis2.jpg",
+      "originalBytes": 324606,
       "results": [
         {
           "format": "avif",
-          "originalBytes": 423312,
-          "bytes": 996400,
-          "savedBytes": -573088,
-          "saving": -1.3538194050723815,
+          "originalBytes": 324606,
+          "bytes": 843484,
+          "savedBytes": -518878,
+          "saving": -1.5984855486343443,
           "accepted": false,
           "lossless": true,
           "reason": "Gain inférieur à 10 %."
         },
         {
           "format": "webp",
-          "originalBytes": 423312,
-          "bytes": 687506,
-          "savedBytes": -264194,
-          "saving": -0.6241117662622369,
+          "originalBytes": 324606,
+          "bytes": 493032,
+          "savedBytes": -168426,
+          "saving": -0.5188628675994897,
+          "accepted": false,
+          "lossless": true,
+          "reason": "Gain inférieur à 10 %."
+        }
+      ]
+    },
+    {
+      "source": "04.croquis3.jpg",
+      "originalBytes": 299101,
+      "results": [
+        {
+          "format": "avif",
+          "originalBytes": 299101,
+          "bytes": 817242,
+          "savedBytes": -518141,
+          "saving": -1.7323278758680178,
+          "accepted": false,
+          "lossless": true,
+          "reason": "Gain inférieur à 10 %."
+        },
+        {
+          "format": "webp",
+          "originalBytes": 299101,
+          "bytes": 468458,
+          "savedBytes": -169357,
+          "saving": -0.5662201062517345,
+          "accepted": false,
+          "lossless": true,
+          "reason": "Gain inférieur à 10 %."
+        }
+      ]
+    },
+    {
+      "source": "05.croquis1.jpg",
+      "originalBytes": 251309,
+      "results": [
+        {
+          "format": "avif",
+          "originalBytes": 251309,
+          "bytes": 608433,
+          "savedBytes": -357124,
+          "saving": -1.4210553541655888,
+          "accepted": false,
+          "lossless": true,
+          "reason": "Gain inférieur à 10 %."
+        },
+        {
+          "format": "webp",
+          "originalBytes": 251309,
+          "bytes": 350908,
+          "savedBytes": -99599,
+          "saving": -0.3963208639563247,
           "accepted": false,
           "lossless": true,
           "reason": "Gain inférieur à 10 %."
