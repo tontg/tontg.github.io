@@ -396,6 +396,30 @@
           "lossless": true
         }
       ]
+    },
+    {
+      "source": "17.mood_board.png",
+      "originalBytes": 2513975,
+      "results": [
+        {
+          "format": "avif",
+          "originalBytes": 2513975,
+          "bytes": 1929736,
+          "savedBytes": 584239,
+          "saving": 0.23239650354518238,
+          "accepted": true,
+          "lossless": true
+        },
+        {
+          "format": "webp",
+          "originalBytes": 2513975,
+          "bytes": 1461202,
+          "savedBytes": 1052773,
+          "saving": 0.41876828528525545,
+          "accepted": true,
+          "lossless": true
+        }
+      ]
     }
   ]
 }

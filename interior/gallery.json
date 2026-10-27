@@ -195,6 +195,22 @@
           "src": "./gallery/16-matieres-ddca508b5d0ec9fc.avif"
         }
       ]
+    },
+    {
+      "src": "./gallery/17-mood-board-ce8df01f64dfc0a0.png",
+      "alt": "Planche d’inspiration réunissant lumières chaudes, mobilier enveloppant, textiles, matériaux et détails d’habitacles, avec une palette ivoire, olive et terracotta.",
+      "description": "Les inspirations du projet : apaisement, chaleur, matières recyclées, design de mobilier, praticité, tactilité et formes organiques.",
+      "credit": "Planche d’inspiration : Amandine Grohens",
+      "sources": [
+        {
+          "type": "image/webp",
+          "src": "./gallery/17-mood-board-182a21bf6671ca28.webp"
+        },
+        {
+          "type": "image/avif",
+          "src": "./gallery/17-mood-board-15d8bf500776f530.avif"
+        }
+      ]
     }
   ]
 }
