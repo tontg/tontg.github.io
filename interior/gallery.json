@@ -4,37 +4,193 @@
       "src": "./gallery/01-croquis5-0ffc28be9153f772.jpg",
       "alt": "Croquis en perspective de l’habitacle, avec les sièges avant, le volant en boucle, le tableau de bord horizontal, les pédales et un rétroviseur ovale.",
       "description": "Vue en perspective de l’habitacle, avec des sièges enveloppants et un tableau de bord épuré prolongé dans les portes.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/01-croquis5-thumb-240x180-fecadc58529f3521.jpeg",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/01-croquis5-thumb-480x360-93f1391f8a909960.jpeg",
+            "width": 480,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/01-croquis5-thumb-240x180-031c8b47fd3f4c43.webp",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/01-croquis5-thumb-480x360-7371ba788f24d103.webp",
+            "width": 480,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/02-croquis4-a27732022afbfaea.jpg",
       "alt": "Croquis coté des proportions de l’habitacle, avec une silhouette debout et une silhouette assise de profil face au volant, au tableau de bord et au siège incliné.",
       "description": "Étude des proportions du poste de conduite, de la position assise et des dimensions du siège et du tableau de bord.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/02-croquis4-thumb-240x180-49ef961adb4b6c0e.jpeg",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/02-croquis4-thumb-480x360-14e596236be6c234.jpeg",
+            "width": 480,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/02-croquis4-thumb-240x180-3e85ef926a8c8969.webp",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/02-croquis4-thumb-480x360-d3b75390feda567e.webp",
+            "width": 480,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/03-croquis2-6ec3d4d9c76009cc.jpg",
       "alt": "Croquis d’un volant en boucle échancré à la base, présenté de face et de profil, avec deux commandes ovales et une étude de la prise en main.",
       "description": "Un volant sculptural avec des commandes au pouce, étudié de face et de profil pour préciser sa prise en main.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/03-croquis2-thumb-240x180-2060ba91cbc7af7e.jpeg",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/03-croquis2-thumb-480x360-2f96221f08c96594.jpeg",
+            "width": 480,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/03-croquis2-thumb-240x180-73c4f3ed77f5cc30.webp",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/03-croquis2-thumb-480x360-c2c919a3f31e72b7.webp",
+            "width": 480,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/04-croquis3-e6cb77602ea4f445.jpg",
       "alt": "Croquis d’un écran horizontal encastré dans le tableau de bord, affichant le chiffre zéro, une voiture et des informations représentées par des lignes.",
       "description": "Un écran discret intégré en retrait dans le tableau de bord, centré sur les informations essentielles.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/04-croquis3-thumb-240x180-00e5df3468739c40.jpeg",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/04-croquis3-thumb-480x360-747e326feeea9988.jpeg",
+            "width": 480,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/04-croquis3-thumb-240x180-2d8b5321fd22c67c.webp",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/04-croquis3-thumb-480x360-856e5d3139454e40.webp",
+            "width": 480,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/05-croquis1-10864e44231a9d90.jpg",
       "alt": "Croquis d’une console centrale aux formes arrondies, avec un plateau creux, une vue de profil et une vue accueillant un téléphone et une clé.",
       "description": "Une console centrale compacte, aux formes arrondies, accueille les petits objets du quotidien sur un plateau en retrait.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/05-croquis1-thumb-240x180-a109ffc2e8ef814d.jpeg",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/05-croquis1-thumb-480x360-7ce0605889f2a22f.jpeg",
+            "width": 480,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/05-croquis1-thumb-240x180-4fcea8603f8c6a23.webp",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/05-croquis1-thumb-480x360-cc77d229c9549a2b.webp",
+            "width": 480,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/06-croquis6-601bd4a3ac78531e.jpg",
       "alt": "Croquis du raccord entre le tableau de bord et la porte passager, avec un bandeau lumineux jaune, une poignée ovale, un accoudoir vert et un vide-poches terracotta.",
       "description": "Une ligne lumineuse souligne la continuité entre le tableau de bord et les portes et accompagne les formes douces de l’habitacle.",
-      "credit": "© Amandine Grohens"
+      "credit": "© Amandine Grohens",
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/06-croquis6-thumb-240x180-4fc665970f6f738a.jpeg",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/06-croquis6-thumb-480x360-86361626c5538e49.jpeg",
+            "width": 480,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/06-croquis6-thumb-240x180-545f9932e48c00c2.webp",
+            "width": 240,
+            "height": 180
+          },
+          {
+            "src": "./gallery/06-croquis6-thumb-480x360-d589dff85d89b05d.webp",
+            "width": 480,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-21c798cb0222cd00.png",
@@ -50,7 +206,33 @@
           "type": "image/avif",
           "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-b2f1e6fef777506d.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-thumb-240x135-8c1af0ee4cba09a1.jpeg",
+            "width": 240,
+            "height": 135
+          },
+          {
+            "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-thumb-480x270-3fdf6b516e3665c1.jpeg",
+            "width": 480,
+            "height": 270
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-thumb-240x135-9f314d6687e06d30.webp",
+            "width": 240,
+            "height": 135
+          },
+          {
+            "src": "./gallery/07-habitacle-ivoire-et-olive-vue-panoramique-thumb-480x270-77852528eebe65d0.webp",
+            "width": 480,
+            "height": 270
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/08-pod-central-creme-et-terracotta-469110260dac7557.png",
@@ -66,7 +248,33 @@
           "type": "image/avif",
           "src": "./gallery/08-pod-central-creme-et-terracotta-3b758ec8905249ec.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/08-pod-central-creme-et-terracotta-thumb-173x180-0d2fbfb4b14325cb.jpeg",
+            "width": 173,
+            "height": 180
+          },
+          {
+            "src": "./gallery/08-pod-central-creme-et-terracotta-thumb-347x360-05fd7e6bcfdbe59f.jpeg",
+            "width": 347,
+            "height": 360
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/08-pod-central-creme-et-terracotta-thumb-173x180-463df1448ea63c47.webp",
+            "width": 173,
+            "height": 180
+          },
+          {
+            "src": "./gallery/08-pod-central-creme-et-terracotta-thumb-347x360-772b9672c6ca451d.webp",
+            "width": 347,
+            "height": 360
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-a8061fe9802edf37.png",
@@ -82,7 +290,33 @@
           "type": "image/avif",
           "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-6e148bf0ea0ce9e6.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-thumb-240x160-fd4eb279a80ab038.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-thumb-480x320-62e0a288b12da634.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-thumb-240x160-5032b71ace50f4e4.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/09-volant-sculptural-ecran-d-instrumentation-encastre-thumb-480x320-d28e81d48585bb1b.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-29822bb1e4ffe381.png",
@@ -98,7 +332,33 @@
           "type": "image/avif",
           "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-8fff33cc15d122a1.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-thumb-240x160-3a39f56ddf0e216a.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-thumb-480x320-1bdc9f3e4ad0c3be.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-thumb-240x160-f5344414323a0898.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/10-porte-passager-ivoire-poignee-ovale-thumb-480x320-d30f8b542e08852c.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-68766ab94f31b9a7.png",
@@ -114,7 +374,33 @@
           "type": "image/avif",
           "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-d25675720fcc0382.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-thumb-240x160-f7c061163e458d3e.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-thumb-480x320-6bcb87cd2dbcc594.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-thumb-240x160-dc98aec3567579e1.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/11-ecran-conducteur-encastre-en-ivoire-thumb-480x320-73cebdd6a6e8676f.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/12-vide-poche-passager-en-terracotta-2762ef0c4b7862bc.png",
@@ -130,7 +416,33 @@
           "type": "image/avif",
           "src": "./gallery/12-vide-poche-passager-en-terracotta-fa33de1483834a26.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/12-vide-poche-passager-en-terracotta-thumb-240x160-c9b99181cb94cd66.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/12-vide-poche-passager-en-terracotta-thumb-480x320-3d1438a913aa5bc7.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/12-vide-poche-passager-en-terracotta-thumb-240x160-1e0e52fc7a00c72e.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/12-vide-poche-passager-en-terracotta-thumb-480x320-d66725371467e1c6.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-5c5d3a82266135a7.png",
@@ -146,7 +458,33 @@
           "type": "image/avif",
           "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-ffa8b69afcd681b1.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-thumb-240x160-6ff3da0f12cbb9de.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-thumb-480x320-e7a37b5c86686ede.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-thumb-240x160-34bf8320ce126101.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/13-deux-pedales-alignees-sous-le-volant-thumb-480x320-1c3135240b505ea2.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-a460bf62134f08c6.png",
@@ -162,7 +500,33 @@
           "type": "image/avif",
           "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-a0d3d55828277db5.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-thumb-240x160-19a7b1733e0cf980.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-thumb-480x320-3ddb1ab849fec81a.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-thumb-240x160-55b5f1359569d98d.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/14-coussin-jacquard-olive-et-coque-ivoire-thumb-480x320-d75df4c7d7b09941.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-8d140bad42440426.png",
@@ -178,7 +542,33 @@
           "type": "image/avif",
           "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-78bf3a42878ed7ce.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-thumb-240x135-55af123cf2fc3b04.jpeg",
+            "width": 240,
+            "height": 135
+          },
+          {
+            "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-thumb-480x270-f3ed1d449a673fb5.jpeg",
+            "width": 480,
+            "height": 270
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-thumb-240x135-c500fc130123a9f2.webp",
+            "width": 240,
+            "height": 135
+          },
+          {
+            "src": "./gallery/15-habitacle-nocturne-aux-commandes-raffinees-thumb-480x270-f3a2f83a6c32f8cd.webp",
+            "width": 480,
+            "height": 270
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/16-matieres-2c780b7244a48113.png",
@@ -194,7 +584,33 @@
           "type": "image/avif",
           "src": "./gallery/16-matieres-ddca508b5d0ec9fc.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/16-matieres-thumb-240x160-56ce462377c58f58.jpeg",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/16-matieres-thumb-480x320-26781c814e4e0c07.jpeg",
+            "width": 480,
+            "height": 320
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/16-matieres-thumb-240x160-2a91fbb418f4e917.webp",
+            "width": 240,
+            "height": 160
+          },
+          {
+            "src": "./gallery/16-matieres-thumb-480x320-0b04642998d1bd6b.webp",
+            "width": 480,
+            "height": 320
+          }
+        ]
+      }
     },
     {
       "src": "./gallery/17-mood-board-ce8df01f64dfc0a0.png",
@@ -210,7 +626,33 @@
           "type": "image/avif",
           "src": "./gallery/17-mood-board-15d8bf500776f530.avif"
         }
-      ]
+      ],
+      "thumbnail": {
+        "jpeg": [
+          {
+            "src": "./gallery/17-mood-board-thumb-240x135-118379e3a0cbf48d.jpeg",
+            "width": 240,
+            "height": 135
+          },
+          {
+            "src": "./gallery/17-mood-board-thumb-480x270-9440a0f3d49cafbc.jpeg",
+            "width": 480,
+            "height": 270
+          }
+        ],
+        "webp": [
+          {
+            "src": "./gallery/17-mood-board-thumb-240x135-38fd7f51ad9d87b8.webp",
+            "width": 240,
+            "height": 135
+          },
+          {
+            "src": "./gallery/17-mood-board-thumb-480x270-0037c52c9794bc93.webp",
+            "width": 480,
+            "height": 270
+          }
+        ]
+      }
     }
   ]
 }
