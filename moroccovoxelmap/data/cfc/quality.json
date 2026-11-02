@@ -1,0 +1,93 @@
+{
+  "profile": "full",
+  "region": "cfc",
+  "builtAt": "2026-11-02T20:58:59.242896+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -1300.0,
+    "minY": -1300.0,
+    "maxX": 1300.0,
+    "maxY": 1300.0
+  },
+  "buildingCount": 3745,
+  "sourceBreakdown": {
+    "openstreetmap": 2024,
+    "microsoft": 1721
+  },
+  "heightMethods": {
+    "levels": 343,
+    "estimated": 3393,
+    "mapped": 9
+  },
+  "estimatedHeightCount": 3736,
+  "mappedOrCuratedHeightCount": 9,
+  "wallColorMethods": {
+    "estimated": 3745
+  },
+  "roofColorMethods": {
+    "imagery-palette": 3661,
+    "imagery": 84
+  },
+  "courtyardBuildings": 4,
+  "buildingParts": 2,
+  "roads": 2062,
+  "mappedTreeLocations": 28,
+  "groundPolygons": 49,
+  "tiles": 64,
+  "tileBytes": 3316946,
+  "audit": {
+    "unclosedRelations": 1,
+    "outOfExtentGeometryExcluded": 752,
+    "emptyOrSmallGeometryDiscarded": 17,
+    "osmBuildingsBeforeConflation": 2025,
+    "buildingOutlinesTrimmedForParts": 1,
+    "buildingOutlinesReplacedByParts": 1,
+    "microsoftAvailable": true,
+    "microsoftFootprintsInExtent": 3351,
+    "microsoftMissingHeight": 1732,
+    "microsoftOverlappingOsmRemoved": 1619,
+    "microsoftOverlappingFootprintsTrimmed": 72,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-11-01"
+    ],
+    "sampledRoofs": 84,
+    "paletteStyledRoofs": 3661,
+    "regionalRoofPalette": [
+      {
+        "color": "#726450",
+        "sourceRoofSamples": 14
+      },
+      {
+        "color": "#9c7d60",
+        "sourceRoofSamples": 14
+      },
+      {
+        "color": "#b08168",
+        "sourceRoofSamples": 14
+      },
+      {
+        "color": "#b29a7f",
+        "sourceRoofSamples": 14
+      },
+      {
+        "color": "#ceaa88",
+        "sourceRoofSamples": 14
+      },
+      {
+        "color": "#d9c0a2",
+        "sourceRoofSamples": 14
+      }
+    ],
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "terrain": "Flat base; no DSM or individual roof-height survey included.",
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 0.9975967957276368
+}

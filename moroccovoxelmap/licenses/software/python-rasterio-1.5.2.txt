@@ -1,0 +1,196 @@
+python: rasterio@1.5.2
+Declared licence: BSD-3-Clause
+Project: https://github.com/rasterio/rasterio
+
+--- rasterio-1.5.2.dist-info/licenses/AUTHORS.txt ---
+Authors
+-------
+
+* Adam J. Stewart
+* Alan D. Snow
+* Aldo Culquicondor
+* Alessandro Amici
+* Alex Shepherd
+* Alexander
+* Alexander Ivanov
+* Alfred-Mountfield
+* Amit Kapadia
+* Andrea Giardini
+* Andrew Annex
+* Andrew Catellier
+* Andrew Nisbet
+* Ariel Zerahia
+* Arno Gobbin
+* AsgerPetersen
+* Bas Couwenberg
+* Ben
+* Ben Lewis
+* Bill Morris
+* Brendan Ward
+* Caleb Robinson
+* Charlie Loyd
+* Chris Holden
+* Chris Holdgraf
+* Christoph Rieke
+* Colin Talbert
+* Damien Ayers
+* Dan "Ducky" Little
+* Dan Baston
+* Daniel Evans
+* Daniel J. H
+* Darren Weber
+* David Hoese
+* Denis Rykov
+* Dr Martin Black
+* Eli Wenig
+* Elliott Sales de Andrade
+* Emily Selwood
+* Eric Hutton
+* Erik Seglem
+* Etienne B. Racine
+* Evan McClain
+* Even Rouault
+* Ewout ter Hoeven
+* Felix Divo
+* Filipe Fernandes
+* Florian
+* Frédéric Bonifas
+* Giacomo Vianello
+* Gregory Raevski
+* Guillaume Lostis
+* Guy Doulberg
+* Henry Rodman
+* Howard Butler
+* Huseyin Kaya
+* Ian Schneider
+* Idan Miara
+* Ismail Sunni
+* Jacques Tardie
+* James Hiebert
+* James McBride
+* James Seppi
+* Jan Žák
+* Jeffrey Gerard
+* Jennifer Reiber Kyle
+* Jeremy Hooke
+* Jesse Crocker
+* João Santos
+* Joel Jaeschke
+* Johan Van de Wauw
+* Jonas Sølvsteen
+* Joris Van den Bossche
+* Joshua Arnott
+* Juan Luis Cano Rodríguez
+* Karthik Venkataramani
+* Keith Jenkins
+* Kelsey Jordahl
+* Kevin Wurster
+* Kirill Kouzoubov
+* Koshy Thomas
+* Kyle Barron
+* Leah Wasser
+* Loïc Dutrieux
+* Lukas Paulun
+* Lukasz
+* Luke Pinner
+* Marcin Swaltek
+* Mark Boer
+* Martijn Visser
+* Martin Kaesberger
+* Martin Raspaud
+* Mateo
+* Matt Savoie
+* Matthew Perry
+* Matthias Daues
+* Maxim Dubinin
+* Maxwell Lindsay
+* Mike Taves
+* Nandan Manjunatha
+* Nat Wilson
+* Nick Grue
+* Nico Mandery
+* Nicolai Mogensen
+* Nikolai Janakiev
+* Norman Barker
+* Obidur Rahman
+* Olivier Cloux
+* PPazderski
+* Pablo Sanfilippo
+* Patrick Young
+* Pedro Alves Quilici Coutinho
+* Pieter Roggemans
+* Pratik Yadav
+* RK Aranas
+* Raaj Tilak Sarma
+* RichardScottOZ
+* Robert Sare
+* Robin Wilson
+* Ryan Grout
+* Sam Murphy
+* Samuel Kogler
+* Sander Jansen
+* Scott Staniewicz
+* Sean Gillies
+* Sebastien Tremblay-Johnston
+* Seth Fitzsimmons
+* Seth Miller
+* Stephen Knox
+* Steven Pestana
+* Tim Gates
+* Tomáš Hrnčiar
+* Trevor R.H. Clarke
+* Tyler Erickson
+* Vincent Sarago
+* Vincent Schut
+* Yann-Sebastien Tremblay-Johnston
+* Yuvi Panda
+* appanacca
+* asmith26
+* cgohlke
+* cpegel
+* derekjanni
+* dnomadb
+* firas omrane
+* grovduck
+* jaredairbusaerial
+* jbutle55
+* ljburtz
+* morrme
+* ngrue
+* ryan
+* snowman2
+* sshuair
+* stonebig
+* sudobangbang
+* ungarj
+
+
+--- rasterio-1.5.2.dist-info/licenses/LICENSE.txt ---
+Copyright (c) 2013-2021, Mapbox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of Mapbox nor the names of its contributors may
+  be used to endorse or promote products derived from this software without
+  specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+

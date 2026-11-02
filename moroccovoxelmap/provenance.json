@@ -1,0 +1,1242 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-11-02",
+  "buildDate": "2026-11-02T20:58:46.157826+00:00",
+  "project": {
+    "name": "Casa Voxel",
+    "sourceUrl": null,
+    "license": "MIT",
+    "licenseUrl": "licenses/LICENSE.txt",
+    "upstream": {
+      "name": "Warsaw Vibe Voxel",
+      "author": "Piotr Migdał",
+      "url": "https://github.com/stared/warsaw-vibe-voxel",
+      "demo": "https://p.migdal.pl/warsaw-vibe-voxel/",
+      "commit": "1c5adf6be7ad4580172c3dc843506b3742dcb9fd",
+      "inspectedAt": "2026-11-02",
+      "license": "MIT",
+      "licenseUrl": "licenses/upstream-MIT.txt",
+      "reusedFiles": [
+        "src/vendor/warsaw/mesher.ts",
+        "src/render/map.ts"
+      ],
+      "statement": {
+        "fr": "Adaptation indépendante de Warsaw Vibe Voxel de Piotr Migdał, sans affiliation ni approbation de l’auteur.",
+        "en": "An independent adaptation of Piotr Migdał’s Warsaw Vibe Voxel; no affiliation or endorsement is implied."
+      }
+    }
+  },
+  "area": {
+    "crs": "EPSG:32629",
+    "centerLatLon": [
+      33.599,
+      -7.62
+    ],
+    "sizeMeters": [
+      3200,
+      3400
+    ],
+    "voxelSizeMeters": 2,
+    "bounds": {
+      "minX": -1600,
+      "minY": -1700,
+      "maxX": 1600,
+      "maxY": 1700
+    },
+    "origin": {
+      "easting": 628040.5506197095,
+      "northing": 3718548.727985361
+    },
+    "description": {
+      "fr": "Centre de Casablanca : une emprise de 3,2 × 3,4 km calculée en mètres en UTM 29N.",
+      "en": "Centre de Casablanca: a 3.2 × 3.4 km extent calculated in metres in UTM zone 29N."
+    }
+  },
+  "datasets": [
+    {
+      "id": "osm",
+      "name": "OpenStreetMap",
+      "provider": "OpenStreetMap contributors",
+      "status": "active",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-7.6391185,33.5821071,-7.6008742,33.6158903",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "release": null,
+      "acquisitionDate": null,
+      "downloadDate": "2026-11-02T20:23:03.336228+00:00",
+      "buildDate": "2026-11-02T20:58:46.157826+00:00",
+      "resolutionMeters": null,
+      "attribution": "© OpenStreetMap contributors",
+      "usage": {
+        "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
+        "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
+      },
+      "limitations": {
+        "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
+        "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
+      },
+      "sha256": "4413f776f98533e56f843c11a0e156df4d1715086ce09f35697d4dd6274c9875",
+      "sourceFiles": [],
+      "sourceRecordUrl": "data/source-manifest.json"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft Global ML Building Footprints",
+      "provider": "Microsoft",
+      "status": "active",
+      "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+      "license": "CDLA-Permissive-2.0",
+      "licenseUrl": "https://cdla.dev/permissive-2-0/",
+      "release": "2026-08-13",
+      "acquisitionDate": null,
+      "downloadDate": "2026-11-02T20:17:40.792376+00:00",
+      "buildDate": "2026-11-02T20:58:46.157826+00:00",
+      "resolutionMeters": null,
+      "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+      "usage": {
+        "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
+        "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
+      },
+      "limitations": {
+        "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
+        "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
+      },
+      "sha256": "34d79e3ceaf24e2353a0ee0c3d032ed59500e96bb347703b62d0c486d0e6758a",
+      "sourceFiles": [
+        {
+          "quadkey": "033112303",
+          "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033112303/part-00002-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+          "sha256": "36c5b647894045982f1931ee6a6daf5b9e4565f3dc8f1e75f8214554935cca20",
+          "bytes": 20327622
+        }
+      ],
+      "sourceRecordUrl": "data/source-manifest.json"
+    },
+    {
+      "id": "overture",
+      "name": "Overture Maps Buildings",
+      "provider": "Overture Maps Foundation",
+      "status": "optional",
+      "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
+      "downloadUrl": "https://docs.overturemaps.org/getting-data/",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "release": null,
+      "acquisitionDate": null,
+      "downloadDate": null,
+      "buildDate": null,
+      "resolutionMeters": null,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
+      "usage": {
+        "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
+        "en": "A future alternative building source; no Overture data is loaded in this build."
+      },
+      "limitations": {
+        "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
+        "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
+      }
+    },
+    {
+      "id": "sentinel2",
+      "name": "Copernicus Sentinel-2 Level-2A",
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "status": "active",
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A",
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "release": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+      "acquisitionDate": "2026-11-01",
+      "downloadDate": "2026-11-02T20:55:15.013154+00:00",
+      "buildDate": "2026-11-02T20:58:46.157826+00:00",
+      "resolutionMeters": 10,
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "usage": {
+        "fr": "Couleurs échantillonnées dans l’intérieur de grands toits, après filtrage des pixels invalides et de certaines ombres. Une palette régionale dérivée colore les petits toits comme estimation, sans observation individuelle. Les façades conservent leur propre palette.",
+        "en": "Colours sampled inside large roofs after filtering invalid pixels and some shadows. A derived regional palette styles small roofs as estimates, without individual observations. Facades retain their own palette."
+      },
+      "limitations": {
+        "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Les petits toits ne sont pas observés individuellement ; leur palette dérivée reste une estimation. Les fenêtres COG publiques Earth Search ne demandent pas de compte.",
+        "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. Small roofs are not individually observed; their derived palette remains an estimate. Public Earth Search COG windows require no account."
+      },
+      "acquisitionDates": [
+        "2026-11-01"
+      ],
+      "importDate": "2026-11-02T20:56:36.300248+00:00",
+      "sha256": "6453c7514607c4f7ce273908953dfb827501a714ac22021cfcb600f5fffe2143",
+      "processing": {
+        "kind": "documented-true-colour",
+        "scale": 1,
+        "offset": 0,
+        "gamma": 1,
+        "displayRange": [
+          0,
+          255
+        ],
+        "rgbBands": [
+          1,
+          2,
+          3
+        ],
+        "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
+      },
+      "sourceRecordUrl": "data/source-manifest.json"
+    },
+    {
+      "id": "copdem",
+      "name": "Copernicus DEM GLO-30",
+      "provider": "European Union / ESA / DLR / Airbus",
+      "status": "optional",
+      "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "downloadUrl": "https://dataspace.copernicus.eu/",
+      "license": "Copernicus DEM GLO-30 free licence",
+      "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
+      "release": null,
+      "acquisitionDate": null,
+      "downloadDate": null,
+      "buildDate": null,
+      "resolutionMeters": 30,
+      "attribution": null,
+      "usage": {
+        "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
+        "en": "Future option; this build uses a flat base without an elevation dataset."
+      },
+      "limitations": {
+        "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
+        "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
+      }
+    },
+    {
+      "id": "gba",
+      "name": "GlobalBuildingAtlas heights / LoD1",
+      "provider": "Zhu et al. / Technical University of Munich",
+      "status": "excluded",
+      "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
+      "downloadUrl": null,
+      "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "release": null,
+      "acquisitionDate": null,
+      "downloadDate": null,
+      "buildDate": null,
+      "resolutionMeters": 3,
+      "attribution": null,
+      "usage": {
+        "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
+        "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
+      },
+      "limitations": {
+        "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
+        "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
+      }
+    },
+    {
+      "id": "ghsl-height",
+      "name": "GHSL GHS-BUILT-H R2023A",
+      "provider": "European Commission Joint Research Centre",
+      "status": "optional",
+      "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
+      "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
+      "license": "CC-BY-4.0 with dataset and methodology citation",
+      "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
+      "release": null,
+      "acquisitionDate": null,
+      "downloadDate": null,
+      "buildDate": null,
+      "resolutionMeters": 100,
+      "attribution": null,
+      "usage": {
+        "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
+        "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
+      },
+      "limitations": {
+        "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
+        "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
+      }
+    }
+  ],
+  "methodology": [
+    {
+      "id": "geometry",
+      "title": {
+        "fr": "Une vraie géographie",
+        "en": "Real geography"
+      },
+      "text": {
+        "fr": "Les emprises proviennent des sources cartographiques déclarées. Les coordonnées sont projetées en UTM 29N, puis recentrées pour le rendu. Les rues, espaces verts et littoral suivent les données ; des modifications récentes peuvent manquer.",
+        "en": "Outlines come from the declared map sources. Coordinates are projected into UTM zone 29N and centred for rendering. Streets, green areas and the coast follow the data; recent changes may be missing."
+      }
+    },
+    {
+      "id": "heights",
+      "title": {
+        "fr": "Des hauteurs souvent estimées",
+        "en": "Heights are often estimated"
+      },
+      "text": {
+        "fr": "Priorité aux hauteurs cartographiées valides et aux corrections sourcées, puis aux étages multipliés par une hauteur configurable, puis à une hypothèse par type de bâtiment. Les méthodes figurent dans chaque fiche ; aucune estimation n’est présentée comme une mesure.",
+        "en": "Valid mapped heights and sourced corrections take priority, followed by floor counts multiplied by a configurable storey height, then assumptions by building type. Each feature records its method; estimates are never presented as measurements."
+      }
+    },
+    {
+      "id": "appearance",
+      "title": {
+        "fr": "Une interprétation visuelle",
+        "en": "A visual interpretation"
+      },
+      "text": {
+        "fr": "La grille de voxels est une résolution d’affichage, pas une précision de relevé. Les grands toits peuvent utiliser des échantillons Sentinel RGB de 10 m. La palette des petits toits reste une estimation régionale, et les façades ont leur propre palette. Fenêtres et lumière sont stylisées.",
+        "en": "The voxel grid is a display resolution, not survey accuracy. Large roofs may use 10 m Sentinel RGB samples. Small-roof colours remain regional palette estimates, and facades keep a separate palette. Windows and light are stylised."
+      }
+    },
+    {
+      "id": "licensing",
+      "title": {
+        "fr": "Code et données ont des licences distinctes",
+        "en": "Code and data have separate licences"
+      },
+      "text": {
+        "fr": "Le code original est sous MIT. Les données géographiques et leur base dérivée restent sous leurs conditions propres, dont ODbL pour OpenStreetMap. Le téléchargement de la base dérivée et les mentions complètes sont disponibles ci-dessous.",
+        "en": "Original code is MIT licensed. Geographic data and the derived database retain their own terms, including ODbL for OpenStreetMap. The derived database download and full notices are available below."
+      }
+    }
+  ],
+  "softwareInventoryUrl": "third-party-notices.json",
+  "noticesUrl": "third-party-notices.txt",
+  "dataLicenseUrl": "data/README-LICENSE.txt",
+  "derivedDatabaseUrl": "data/normalized.geojson.gz",
+  "qualityReportUrl": "data/quality.json",
+  "quality": {
+    "buildingCount": 7048,
+    "sourceBreakdown": {
+      "openstreetmap": 3008,
+      "microsoft": 4040
+    },
+    "heightMethods": {
+      "mapped": 75,
+      "levels": 547,
+      "estimated": 6426
+    },
+    "estimatedHeightCount": 6973,
+    "imageryIncluded": true,
+    "imagery": {
+      "included": true,
+      "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "acquisitionDates": [
+        "2026-11-01"
+      ],
+      "sampledRoofs": 198,
+      "paletteStyledRoofs": 6835,
+      "regionalRoofPalette": [
+        {
+          "color": "#886f5a",
+          "sourceRoofSamples": 33
+        },
+        {
+          "color": "#9d816a",
+          "sourceRoofSamples": 33
+        },
+        {
+          "color": "#a88e78",
+          "sourceRoofSamples": 33
+        },
+        {
+          "color": "#b6977a",
+          "sourceRoofSamples": 33
+        },
+        {
+          "color": "#ceab8d",
+          "sourceRoofSamples": 33
+        },
+        {
+          "color": "#f4cfae",
+          "sourceRoofSamples": 33
+        }
+      ],
+      "nativeResolutionM": 10,
+      "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+      "attribution": "Contains modified Copernicus Sentinel data 2026"
+    }
+  },
+  "regions": [
+    {
+      "id": "central",
+      "name": "Centre de Casablanca",
+      "datasets": [
+        {
+          "id": "osm",
+          "name": "OpenStreetMap",
+          "provider": "OpenStreetMap contributors",
+          "status": "active",
+          "sourceUrl": "https://www.openstreetmap.org/copyright",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-7.6391185,33.5821071,-7.6008742,33.6158903",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-02T20:23:03.336228+00:00",
+          "buildDate": "2026-11-02T20:58:46.157826+00:00",
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors",
+          "usage": {
+            "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
+            "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
+          },
+          "limitations": {
+            "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
+            "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
+          },
+          "sha256": "4413f776f98533e56f843c11a0e156df4d1715086ce09f35697d4dd6274c9875",
+          "sourceFiles": [],
+          "sourceRecordUrl": "data/source-manifest.json"
+        },
+        {
+          "id": "microsoft",
+          "name": "Microsoft Global ML Building Footprints",
+          "provider": "Microsoft",
+          "status": "active",
+          "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+          "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+          "license": "CDLA-Permissive-2.0",
+          "licenseUrl": "https://cdla.dev/permissive-2-0/",
+          "release": "2026-08-13",
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-02T20:17:40.792376+00:00",
+          "buildDate": "2026-11-02T20:58:46.157826+00:00",
+          "resolutionMeters": null,
+          "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+          "usage": {
+            "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
+            "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
+          },
+          "limitations": {
+            "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
+            "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
+          },
+          "sha256": "34d79e3ceaf24e2353a0ee0c3d032ed59500e96bb347703b62d0c486d0e6758a",
+          "sourceFiles": [
+            {
+              "quadkey": "033112303",
+              "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033112303/part-00002-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+              "sha256": "36c5b647894045982f1931ee6a6daf5b9e4565f3dc8f1e75f8214554935cca20",
+              "bytes": 20327622
+            }
+          ],
+          "sourceRecordUrl": "data/source-manifest.json"
+        },
+        {
+          "id": "overture",
+          "name": "Overture Maps Buildings",
+          "provider": "Overture Maps Foundation",
+          "status": "optional",
+          "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
+          "downloadUrl": "https://docs.overturemaps.org/getting-data/",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
+          "usage": {
+            "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
+            "en": "A future alternative building source; no Overture data is loaded in this build."
+          },
+          "limitations": {
+            "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
+            "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
+          }
+        },
+        {
+          "id": "sentinel2",
+          "name": "Copernicus Sentinel-2 Level-2A",
+          "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "status": "active",
+          "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A",
+          "license": "Copernicus Sentinel data licence",
+          "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+          "release": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+          "acquisitionDate": "2026-11-01",
+          "downloadDate": "2026-11-02T20:55:15.013154+00:00",
+          "buildDate": "2026-11-02T20:58:46.157826+00:00",
+          "resolutionMeters": 10,
+          "attribution": "Contains modified Copernicus Sentinel data 2026",
+          "usage": {
+            "fr": "Couleurs échantillonnées dans l’intérieur de grands toits, après filtrage des pixels invalides et de certaines ombres. Une palette régionale dérivée colore les petits toits comme estimation, sans observation individuelle. Les façades conservent leur propre palette.",
+            "en": "Colours sampled inside large roofs after filtering invalid pixels and some shadows. A derived regional palette styles small roofs as estimates, without individual observations. Facades retain their own palette."
+          },
+          "limitations": {
+            "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Les petits toits ne sont pas observés individuellement ; leur palette dérivée reste une estimation. Les fenêtres COG publiques Earth Search ne demandent pas de compte.",
+            "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. Small roofs are not individually observed; their derived palette remains an estimate. Public Earth Search COG windows require no account."
+          },
+          "acquisitionDates": [
+            "2026-11-01"
+          ],
+          "importDate": "2026-11-02T20:56:36.300248+00:00",
+          "sha256": "6453c7514607c4f7ce273908953dfb827501a714ac22021cfcb600f5fffe2143",
+          "processing": {
+            "kind": "documented-true-colour",
+            "scale": 1,
+            "offset": 0,
+            "gamma": 1,
+            "displayRange": [
+              0,
+              255
+            ],
+            "rgbBands": [
+              1,
+              2,
+              3
+            ],
+            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
+          },
+          "sourceRecordUrl": "data/source-manifest.json"
+        },
+        {
+          "id": "copdem",
+          "name": "Copernicus DEM GLO-30",
+          "provider": "European Union / ESA / DLR / Airbus",
+          "status": "optional",
+          "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+          "downloadUrl": "https://dataspace.copernicus.eu/",
+          "license": "Copernicus DEM GLO-30 free licence",
+          "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 30,
+          "attribution": null,
+          "usage": {
+            "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
+            "en": "Future option; this build uses a flat base without an elevation dataset."
+          },
+          "limitations": {
+            "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
+            "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
+          }
+        },
+        {
+          "id": "gba",
+          "name": "GlobalBuildingAtlas heights / LoD1",
+          "provider": "Zhu et al. / Technical University of Munich",
+          "status": "excluded",
+          "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
+          "downloadUrl": null,
+          "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 3,
+          "attribution": null,
+          "usage": {
+            "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
+            "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
+          },
+          "limitations": {
+            "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
+            "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
+          }
+        },
+        {
+          "id": "ghsl-height",
+          "name": "GHSL GHS-BUILT-H R2023A",
+          "provider": "European Commission Joint Research Centre",
+          "status": "optional",
+          "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
+          "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
+          "license": "CC-BY-4.0 with dataset and methodology citation",
+          "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 100,
+          "attribution": null,
+          "usage": {
+            "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
+            "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
+          },
+          "limitations": {
+            "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
+            "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
+          }
+        }
+      ],
+      "area": {
+        "crs": "EPSG:32629",
+        "centerLatLon": [
+          33.599,
+          -7.62
+        ],
+        "sizeMeters": [
+          3200,
+          3400
+        ],
+        "voxelSizeMeters": 2,
+        "bounds": {
+          "minX": -1600,
+          "minY": -1700,
+          "maxX": 1600,
+          "maxY": 1700
+        },
+        "origin": {
+          "easting": 628040.5506197095,
+          "northing": 3718548.727985361
+        },
+        "description": {
+          "fr": "Centre de Casablanca : une emprise de 3,2 × 3,4 km calculée en mètres en UTM 29N.",
+          "en": "Centre de Casablanca: a 3.2 × 3.4 km extent calculated in metres in UTM zone 29N."
+        }
+      },
+      "dataLicenseUrl": "data/README-LICENSE.txt",
+      "derivedDatabaseUrl": "data/normalized.geojson.gz",
+      "qualityReportUrl": "data/quality.json",
+      "sourceManifestUrl": "data/source-manifest.json",
+      "buildDate": "2026-11-02T20:58:46.157826+00:00",
+      "quality": {
+        "buildingCount": 7048,
+        "sourceBreakdown": {
+          "openstreetmap": 3008,
+          "microsoft": 4040
+        },
+        "heightMethods": {
+          "mapped": 75,
+          "levels": 547,
+          "estimated": 6426
+        },
+        "estimatedHeightCount": 6973,
+        "imageryIncluded": true,
+        "imagery": {
+          "included": true,
+          "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "acquisitionDates": [
+            "2026-11-01"
+          ],
+          "sampledRoofs": 198,
+          "paletteStyledRoofs": 6835,
+          "regionalRoofPalette": [
+            {
+              "color": "#886f5a",
+              "sourceRoofSamples": 33
+            },
+            {
+              "color": "#9d816a",
+              "sourceRoofSamples": 33
+            },
+            {
+              "color": "#a88e78",
+              "sourceRoofSamples": 33
+            },
+            {
+              "color": "#b6977a",
+              "sourceRoofSamples": 33
+            },
+            {
+              "color": "#ceab8d",
+              "sourceRoofSamples": 33
+            },
+            {
+              "color": "#f4cfae",
+              "sourceRoofSamples": 33
+            }
+          ],
+          "nativeResolutionM": 10,
+          "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+          "attribution": "Contains modified Copernicus Sentinel data 2026"
+        }
+      }
+    },
+    {
+      "id": "cfc",
+      "name": "Casablanca Finance City",
+      "datasets": [
+        {
+          "id": "osm",
+          "name": "OpenStreetMap",
+          "provider": "OpenStreetMap contributors",
+          "status": "active",
+          "sourceUrl": "https://www.openstreetmap.org/copyright",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-7.67624046514766%2C33.54990977586325%2C-7.644601230313053%2C33.576397392309836",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-02T20:53:08.446406+00:00",
+          "buildDate": "2026-11-02T20:58:59.242896+00:00",
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors",
+          "usage": {
+            "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
+            "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
+          },
+          "limitations": {
+            "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
+            "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
+          },
+          "sha256": "2fa2e832b21853fd6c3af68ad62a069214a43eb7336003f6b1c3abbac01d4174",
+          "sourceFiles": [],
+          "sourceRecordUrl": "data/cfc/source-manifest.json"
+        },
+        {
+          "id": "microsoft",
+          "name": "Microsoft Global ML Building Footprints",
+          "provider": "Microsoft",
+          "status": "active",
+          "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+          "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+          "license": "CDLA-Permissive-2.0",
+          "licenseUrl": "https://cdla.dev/permissive-2-0/",
+          "release": "2026-08-13",
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-02T20:17:40.792376+00:00",
+          "buildDate": "2026-11-02T20:58:59.242896+00:00",
+          "resolutionMeters": null,
+          "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+          "usage": {
+            "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
+            "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
+          },
+          "limitations": {
+            "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
+            "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
+          },
+          "sha256": "a6a95577329d9959fd0a4be349091be25558872141cf7245f5bcc9361ea7348e",
+          "sourceFiles": [
+            {
+              "quadkey": "033112303",
+              "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033112303/part-00002-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+              "sha256": "36c5b647894045982f1931ee6a6daf5b9e4565f3dc8f1e75f8214554935cca20",
+              "bytes": 20327622
+            }
+          ],
+          "sourceRecordUrl": "data/cfc/source-manifest.json"
+        },
+        {
+          "id": "overture",
+          "name": "Overture Maps Buildings",
+          "provider": "Overture Maps Foundation",
+          "status": "optional",
+          "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
+          "downloadUrl": "https://docs.overturemaps.org/getting-data/",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
+          "usage": {
+            "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
+            "en": "A future alternative building source; no Overture data is loaded in this build."
+          },
+          "limitations": {
+            "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
+            "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
+          }
+        },
+        {
+          "id": "sentinel2",
+          "name": "Copernicus Sentinel-2 Level-2A",
+          "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "status": "active",
+          "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A",
+          "license": "Copernicus Sentinel data licence",
+          "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+          "release": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+          "acquisitionDate": "2026-11-01",
+          "downloadDate": "2026-11-02T20:55:49.103122+00:00",
+          "buildDate": "2026-11-02T20:58:59.242896+00:00",
+          "resolutionMeters": 10,
+          "attribution": "Contains modified Copernicus Sentinel data 2026",
+          "usage": {
+            "fr": "Couleurs échantillonnées dans l’intérieur de grands toits, après filtrage des pixels invalides et de certaines ombres. Une palette régionale dérivée colore les petits toits comme estimation, sans observation individuelle. Les façades conservent leur propre palette.",
+            "en": "Colours sampled inside large roofs after filtering invalid pixels and some shadows. A derived regional palette styles small roofs as estimates, without individual observations. Facades retain their own palette."
+          },
+          "limitations": {
+            "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Les petits toits ne sont pas observés individuellement ; leur palette dérivée reste une estimation. Les fenêtres COG publiques Earth Search ne demandent pas de compte.",
+            "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. Small roofs are not individually observed; their derived palette remains an estimate. Public Earth Search COG windows require no account."
+          },
+          "acquisitionDates": [
+            "2026-11-01"
+          ],
+          "importDate": "2026-11-02T20:58:01.747242+00:00",
+          "sha256": "418478a5df9327d836fc9e2dc0888994aa6203078c6d70bcfd34709f66af4691",
+          "processing": {
+            "kind": "documented-true-colour",
+            "scale": 1,
+            "offset": 0,
+            "gamma": 1,
+            "displayRange": [
+              0,
+              255
+            ],
+            "rgbBands": [
+              1,
+              2,
+              3
+            ],
+            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
+          },
+          "sourceRecordUrl": "data/cfc/source-manifest.json"
+        },
+        {
+          "id": "copdem",
+          "name": "Copernicus DEM GLO-30",
+          "provider": "European Union / ESA / DLR / Airbus",
+          "status": "optional",
+          "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+          "downloadUrl": "https://dataspace.copernicus.eu/",
+          "license": "Copernicus DEM GLO-30 free licence",
+          "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 30,
+          "attribution": null,
+          "usage": {
+            "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
+            "en": "Future option; this build uses a flat base without an elevation dataset."
+          },
+          "limitations": {
+            "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
+            "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
+          }
+        },
+        {
+          "id": "gba",
+          "name": "GlobalBuildingAtlas heights / LoD1",
+          "provider": "Zhu et al. / Technical University of Munich",
+          "status": "excluded",
+          "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
+          "downloadUrl": null,
+          "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 3,
+          "attribution": null,
+          "usage": {
+            "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
+            "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
+          },
+          "limitations": {
+            "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
+            "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
+          }
+        },
+        {
+          "id": "ghsl-height",
+          "name": "GHSL GHS-BUILT-H R2023A",
+          "provider": "European Commission Joint Research Centre",
+          "status": "optional",
+          "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
+          "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
+          "license": "CC-BY-4.0 with dataset and methodology citation",
+          "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 100,
+          "attribution": null,
+          "usage": {
+            "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
+            "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
+          },
+          "limitations": {
+            "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
+            "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
+          }
+        }
+      ],
+      "area": {
+        "crs": "EPSG:32629",
+        "centerLatLon": [
+          33.5631545,
+          -7.6604232
+        ],
+        "sizeMeters": [
+          2600,
+          2600
+        ],
+        "voxelSizeMeters": 2,
+        "bounds": {
+          "minX": -1300,
+          "minY": -1300,
+          "maxX": 1300,
+          "maxY": 1300
+        },
+        "origin": {
+          "easting": 624341.1024313697,
+          "northing": 3714524.82526678
+        },
+        "description": {
+          "fr": "Casablanca Finance City : une emprise de 2,6 × 2,6 km calculée en mètres en UTM 29N.",
+          "en": "Casablanca Finance City: a 2.6 × 2.6 km extent calculated in metres in UTM zone 29N."
+        }
+      },
+      "dataLicenseUrl": "data/cfc/README-LICENSE.txt",
+      "derivedDatabaseUrl": "data/cfc/normalized.geojson.gz",
+      "qualityReportUrl": "data/cfc/quality.json",
+      "sourceManifestUrl": "data/cfc/source-manifest.json",
+      "buildDate": "2026-11-02T20:58:59.242896+00:00",
+      "quality": {
+        "buildingCount": 3745,
+        "sourceBreakdown": {
+          "openstreetmap": 2024,
+          "microsoft": 1721
+        },
+        "heightMethods": {
+          "levels": 343,
+          "estimated": 3393,
+          "mapped": 9
+        },
+        "estimatedHeightCount": 3736,
+        "imageryIncluded": true,
+        "imagery": {
+          "included": true,
+          "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "acquisitionDates": [
+            "2026-11-01"
+          ],
+          "sampledRoofs": 84,
+          "paletteStyledRoofs": 3661,
+          "regionalRoofPalette": [
+            {
+              "color": "#726450",
+              "sourceRoofSamples": 14
+            },
+            {
+              "color": "#9c7d60",
+              "sourceRoofSamples": 14
+            },
+            {
+              "color": "#b08168",
+              "sourceRoofSamples": 14
+            },
+            {
+              "color": "#b29a7f",
+              "sourceRoofSamples": 14
+            },
+            {
+              "color": "#ceaa88",
+              "sourceRoofSamples": 14
+            },
+            {
+              "color": "#d9c0a2",
+              "sourceRoofSamples": 14
+            }
+          ],
+          "nativeResolutionM": 10,
+          "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+          "attribution": "Contains modified Copernicus Sentinel data 2026"
+        }
+      }
+    },
+    {
+      "id": "sidi-maarouf",
+      "name": "Sidi Maârouf",
+      "datasets": [
+        {
+          "id": "osm",
+          "name": "OpenStreetMap",
+          "provider": "OpenStreetMap contributors",
+          "status": "active",
+          "sourceUrl": "https://www.openstreetmap.org/copyright",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-7.6644555124371765%2C33.51353875015838%2C-7.62846240623301%2C33.543683483353256",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-02T20:53:12.238294+00:00",
+          "buildDate": "2026-11-02T21:00:30.600879+00:00",
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors",
+          "usage": {
+            "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
+            "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
+          },
+          "limitations": {
+            "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
+            "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
+          },
+          "sha256": "8099dba38abcc2506ff24c133a198e5c6a418bff0cef8e8843f2b1c689e4c1d2",
+          "sourceFiles": [],
+          "sourceRecordUrl": "data/sidi-maarouf/source-manifest.json"
+        },
+        {
+          "id": "microsoft",
+          "name": "Microsoft Global ML Building Footprints",
+          "provider": "Microsoft",
+          "status": "active",
+          "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+          "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+          "license": "CDLA-Permissive-2.0",
+          "licenseUrl": "https://cdla.dev/permissive-2-0/",
+          "release": "2026-08-13",
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-02T20:17:40.792376+00:00",
+          "buildDate": "2026-11-02T21:00:30.600879+00:00",
+          "resolutionMeters": null,
+          "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+          "usage": {
+            "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
+            "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
+          },
+          "limitations": {
+            "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
+            "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
+          },
+          "sha256": "117b2f277b8dba314d618f481825a3493a9e6a7947cdf6f7f44d7aa78dc5ff74",
+          "sourceFiles": [
+            {
+              "quadkey": "033112303",
+              "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033112303/part-00002-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+              "sha256": "36c5b647894045982f1931ee6a6daf5b9e4565f3dc8f1e75f8214554935cca20",
+              "bytes": 20327622
+            }
+          ],
+          "sourceRecordUrl": "data/sidi-maarouf/source-manifest.json"
+        },
+        {
+          "id": "overture",
+          "name": "Overture Maps Buildings",
+          "provider": "Overture Maps Foundation",
+          "status": "optional",
+          "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
+          "downloadUrl": "https://docs.overturemaps.org/getting-data/",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
+          "usage": {
+            "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
+            "en": "A future alternative building source; no Overture data is loaded in this build."
+          },
+          "limitations": {
+            "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
+            "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
+          }
+        },
+        {
+          "id": "sentinel2",
+          "name": "Copernicus Sentinel-2 Level-2A",
+          "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "status": "active",
+          "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A",
+          "license": "Copernicus Sentinel data licence",
+          "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+          "release": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+          "acquisitionDate": "2026-11-01",
+          "downloadDate": "2026-11-02T20:55:48.828865+00:00",
+          "buildDate": "2026-11-02T21:00:30.600879+00:00",
+          "resolutionMeters": 10,
+          "attribution": "Contains modified Copernicus Sentinel data 2026",
+          "usage": {
+            "fr": "Couleurs échantillonnées dans l’intérieur de grands toits, après filtrage des pixels invalides et de certaines ombres. Une palette régionale dérivée colore les petits toits comme estimation, sans observation individuelle. Les façades conservent leur propre palette.",
+            "en": "Colours sampled inside large roofs after filtering invalid pixels and some shadows. A derived regional palette styles small roofs as estimates, without individual observations. Facades retain their own palette."
+          },
+          "limitations": {
+            "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Les petits toits ne sont pas observés individuellement ; leur palette dérivée reste une estimation. Les fenêtres COG publiques Earth Search ne demandent pas de compte.",
+            "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. Small roofs are not individually observed; their derived palette remains an estimate. Public Earth Search COG windows require no account."
+          },
+          "acquisitionDates": [
+            "2026-11-01"
+          ],
+          "importDate": "2026-11-02T20:59:17.896505+00:00",
+          "sha256": "1721423a1cb41bd41f0db18bd0f8a2d2d897101a9ee3a69d783f5714dc52c946",
+          "processing": {
+            "kind": "documented-true-colour",
+            "scale": 1,
+            "offset": 0,
+            "gamma": 1,
+            "displayRange": [
+              0,
+              255
+            ],
+            "rgbBands": [
+              1,
+              2,
+              3
+            ],
+            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
+          },
+          "sourceRecordUrl": "data/sidi-maarouf/source-manifest.json"
+        },
+        {
+          "id": "copdem",
+          "name": "Copernicus DEM GLO-30",
+          "provider": "European Union / ESA / DLR / Airbus",
+          "status": "optional",
+          "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+          "downloadUrl": "https://dataspace.copernicus.eu/",
+          "license": "Copernicus DEM GLO-30 free licence",
+          "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 30,
+          "attribution": null,
+          "usage": {
+            "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
+            "en": "Future option; this build uses a flat base without an elevation dataset."
+          },
+          "limitations": {
+            "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
+            "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
+          }
+        },
+        {
+          "id": "gba",
+          "name": "GlobalBuildingAtlas heights / LoD1",
+          "provider": "Zhu et al. / Technical University of Munich",
+          "status": "excluded",
+          "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
+          "downloadUrl": null,
+          "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 3,
+          "attribution": null,
+          "usage": {
+            "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
+            "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
+          },
+          "limitations": {
+            "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
+            "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
+          }
+        },
+        {
+          "id": "ghsl-height",
+          "name": "GHSL GHS-BUILT-H R2023A",
+          "provider": "European Commission Joint Research Centre",
+          "status": "optional",
+          "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
+          "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
+          "license": "CC-BY-4.0 with dataset and methodology citation",
+          "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 100,
+          "attribution": null,
+          "usage": {
+            "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
+            "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
+          },
+          "limitations": {
+            "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
+            "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
+          }
+        }
+      ],
+      "area": {
+        "crs": "EPSG:32629",
+        "centerLatLon": [
+          33.5286123,
+          -7.646462
+        ],
+        "sizeMeters": [
+          3000,
+          3000
+        ],
+        "voxelSizeMeters": 2,
+        "bounds": {
+          "minX": -1500,
+          "minY": -1500,
+          "maxX": 1500,
+          "maxY": 1500
+        },
+        "origin": {
+          "easting": 625687.1012755128,
+          "northing": 3710711.55962366
+        },
+        "description": {
+          "fr": "Sidi Maârouf : une emprise de 3 × 3 km calculée en mètres en UTM 29N.",
+          "en": "Sidi Maârouf: a 3 × 3 km extent calculated in metres in UTM zone 29N."
+        }
+      },
+      "dataLicenseUrl": "data/sidi-maarouf/README-LICENSE.txt",
+      "derivedDatabaseUrl": "data/sidi-maarouf/normalized.geojson.gz",
+      "qualityReportUrl": "data/sidi-maarouf/quality.json",
+      "sourceManifestUrl": "data/sidi-maarouf/source-manifest.json",
+      "buildDate": "2026-11-02T21:00:30.600879+00:00",
+      "quality": {
+        "buildingCount": 3728,
+        "sourceBreakdown": {
+          "openstreetmap": 1731,
+          "microsoft": 1997
+        },
+        "heightMethods": {
+          "estimated": 3720,
+          "levels": 8
+        },
+        "estimatedHeightCount": 3728,
+        "imageryIncluded": true,
+        "imagery": {
+          "included": true,
+          "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "acquisitionDates": [
+            "2026-11-01"
+          ],
+          "sampledRoofs": 147,
+          "paletteStyledRoofs": 3581,
+          "regionalRoofPalette": [
+            {
+              "color": "#866e56",
+              "sourceRoofSamples": 24
+            },
+            {
+              "color": "#9c8066",
+              "sourceRoofSamples": 25
+            },
+            {
+              "color": "#ad8a70",
+              "sourceRoofSamples": 24
+            },
+            {
+              "color": "#c39a78",
+              "sourceRoofSamples": 25
+            },
+            {
+              "color": "#d6a27e",
+              "sourceRoofSamples": 24
+            },
+            {
+              "color": "#f2caa1",
+              "sourceRoofSamples": 25
+            }
+          ],
+          "nativeResolutionM": 10,
+          "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+          "attribution": "Contains modified Copernicus Sentinel data 2026"
+        }
+      }
+    }
+  ],
+  "sourceManifestUrl": "data/source-manifest.json",
+  "regionsCatalogUrl": "data/regions.json"
+}

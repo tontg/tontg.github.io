@@ -1,0 +1,46 @@
+Casa Voxel — Casablanca Finance City — Geographic data / Données géographiques
+
+Build / génération: 2026-11-02T20:58:59.242896+00:00
+
+OpenStreetMap
+© OpenStreetMap contributors
+ODbL-1.0: https://opendatacommons.org/licenses/odbl/1-0/
+Source: https://www.openstreetmap.org/copyright
+Download: https://api.openstreetmap.org/api/0.6/map?bbox=-7.67624046514766%2C33.54990977586325%2C-7.644601230313053%2C33.576397392309836
+Release/version: Non disponible / unavailable
+Downloaded/téléchargé: 2026-11-02T20:53:08.446406+00:00
+Acquisition: Non disponible / unavailable
+
+Microsoft Global ML Building Footprints
+Microsoft Global ML Building Footprints, CDLA Permissive 2.0
+CDLA-Permissive-2.0: https://cdla.dev/permissive-2-0/
+Source: https://github.com/microsoft/GlobalMLBuildingFootprints
+Download: https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv
+Release/version: 2026-08-13
+Downloaded/téléchargé: 2026-11-02T20:17:40.792376+00:00
+Acquisition: Non disponible / unavailable
+
+Copernicus Sentinel-2 Level-2A
+Contains modified Copernicus Sentinel data 2026
+Copernicus Sentinel data licence: https://cds.climate.copernicus.eu/licences/ec-sentinel
+Source: https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2
+Download: https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A
+Release/version: S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE
+Downloaded/téléchargé: 2026-11-02T20:55:49.103122+00:00
+Acquisition: 2026-11-01
+
+The combined derived database is available under ODbL 1.0.
+La base dérivée combinée est disponible sous ODbL 1.0.
+https://opendatacommons.org/licenses/odbl/1-0/
+Licence text / texte: ../../licenses/ODbL-1.0.txt
+Direct Microsoft data retain CDLA Permissive 2.0; full text: ../../licenses/CDLA-Permissive-2.0.txt
+Les données Microsoft originales conservent leurs conditions CDLA Permissive 2.0.
+
+The normalized database (normalized.geojson.gz), source-manifest.json and tiles in this directory are provided for reuse under these data terms. Preserve attribution, licence references and access to the derived database when redistributing or hosting.
+La base normalisée, les métadonnées de sources et les tuiles sont réutilisables selon ces conditions. Préserver les crédits, licences et l’accès à la base dérivée lors de toute redistribution.
+
+Application code is separately MIT licensed. The MIT licence does not relicense geographic data or imagery.
+Le code de l’application est séparément sous MIT ; cette licence ne s’applique pas aux données géographiques ni aux images.
+
+Dates are not interchangeable: a release/download date is not the imagery acquisition date.
+Les dates de version et de téléchargement ne sont pas des dates d’acquisition.

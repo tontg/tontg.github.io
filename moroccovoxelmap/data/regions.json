@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "defaultRegion": "central",
+  "regions": [
+    {
+      "id": "central",
+      "name": "Centre de Casablanca",
+      "description": {
+        "fr": "De la médina à l’Atlantique",
+        "en": "From the medina to the Atlantic"
+      },
+      "indexUrl": "index.json",
+      "center": {
+        "lat": 33.599,
+        "lon": -7.62
+      },
+      "bounds": {
+        "minX": -1600.0,
+        "minY": -1700.0,
+        "maxX": 1600.0,
+        "maxY": 1700.0
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 7048,
+      "builtAt": "2026-11-02T20:58:46.157826+00:00"
+    },
+    {
+      "id": "cfc",
+      "name": "Casablanca Finance City",
+      "description": {
+        "fr": "Le quartier d’affaires et Anfa Park",
+        "en": "The business district and Anfa Park"
+      },
+      "sourceId": "osm/node/12223124337",
+      "sourceUrl": "https://www.openstreetmap.org/node/12223124337",
+      "indexUrl": "cfc/index.json",
+      "center": {
+        "lat": 33.5631545,
+        "lon": -7.6604232
+      },
+      "bounds": {
+        "minX": -1300.0,
+        "minY": -1300.0,
+        "maxX": 1300.0,
+        "maxY": 1300.0
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 3745,
+      "builtAt": "2026-11-02T20:58:59.242896+00:00"
+    },
+    {
+      "id": "sidi-maarouf",
+      "name": "Sidi Maârouf",
+      "description": {
+        "fr": "Le quartier de Sidi Maârouf et ses environs",
+        "en": "Sidi Maârouf and its surroundings"
+      },
+      "sourceId": "osm/node/12269473986",
+      "sourceUrl": "https://www.openstreetmap.org/node/12269473986",
+      "indexUrl": "sidi-maarouf/index.json",
+      "center": {
+        "lat": 33.5286123,
+        "lon": -7.646462
+      },
+      "bounds": {
+        "minX": -1500.0,
+        "minY": -1500.0,
+        "maxX": 1500.0,
+        "maxY": 1500.0
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 3728,
+      "builtAt": "2026-11-02T21:00:30.600879+00:00"
+    }
+  ]
+}

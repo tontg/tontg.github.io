@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "validator": "OpenUSD",
+  "version": "0.26.11",
+  "source": "https://pypi.org/project/usd-core/",
+  "license": "LicenseRef-TOST-1.0",
+  "validatorCount": 30,
+  "nativeQuickLookDevice": "not-tested",
+  "notes": "OpenUSD schema/material/package validation is independent QA, not Apple device certification.",
+  "models": [
+    {
+      "region": "central",
+      "sha256": "514f8c21ec81125a8020a6c48a91516ece34e934703de2f596164149d84cb00e",
+      "bytes": 12551580,
+      "quads": 199421,
+      "verticesAndColorsMatchCvm": true,
+      "storedZipCrcAndAlignment": true,
+      "usdValidationErrors": [],
+      "usdValidationWarnings": [],
+      "physicalBoundsMatchManifest": true
+    },
+    {
+      "region": "cfc",
+      "sha256": "66c8721eb6a0c68eae72c60d3657fffaaa2b99e3b51115d84178c9cf3a0414fc",
+      "bytes": 7301545,
+      "quads": 119093,
+      "verticesAndColorsMatchCvm": true,
+      "storedZipCrcAndAlignment": true,
+      "usdValidationErrors": [],
+      "usdValidationWarnings": [],
+      "physicalBoundsMatchManifest": true
+    },
+    {
+      "region": "sidi-maarouf",
+      "sha256": "a40033a6ebfbace681532c7c18fd4369da222756dc02f1e67efbc88367d45202",
+      "bytes": 8097463,
+      "quads": 131940,
+      "verticesAndColorsMatchCvm": true,
+      "storedZipCrcAndAlignment": true,
+      "usdValidationErrors": [],
+      "usdValidationWarnings": [],
+      "physicalBoundsMatchManifest": true
+    }
+  ]
+}

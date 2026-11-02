@@ -1,0 +1,89 @@
+{
+  "profile": "full",
+  "region": "sidi-maarouf",
+  "builtAt": "2026-11-02T21:00:30.600879+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -1500.0,
+    "minY": -1500.0,
+    "maxX": 1500.0,
+    "maxY": 1500.0
+  },
+  "buildingCount": 3728,
+  "sourceBreakdown": {
+    "openstreetmap": 1731,
+    "microsoft": 1997
+  },
+  "heightMethods": {
+    "estimated": 3720,
+    "levels": 8
+  },
+  "estimatedHeightCount": 3728,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 3728
+  },
+  "roofColorMethods": {
+    "imagery-palette": 3581,
+    "imagery": 147
+  },
+  "courtyardBuildings": 27,
+  "buildingParts": 0,
+  "roads": 1525,
+  "mappedTreeLocations": 1,
+  "groundPolygons": 40,
+  "tiles": 64,
+  "tileBytes": 3227022,
+  "audit": {
+    "outOfExtentGeometryExcluded": 340,
+    "emptyOrSmallGeometryDiscarded": 12,
+    "osmBuildingsBeforeConflation": 1731,
+    "microsoftAvailable": true,
+    "microsoftFootprintsInExtent": 3712,
+    "microsoftMissingHeight": 2006,
+    "microsoftOverlappingOsmRemoved": 1706,
+    "microsoftOverlappingFootprintsTrimmed": 36,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-11-01"
+    ],
+    "sampledRoofs": 147,
+    "paletteStyledRoofs": 3581,
+    "regionalRoofPalette": [
+      {
+        "color": "#866e56",
+        "sourceRoofSamples": 24
+      },
+      {
+        "color": "#9c8066",
+        "sourceRoofSamples": 25
+      },
+      {
+        "color": "#ad8a70",
+        "sourceRoofSamples": 24
+      },
+      {
+        "color": "#c39a78",
+        "sourceRoofSamples": 25
+      },
+      {
+        "color": "#d6a27e",
+        "sourceRoofSamples": 24
+      },
+      {
+        "color": "#f2caa1",
+        "sourceRoofSamples": 25
+      }
+    ],
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "terrain": "Flat base; no DSM or individual roof-height survey included.",
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

@@ -1,0 +1,57 @@
+{
+  "profile": "sample",
+  "builtAt": "2026-11-02T20:36:39.729139+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -273.7508492502384,
+    "minY": -819.7479131133296,
+    "maxX": 526.2491507497616,
+    "maxY": -19.74791311332956
+  },
+  "buildingCount": 701,
+  "sourceBreakdown": {
+    "openstreetmap": 211,
+    "microsoft": 490
+  },
+  "heightMethods": {
+    "levels": 24,
+    "estimated": 677
+  },
+  "estimatedHeightCount": 701,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 701
+  },
+  "roofColorMethods": {
+    "estimated": 701
+  },
+  "courtyardBuildings": 7,
+  "buildingParts": 6,
+  "roads": 287,
+  "mappedTreeLocations": 0,
+  "groundPolygons": 24,
+  "tiles": 9,
+  "tileBytes": 529658,
+  "audit": {
+    "outOfExtentGeometryExcluded": 3704,
+    "osmBuildingsBeforeConflation": 213,
+    "buildingOutlinesTrimmedForParts": 9,
+    "buildingOutlinesReplacedByParts": 2,
+    "microsoftAvailable": true,
+    "microsoftFootprintsInExtent": 620,
+    "microsoftMissingHeight": 493,
+    "microsoftOverlappingOsmRemoved": 127,
+    "emptyOrSmallGeometryDiscarded": 3,
+    "microsoftOverlappingFootprintsTrimmed": 42,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": false,
+    "source": null,
+    "acquisitionDates": [],
+    "reason": "No licensed local Sentinel-2 true-colour GeoTIFF was supplied. Colors use mapped tags, curated landmarks and an estimated palette."
+  },
+  "terrain": "Flat base; no DSM or individual roof-height survey included.",
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

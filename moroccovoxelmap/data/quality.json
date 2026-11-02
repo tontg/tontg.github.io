@@ -1,0 +1,98 @@
+{
+  "profile": "full",
+  "region": "central",
+  "builtAt": "2026-11-02T20:58:46.157826+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -1600.0,
+    "minY": -1700.0,
+    "maxX": 1600.0,
+    "maxY": 1700.0
+  },
+  "buildingCount": 7048,
+  "sourceBreakdown": {
+    "openstreetmap": 3008,
+    "microsoft": 4040
+  },
+  "heightMethods": {
+    "mapped": 75,
+    "levels": 547,
+    "estimated": 6426
+  },
+  "estimatedHeightCount": 6973,
+  "mappedOrCuratedHeightCount": 75,
+  "wallColorMethods": {
+    "curated": 2,
+    "estimated": 7030,
+    "mapped": 16
+  },
+  "roofColorMethods": {
+    "curated": 3,
+    "imagery-palette": 6835,
+    "mapped": 12,
+    "imagery": 198
+  },
+  "courtyardBuildings": 35,
+  "buildingParts": 67,
+  "roads": 2661,
+  "mappedTreeLocations": 325,
+  "groundPolygons": 156,
+  "tiles": 80,
+  "tileBytes": 6051929,
+  "audit": {
+    "outOfExtentGeometryExcluded": 876,
+    "emptyOrSmallGeometryDiscarded": 28,
+    "osmBuildingsBeforeConflation": 3018,
+    "buildingOutlinesTrimmedForParts": 26,
+    "buildingOutlinesReplacedByParts": 10,
+    "microsoftAvailable": true,
+    "microsoftFootprintsInExtent": 5872,
+    "microsoftMissingHeight": 4045,
+    "microsoftOverlappingOsmRemoved": 1827,
+    "invalidGeometryRepaired": 1,
+    "microsoftOverlappingFootprintsTrimmed": 249,
+    "oceanAreaM2": 2399515,
+    "coastlineAvailable": true
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-11-01"
+    ],
+    "sampledRoofs": 198,
+    "paletteStyledRoofs": 6835,
+    "regionalRoofPalette": [
+      {
+        "color": "#886f5a",
+        "sourceRoofSamples": 33
+      },
+      {
+        "color": "#9d816a",
+        "sourceRoofSamples": 33
+      },
+      {
+        "color": "#a88e78",
+        "sourceRoofSamples": 33
+      },
+      {
+        "color": "#b6977a",
+        "sourceRoofSamples": 33
+      },
+      {
+        "color": "#ceab8d",
+        "sourceRoofSamples": 33
+      },
+      {
+        "color": "#f4cfae",
+        "sourceRoofSamples": 33
+      }
+    ],
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "terrain": "Flat base; no DSM or individual roof-height survey included.",
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 0.9893586833144155
+}

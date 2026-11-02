@@ -1,0 +1,1 @@
+{"id":"-3_4","bounds":{"minX":-1200.0,"minY":1600.0,"maxX":-800.0,"maxY":1700.0},"buildings":[],"ground":[{"id":"osm/coastline-derived-ocean","type":"water","name":"Océan Atlantique","source":"openstreetmap","geometry":{"type":"Polygon","coordinates":[[[-800.0,1600.0],[-1200.0,1600.0],[-1200.0,1700.0],[-800.0,1700.0],[-800.0,1600.0]]]}}],"roads":[],"trees":[]}
