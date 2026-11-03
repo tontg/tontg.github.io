@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "builtAt": "2026-11-02T23:06:17.612067+00:00",
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "downloadUrl": "https://overpass-api.de/api/interpreter",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "downloadedAt": "2026-11-02T22:09:24.285183+00:00",
+      "snapshotAt": "2026-11-02T22:07:28Z",
+      "responseDate": "Mon, 02 Nov 2026 22:09:20 GMT",
+      "requestKind": "overpass",
+      "acquisitionMethod": "overpass",
+      "apiVersion": null,
+      "requestDescription": "POST Overpass QL in query field",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(34.0093086,-6.8519658,34.0382912,-6.8170240);relation[type=multipolygon](34.0093086,-6.8519658,34.0382912,-6.8170240);node[name](34.0093086,-6.8519658,34.0382912,-6.8170240););out body geom;",
+      "querySha256": "c8750409814c5ffc0dffacbe5ea9e67bc66c44cf9f73733d5e5ab8eeb09bd65d",
+      "sha256": "c2b3aa9bd69c5486a6b846f7b966ff4197adc64f8d887c87191473f8d70d2a51",
+      "bytes": 7818017,
+      "boundsWgs84": [
+        34.009308638893614,
+        -6.851965811435857,
+        34.03829118062231,
+        -6.817024016726997
+      ],
+      "cachePath": "data/raw/rabat/osm-casablanca.json",
+      "region": "rabat",
+      "acquisitionAttempts": [
+        {
+          "method": "osm-map-api",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.851965811435857%2C34.009308638893614%2C-6.817024016726997%2C34.03829118062231",
+          "status": 400,
+          "message": "You requested too many nodes (limit is 50000). Either request a smaller area, or use planet.osm"
+        },
+        {
+          "method": "overpass",
+          "url": "https://overpass-api.de/api/interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft Global ML Building Footprints",
+      "release": "2026-08-13",
+      "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+      "license": "CDLA-Permissive-2.0",
+      "licenseUrl": "https://cdla.dev/permissive-2-0/",
+      "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+      "downloadedAt": "2026-11-02T22:21:46.901470+00:00",
+      "clippedAt": "2026-11-02T22:30:28.555325+00:00",
+      "acquisitionDate": null,
+      "acquisitionNote": "Per-feature imagery acquisition dates are unavailable in these tiles. Release date is not imagery date.",
+      "boundsWgs84": [
+        34.009308638893614,
+        -6.851965811435857,
+        34.03829118062231,
+        -6.817024016726997
+      ],
+      "indexSha256": "de61b569b0c23c364d61173632d8c5487ea30bf20912c55b9fa1ab4a89d01148",
+      "sourceTiles": [
+        {
+          "quadkey": "033112310",
+          "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Africa/quadkey=033112310/part-00024-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+          "sha256": "c879cadf61f4a3e09ebeaaf8e80d62259deeadbd4128c39b061a64090ab61eee",
+          "bytes": 645,
+          "providerLocation": "Africa",
+          "downloadedAt": "2026-11-02T22:20:56.602379+00:00"
+        },
+        {
+          "quadkey": "033112310",
+          "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033112310/part-00082-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+          "sha256": "d6847e518290726c885e126c8d9660281a2b0502c9460336f4e9f067ce12fcfe",
+          "bytes": 31365257,
+          "providerLocation": "Morocco",
+          "downloadedAt": "2026-11-02T22:21:46.901470+00:00"
+        }
+      ],
+      "sha256": "b6e1d3b4a214638084c0a583b25c6ff3efc8b8f77bb10b93ddd4b7d29c32d93e",
+      "bytes": 3170626,
+      "features": 7373,
+      "cachePath": "data/raw/rabat/microsoft-casablanca.geojsonl",
+      "region": "rabat"
+    },
+    {
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+      "acquisitionDates": [
+        "2026-11-01"
+      ],
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SPT_20261101T112054_L2A",
+      "stacItemId": "S2C_T29SPT_20261101T112054_L2A",
+      "stacCollection": "sentinel-2-c1-l2a",
+      "assets": {
+        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/S/PT/2026/11/S2C_T29SPT_20261101T112054_L2A/TCI.tif",
+        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/S/PT/2026/11/S2C_T29SPT_20261101T112054_L2A/SCL.tif"
+      },
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "downloadedAt": "2026-11-02T22:30:32.820473+00:00",
+      "crs": "EPSG:32629",
+      "nativeResolutionM": 10,
+      "productKind": "documented-true-colour",
+      "rgbBands": [
+        1,
+        2,
+        3
+      ],
+      "displayRange": [
+        0,
+        255
+      ],
+      "scale": 1,
+      "offset": 0,
+      "gamma": 1,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 5.917425,
+      "localValidPixelFraction": 0.9965105601469237,
+      "maskNativeResolutionM": 20.0,
+      "areaBoundsWgs84": [
+        -6.851965811435857,
+        34.009308638893614,
+        -6.817024016726997,
+        34.03829118062231
+      ],
+      "areaConfigSha256": "4e13b9f1e7e2c55c41ece361862200de7a74ff9352dcaa5b2e346530f66c4e6a",
+      "region": "rabat",
+      "sha256": "51f4b1622cb2899608c79324f12da7677e411477d52f6e1d3d49714d46f5f6ca",
+      "bytes": 273799,
+      "width": 330,
+      "height": 330,
+      "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "rasterCrs": "EPSG:32629",
+      "rasterResolution": [
+        10.0,
+        10.0
+      ],
+      "id": "local-imagery",
+      "importedAt": "2026-11-02T22:30:40.733009+00:00",
+      "configSha256": "b90158a184742e559c7b4f5d8f52aa3456ec248189cae50c121f5abe3a63331a",
+      "sourceChecksums": {
+        "openstreetmap": "c2b3aa9bd69c5486a6b846f7b966ff4197adc64f8d887c87191473f8d70d2a51",
+        "microsoft": "b6e1d3b4a214638084c0a583b25c6ff3efc8b8f77bb10b93ddd4b7d29c32d93e"
+      },
+      "sampledRoofCount": 124,
+      "skipped": {
+        "smallRoofs": 6518,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 3,
+        "mappedOrCuratedRoof": 8
+      },
+      "regionalRoofPalette": [
+        {
+          "color": "#886d57",
+          "sourceRoofSamples": 20
+        },
+        {
+          "color": "#a07b63",
+          "sourceRoofSamples": 21
+        },
+        {
+          "color": "#b08167",
+          "sourceRoofSamples": 21
+        },
+        {
+          "color": "#bb8c6f",
+          "sourceRoofSamples": 20
+        },
+        {
+          "color": "#c4997b",
+          "sourceRoofSamples": 21
+        },
+        {
+          "color": "#edbd93",
+          "sourceRoofSamples": 21
+        }
+      ],
+      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
+      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+    },
+    {
+      "id": "gedtm30",
+      "name": "GEDTM30 global bare-earth terrain",
+      "provider": "OpenGeoHub",
+      "release": "v1.2.0",
+      "publicationDate": "2026-03-06",
+      "sourceUrl": "https://zenodo.org/records/18887460",
+      "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+      "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
+      "sourceTimePeriod": [
+        "2006-01-01",
+        "2015-12-31"
+      ],
+      "downloadedAt": "2026-11-02T22:58:14.547411+00:00",
+      "acquisitionMethod": "bounded-native-cog-window",
+      "region": "rabat",
+      "boundsWgs84": [
+        34.009308638893614,
+        -6.851965811435857,
+        34.03829118062231,
+        -6.817024016726997
+      ],
+      "crs": "EPSG:4326",
+      "verticalDatum": "EGM2008",
+      "units": "metre",
+      "effectiveScale": 1,
+      "nativeResolutionM": 30,
+      "gridSpacingArcSeconds": 1,
+      "bytes": 24959,
+      "sha256": "262d6eda0ca35e2a0a4c94d1d37462b9b3e7d184d35e27b64dbeb70dab2a8eb9",
+      "cachePath": "data/raw/rabat/gedtm30.tif",
+      "width": 127,
+      "height": 105,
+      "validPixelFraction": 1.0,
+      "minElevation": -0.5,
+      "maxElevation": 72.4000015258789,
+      "sourceRasterScale": 0.1,
+      "sourceRasterOffset": 0.0,
+      "sourceRasterDtype": "float32",
+      "sourceNativeResolutionDegrees": [
+        0.00027777777777799305,
+        0.00027777777777799305
+      ],
+      "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
+      "sourceWindow": {
+        "colOff": 623337,
+        "rowOff": 183466,
+        "width": 127,
+        "height": 105
+      },
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution.",
+      "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
+    }
+  ],
+  "derivedDatabaseLicense": "ODbL-1.0",
+  "outputProfile": "full",
+  "region": "rabat",
+  "configSha256": "b90158a184742e559c7b4f5d8f52aa3456ec248189cae50c121f5abe3a63331a"
+}

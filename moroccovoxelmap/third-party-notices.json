@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T21:35:42.936Z",
+  "generatedAt": "2026-11-02T23:56:34.570Z",
   "pythonInventoryMode": "installed-metadata",
   "sources": [
     "package-lock.json",
@@ -980,6 +980,28 @@
     },
     {
       "ecosystem": "npm",
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "installed": true,
+      "direct": true,
+      "scope": "development",
+      "location": "node_modules/gltf-validator",
+      "integrity": "sha512-odJ4k0tRkGXiDGn78yDBg+fBbAIvBnXxh3RwAta0emSxGtyagFE8B4xELB1oYe3S5RD8Ci3uZAsZaascH2LAEQ==",
+      "projectUrl": "https://github.com/KhronosGroup/glTF-Validator",
+      "license": "Apache-2.0",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Build-time independent Khronos validation of static GLB models",
+        "fr": "Validation indépendante Khronos des modèles GLB statiques à la compilation"
+      },
+      "licenseEvidence": "installed package licence files",
+      "licenseUrl": "licenses/software/npm-gltf-validator-2.0.0-dev.3.10.txt",
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    },
+    {
+      "ecosystem": "npm",
       "name": "iwer",
       "version": "2.7.0",
       "installed": true,
@@ -1743,8 +1765,8 @@
       "license": "BSD-3-Clause",
       "licenseStatus": "text-included",
       "purpose": {
-        "en": "Sentinel COG window download and local GeoTIFF colour processing",
-        "fr": "Téléchargement de fenêtres COG Sentinel et traitement des couleurs GeoTIFF"
+        "en": "Sentinel/GEDTM30 COG windows and local GeoTIFF colour/elevation processing",
+        "fr": "Fenêtres COG Sentinel/GEDTM30 et traitement local des couleurs et altitudes GeoTIFF"
       },
       "licenseUrl": "licenses/software/python-rasterio-1.5.2.txt",
       "licenseFiles": [

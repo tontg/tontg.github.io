@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "central",
-  "builtAt": "2026-11-02T20:58:46.157826+00:00",
+  "builtAt": "2026-11-02T23:03:50.663177+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -1600.0,
@@ -38,7 +38,7 @@
   "mappedTreeLocations": 325,
   "groundPolygons": 156,
   "tiles": 80,
-  "tileBytes": 6051929,
+  "tileBytes": 7009182,
   "audit": {
     "outOfExtentGeometryExcluded": 876,
     "emptyOrSmallGeometryDiscarded": 28,
@@ -51,7 +51,7 @@
     "microsoftOverlappingOsmRemoved": 1827,
     "invalidGeometryRepaired": 1,
     "microsoftOverlappingFootprintsTrimmed": 249,
-    "oceanAreaM2": 2399515,
+    "oceanAreaM2": 2399512,
     "coastlineAvailable": true
   },
   "imagery": {
@@ -92,7 +92,23 @@
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
   },
-  "terrain": "Flat base; no DSM or individual roof-height survey included.",
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": -8,
+    "minElevation": -7.41,
+    "maxElevation": 42.24,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
   "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
   "estimatedHeightFraction": 0.9893586833144155
 }

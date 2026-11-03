@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "sidi-maarouf",
-  "builtAt": "2026-11-02T21:00:30.600879+00:00",
+  "builtAt": "2026-11-02T23:06:38.798134+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -1500.0,
@@ -33,7 +33,7 @@
   "mappedTreeLocations": 1,
   "groundPolygons": 40,
   "tiles": 64,
-  "tileBytes": 3227022,
+  "tileBytes": 3799123,
   "audit": {
     "outOfExtentGeometryExcluded": 340,
     "emptyOrSmallGeometryDiscarded": 12,
@@ -83,7 +83,23 @@
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
   },
-  "terrain": "Flat base; no DSM or individual roof-height survey included.",
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 56,
+    "minElevation": 57.52,
+    "maxElevation": 116.61,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
   "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
   "estimatedHeightFraction": 1.0
 }

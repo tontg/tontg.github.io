@@ -4,11 +4,30 @@
   "regions": [
     {
       "id": "central",
-      "name": "Centre de Casablanca",
+      "name": "Casablanca",
       "description": {
         "fr": "De la médina à l’Atlantique",
         "en": "From the medina to the Atlantic"
       },
+      "category": "city",
+      "displayName": {
+        "fr": "Casablanca",
+        "en": "Casablanca"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 3215935,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 1302,
+        "populationRank2024": 1
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
       "indexUrl": "index.json",
       "center": {
         "lat": 33.599,
@@ -22,7 +41,253 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 7048,
-      "builtAt": "2026-11-02T20:58:46.157826+00:00"
+      "builtAt": "2026-11-02T23:03:50.663177+00:00"
+    },
+    {
+      "id": "agadir",
+      "name": "Agadir",
+      "description": {
+        "fr": "Le centre-ville et le front de mer",
+        "en": "The city centre and seafront"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Agadir",
+        "en": "Agadir"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 504768,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 2002,
+        "populationRank2024": 10,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/30.4201/-9.5995"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 30.4326764,
+          "lon": -9.6140841
+        },
+        "bottomRight": {
+          "lat": 30.4075236,
+          "lon": -9.5849159
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "agadir/index.json",
+      "center": {
+        "lat": 30.420099999999998,
+        "lon": -9.599499999999999
+      },
+      "bounds": {
+        "minX": -1408.241196984658,
+        "minY": -1401.021399345249,
+        "maxX": 1407.8828335778671,
+        "maxY": 1401.2082552313805
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 6303,
+      "builtAt": "2026-11-02T23:03:59.266391+00:00"
+    },
+    {
+      "id": "ait-ben-haddou",
+      "name": "Aït Ben Haddou",
+      "description": {
+        "fr": "Le ksar et le village voisin",
+        "en": "The ksar and neighbouring village"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Aït Ben Haddou",
+        "en": "Ait Ben Haddou"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://whc.unesco.org/en/list/444/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/31.04722/-7.12889"
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/444/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.0535082,
+          "lon": -7.1362296
+        },
+        "bottomRight": {
+          "lat": 31.0409318,
+          "lon": -7.1215504
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "ait-ben-haddou/index.json",
+      "center": {
+        "lat": 31.04722,
+        "lon": -7.12889
+      },
+      "bounds": {
+        "minX": -712.2123222224182,
+        "minY": -708.8487547715195,
+        "maxX": 712.3038045585854,
+        "maxY": 708.8984656119719
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 508,
+      "builtAt": "2026-11-02T23:04:02.788844+00:00"
+    },
+    {
+      "id": "al-hoceima",
+      "name": "Al Hoceïma",
+      "description": {
+        "fr": "Le centre-ville et les abords du port",
+        "en": "The city centre and harbour surroundings"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Al Hoceïma",
+        "en": "Al Hoceima"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/al-hoceima",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/35.244/-3.929"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/al-hoceima",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 35.2520848,
+          "lon": -3.9388993
+        },
+        "bottomRight": {
+          "lat": 35.2359152,
+          "lon": -3.9191007
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "al-hoceima/index.json",
+      "center": {
+        "lat": 35.244,
+        "lon": -3.9290000000000003
+      },
+      "bounds": {
+        "minX": -909.1569366225158,
+        "minY": -905.0310638789088,
+        "maxX": 908.978914813837,
+        "maxY": 905.1237560291775
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 1200,
+      "builtAt": "2026-11-02T23:04:05.936037+00:00"
+    },
+    {
+      "id": "asilah",
+      "name": "Asilah",
+      "description": {
+        "fr": "La médina et ses remparts face à l’Atlantique",
+        "en": "The medina and ramparts facing the Atlantic"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Asilah",
+        "en": "Asilah"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/destinations/asilah",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/35.4652/-6.0391"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/destinations/asilah",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 35.4723865,
+          "lon": -6.0479235
+        },
+        "bottomRight": {
+          "lat": 35.4580135,
+          "lon": -6.0302765
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "asilah/index.json",
+      "center": {
+        "lat": 35.465199999999996,
+        "lon": -6.0390999999999995
+      },
+      "bounds": {
+        "minX": -824.7866537402151,
+        "minY": -821.3653666609898,
+        "maxX": 824.9275170507608,
+        "maxY": 821.4420568272471
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 1636,
+      "builtAt": "2026-11-02T23:04:10.010263+00:00"
+    },
+    {
+      "id": "azemmour",
+      "name": "Azemmour",
+      "description": {
+        "fr": "La médina sur l’Oum Er-Rbia",
+        "en": "The medina on the Oum Er-Rbia"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Azemmour",
+        "en": "Azemmour"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/el-jadida-mazagan/medina",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/33.2895/-8.342"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/el-jadida-mazagan/medina",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 33.2966865,
+          "lon": -8.3505972
+        },
+        "bottomRight": {
+          "lat": 33.2823135,
+          "lon": -8.3334028
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "azemmour/index.json",
+      "center": {
+        "lat": 33.289500000000004,
+        "lon": -8.341999999999999
+      },
+      "bounds": {
+        "minX": -805.4597200485878,
+        "minY": -801.7663289071061,
+        "maxX": 805.5905696229311,
+        "maxY": 801.8342795772478
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 2,
+      "builtAt": "2026-11-02T23:04:11.137304+00:00"
     },
     {
       "id": "cfc",
@@ -31,6 +296,7 @@
         "fr": "Le quartier d’affaires et Anfa Park",
         "en": "The business district and Anfa Park"
       },
+      "category": "district",
       "sourceId": "osm/node/12223124337",
       "sourceUrl": "https://www.openstreetmap.org/node/12223124337",
       "indexUrl": "cfc/index.json",
@@ -46,7 +312,918 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 3745,
-      "builtAt": "2026-11-02T20:58:59.242896+00:00"
+      "builtAt": "2026-11-02T23:04:17.715074+00:00"
+    },
+    {
+      "id": "chefchaouen",
+      "name": "Chefchaouen",
+      "description": {
+        "fr": "La médina du Rif",
+        "en": "The Rif medina"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Chefchaouen",
+        "en": "Chefchaouen"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/chefchaouen",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/35.1699/-5.2636"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/chefchaouen",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 35.1770865,
+          "lon": -5.2723914
+        },
+        "bottomRight": {
+          "lat": 35.1627135,
+          "lon": -5.2548086
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "chefchaouen/index.json",
+      "center": {
+        "lat": 35.1699,
+        "lon": -5.2636
+      },
+      "bounds": {
+        "minX": -819.0004084487446,
+        "minY": -815.383765630424,
+        "maxX": 818.8608024370624,
+        "maxY": 815.4587642350234
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 3619,
+      "builtAt": "2026-11-02T23:04:23.040406+00:00"
+    },
+    {
+      "id": "dakhla",
+      "name": "Dakhla",
+      "description": {
+        "fr": "Le centre de la ville sur la péninsule",
+        "en": "The city centre on the peninsula"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Dakhla",
+        "en": "Dakhla"
+      },
+      "categories": [
+        "additional-city"
+      ],
+      "selection": {
+        "basis": "Dakhla explicitly included in addition to the ten largest communes; HCP population supplied for context",
+        "population2024": 165463,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 2309,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/23.706/-15.931"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 23.717678,
+          "lon": -15.9437542
+        },
+        "bottomRight": {
+          "lat": 23.694322,
+          "lon": -15.9182458
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "dakhla/index.json",
+      "center": {
+        "lat": 23.706,
+        "lon": -15.931000000000001
+      },
+      "bounds": {
+        "minX": -1308.8533571729204,
+        "minY": -1301.4170789774507,
+        "maxX": 1308.622548230167,
+        "maxY": 1301.541774822399
+      },
+      "crs": "EPSG:32628",
+      "buildingCount": 1033,
+      "builtAt": "2026-11-02T23:04:27.483043+00:00"
+    },
+    {
+      "id": "el-jadida",
+      "name": "El Jadida",
+      "description": {
+        "fr": "La cité portugaise et le littoral",
+        "en": "The Portuguese city and coast"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "El Jadida",
+        "en": "El Jadida"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://whc.unesco.org/en/list/1058/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/33.2569/-8.5025"
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/1058/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 33.2649848,
+          "lon": -8.5121683
+        },
+        "bottomRight": {
+          "lat": 33.2488152,
+          "lon": -8.4928317
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "el-jadida/index.json",
+      "center": {
+        "lat": 33.2569,
+        "lon": -8.502500000000001
+      },
+      "bounds": {
+        "minX": -904.744849476614,
+        "minY": -900.5778274955228,
+        "maxX": 904.9103630310856,
+        "maxY": 900.6633861023001
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 2732,
+      "builtAt": "2026-11-02T23:04:30.739922+00:00"
+    },
+    {
+      "id": "essaouira",
+      "name": "Essaouira",
+      "description": {
+        "fr": "La médina, les remparts et le port",
+        "en": "The medina, ramparts and harbour"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Essaouira",
+        "en": "Essaouira"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://whc.unesco.org/en/list/753/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/31.5132/-9.7696"
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/753/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.5212848,
+          "lon": -9.7790834
+        },
+        "bottomRight": {
+          "lat": 31.5051152,
+          "lon": -9.7601166
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "essaouira/index.json",
+      "center": {
+        "lat": 31.513199999999998,
+        "lon": -9.7696
+      },
+      "bounds": {
+        "minX": -906.864327568328,
+        "minY": -902.3896923139691,
+        "maxX": 906.7097743577906,
+        "maxY": 902.4705535247922
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 230,
+      "builtAt": "2026-11-02T23:04:32.927262+00:00"
+    },
+    {
+      "id": "fes",
+      "name": "Fès",
+      "description": {
+        "fr": "Fès el-Bali et les abords de la médina",
+        "en": "Fes el-Bali and the medina surroundings"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Fès",
+        "en": "Fez"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 1167842,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 686,
+        "populationRank2024": 3,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/34.061/-4.98"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.072678,
+          "lon": -4.9940964
+        },
+        "bottomRight": {
+          "lat": 34.049322,
+          "lon": -4.9659036
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "fes/index.json",
+      "center": {
+        "lat": 34.061,
+        "lon": -4.98
+      },
+      "bounds": {
+        "minX": -1326.3867429167149,
+        "minY": -1320.2350990436971,
+        "maxX": 1326.0326757651637,
+        "maxY": 1320.4251237805001
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 9794,
+      "builtAt": "2026-11-02T23:04:43.254870+00:00"
+    },
+    {
+      "id": "figuig",
+      "name": "Figuig",
+      "description": {
+        "fr": "Le ksar Zenaga et les abords de l’oasis",
+        "en": "Ksar Zenaga and the oasis surroundings"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Figuig",
+        "en": "Figuig"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://whc.unesco.org/fr/listesindicatives/5625/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/32.1/-1.236"
+      },
+      "sourceUrl": "https://whc.unesco.org/fr/listesindicatives/5625/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 32.1080848,
+          "lon": -1.2455438
+        },
+        "bottomRight": {
+          "lat": 32.0919152,
+          "lon": -1.2264562
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "figuig/index.json",
+      "center": {
+        "lat": 32.1,
+        "lon": -1.2360000000000002
+      },
+      "bounds": {
+        "minX": -915.2607689804863,
+        "minY": -911.0371945942752,
+        "maxX": 915.4183752910467,
+        "maxY": 911.1220953566954
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 6,
+      "builtAt": "2026-11-02T23:04:46.626750+00:00"
+    },
+    {
+      "id": "ifrane",
+      "name": "Ifrane",
+      "description": {
+        "fr": "Le centre d’Ifrane",
+        "en": "Central Ifrane"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Ifrane",
+        "en": "Ifrane"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ifrane",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/33.5285/-5.106"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ifrane",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 33.5365848,
+          "lon": -5.1156985
+        },
+        "bottomRight": {
+          "lat": 33.5204152,
+          "lon": -5.0963015
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "ifrane/index.json",
+      "center": {
+        "lat": 33.5285,
+        "lon": -5.106
+      },
+      "bounds": {
+        "minX": -919.0871530203149,
+        "minY": -914.8477787710726,
+        "maxX": 918.920875192387,
+        "maxY": 914.9375548739918
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 365,
+      "builtAt": "2026-11-02T23:04:47.461491+00:00"
+    },
+    {
+      "id": "kenitra",
+      "name": "Kénitra",
+      "description": {
+        "fr": "Le centre-ville au sud du Sebou",
+        "en": "The city centre south of the Sebou"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Kénitra",
+        "en": "Kenitra"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 507736,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 989,
+        "populationRank2024": 8,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/34.261/-6.5802"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.272678,
+          "lon": -6.5943298
+        },
+        "bottomRight": {
+          "lat": 34.249322,
+          "lon": -6.5660702
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "kenitra/index.json",
+      "center": {
+        "lat": 34.260999999999996,
+        "lon": -6.5802
+      },
+      "bounds": {
+        "minX": -1331.9178403872065,
+        "minY": -1326.175998388324,
+        "maxX": 1332.2741194182308,
+        "maxY": 1326.3690846343525
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 3729,
+      "builtAt": "2026-11-02T23:04:53.829681+00:00"
+    },
+    {
+      "id": "marrakech",
+      "name": "Marrakech",
+      "description": {
+        "fr": "Jemaa el-Fna et la médina",
+        "en": "Jemaa el-Fna and the medina"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Marrakech",
+        "en": "Marrakech"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 1002697,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 1524,
+        "populationRank2024": 4,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/31.6276/-7.9893"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.6401764,
+          "lon": -8.0040701
+        },
+        "bottomRight": {
+          "lat": 31.6150236,
+          "lon": -7.9745299
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "marrakech/index.json",
+      "center": {
+        "lat": 31.6276,
+        "lon": -7.9893
+      },
+      "bounds": {
+        "minX": -1413.5318124942714,
+        "minY": -1406.8763231388293,
+        "maxX": 1413.9071448141476,
+        "maxY": 1407.0741888945922
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 19889,
+      "builtAt": "2026-11-02T23:05:13.153839+00:00"
+    },
+    {
+      "id": "meknes",
+      "name": "Meknès",
+      "description": {
+        "fr": "Bab Mansour et la ville impériale",
+        "en": "Bab Mansour and the imperial city"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Meknès",
+        "en": "Meknes"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 551503,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 701,
+        "populationRank2024": 6,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/33.8935/-5.5662"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 33.905178,
+          "lon": -5.5802687
+        },
+        "bottomRight": {
+          "lat": 33.881822,
+          "lon": -5.5521313
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "meknes/index.json",
+      "center": {
+        "lat": 33.8935,
+        "lon": -5.5662
+      },
+      "bounds": {
+        "minX": -1333.879817428242,
+        "minY": -1327.7346753636375,
+        "maxX": 1333.5285219945945,
+        "maxY": 1327.9261729512364
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 4232,
+      "builtAt": "2026-11-02T23:05:35.715171+00:00"
+    },
+    {
+      "id": "merzouga",
+      "name": "Merzouga",
+      "description": {
+        "fr": "Le village de Merzouga",
+        "en": "Merzouga village"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Merzouga",
+        "en": "Merzouga"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/errachidia-midelt-merzouga",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/31.099/-4.012"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/errachidia-midelt-merzouga",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.1061865,
+          "lon": -4.0203927
+        },
+        "bottomRight": {
+          "lat": 31.0918135,
+          "lon": -4.0036073
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "merzouga/index.json",
+      "center": {
+        "lat": 31.099,
+        "lon": -4.0120000000000005
+      },
+      "bounds": {
+        "minX": -807.7752451407723,
+        "minY": -803.7869906728156,
+        "maxX": 807.6552068856545,
+        "maxY": 803.8503785943612
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 232,
+      "builtAt": "2026-11-02T23:05:39.121586+00:00"
+    },
+    {
+      "id": "moulay-idriss-zerhoun",
+      "name": "Moulay Idriss Zerhoun",
+      "description": {
+        "fr": "La ville historique",
+        "en": "The historic town"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Moulay Idriss Zerhoun",
+        "en": "Moulay Idriss Zerhoun"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://visit-meknes.com/en/moulay-idriss-zerhoun/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/34.054/-5.522"
+      },
+      "sourceUrl": "https://visit-meknes.com/en/moulay-idriss-zerhoun/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.0602882,
+          "lon": -5.5295897
+        },
+        "bottomRight": {
+          "lat": 34.0477118,
+          "lon": -5.5144103
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "moulay-idriss-zerhoun/index.json",
+      "center": {
+        "lat": 34.054,
+        "lon": -5.522
+      },
+      "bounds": {
+        "minX": -717.9578849305399,
+        "minY": -714.7377949408256,
+        "maxX": 717.8554061785107,
+        "maxY": 714.7935407347977
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 1080,
+      "builtAt": "2026-11-02T23:05:40.673219+00:00"
+    },
+    {
+      "id": "ouarzazate",
+      "name": "Ouarzazate",
+      "description": {
+        "fr": "La kasbah de Taourirt et les quartiers voisins",
+        "en": "Taourirt Kasbah and neighbouring streets"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Ouarzazate",
+        "en": "Ouarzazate"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.9196/-6.899"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 30.9276848,
+          "lon": -6.9084241
+        },
+        "bottomRight": {
+          "lat": 30.9115152,
+          "lon": -6.8895759
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "ouarzazate/index.json",
+      "center": {
+        "lat": 30.919600000000003,
+        "lon": -6.899
+      },
+      "bounds": {
+        "minX": -917.5435687301215,
+        "minY": -913.2121237940155,
+        "maxX": 917.6939548105001,
+        "maxY": 913.2945113237947
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 1961,
+      "builtAt": "2026-11-02T23:05:42.791906+00:00"
+    },
+    {
+      "id": "oujda",
+      "name": "Oujda",
+      "description": {
+        "fr": "La médina et le centre-ville",
+        "en": "The medina and city centre"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Oujda",
+        "en": "Oujda"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 506224,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 517,
+        "populationRank2024": 9,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/34.6814/-1.9128"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.693078,
+          "lon": -1.9270012
+        },
+        "bottomRight": {
+          "lat": 34.669722,
+          "lon": -1.8985988
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "oujda/index.json",
+      "center": {
+        "lat": 34.6814,
+        "lon": -1.9128
+      },
+      "bounds": {
+        "minX": -1314.7719361003255,
+        "minY": -1309.0140306120738,
+        "maxX": 1315.1354407338658,
+        "maxY": 1309.2043279083446
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 9645,
+      "builtAt": "2026-11-02T23:05:58.261236+00:00"
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "description": {
+        "fr": "La médina, les Oudayas et la tour Hassan",
+        "en": "The medina, Oudayas and Hassan Tower"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Rabat",
+        "en": "Rabat"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 509916,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 954,
+        "populationRank2024": 7,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/34.0238/-6.8345"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.0363764,
+          "lon": -6.8496741
+        },
+        "bottomRight": {
+          "lat": 34.0112236,
+          "lon": -6.8193259
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "rabat/index.json",
+      "center": {
+        "lat": 34.0238,
+        "lon": -6.8345
+      },
+      "bounds": {
+        "minX": -1430.5880917089526,
+        "minY": -1424.3647531769238,
+        "maxX": 1430.9979356235126,
+        "maxY": 1424.5857807802968
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 6653,
+      "builtAt": "2026-11-02T23:06:17.612067+00:00"
+    },
+    {
+      "id": "safi",
+      "name": "Safi",
+      "description": {
+        "fr": "La médina et le front de mer",
+        "en": "The medina and waterfront"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Safi",
+        "en": "Safi"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/safi",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/32.2994/-9.2372"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/safi",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 32.3074848,
+          "lon": -9.2467648
+        },
+        "bottomRight": {
+          "lat": 32.2913152,
+          "lon": -9.2276352
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "safi/index.json",
+      "center": {
+        "lat": 32.2994,
+        "lon": -9.2372
+      },
+      "bounds": {
+        "minX": -902.5640682271915,
+        "minY": -898.135897371918,
+        "maxX": 902.404357568128,
+        "maxY": 898.2179086701944
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 375,
+      "builtAt": "2026-11-02T23:06:21.311095+00:00"
+    },
+    {
+      "id": "sale",
+      "name": "Salé",
+      "description": {
+        "fr": "La médina au bord du Bouregreg",
+        "en": "The medina beside the Bouregreg"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Salé",
+        "en": "Salé"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 945101,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 962,
+        "populationRank2024": 5,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/34.0402/-6.8227"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.0509797,
+          "lon": -6.8357089
+        },
+        "bottomRight": {
+          "lat": 34.0294203,
+          "lon": -6.8096911
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "sale/index.json",
+      "center": {
+        "lat": 34.0402,
+        "lon": -6.8227
+      },
+      "bounds": {
+        "minX": -1226.3975424604723,
+        "minY": -1221.0454227873124,
+        "maxX": 1226.6988255435135,
+        "maxY": 1221.207938441541
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 7560,
+      "builtAt": "2026-11-02T23:06:30.581608+00:00"
+    },
+    {
+      "id": "sidi-ifni",
+      "name": "Sidi Ifni",
+      "description": {
+        "fr": "Le centre-ville et le littoral",
+        "en": "The city centre and coast"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Sidi Ifni",
+        "en": "Sidi Ifni"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/sites/default/files/atoms/files/Agadir%20ENG_0.pdf",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/29.379/-10.173"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/sites/default/files/atoms/files/Agadir%20ENG_0.pdf",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 29.3870848,
+          "lon": -10.182278
+        },
+        "bottomRight": {
+          "lat": 29.3709152,
+          "lon": -10.163722
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "sidi-ifni/index.json",
+      "center": {
+        "lat": 29.378999999999998,
+        "lon": -10.173
+      },
+      "bounds": {
+        "minX": -909.5289007024257,
+        "minY": -904.8826582361944,
+        "maxX": 909.3871767671662,
+        "maxY": 904.9583826335147
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 55,
+      "builtAt": "2026-11-02T23:06:33.964461+00:00"
     },
     {
       "id": "sidi-maarouf",
@@ -55,6 +1232,7 @@
         "fr": "Le quartier de Sidi Maârouf et ses environs",
         "en": "Sidi Maârouf and its surroundings"
       },
+      "category": "district",
       "sourceId": "osm/node/12269473986",
       "sourceUrl": "https://www.openstreetmap.org/node/12269473986",
       "indexUrl": "sidi-maarouf/index.json",
@@ -70,7 +1248,349 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 3728,
-      "builtAt": "2026-11-02T21:00:30.600879+00:00"
+      "builtAt": "2026-11-02T23:06:38.798134+00:00"
+    },
+    {
+      "id": "taghazout",
+      "name": "Taghazout",
+      "description": {
+        "fr": "Le village côtier et ses rues",
+        "en": "The coastal village and its streets"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Taghazout",
+        "en": "Taghazout"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/agadir-taghazout",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.5448/-9.709"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/agadir-taghazout",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 30.5510882,
+          "lon": -9.7163014
+        },
+        "bottomRight": {
+          "lat": 30.5385118,
+          "lon": -9.7016986
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "taghazout/index.json",
+      "center": {
+        "lat": 30.5448,
+        "lon": -9.709
+      },
+      "bounds": {
+        "minX": -704.7786980835372,
+        "minY": -701.2485777605325,
+        "maxX": 704.6886959412368,
+        "maxY": 701.2956788628362
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 104,
+      "builtAt": "2026-11-02T23:06:40.444562+00:00"
+    },
+    {
+      "id": "tanger",
+      "name": "Tanger",
+      "description": {
+        "fr": "La médina et le front de mer",
+        "en": "The medina and waterfront"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Tanger",
+        "en": "Tangier"
+      },
+      "categories": [
+        "largest-cities"
+      ],
+      "selection": {
+        "basis": "HCP RGPH 2024 legal population of the named commune; not metropolitan population",
+        "population2024": 1275428,
+        "populationReferenceDate": "2024-09-01",
+        "populationUnit": "commune",
+        "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+        "sourceWorkbook": "https://www.hcp.ma/file/242341/",
+        "sourceWorksheetRow": 314,
+        "populationRank2024": 2,
+        "extentBasis": "Editorial central viewport; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/35.7825/-5.81"
+      },
+      "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 35.794178,
+          "lon": -5.8243953
+        },
+        "bottomRight": {
+          "lat": 35.770822,
+          "lon": -5.7956047
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "tanger/index.json",
+      "center": {
+        "lat": 35.7825,
+        "lon": -5.8100000000000005
+      },
+      "bounds": {
+        "minX": -1338.840692224272,
+        "minY": -1332.9600666239858,
+        "maxX": 1338.4642469261307,
+        "maxY": 1333.1639502146281
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 2944,
+      "builtAt": "2026-11-02T23:06:44.940731+00:00"
+    },
+    {
+      "id": "taroudant",
+      "name": "Taroudant",
+      "description": {
+        "fr": "La ville ancienne à l’intérieur des remparts",
+        "en": "The old town inside its ramparts"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Taroudant",
+        "en": "Taroudant"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/taroudant",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.4707/-8.8781"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/taroudant",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 30.4787848,
+          "lon": -8.8874803
+        },
+        "bottomRight": {
+          "lat": 30.4626152,
+          "lon": -8.8687197
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "taroudant/index.json",
+      "center": {
+        "lat": 30.4707,
+        "lon": -8.8781
+      },
+      "bounds": {
+        "minX": -901.3014636945445,
+        "minY": -896.8601011382416,
+        "maxX": 901.4501458838349,
+        "maxY": 896.9362706774846
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 10218,
+      "builtAt": "2026-11-02T23:06:55.578414+00:00"
+    },
+    {
+      "id": "tetouan",
+      "name": "Tétouan",
+      "description": {
+        "fr": "La médina",
+        "en": "The medina"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Tétouan",
+        "en": "Tetouan"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://whc.unesco.org/en/list/837/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/35.5711/-5.3681"
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/837/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 35.5791848,
+          "lon": -5.3780396
+        },
+        "bottomRight": {
+          "lat": 35.5630152,
+          "lon": -5.3581604
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "tetouan/index.json",
+      "center": {
+        "lat": 35.5711,
+        "lon": -5.3681
+      },
+      "bounds": {
+        "minX": -922.5750387849985,
+        "minY": -918.5327330497093,
+        "maxX": 922.3957812100416,
+        "maxY": 918.6290428135544
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 2301,
+      "builtAt": "2026-11-02T23:07:01.465368+00:00"
+    },
+    {
+      "id": "tiznit",
+      "name": "Tiznit",
+      "description": {
+        "fr": "La médina et ses remparts",
+        "en": "The medina and its ramparts"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Tiznit",
+        "en": "Tiznit"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/discover-morocco/traditional-craftsmanship-revisited",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/29.6992/-9.7313"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/discover-morocco/traditional-craftsmanship-revisited",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 29.7072848,
+          "lon": -9.7406074
+        },
+        "bottomRight": {
+          "lat": 29.6911152,
+          "lon": -9.7219926
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "tiznit/index.json",
+      "center": {
+        "lat": 29.699199999999998,
+        "lon": -9.731300000000001
+      },
+      "bounds": {
+        "minX": -906.1469679516158,
+        "minY": -901.5144077735022,
+        "maxX": 906.0031809326028,
+        "maxY": 901.5898749944754
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 178,
+      "builtAt": "2026-11-02T23:07:03.101179+00:00"
+    },
+    {
+      "id": "volubilis",
+      "name": "Volubilis",
+      "description": {
+        "fr": "Le site archéologique selon les objets cartographiés",
+        "en": "The archaeological site as mapped; no reconstructed ruins"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Volubilis",
+        "en": "Volubilis"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://whc.unesco.org/en/list/836/",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/34.0731/-5.5556"
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/836/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 34.0793882,
+          "lon": -5.5631915
+        },
+        "bottomRight": {
+          "lat": 34.0668118,
+          "lon": -5.5480085
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "volubilis/index.json",
+      "center": {
+        "lat": 34.0731,
+        "lon": -5.5556
+      },
+      "bounds": {
+        "minX": -718.2115853204159,
+        "minY": -714.9858797378838,
+        "maxX": 718.1090407501906,
+        "maxY": 715.041701067239
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 37,
+      "builtAt": "2026-11-02T23:07:03.874379+00:00"
+    },
+    {
+      "id": "zagora",
+      "name": "Zagora",
+      "description": {
+        "fr": "Le centre de Zagora et ses rues",
+        "en": "The centre of Zagora and its streets"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Zagora",
+        "en": "Zagora"
+      },
+      "categories": [
+        "curated-destinations"
+      ],
+      "selection": {
+        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
+        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.33/-5.838"
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 30.3380848,
+          "lon": -5.8473668
+        },
+        "bottomRight": {
+          "lat": 30.3219152,
+          "lon": -5.8286332
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "zagora/index.json",
+      "center": {
+        "lat": 30.33,
+        "lon": -5.837999999999999
+      },
+      "bounds": {
+        "minX": -923.4621284165769,
+        "minY": -918.9615526306443,
+        "maxX": 923.3154042714159,
+        "maxY": 919.0442023104988
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 400,
+      "builtAt": "2026-11-02T23:07:05.052085+00:00"
     }
   ]
 }

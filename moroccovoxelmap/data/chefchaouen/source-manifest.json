@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "builtAt": "2026-11-02T23:04:23.040406+00:00",
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-5.2744750372141915%2C35.16100257079353%2C-5.252728773665384%2C35.17879725761566",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "downloadedAt": "2026-11-02T22:06:39.088502+00:00",
+      "snapshotAt": null,
+      "responseDate": "Mon, 02 Nov 2026 22:06:37 GMT",
+      "requestKind": "osm-map-api",
+      "acquisitionMethod": "osm-map-api",
+      "apiVersion": "0.6",
+      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-5.2744750372141915%2C35.16100257079353%2C-5.252728773665384%2C35.17879725761566",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(35.1610026,-5.2744750,35.1787973,-5.2527288);relation[type=multipolygon](35.1610026,-5.2744750,35.1787973,-5.2527288);node[name](35.1610026,-5.2744750,35.1787973,-5.2527288););out body geom;",
+      "querySha256": "8973bc97be9aa8ac41768ea3b4b094ae2aa2741a5833a0421358469b6b563a4a",
+      "sha256": "532881eb8afa1e877da6ff3a79455a24b1ab110286306a1539c77dfcd1049b4c",
+      "bytes": 4190583,
+      "boundsWgs84": [
+        35.16100257079353,
+        -5.2744750372141915,
+        35.17879725761566,
+        -5.252728773665384
+      ],
+      "cachePath": "data/raw/chefchaouen/osm-casablanca.json",
+      "region": "chefchaouen"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft Global ML Building Footprints",
+      "release": "2026-08-13",
+      "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+      "license": "CDLA-Permissive-2.0",
+      "licenseUrl": "https://cdla.dev/permissive-2-0/",
+      "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+      "downloadedAt": "2026-11-02T22:18:22.377099+00:00",
+      "clippedAt": "2026-11-02T22:18:27.887588+00:00",
+      "acquisitionDate": null,
+      "acquisitionNote": "Per-feature imagery acquisition dates are unavailable in these tiles. Release date is not imagery date.",
+      "boundsWgs84": [
+        35.16100257079353,
+        -5.2744750372141915,
+        35.17879725761566,
+        -5.252728773665384
+      ],
+      "indexSha256": "de61b569b0c23c364d61173632d8c5487ea30bf20912c55b9fa1ab4a89d01148",
+      "sourceTiles": [
+        {
+          "quadkey": "033113020",
+          "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Africa/quadkey=033113020/part-00008-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+          "sha256": "67a576127d9acef98db1079bad7bf004e189da266ae1f56fa5a5a37d4d05f11c",
+          "bytes": 289,
+          "providerLocation": "Africa",
+          "downloadedAt": "2026-11-02T22:17:58.172278+00:00"
+        },
+        {
+          "quadkey": "033113020",
+          "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033113020/part-00191-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
+          "sha256": "6a97855f181de2d574bfcf49e6789867e8f9da8d0a40291c970ecaee30661784",
+          "bytes": 10002567,
+          "providerLocation": "Morocco",
+          "downloadedAt": "2026-11-02T22:18:22.377099+00:00"
+        }
+      ],
+      "sha256": "5885d8d80562580796c9bf33e451f88452fdb01e7751ac88c80e0f2316472c69",
+      "bytes": 912585,
+      "features": 2241,
+      "cachePath": "data/raw/chefchaouen/microsoft-casablanca.geojsonl",
+      "region": "chefchaouen"
+    },
+    {
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T30STD_20261102T152046.SAFE",
+      "acquisitionDates": [
+        "2026-11-01"
+      ],
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T30STD_20261101T112054_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T30STD_20261101T112054_L2A",
+      "stacItemId": "S2C_T30STD_20261101T112054_L2A",
+      "stacCollection": "sentinel-2-c1-l2a",
+      "assets": {
+        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/S/TD/2026/11/S2C_T30STD_20261101T112054_L2A/TCI.tif",
+        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/S/TD/2026/11/S2C_T30STD_20261101T112054_L2A/SCL.tif"
+      },
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "downloadedAt": "2026-11-02T22:18:33.183829+00:00",
+      "crs": "EPSG:32630",
+      "nativeResolutionM": 10,
+      "productKind": "documented-true-colour",
+      "rgbBands": [
+        1,
+        2,
+        3
+      ],
+      "displayRange": [
+        0,
+        255
+      ],
+      "scale": 1,
+      "offset": 0,
+      "gamma": 1,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 0.852278,
+      "localValidPixelFraction": 0.9790398918187965,
+      "maskNativeResolutionM": 20.0,
+      "areaBoundsWgs84": [
+        -5.2744750372141915,
+        35.16100257079353,
+        -5.252728773665384,
+        35.17879725761566
+      ],
+      "areaConfigSha256": "7f70a1c89b16513764eae5a94fa0738b1714bb6e630841305662c6680c089bde",
+      "region": "chefchaouen",
+      "sha256": "27f9d7695ee6bc171a10418ac8665382a90345dfa0e5aa68d5f7b12e5abfeb5f",
+      "bytes": 107639,
+      "width": 204,
+      "height": 203,
+      "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "rasterCrs": "EPSG:32630",
+      "rasterResolution": [
+        10.0,
+        10.0
+      ],
+      "id": "local-imagery",
+      "importedAt": "2026-11-02T22:18:48.297706+00:00",
+      "configSha256": "b22a978133dcfe5500efcfa6dc30d0ae780c2b34557b37508f365308d747c4f2",
+      "sourceChecksums": {
+        "openstreetmap": "532881eb8afa1e877da6ff3a79455a24b1ab110286306a1539c77dfcd1049b4c",
+        "microsoft": "5885d8d80562580796c9bf33e451f88452fdb01e7751ac88c80e0f2316472c69"
+      },
+      "sampledRoofCount": 4,
+      "skipped": {
+        "smallRoofs": 3615,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 0,
+        "mappedOrCuratedRoof": 0
+      },
+      "regionalRoofPalette": [],
+      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
+      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+    },
+    {
+      "id": "gedtm30",
+      "name": "GEDTM30 global bare-earth terrain",
+      "provider": "OpenGeoHub",
+      "release": "v1.2.0",
+      "publicationDate": "2026-03-06",
+      "sourceUrl": "https://zenodo.org/records/18887460",
+      "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+      "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
+      "sourceTimePeriod": [
+        "2006-01-01",
+        "2015-12-31"
+      ],
+      "downloadedAt": "2026-11-02T22:56:14.882675+00:00",
+      "acquisitionMethod": "bounded-native-cog-window",
+      "region": "chefchaouen",
+      "boundsWgs84": [
+        35.16100257079353,
+        -5.2744750372141915,
+        35.17879725761566,
+        -5.252728773665384
+      ],
+      "crs": "EPSG:4326",
+      "verticalDatum": "EGM2008",
+      "units": "metre",
+      "effectiveScale": 1,
+      "nativeResolutionM": 30,
+      "gridSpacingArcSeconds": 1,
+      "bytes": 11187,
+      "sha256": "f5dd0389c6cc49f1ec5b9739c62382e4719989cb22c5a537b18d0afacebe67fb",
+      "cachePath": "data/raw/chefchaouen/gedtm30.tif",
+      "width": 79,
+      "height": 65,
+      "validPixelFraction": 1.0,
+      "minElevation": 443.8999938964844,
+      "maxElevation": 1128.199951171875,
+      "sourceRasterScale": 0.1,
+      "sourceRasterOffset": 0.0,
+      "sourceRasterDtype": "float32",
+      "sourceNativeResolutionDegrees": [
+        0.00027777777777799305,
+        0.00027777777777799305
+      ],
+      "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
+      "sourceWindow": {
+        "colOff": 629016,
+        "rowOff": 179360,
+        "width": 79,
+        "height": 65
+      },
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution.",
+      "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
+    }
+  ],
+  "derivedDatabaseLicense": "ODbL-1.0",
+  "outputProfile": "full",
+  "region": "chefchaouen",
+  "configSha256": "b22a978133dcfe5500efcfa6dc30d0ae780c2b34557b37508f365308d747c4f2"
+}

@@ -1,0 +1,104 @@
+{
+  "profile": "full",
+  "region": "agadir",
+  "builtAt": "2026-11-02T23:03:59.266391+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -1408.241196984658,
+    "minY": -1401.021399345249,
+    "maxX": 1407.8828335778671,
+    "maxY": 1401.2082552313805
+  },
+  "buildingCount": 6303,
+  "sourceBreakdown": {
+    "openstreetmap": 6303
+  },
+  "heightMethods": {
+    "levels": 13,
+    "estimated": 6285,
+    "mapped": 5
+  },
+  "estimatedHeightCount": 6298,
+  "mappedOrCuratedHeightCount": 5,
+  "wallColorMethods": {
+    "mapped": 18,
+    "estimated": 6285
+  },
+  "roofColorMethods": {
+    "imagery": 51,
+    "imagery-palette": 6252
+  },
+  "courtyardBuildings": 37,
+  "buildingParts": 10,
+  "roads": 2057,
+  "mappedTreeLocations": 0,
+  "groundPolygons": 396,
+  "tiles": 64,
+  "tileBytes": 5834913,
+  "audit": {
+    "outOfExtentGeometryExcluded": 1752,
+    "emptyOrSmallGeometryDiscarded": 4,
+    "osmBuildingsBeforeConflation": 6303,
+    "buildingOutlinesTrimmedForParts": 2,
+    "microsoftAvailable": false,
+    "oceanAreaM2": 1201964,
+    "coastlineAvailable": true
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-10-25"
+    ],
+    "sampledRoofs": 51,
+    "paletteStyledRoofs": 6252,
+    "regionalRoofPalette": [
+      {
+        "color": "#ba9370",
+        "sourceRoofSamples": 8
+      },
+      {
+        "color": "#d3aa86",
+        "sourceRoofSamples": 9
+      },
+      {
+        "color": "#debd9b",
+        "sourceRoofSamples": 8
+      },
+      {
+        "color": "#eec8a1",
+        "sourceRoofSamples": 9
+      },
+      {
+        "color": "#fed6aa",
+        "sourceRoofSamples": 8
+      },
+      {
+        "color": "#ffedc7",
+        "sourceRoofSamples": 9
+      }
+    ],
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261025T112141_N0513_R037_T29RMP_20261025T142809.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 0,
+    "minElevation": 0.0,
+    "maxElevation": 118.6,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 0.999206726955418
+}

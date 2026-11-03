@@ -1,0 +1,74 @@
+{
+  "profile": "full",
+  "region": "ait-ben-haddou",
+  "builtAt": "2026-11-02T23:04:02.788844+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -712.2123222224182,
+    "minY": -708.8487547715195,
+    "maxX": 712.3038045585854,
+    "maxY": 708.8984656119719
+  },
+  "buildingCount": 508,
+  "sourceBreakdown": {
+    "openstreetmap": 508
+  },
+  "heightMethods": {
+    "estimated": 508
+  },
+  "estimatedHeightCount": 508,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 508
+  },
+  "roofColorMethods": {
+    "estimated": 503,
+    "imagery": 5
+  },
+  "courtyardBuildings": 2,
+  "buildingParts": 0,
+  "roads": 93,
+  "mappedTreeLocations": 2,
+  "groundPolygons": 4,
+  "tiles": 16,
+  "tileBytes": 444948,
+  "audit": {
+    "emptyOrSmallGeometryDiscarded": 2,
+    "outOfExtentGeometryExcluded": 57,
+    "osmBuildingsBeforeConflation": 508,
+    "microsoftAvailable": false,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-10-24"
+    ],
+    "sampledRoofs": 5,
+    "paletteStyledRoofs": 0,
+    "regionalRoofPalette": [],
+    "nativeResolutionM": 10,
+    "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 1256,
+    "minElevation": 1256.15,
+    "maxElevation": 1329.84,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

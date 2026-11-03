@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "builtAt": "2026-11-02T23:04:30.739922+00:00",
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-8.51387584469352%2C33.24737832523907%2C-8.491119929399925%2C33.26642142615088",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "downloadedAt": "2026-11-02T22:06:48.735025+00:00",
+      "snapshotAt": null,
+      "responseDate": "Mon, 02 Nov 2026 22:06:45 GMT",
+      "requestKind": "osm-map-api",
+      "acquisitionMethod": "osm-map-api",
+      "apiVersion": "0.6",
+      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-8.51387584469352%2C33.24737832523907%2C-8.491119929399925%2C33.26642142615088",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(33.2473783,-8.5138758,33.2664214,-8.4911199);relation[type=multipolygon](33.2473783,-8.5138758,33.2664214,-8.4911199);node[name](33.2473783,-8.5138758,33.2664214,-8.4911199););out body geom;",
+      "querySha256": "fb8c5e14cfe1ef2e21350574f610a4f6fea9b8627e8ab89164ef4d1fe1324d22",
+      "sha256": "ead13a34edcc3d3eac3d95a73f8ebc4447ce661b2920be2478943dd394c565ed",
+      "bytes": 2833627,
+      "boundsWgs84": [
+        33.24737832523907,
+        -8.51387584469352,
+        33.26642142615088,
+        -8.491119929399925
+      ],
+      "cachePath": "data/raw/el-jadida/osm-casablanca.json",
+      "region": "el-jadida"
+    },
+    {
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SNS_20261102T152046.SAFE",
+      "acquisitionDates": [
+        "2026-11-01"
+      ],
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SNS_20261101T112054_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SNS_20261101T112054_L2A",
+      "stacItemId": "S2C_T29SNS_20261101T112054_L2A",
+      "stacCollection": "sentinel-2-c1-l2a",
+      "assets": {
+        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/S/NS/2026/11/S2C_T29SNS_20261101T112054_L2A/TCI.tif",
+        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/S/NS/2026/11/S2C_T29SNS_20261101T112054_L2A/SCL.tif"
+      },
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "downloadedAt": "2026-11-02T22:19:09.703153+00:00",
+      "crs": "EPSG:32629",
+      "nativeResolutionM": 10,
+      "productKind": "documented-true-colour",
+      "rgbBands": [
+        1,
+        2,
+        3
+      ],
+      "displayRange": [
+        0,
+        255
+      ],
+      "scale": 1,
+      "offset": 0,
+      "gamma": 1,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 7.430423,
+      "localValidPixelFraction": 0.9995173533412312,
+      "maskNativeResolutionM": 20.0,
+      "areaBoundsWgs84": [
+        -8.51387584469352,
+        33.24737832523907,
+        -8.491119929399925,
+        33.26642142615088
+      ],
+      "areaConfigSha256": "5787135e4c068691853184c972bf965351aaac9ec0a6571cab06d5732fb2bea3",
+      "region": "el-jadida",
+      "sha256": "e7b2622ffe62045d64bd66aa0b249f57fb23b7f79fb6e7f334655fef9ccc6865",
+      "bytes": 102424,
+      "width": 214,
+      "height": 213,
+      "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "rasterCrs": "EPSG:32629",
+      "rasterResolution": [
+        10.0,
+        10.0
+      ],
+      "id": "local-imagery",
+      "importedAt": "2026-11-02T22:19:11.775086+00:00",
+      "configSha256": "306e99e4672253af1ab2a2b08c54298f3a962b859fca8efd36dbb146718c4975",
+      "sourceChecksums": {
+        "openstreetmap": "ead13a34edcc3d3eac3d95a73f8ebc4447ce661b2920be2478943dd394c565ed"
+      },
+      "sampledRoofCount": 10,
+      "skipped": {
+        "smallRoofs": 2717,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 5,
+        "mappedOrCuratedRoof": 0
+      },
+      "regionalRoofPalette": [
+        {
+          "color": "#ae987e",
+          "sourceRoofSamples": 5
+        },
+        {
+          "color": "#ffddbf",
+          "sourceRoofSamples": 5
+        }
+      ],
+      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
+      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+    },
+    {
+      "id": "gedtm30",
+      "name": "GEDTM30 global bare-earth terrain",
+      "provider": "OpenGeoHub",
+      "release": "v1.2.0",
+      "publicationDate": "2026-03-06",
+      "sourceUrl": "https://zenodo.org/records/18887460",
+      "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+      "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
+      "sourceTimePeriod": [
+        "2006-01-01",
+        "2015-12-31"
+      ],
+      "downloadedAt": "2026-11-02T22:58:02.406327+00:00",
+      "acquisitionMethod": "bounded-native-cog-window",
+      "region": "el-jadida",
+      "boundsWgs84": [
+        33.24737832523907,
+        -8.51387584469352,
+        33.26642142615088,
+        -8.491119929399925
+      ],
+      "crs": "EPSG:4326",
+      "verticalDatum": "EGM2008",
+      "units": "metre",
+      "effectiveScale": 1,
+      "nativeResolutionM": 30,
+      "gridSpacingArcSeconds": 1,
+      "bytes": 8891,
+      "sha256": "d87234ff246b200790f0a5cb4e90106b0f18d9c6b2829265a2101e4df38ae868",
+      "cachePath": "data/raw/el-jadida/gedtm30.tif",
+      "width": 83,
+      "height": 69,
+      "validPixelFraction": 1.0,
+      "minElevation": -0.6000000238418579,
+      "maxElevation": 26.5,
+      "sourceRasterScale": 0.1,
+      "sourceRasterOffset": 0.0,
+      "sourceRasterDtype": "float32",
+      "sourceNativeResolutionDegrees": [
+        0.00027777777777799305,
+        0.00027777777777799305
+      ],
+      "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
+      "sourceWindow": {
+        "colOff": 617354,
+        "rowOff": 186245,
+        "width": 83,
+        "height": 69
+      },
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution.",
+      "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
+    }
+  ],
+  "derivedDatabaseLicense": "ODbL-1.0",
+  "outputProfile": "full",
+  "region": "el-jadida",
+  "configSha256": "306e99e4672253af1ab2a2b08c54298f3a962b859fca8efd36dbb146718c4975"
+}

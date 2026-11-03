@@ -1,0 +1,108 @@
+{
+  "profile": "full",
+  "region": "dakhla",
+  "builtAt": "2026-11-02T23:04:27.483043+00:00",
+  "crs": "EPSG:32628",
+  "bounds": {
+    "minX": -1308.8533571729204,
+    "minY": -1301.4170789774507,
+    "maxX": 1308.622548230167,
+    "maxY": 1301.541774822399
+  },
+  "buildingCount": 1033,
+  "sourceBreakdown": {
+    "openstreetmap": 299,
+    "microsoft": 734
+  },
+  "heightMethods": {
+    "estimated": 792,
+    "mapped": 2,
+    "levels": 239
+  },
+  "estimatedHeightCount": 1031,
+  "mappedOrCuratedHeightCount": 2,
+  "wallColorMethods": {
+    "estimated": 809,
+    "mapped": 224
+  },
+  "roofColorMethods": {
+    "imagery-palette": 966,
+    "imagery": 67
+  },
+  "courtyardBuildings": 1,
+  "buildingParts": 0,
+  "roads": 532,
+  "mappedTreeLocations": 5,
+  "groundPolygons": 17,
+  "tiles": 64,
+  "tileBytes": 1161076,
+  "audit": {
+    "outOfExtentGeometryExcluded": 91,
+    "osmBuildingsBeforeConflation": 299,
+    "microsoftAvailable": true,
+    "microsoftFootprintsInExtent": 1283,
+    "microsoftMissingHeight": 738,
+    "microsoftOverlappingOsmRemoved": 545,
+    "emptyOrSmallGeometryDiscarded": 4,
+    "microsoftOverlappingFootprintsTrimmed": 26,
+    "oceanAreaM2": 1524489,
+    "coastlineAvailable": true
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-10-18"
+    ],
+    "sampledRoofs": 67,
+    "paletteStyledRoofs": 966,
+    "regionalRoofPalette": [
+      {
+        "color": "#edc19a",
+        "sourceRoofSamples": 11
+      },
+      {
+        "color": "#ffd0a5",
+        "sourceRoofSamples": 11
+      },
+      {
+        "color": "#ffddad",
+        "sourceRoofSamples": 11
+      },
+      {
+        "color": "#ffe2b4",
+        "sourceRoofSamples": 11
+      },
+      {
+        "color": "#fff3bd",
+        "sourceRoofSamples": 11
+      },
+      {
+        "color": "#ffffca",
+        "sourceRoofSamples": 12
+      }
+    ],
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261018T113321_N0513_R080_T28QCM_20261018T145404.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 0,
+    "minElevation": 0.0,
+    "maxElevation": 16.73,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 0.9980638915779284
+}

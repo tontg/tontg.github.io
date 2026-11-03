@@ -1,8 +1,8 @@
 /* A bounded, visited-only map cache. No geographic archives are prefetched. */
-const VERSION = 'c46d276d45a6';
+const VERSION = 'aa82174291e0';
 const SHELL = `casa-shell-${VERSION}`;
 const DATA = `casa-data-${VERSION}`;
-const SHELL_FILES = ["index.html","icon.svg","icon-192.png","icon-512.png","manifest.webmanifest","provenance.json","third-party-notices.json","data/regions.json","data/index.json","data/cfc/index.json","data/sidi-maarouf/index.json","assets/index-CirDaBeI.js","assets/index-DdYVUp2g.css"];
+const SHELL_FILES = ["index.html","icon.svg","icon-192.png","icon-512.png","manifest.webmanifest","provenance.json","third-party-notices.json","data/regions.json","data/index.json","assets/index-BO4oWVQb.js","assets/index-Bib36PgQ.css"];
 const MAX_FILES = 24;
 const MAX_BYTES = 32 * 1024 * 1024;
 let cacheWork = Promise.resolve();
@@ -24,10 +24,14 @@ async function boundedPut(request, response) {
   await cache.delete(request);
   await cache.put(request, new Response(body, {status:response.status,headers}));
   const keys = await cache.keys();
+  // Retain the latest visited region index alongside its partial geometry.
+  // It arrives before the meshes and would otherwise be the first file evicted.
+  const currentIndex = keys.filter(key => /\/index\.json$/.test(new URL(key.url).pathname)).at(-1)?.url;
   let bytes = 0;
   for (const key of keys) { const value = await cache.match(key); bytes += Number(value.headers.get('x-casa-cache-bytes') || 0); }
   while (keys.length > MAX_FILES || bytes > MAX_BYTES) {
-    const key = keys.shift(); if (!key) break;
+    const candidate = keys.findIndex(key => key.url !== currentIndex);
+    const [key] = keys.splice(candidate < 0 ? 0 : candidate, 1); if (!key) break;
     const value = await cache.match(key); bytes -= Number(value.headers.get('x-casa-cache-bytes') || 0);
     await cache.delete(key);
   }
@@ -36,7 +40,7 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET' || !request.url.startsWith(self.registration.scope)) return;
   const path = request.url.slice(self.registration.scope.length).split('?')[0];
-  const isMap = /^data\/(?:[^/]+\/)?(?:meshes\/\d+\/[^/]+\.cvm|features\/[^/]+\.json)$/.test(path);
+  const isMap = /^data\/(?:[^/]+\/)?(?:index\.json|meshes\/\d+\/[^/]+\.cvm|features\/[^/]+\.json)$/.test(path);
   const isShell = SHELL_FILES.includes(path);
   if (!isMap && !isShell && request.mode !== 'navigate') return;
   event.respondWith((async()=>{

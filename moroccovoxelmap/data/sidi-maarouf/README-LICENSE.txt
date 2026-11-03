@@ -1,6 +1,6 @@
 Casa Voxel — Sidi Maârouf — Geographic data / Données géographiques
 
-Build / génération: 2026-11-02T21:00:30.600879+00:00
+Build / génération: 2026-11-02T23:06:38.798134+00:00
 
 OpenStreetMap
 © OpenStreetMap contributors
@@ -29,10 +29,21 @@ Release/version: S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SA
 Downloaded/téléchargé: 2026-11-02T20:55:48.828865+00:00
 Acquisition: 2026-11-01
 
+GEDTM30 v1.2 — bare-earth terrain
+GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+CC-BY-4.0: https://creativecommons.org/licenses/by/4.0/
+Source: https://zenodo.org/records/18887460
+Download: https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif
+Release/version: v1.2.0
+Downloaded/téléchargé: 2026-11-02T22:58:16.726928+00:00
+Acquisition: Non disponible / unavailable
+
 The combined derived database is available under ODbL 1.0.
 La base dérivée combinée est disponible sous ODbL 1.0.
 https://opendatacommons.org/licenses/odbl/1-0/
 Licence text / texte: ../../licenses/ODbL-1.0.txt
+GEDTM30 retains CC BY 4.0 attribution; full text: ../../licenses/CC-BY-4.0.txt
+Les altitudes GEDTM30 conservent leur attribution CC BY 4.0.
 Direct Microsoft data retain CDLA Permissive 2.0; full text: ../../licenses/CDLA-Permissive-2.0.txt
 Les données Microsoft originales conservent leurs conditions CDLA Permissive 2.0.
 

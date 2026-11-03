@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "builtAt": "2026-11-02T23:05:42.791906+00:00",
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "downloadedAt": "2026-11-02T22:08:14.100202+00:00",
+      "snapshotAt": null,
+      "responseDate": "Mon, 02 Nov 2026 22:08:13 GMT",
+      "requestKind": "osm-map-api",
+      "acquisitionMethod": "osm-map-api",
+      "apiVersion": "0.6",
+      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(30.9098308,-6.9103741,30.9293690,-6.8876221);relation[type=multipolygon](30.9098308,-6.9103741,30.9293690,-6.8876221);node[name](30.9098308,-6.9103741,30.9293690,-6.8876221););out body geom;",
+      "querySha256": "d580a3852c930a4ca1db056462c9185d140998997923f4c81549ea8bbcbdcb44",
+      "sha256": "f135bfae0f8f37f759f8234836f1e676c89809cb13259b9fe1551ab19b886f7a",
+      "bytes": 1439354,
+      "boundsWgs84": [
+        30.9098308435254,
+        -6.910374050077643,
+        30.929369032260457,
+        -6.887622137323773
+      ],
+      "cachePath": "data/raw/ouarzazate/osm-casablanca.json",
+      "region": "ouarzazate"
+    },
+    {
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
+      "acquisitionDates": [
+        "2026-10-24"
+      ],
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RPQ_20261024T111411_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RPQ_20261024T111411_L2A",
+      "stacItemId": "S2A_T29RPQ_20261024T111411_L2A",
+      "stacCollection": "sentinel-2-c1-l2a",
+      "assets": {
+        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2A_T29RPQ_20261024T111411_L2A/TCI.tif",
+        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2A_T29RPQ_20261024T111411_L2A/SCL.tif"
+      },
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "downloadedAt": "2026-11-02T22:29:21.801601+00:00",
+      "crs": "EPSG:32629",
+      "nativeResolutionM": 10,
+      "productKind": "documented-true-colour",
+      "rgbBands": [
+        1,
+        2,
+        3
+      ],
+      "displayRange": [
+        0,
+        255
+      ],
+      "scale": 1,
+      "offset": 0,
+      "gamma": 1,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 8.334232,
+      "localValidPixelFraction": 0.9998376722196295,
+      "maskNativeResolutionM": 20.0,
+      "areaBoundsWgs84": [
+        -6.910374050077643,
+        30.9098308435254,
+        -6.887622137323773,
+        30.929369032260457
+      ],
+      "areaConfigSha256": "42c5abbf72b5872461be77333bb4994ef1640e97605a9c80c4e728ffb841740b",
+      "region": "ouarzazate",
+      "sha256": "fdd746f45b403b5af539ed807b7915e6aa2a3e2a936caa49dd04cb7b54d50b02",
+      "bytes": 122812,
+      "width": 223,
+      "height": 221,
+      "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "rasterCrs": "EPSG:32629",
+      "rasterResolution": [
+        10.0,
+        10.0
+      ],
+      "id": "local-imagery",
+      "importedAt": "2026-11-02T22:29:22.632249+00:00",
+      "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b",
+      "sourceChecksums": {
+        "openstreetmap": "f135bfae0f8f37f759f8234836f1e676c89809cb13259b9fe1551ab19b886f7a"
+      },
+      "sampledRoofCount": 31,
+      "skipped": {
+        "smallRoofs": 1930,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 0,
+        "mappedOrCuratedRoof": 0
+      },
+      "regionalRoofPalette": [
+        {
+          "color": "#846445",
+          "sourceRoofSamples": 5
+        },
+        {
+          "color": "#b07c53",
+          "sourceRoofSamples": 5
+        },
+        {
+          "color": "#ba8560",
+          "sourceRoofSamples": 5
+        },
+        {
+          "color": "#c89469",
+          "sourceRoofSamples": 5
+        },
+        {
+          "color": "#e6a877",
+          "sourceRoofSamples": 5
+        },
+        {
+          "color": "#f7b67e",
+          "sourceRoofSamples": 6
+        }
+      ],
+      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
+      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+    },
+    {
+      "id": "gedtm30",
+      "name": "GEDTM30 global bare-earth terrain",
+      "provider": "OpenGeoHub",
+      "release": "v1.2.0",
+      "publicationDate": "2026-03-06",
+      "sourceUrl": "https://zenodo.org/records/18887460",
+      "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+      "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
+      "sourceTimePeriod": [
+        "2006-01-01",
+        "2015-12-31"
+      ],
+      "downloadedAt": "2026-11-02T22:58:12.231810+00:00",
+      "acquisitionMethod": "bounded-native-cog-window",
+      "region": "ouarzazate",
+      "boundsWgs84": [
+        30.9098308435254,
+        -6.910374050077643,
+        30.929369032260457,
+        -6.887622137323773
+      ],
+      "crs": "EPSG:4326",
+      "verticalDatum": "EGM2008",
+      "units": "metre",
+      "effectiveScale": 1,
+      "nativeResolutionM": 30,
+      "gridSpacingArcSeconds": 1,
+      "bytes": 10483,
+      "sha256": "231c6ee12ced662529af400e97687eaa27fab92514262f4cdba838faabf3796b",
+      "cachePath": "data/raw/ouarzazate/gedtm30.tif",
+      "width": 83,
+      "height": 72,
+      "validPixelFraction": 1.0,
+      "minElevation": 1104.9000244140625,
+      "maxElevation": 1148.0999755859375,
+      "sourceRasterScale": 0.1,
+      "sourceRasterOffset": 0.0,
+      "sourceRasterDtype": "float32",
+      "sourceNativeResolutionDegrees": [
+        0.00027777777777799305,
+        0.00027777777777799305
+      ],
+      "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
+      "sourceWindow": {
+        "colOff": 623127,
+        "rowOff": 194658,
+        "width": 83,
+        "height": 72
+      },
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution.",
+      "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
+    }
+  ],
+  "derivedDatabaseLicense": "ODbL-1.0",
+  "outputProfile": "full",
+  "region": "ouarzazate",
+  "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b"
+}
