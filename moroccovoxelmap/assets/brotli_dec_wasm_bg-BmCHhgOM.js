@@ -1,0 +1,1 @@
+import{t as e}from"./rolldown-runtime-B0lUwjiP.js";var t;function n(){return(n=e((()=>{t=new URL(`brotli_dec_wasm_bg-BK3DOf3U.wasm`,import.meta.url).href})))()}n();export{t as default};
