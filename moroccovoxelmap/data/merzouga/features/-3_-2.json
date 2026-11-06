@@ -1,1 +1,1 @@
-{"schemaVersion":1,"features":[]}
+{"schemaVersion":1,"features":[{"id":"osm/way/1574931518","name":"","source":"openstreetmap","sourceUrl":"https://www.openstreetmap.org/way/1574931518","height":12.4,"minHeight":0,"heightMethod":"estimated","minHeightMethod":"ground","colorMethod":"estimated","roofColorMethod":"imagery-mixed","lat":31.1177345,"lon":-4.0172459,"groundElevation":705.09,"groundElevationMethod":"terrain-median","groundElevationSource":"gedtm30","x":-1942.614,"y":-955.516}]}

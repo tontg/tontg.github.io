@@ -1,32 +1,32 @@
-MoroccoVoxelMap — Ouarzazate — Geographic data / Données géographiques
+MoroccoVoxelMap — Ouarzazate — complexe solaire Noor — Geographic data / Données géographiques
 
-Build / génération: 2026-11-03T11:28:41.924715+00:00
+Build / génération: 2026-11-06T09:39:17.336934+00:00
 
 OpenStreetMap
 © OpenStreetMap contributors
 ODbL-1.0: https://opendatacommons.org/licenses/odbl/1-0/
 Source: https://www.openstreetmap.org/copyright
-Download: https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457
+Download: https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.898291742%2C-6.928945122%2C30.919338747
 Release/version: Non disponible / unavailable
-Downloaded/téléchargé: 2026-11-02T22:08:14.100202+00:00
+Downloaded/téléchargé: 2026-11-06T09:27:45.045929+00:00
 Acquisition: Non disponible / unavailable
 
 Copernicus Sentinel-2 Level-2A
 Contains modified Copernicus Sentinel data 2026
 Copernicus Sentinel data licence: https://cds.climate.copernicus.eu/licences/ec-sentinel
 Source: https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2
-Download: https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RPQ_20261024T111411_L2A
-Release/version: S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE
-Downloaded/téléchargé: 2026-11-02T22:29:21.801601+00:00
-Acquisition: 2026-10-24
+Download: https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RPQ_20261012T111729_L2A
+Release/version: S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE + S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE
+Downloaded/téléchargé: 2026-11-06T09:36:47.832886+00:00
+Acquisition: 2026-10-12
 
 GEDTM30 v1.2 — bare-earth terrain
-GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
 CC-BY-4.0: https://creativecommons.org/licenses/by/4.0/
 Source: https://zenodo.org/records/18887460
 Download: https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif
 Release/version: v1.2.0
-Downloaded/téléchargé: 2026-11-02T22:58:12.231810+00:00
+Downloaded/téléchargé: 2026-11-06T09:30:20.066986+00:00
 Acquisition: Non disponible / unavailable
 
 The combined derived database is available under ODbL 1.0.

@@ -11,8 +11,12 @@ FileETag MTime Size
 <IfModule mime_module>
     AddType text/javascript .js .mjs
     AddType application/json .json
+    AddType application/xml .xml
     AddType application/manifest+json .webmanifest
     AddType application/wasm .wasm
+    AddType font/woff2 .woff2
+    AddType image/webp .webp
+    AddType image/vnd.microsoft.icon .ico
     AddType model/vnd.usdz+zip .usdz
     AddType model/gltf-binary .glb
     AddType application/octet-stream .cvm
@@ -50,7 +54,7 @@ FileETag MTime Size
     Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_STATUS} < 400 && reqenv('voxel_revisioned') == '1'"
 
     # Vite's hashed filenames are immutable, including the local WASM decoder.
-    <FilesMatch "-[A-Za-z0-9_-]{8,}\.(?:js|css|wasm)$">
+    <FilesMatch "(?:-[A-Za-z0-9_-]{8,}\.(?:js|css|wasm|woff2)|\.[a-f0-9]{20}\.webp)$">
         Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_STATUS} < 400"
     </FilesMatch>
     # Keep navigation and worker discovery fresh even with a revision query.

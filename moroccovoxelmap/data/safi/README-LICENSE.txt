@@ -21,7 +21,7 @@ Downloaded/téléchargé: 2026-11-02T22:30:58.828356+00:00
 Acquisition: 2026-10-25
 
 GEDTM30 v1.2 — bare-earth terrain
-GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
 CC-BY-4.0: https://creativecommons.org/licenses/by/4.0/
 Source: https://zenodo.org/records/18887460
 Download: https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif

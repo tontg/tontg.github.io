@@ -2,7 +2,7 @@ MoroccoVoxelMap static Google Scene Viewer models
 
 Core glTF 2.0 GLB files contain all binary geometry and a PNG colour atlas, without external render dependencies or extensions. Source provenance, dates and full MIT/ODbL/CDLA/CC-BY notices are embedded in asset.extras. Models use metres and Y-up with a 1.2 m tabletop default. HTTPS hosting is required by Scene Viewer. Independent format/source checks do not establish Android device compatibility or survey accuracy.
 
-Casablanca: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+Casablanca — centre-ville: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
 Derived database: ../data/normalized.geojson.7z
 Source provenance: ../data/source-manifest.json
 Uses the complete 16 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
@@ -11,6 +11,12 @@ The coarsest complete baked LOD has 120382 triangles, above Google's recommended
 Agadir: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
 Derived database: ../data/agadir/normalized.geojson.7z
 Source provenance: ../data/agadir/source-manifest.json
+Uses the complete 16 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
+
+
+Aguerd Oudad — Chapeau de Napoléon: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Derived database: ../data/aguerd-oudad/normalized.geojson.7z
+Source provenance: ../data/aguerd-oudad/source-manifest.json
 Uses the complete 16 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
@@ -30,12 +36,6 @@ Asilah: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, 
 Derived database: ../data/asilah/normalized.geojson.7z
 Source provenance: ../data/asilah/source-manifest.json
 Uses the complete 8 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
-
-
-Azemmour: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/azemmour/normalized.geojson.7z
-Source provenance: ../data/azemmour/source-manifest.json
-Uses the complete 4 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
 Boujdour: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
@@ -78,12 +78,6 @@ El Jadida: © OpenStreetMap contributors; Contains modified Copernicus Sentinel 
 Derived database: ../data/el-jadida/normalized.geojson.7z
 Source provenance: ../data/el-jadida/source-manifest.json
 Uses the complete 8 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
-
-
-Erg Chigaga: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
-Derived database: ../data/erg-chigaga/normalized.geojson.7z
-Source provenance: ../data/erg-chigaga/source-manifest.json
-Uses the complete 16 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
 Essaouira: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
@@ -134,10 +128,10 @@ Source provenance: ../data/meknes/source-manifest.json
 Uses the complete 16 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
-Merzouga: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+Merzouga — Erg Chebbi: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
 Derived database: ../data/merzouga/normalized.geojson.7z
 Source provenance: ../data/merzouga/source-manifest.json
-Uses the complete 4 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
+Uses the complete 32 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
 Mohammedia: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
@@ -152,10 +146,10 @@ Source provenance: ../data/moulay-idriss-zerhoun/source-manifest.json
 Uses the complete 8 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
-Ouarzazate: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+Ouarzazate — complexe solaire Noor: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
 Derived database: ../data/ouarzazate/normalized.geojson.7z
 Source provenance: ../data/ouarzazate/source-manifest.json
-Uses the complete 8 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
+Uses the complete 64 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
 Oujda: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
@@ -254,17 +248,17 @@ Source provenance: ../data/volubilis/source-manifest.json
 Uses the complete 4 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
-Zagora: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
+Zagora — dunes de Tinfou: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
 Derived database: ../data/zagora/normalized.geojson.7z
 Source provenance: ../data/zagora/source-manifest.json
-Uses the complete 8 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
+Uses the complete 32 m baked LOD; small footprints may be absent at this resolution. LOD selection prefers at most 100,000 triangles, then enforces the strict byte budget. No geographic cropping or palette clustering. Linear RGB is encoded as an sRGB8 atlas with at most 0.0045 error at face corners; interior gradients are sampled on an 8x8 grid and filtered at distance. Baked ambient occlusion is retained. Scene Viewer lighting/shadows can change appearance; interactive facade shaders, labels and selections are omitted.
 
 
 
 LICENSE
 MIT License
 
-Copyright (c) 2026 Casa Voxel contributors
+Copyright (c) 2026 Gilles Reant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

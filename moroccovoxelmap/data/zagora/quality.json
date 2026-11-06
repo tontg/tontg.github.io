@@ -1,41 +1,43 @@
 {
   "profile": "full",
   "region": "zagora",
-  "builtAt": "2026-11-03T11:32:30.972549+00:00",
+  "builtAt": "2026-11-06T09:26:20.748652+00:00",
   "crs": "EPSG:32630",
   "bounds": {
-    "minX": -923.4621284165769,
-    "minY": -918.9615526306443,
-    "maxX": 923.3154042714159,
-    "maxY": 919.0442023104988
+    "minX": -12431.552432029566,
+    "minY": -6773.023131648544,
+    "maxX": 12416.576354594465,
+    "maxY": 6787.561301273759
   },
-  "buildingCount": 400,
+  "buildingCount": 4506,
   "sourceBreakdown": {
-    "openstreetmap": 400
+    "openstreetmap": 4506
   },
   "heightMethods": {
-    "estimated": 400
+    "estimated": 4505,
+    "mapped": 1
   },
-  "estimatedHeightCount": 400,
-  "mappedOrCuratedHeightCount": 0,
+  "estimatedHeightCount": 4505,
+  "mappedOrCuratedHeightCount": 1,
   "wallColorMethods": {
-    "estimated": 400
+    "estimated": 4506
   },
   "roofColorMethods": {
-    "imagery-mixed": 344,
-    "imagery": 55,
-    "unknown": 1
+    "imagery-mixed": 4286,
+    "imagery": 199,
+    "unknown": 21
   },
-  "courtyardBuildings": 1,
+  "courtyardBuildings": 7,
   "buildingParts": 0,
-  "roads": 346,
-  "mappedTreeLocations": 0,
-  "groundPolygons": 37,
-  "tiles": 36,
-  "tileBytes": 656972,
+  "roads": 1387,
+  "mappedTreeLocations": 3,
+  "groundPolygons": 109,
+  "tiles": 112,
+  "tileBytes": 8001106,
   "audit": {
-    "outOfExtentGeometryExcluded": 96,
-    "osmBuildingsBeforeConflation": 400,
+    "outOfExtentGeometryExcluded": 56,
+    "emptyOrSmallGeometryDiscarded": 12,
+    "osmBuildingsBeforeConflation": 4506,
     "microsoftAvailable": false,
     "coastlineAvailable": false
   },
@@ -43,15 +45,18 @@
     "included": true,
     "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
     "acquisitionDates": [
-      "2026-10-11"
+      "2026-09-24"
     ],
-    "sampledRoofs": 55,
-    "mixedPixelRoofs": 344,
-    "unknownRoofs": 1,
+    "sampledRoofs": 199,
+    "mixedPixelRoofs": 4286,
+    "unknownRoofs": 21,
     "samplingVersion": 3,
     "nativeResolutionM": 10,
-    "productId": "S2A_MSIL2A_20261011T105911_N0513_R094_T29RQP_20261011T191207.SAFE",
-    "attribution": "Contains modified Copernicus Sentinel data 2026"
+    "productId": "S2B_MSIL2A_20260924T105709_N0513_R094_T30RTU_20260924T150018.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026",
+    "sampledGroundPolygons": 16,
+    "mixedPixelGroundPolygons": 0,
+    "unknownGroundPolygons": 0
   },
   "facadeStyling": {
     "included": false,
@@ -62,9 +67,9 @@
     "included": true,
     "datum": "EGM2008",
     "units": "metre",
-    "baseElevation": 704,
-    "minElevation": 706.31,
-    "maxElevation": 741.59,
+    "baseElevation": 640,
+    "minElevation": 662.33,
+    "maxElevation": 1020.62,
     "resolutionM": 30,
     "sourceId": "gedtm30",
     "sourceUrl": "https://zenodo.org/records/18887460",
@@ -76,5 +81,5 @@
     "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
   },
   "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
-  "estimatedHeightFraction": 1.0
+  "estimatedHeightFraction": 0.9997780736795384
 }

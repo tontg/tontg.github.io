@@ -1,42 +1,42 @@
 {
   "profile": "full",
   "region": "merzouga",
-  "builtAt": "2026-11-03T11:28:30.662906+00:00",
+  "builtAt": "2026-11-06T09:23:25.751549+00:00",
   "crs": "EPSG:32630",
   "bounds": {
-    "minX": -807.7752451407723,
-    "minY": -803.7869906728156,
-    "maxX": 807.6552068856545,
-    "maxY": 803.8503785943612
+    "minX": -3763.5683121003094,
+    "minY": -4854.084726762958,
+    "maxX": 3760.208052455855,
+    "maxY": 4855.47889964655
   },
-  "buildingCount": 232,
+  "buildingCount": 531,
   "sourceBreakdown": {
-    "openstreetmap": 232
+    "openstreetmap": 531
   },
   "heightMethods": {
-    "estimated": 229,
+    "estimated": 528,
     "levels": 3
   },
-  "estimatedHeightCount": 232,
+  "estimatedHeightCount": 531,
   "mappedOrCuratedHeightCount": 0,
   "wallColorMethods": {
-    "estimated": 232
+    "estimated": 531
   },
   "roofColorMethods": {
-    "imagery-mixed": 216,
-    "imagery": 15,
-    "unknown": 1
+    "imagery-mixed": 503,
+    "imagery": 26,
+    "unknown": 2
   },
-  "courtyardBuildings": 1,
+  "courtyardBuildings": 5,
   "buildingParts": 0,
-  "roads": 202,
-  "mappedTreeLocations": 0,
-  "groundPolygons": 6,
-  "tiles": 26,
-  "tileBytes": 378308,
+  "roads": 557,
+  "mappedTreeLocations": 22,
+  "groundPolygons": 12,
+  "tiles": 120,
+  "tileBytes": 1766356,
   "audit": {
-    "outOfExtentGeometryExcluded": 17,
-    "osmBuildingsBeforeConflation": 232,
+    "outOfExtentGeometryExcluded": 5,
+    "osmBuildingsBeforeConflation": 531,
     "microsoftAvailable": false,
     "coastlineAvailable": false
   },
@@ -44,14 +44,14 @@
     "included": true,
     "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
     "acquisitionDates": [
-      "2026-10-26"
+      "2026-11-05"
     ],
-    "sampledRoofs": 15,
-    "mixedPixelRoofs": 216,
-    "unknownRoofs": 1,
+    "sampledRoofs": 26,
+    "mixedPixelRoofs": 503,
+    "unknownRoofs": 2,
     "samplingVersion": 3,
     "nativeResolutionM": 10,
-    "productId": "S2C_MSIL2A_20261026T105131_N0513_R051_T30RUV_20261026T154859.SAFE",
+    "productId": "S2C_MSIL2A_20261105T105221_N0513_R051_T30RUV_20261105T143306.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
   },
   "facadeStyling": {
@@ -64,8 +64,8 @@
     "datum": "EGM2008",
     "units": "metre",
     "baseElevation": 688,
-    "minElevation": 693.51,
-    "maxElevation": 707.31,
+    "minElevation": 693.59,
+    "maxElevation": 902.48,
     "resolutionM": 30,
     "sourceId": "gedtm30",
     "sourceUrl": "https://zenodo.org/records/18887460",

@@ -1,44 +1,44 @@
 {
   "profile": "full",
   "region": "ouarzazate",
-  "builtAt": "2026-11-03T11:28:41.924715+00:00",
+  "builtAt": "2026-11-06T09:39:17.336934+00:00",
   "crs": "EPSG:32629",
   "bounds": {
-    "minX": -917.5435687301215,
-    "minY": -913.2121237940155,
-    "maxX": 917.6939548105001,
-    "maxY": 913.2945113237947
+    "minX": -6966.993712692638,
+    "minY": -10215.279109566007,
+    "maxX": 6979.530561239808,
+    "maxY": 10220.175482562277
   },
-  "buildingCount": 1961,
+  "buildingCount": 13658,
   "sourceBreakdown": {
-    "openstreetmap": 1961
+    "openstreetmap": 13658
   },
   "heightMethods": {
-    "estimated": 1957,
-    "levels": 2,
-    "mapped": 2
+    "estimated": 13647,
+    "levels": 5,
+    "mapped": 6
   },
-  "estimatedHeightCount": 1959,
-  "mappedOrCuratedHeightCount": 2,
+  "estimatedHeightCount": 13652,
+  "mappedOrCuratedHeightCount": 6,
   "wallColorMethods": {
-    "estimated": 1961
+    "estimated": 13658
   },
   "roofColorMethods": {
-    "imagery-mixed": 1929,
-    "imagery": 31,
-    "unknown": 1
+    "imagery-mixed": 13356,
+    "unknown": 98,
+    "imagery": 204
   },
-  "courtyardBuildings": 0,
+  "courtyardBuildings": 11,
   "buildingParts": 0,
-  "roads": 347,
-  "mappedTreeLocations": 3,
-  "groundPolygons": 6,
-  "tiles": 36,
-  "tileBytes": 2166844,
+  "roads": 2402,
+  "mappedTreeLocations": 12,
+  "groundPolygons": 2231,
+  "tiles": 96,
+  "tileBytes": 18667379,
   "audit": {
-    "outOfExtentGeometryExcluded": 802,
+    "outOfExtentGeometryExcluded": 4741,
     "emptyOrSmallGeometryDiscarded": 2,
-    "osmBuildingsBeforeConflation": 1961,
+    "osmBuildingsBeforeConflation": 13658,
     "microsoftAvailable": false,
     "coastlineAvailable": false
   },
@@ -46,15 +46,18 @@
     "included": true,
     "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
     "acquisitionDates": [
-      "2026-10-24"
+      "2026-10-12"
     ],
-    "sampledRoofs": 31,
-    "mixedPixelRoofs": 1929,
-    "unknownRoofs": 1,
+    "sampledRoofs": 204,
+    "mixedPixelRoofs": 13356,
+    "unknownRoofs": 98,
     "samplingVersion": 3,
     "nativeResolutionM": 10,
-    "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
-    "attribution": "Contains modified Copernicus Sentinel data 2026"
+    "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE + S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026",
+    "sampledGroundPolygons": 5,
+    "mixedPixelGroundPolygons": 2164,
+    "unknownGroundPolygons": 0
   },
   "facadeStyling": {
     "included": false,
@@ -65,9 +68,9 @@
     "included": true,
     "datum": "EGM2008",
     "units": "metre",
-    "baseElevation": 1104,
-    "minElevation": 1105.45,
-    "maxElevation": 1146.94,
+    "baseElevation": 1088,
+    "minElevation": 1099.32,
+    "maxElevation": 1325.77,
     "resolutionM": 30,
     "sourceId": "gedtm30",
     "sourceUrl": "https://zenodo.org/records/18887460",
@@ -79,5 +82,5 @@
     "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
   },
   "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
-  "estimatedHeightFraction": 0.9989801121876594
+  "estimatedHeightFraction": 0.9995606970273833
 }

@@ -1,15 +1,39 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-05T15:53:15.358Z",
+  "generatedAt": "2026-11-06T08:46:32.215Z",
   "pythonInventoryMode": "installed-metadata",
   "sources": [
     "package-lock.json",
     "node_modules/**/package.json",
     "requirements-lock.txt",
     "requirements-imagery-lock.txt",
-    "Python .dist-info metadata"
+    "Python .dist-info metadata",
+    "scripts/font-assets.mjs (pinned original font and OFL)"
   ],
   "packages": [
+    {
+      "ecosystem": "font",
+      "name": "Noto Sans Tifinagh",
+      "version": "Google Fonts v21, regular Tifinagh subset",
+      "installed": true,
+      "direct": true,
+      "scope": "runtime",
+      "projectUrl": "https://github.com/notofonts/tifinagh",
+      "license": "OFL-1.1",
+      "licenseStatus": "text-included",
+      "integrity": "sha256:71859310cf3504d2857ab302046f74e47a8058733ac7afdd0ca775e7f26c43d1",
+      "licenseEvidence": "Checksum-pinned original WOFF2 and copyright/OFL text",
+      "purpose": {
+        "en": "Local Tifinagh text rendering",
+        "fr": "Affichage local de l’écriture tifinaghe",
+        "ar": "عرض كتابة تيفيناغ محلياً",
+        "zgh": "ⴰⵙⴽⴰⵏ ⵏ ⵜⴼⵉⵏⴰⵖ"
+      },
+      "licenseUrl": "licenses/NotoSansTifinagh-OFL.txt",
+      "licenseFiles": [
+        "OFL.txt"
+      ]
+    },
     {
       "ecosystem": "npm",
       "name": "@cbor-extract/cbor-extract-darwin-arm64",

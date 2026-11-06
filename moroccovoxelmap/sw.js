@@ -1,9 +1,9 @@
 /* Release shells plus a bounded, visited-only geographic cache. */
-const VERSION = 'e2f653aea893445391b5';
+const VERSION = '6b79d91c78f264de9020';
 const SHELL = `morocco-voxel-map-shell-${VERSION}`;
 // URL revisions identify content, so an unchanged CVM survives a UI release.
 const DATA = 'morocco-voxel-map-data-v2';
-const SHELL_FILES = ["index.html","icon.svg","icon-192.png","icon-512.png","manifest.webmanifest","provenance.json?v=e2f653aea893445391b5","third-party-notices.json?v=e2f653aea893445391b5","data/regions.json?v=e2f653aea893445391b5","data/greater-casablanca/index.json?v=e2f653aea893445391b5","assets/index-Btt135MR.js","assets/brotli_dec_wasm-CwfJC3e-.js","assets/brotli_dec_wasm_bg-CG1KBs8r.js","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/index-Din8pWIl.css"];
+const SHELL_FILES = ["index.html","icon.svg","favicon.ico","favicon-16.png","favicon-32.png","apple-touch-icon.png","icon-192.png","icon-512.png","icon-maskable-512.png","manifest.webmanifest","provenance.json?v=6b79d91c78f264de9020","third-party-notices.json?v=6b79d91c78f264de9020","data/regions.json?v=6b79d91c78f264de9020","previews/manifest.json?v=6b79d91c78f264de9020","data/greater-casablanca/index.json?v=6b79d91c78f264de9020","assets/index-Bs7xPM_c.js","assets/brotli_dec_wasm-CwfJC3e-.js","assets/brotli_dec_wasm_bg-CG1KBs8r.js","assets/NotoSansTifinagh-Regular-BcGNahJE.woff2","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/index-Du4qLBgd.css"];
 const MAX_FILES = 2048;
 const MAX_BYTES = 128 * 1024 * 1024;
 const BYTE_HEADER = 'x-casa-cache-bytes';
@@ -12,18 +12,29 @@ let dataState;
 const inFlight = new Map();
 const local = path => new URL(path, self.registration.scope).href;
 const SHELL_URLS = new Set(SHELL_FILES.map(local));
+function nativeBrotli() {
+  try { new DecompressionStream('brotli'); return true; }
+  catch { return false; }
+}
+// The application already selects the native decoder before importing WASM.
+// Apply the same rule to offline installation, which otherwise downloads all
+// lazy chunks even when no page ever imports them. Keep their URLs eligible
+// for normal cache-on-use if a later page does need the fallback.
+const INSTALL_FILES = nativeBrotli() ? SHELL_FILES.filter(path =>
+  !/^assets\/brotli(?:_dec_wasm|[-_]decoder)[^/]*\.(?:js|wasm)$/.test(path)) : SHELL_FILES;
 function httpCache(request, installing = false) {
   if (typeof request !== 'string' && (request.cache === 'reload' || request.cache === 'no-cache')) return 'reload';
   const url = new URL(typeof request === 'string' ? request : request.url);
   // Revisioned requests may reuse an earlier uncontrolled HTTP-cache response.
   // Stable names must validate once before joining the service-worker cache.
   const immutable = /^(?:[a-f0-9]{20}|[a-f0-9]{64})$/.test(url.searchParams.get('v') || '')
-    || /\/assets\/[^/]+-[A-Za-z0-9_-]{8}\.(?:js|css|wasm)$/.test(url.pathname);
+    || /\/assets\/[^/]+-[A-Za-z0-9_-]{8}\.(?:js|css|wasm|woff2)$/.test(url.pathname)
+    || /\/previews\/[a-z0-9.-]+\.[a-f0-9]{20}\.webp$/.test(url.pathname);
   return immutable ? 'default' : installing ? 'reload' : 'no-cache';
 }
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(SHELL).then(cache => Promise.all(SHELL_FILES.map(async path => {
+  event.waitUntil(caches.open(SHELL).then(cache => Promise.all(INSTALL_FILES.map(async path => {
     const response = await fetch(local(path), { cache: httpCache(local(path), true) });
     if (!response.ok) throw new Error(`Application shell HTTP ${response.status}: ${path}`);
     await cache.put(local(path), response);
@@ -154,7 +165,8 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET' || !request.url.startsWith(self.registration.scope) || request.headers.has('range') || request.headers.has('authorization') || request.cache === 'no-store') return;
   const path = new URL(request.url).pathname.slice(new URL(self.registration.scope).pathname.length);
-  const isMap = /^data\/(?:[^/]+\/)?(?:(?:index|foundation)\.json|meshes\/\d+\/[^/]+\.cvm|features\/[^/]+\.json)$/.test(path);
+  const isMap = /^data\/(?:[^/]+\/)?(?:(?:index|foundation)\.json|meshes\/\d+\/[^/]+\.cvm|features\/[^/]+\.json)$/.test(path)
+    || /^previews\/[a-z0-9.-]+\.[a-f0-9]{20}\.webp$/.test(path);
   const isShell = SHELL_URLS.has(request.url);
   if (request.mode === 'navigate') {
     // HTML remains fresh: a new page can discover a newly deployed release.

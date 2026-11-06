@@ -1,54 +1,616 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-03T11:28:41.924715+00:00",
+  "builtAt": "2026-11-06T09:39:17.336934+00:00",
   "sources": [
     {
       "id": "openstreetmap",
       "name": "OpenStreetMap",
-      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.898291742%2C-6.928945122%2C30.919338747",
       "sourceUrl": "https://www.openstreetmap.org/copyright",
       "license": "ODbL-1.0",
       "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
       "attribution": "© OpenStreetMap contributors",
-      "downloadedAt": "2026-11-02T22:08:14.100202+00:00",
+      "downloadedAt": "2026-11-06T09:27:45.045929+00:00",
       "snapshotAt": null,
-      "responseDate": "Mon, 02 Nov 2026 22:08:13 GMT",
-      "requestKind": "osm-map-api",
-      "acquisitionMethod": "osm-map-api",
+      "responseDate": "Fri, 06 Nov 2026 09:27:38 GMT",
+      "requestKind": "osm-map-api-bbox-grid",
+      "acquisitionMethod": "osm-map-api-bbox-grid",
       "apiVersion": "0.6",
-      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457",
-      "equivalentOverpassQuery": "[out:json][timeout:180];(way(30.9098308,-6.9103741,30.9293690,-6.8876221);relation[type=multipolygon](30.9098308,-6.9103741,30.9293690,-6.8876221);node[name](30.9098308,-6.9103741,30.9293690,-6.8876221););out body geom;",
-      "querySha256": "d580a3852c930a4ca1db056462c9185d140998997923f4c81549ea8bbcbdcb44",
-      "sha256": "f135bfae0f8f37f759f8234836f1e676c89809cb13259b9fe1551ab19b886f7a",
-      "bytes": 1439354,
+      "requestDescription": "Sequential bounded grid cells, at most 128 requests; dense or timed-out cells subdivided at most three times. Verified source cells cached individually and merged by ID/version.",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(30.8982917,-6.9544883,31.0877148,-6.8012291);relation[type=multipolygon](30.8982917,-6.9544883,31.0877148,-6.8012291);node[name](30.8982917,-6.9544883,31.0877148,-6.8012291););out body geom;",
+      "querySha256": "ca675cec6c860ce4072b389657aa7fc5163fe95388aa78569eafffdd5f95fd5b",
+      "sha256": "3901a5b57c88343142222c09e0b7ca337061d28eae00f737cd635beea128a88e",
+      "bytes": 11429310,
       "boundsWgs84": [
-        30.9098308435254,
-        -6.910374050077643,
-        30.929369032260457,
-        -6.887622137323773
+        30.89829174201572,
+        -6.954488316404914,
+        31.087714788299053,
+        -6.801229147660716
       ],
       "cachePath": "data/raw/ouarzazate/osm-casablanca.json",
-      "region": "ouarzazate"
+      "region": "ouarzazate",
+      "downloadUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.898291742%2C-6.928945122%2C30.919338747",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.898291742%2C-6.903401927%2C30.919338747",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.898291742%2C-6.877858732%2C30.919338747",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.898291742%2C-6.852315537%2C30.919338747",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.898291742%2C-6.826772342%2C30.919338747",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.898291742%2C-6.801229148%2C30.919338747",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.919338747%2C-6.928945122%2C30.940385752",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.919338747%2C-6.903401927%2C30.940385752",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.919338747%2C-6.877858732%2C30.940385752",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.919338747%2C-6.852315537%2C30.940385752",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.919338747%2C-6.826772342%2C30.940385752",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.919338747%2C-6.801229148%2C30.940385752",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.940385752%2C-6.928945122%2C30.961432757",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.940385752%2C-6.903401927%2C30.961432757",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.940385752%2C-6.877858732%2C30.961432757",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.940385752%2C-6.852315537%2C30.961432757",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.940385752%2C-6.826772342%2C30.961432757",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.940385752%2C-6.801229148%2C30.961432757",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.961432757%2C-6.928945122%2C30.982479763",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.961432757%2C-6.903401927%2C30.982479763",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.961432757%2C-6.877858732%2C30.982479763",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.961432757%2C-6.852315537%2C30.982479763",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.961432757%2C-6.826772342%2C30.982479763",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.961432757%2C-6.801229148%2C30.982479763",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.982479763%2C-6.928945122%2C31.003526768",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.982479763%2C-6.903401927%2C31.003526768",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.982479763%2C-6.877858732%2C31.003526768",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.982479763%2C-6.852315537%2C31.003526768",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.982479763%2C-6.826772342%2C31.003526768",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.982479763%2C-6.801229148%2C31.003526768",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.003526768%2C-6.928945122%2C31.024573773",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.003526768%2C-6.903401927%2C31.024573773",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.003526768%2C-6.877858732%2C31.024573773",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.003526768%2C-6.852315537%2C31.024573773",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.003526768%2C-6.826772342%2C31.024573773",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.003526768%2C-6.801229148%2C31.024573773",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.024573773%2C-6.928945122%2C31.045620778",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.024573773%2C-6.903401927%2C31.045620778",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.024573773%2C-6.877858732%2C31.045620778",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.024573773%2C-6.852315537%2C31.045620778",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.024573773%2C-6.826772342%2C31.045620778",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.024573773%2C-6.801229148%2C31.045620778",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.045620778%2C-6.928945122%2C31.066667783",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.045620778%2C-6.903401927%2C31.066667783",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.045620778%2C-6.877858732%2C31.066667783",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.045620778%2C-6.852315537%2C31.066667783",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.045620778%2C-6.826772342%2C31.066667783",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.045620778%2C-6.801229148%2C31.066667783",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.066667783%2C-6.928945122%2C31.087714788",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.066667783%2C-6.903401927%2C31.087714788",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.066667783%2C-6.877858732%2C31.087714788",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.066667783%2C-6.852315537%2C31.087714788",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.066667783%2C-6.826772342%2C31.087714788",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.066667783%2C-6.801229148%2C31.087714788"
+      ],
+      "acquisitionAttempts": [
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,30.898291742,-6.928945122,30.919338747",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.898291742%2C-6.928945122%2C30.919338747",
+          "sha256": "988b672efd441d8ad0c35283055ae648a1bb7943a8469e16733bc5f6eee985aa",
+          "downloadedAt": "2026-11-06T09:26:30.183207+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:27 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,30.898291742,-6.903401927,30.919338747",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.898291742%2C-6.903401927%2C30.919338747",
+          "sha256": "8831ac49936b4e7d050480d07fbb783b7a514d4355eba7f2551608bd9a24854e",
+          "downloadedAt": "2026-11-06T09:26:32.330875+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:28 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,30.898291742,-6.877858732,30.919338747",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.898291742%2C-6.877858732%2C30.919338747",
+          "sha256": "c7afb10d4e78168ca0628551bdfc5db74adfeb6aabf1cd1d974b6f7f6c1cc2a2",
+          "downloadedAt": "2026-11-06T09:26:33.893957+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:30 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,30.898291742,-6.852315537,30.919338747",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.898291742%2C-6.852315537%2C30.919338747",
+          "sha256": "7fc21a21a0ed982809f6ebe2ff01c6ebe280306b3f9470bf340a26244eae0eff",
+          "downloadedAt": "2026-11-06T09:26:34.901448+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:31 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,30.898291742,-6.826772342,30.919338747",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.898291742%2C-6.826772342%2C30.919338747",
+          "sha256": "b3cd88e7a86a01dd501366262d6978e0defde7a6a7819301d81f90e8bfcde62b",
+          "downloadedAt": "2026-11-06T09:26:35.613757+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:32 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,30.898291742,-6.801229148,30.919338747",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.898291742%2C-6.801229148%2C30.919338747",
+          "sha256": "51cd38c67a5fa249e531c1dc4d52d1a9096adcf5593e1a82ce22805cdd3ed130",
+          "downloadedAt": "2026-11-06T09:26:36.345435+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:33 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,30.919338747,-6.928945122,30.940385752",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.919338747%2C-6.928945122%2C30.940385752",
+          "sha256": "c40dae46d8c0b5681b1d5460e32e103b627bf4b4ef41b2233905f93042271640",
+          "downloadedAt": "2026-11-06T09:26:39.045768+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:35 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,30.919338747,-6.903401927,30.940385752",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.919338747%2C-6.903401927%2C30.940385752",
+          "sha256": "8453ac03d1cfadc402502dd15bb482a86862eb19be3a018ab685770c9c35e160",
+          "downloadedAt": "2026-11-06T09:26:41.362932+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:37 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,30.919338747,-6.877858732,30.940385752",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.919338747%2C-6.877858732%2C30.940385752",
+          "sha256": "14898147d5907267c3e34023fb16ab0d82f613cb153556ec0d90e3be7da7cb33",
+          "downloadedAt": "2026-11-06T09:26:44.798092+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:40 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,30.919338747,-6.852315537,30.940385752",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.919338747%2C-6.852315537%2C30.940385752",
+          "sha256": "5bc3ca370130d50668453eee619fdbc97819417099b98d4155f67a5003999a6c",
+          "downloadedAt": "2026-11-06T09:26:46.207777+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:42 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,30.919338747,-6.826772342,30.940385752",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.919338747%2C-6.826772342%2C30.940385752",
+          "sha256": "471a608dc7854f1a3c6701b2bdfbe78c13df635a5e38f828ea6ddf1c7ecba4b0",
+          "downloadedAt": "2026-11-06T09:26:47.437820+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:44 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,30.919338747,-6.801229148,30.940385752",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.919338747%2C-6.801229148%2C30.940385752",
+          "sha256": "3f78c36139adaa0990839c605b2d4c15fb2301eb9e5c34bc79882ee548dfd2bc",
+          "downloadedAt": "2026-11-06T09:26:48.787936+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:45 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,30.940385752,-6.928945122,30.961432757",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.940385752%2C-6.928945122%2C30.961432757",
+          "sha256": "ab707d4aef154091ee8c584af1e81064842ec93e0e8da317533b1f3df489c536",
+          "downloadedAt": "2026-11-06T09:26:50.214141+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:46 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,30.940385752,-6.903401927,30.961432757",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.940385752%2C-6.903401927%2C30.961432757",
+          "sha256": "9ce09f03d8bc9eeb83a828e7780928a163dbd94cb369df32fe5d0cefe9128b9d",
+          "downloadedAt": "2026-11-06T09:26:51.684948+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:48 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,30.940385752,-6.877858732,30.961432757",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.940385752%2C-6.877858732%2C30.961432757",
+          "sha256": "2535796fa7e9587d7c94b2daec960d11f7c0b22cf857f31e9e3d0fa29ba64d89",
+          "downloadedAt": "2026-11-06T09:26:53.096587+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:49 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,30.940385752,-6.852315537,30.961432757",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.940385752%2C-6.852315537%2C30.961432757",
+          "sha256": "679feb043a42df54b5d140bbcd487ef4e371bc4ed2d20b275176a8550513edc6",
+          "downloadedAt": "2026-11-06T09:26:54.133668+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:51 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,30.940385752,-6.826772342,30.961432757",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.940385752%2C-6.826772342%2C30.961432757",
+          "sha256": "c2e018a2ec3067100d95232bf0796ff3a780c647d41c240fad6706f75e0e06ad",
+          "downloadedAt": "2026-11-06T09:26:55.245966+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:52 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,30.940385752,-6.801229148,30.961432757",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.940385752%2C-6.801229148%2C30.961432757",
+          "sha256": "dcfdce65d6e5ad44799be7e26723ccf6cbe0c90b06b1d8e34ae1fd5eb40133fe",
+          "downloadedAt": "2026-11-06T09:26:56.653646+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:53 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,30.961432757,-6.928945122,30.982479763",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.961432757%2C-6.928945122%2C30.982479763",
+          "sha256": "e34fd6446e66d1a77cfe082ba973e2b2ab50fa312c8118b104284b15857cd90c",
+          "downloadedAt": "2026-11-06T09:26:57.898603+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:54 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,30.961432757,-6.903401927,30.982479763",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.961432757%2C-6.903401927%2C30.982479763",
+          "sha256": "25368d531e3b52e2cbae0fefa2ac309c8e5cf43cc43394b98390d6b17ace3976",
+          "downloadedAt": "2026-11-06T09:26:59.442231+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:56 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,30.961432757,-6.877858732,30.982479763",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.961432757%2C-6.877858732%2C30.982479763",
+          "sha256": "106d603aa3ace6f3593eab4660e4f2f6ea480d2261acaa5ff44d9de288e0b76e",
+          "downloadedAt": "2026-11-06T09:27:00.659832+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:57 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,30.961432757,-6.852315537,30.982479763",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.961432757%2C-6.852315537%2C30.982479763",
+          "sha256": "778d873b0bb191b020c44272274993cd6db1b037fcfacc6eed6b8bba540a008f",
+          "downloadedAt": "2026-11-06T09:27:01.898554+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:26:59 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,30.961432757,-6.826772342,30.982479763",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.961432757%2C-6.826772342%2C30.982479763",
+          "sha256": "cdd9861e1d73af913b859fcc05bb43a4baa38136b4fb8bfb3bc10fcd9a4c1bef",
+          "downloadedAt": "2026-11-06T09:27:03.304422+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:00 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,30.961432757,-6.801229148,30.982479763",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.961432757%2C-6.801229148%2C30.982479763",
+          "sha256": "d4c41e593714205bef6b5bc4a88a3311c6cf58484e067de1b9726a0c86c2aab9",
+          "downloadedAt": "2026-11-06T09:27:04.678432+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:01 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,30.982479763,-6.928945122,31.003526768",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.982479763%2C-6.928945122%2C31.003526768",
+          "sha256": "cb5bf2df488c98b192b6310df6645b4d844c74267f0e59bd2a6d2866b62aa8d6",
+          "downloadedAt": "2026-11-06T09:27:05.929058+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:03 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,30.982479763,-6.903401927,31.003526768",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.982479763%2C-6.903401927%2C31.003526768",
+          "sha256": "6cc6d7bbf6bfea703cdb2b615b1580bf68a4cd64f455ba3a86cb264507869e1c",
+          "downloadedAt": "2026-11-06T09:27:07.105817+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:04 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,30.982479763,-6.877858732,31.003526768",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.982479763%2C-6.877858732%2C31.003526768",
+          "sha256": "db0307cb94ce708aeab698edbf25eea4548df4da4789c6174e764ee837b30ac3",
+          "downloadedAt": "2026-11-06T09:27:08.384457+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:05 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,30.982479763,-6.852315537,31.003526768",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.982479763%2C-6.852315537%2C31.003526768",
+          "sha256": "2192526bae5b4432e26704be28a9a3bbebae694a9959929e3cadfbbd764ec8a2",
+          "downloadedAt": "2026-11-06T09:27:09.511549+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:06 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,30.982479763,-6.826772342,31.003526768",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.982479763%2C-6.826772342%2C31.003526768",
+          "sha256": "19f54a66664f09910f36d979a114c02b504875f6dda4106bc7eb39915a8cf1c7",
+          "downloadedAt": "2026-11-06T09:27:10.574097+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:07 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,30.982479763,-6.801229148,31.003526768",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.982479763%2C-6.801229148%2C31.003526768",
+          "sha256": "6298427e221a3691381fd785c7e736b4afc29001f8726db60963180f4e6e021b",
+          "downloadedAt": "2026-11-06T09:27:11.493261+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:08 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,31.003526768,-6.928945122,31.024573773",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.003526768%2C-6.928945122%2C31.024573773",
+          "sha256": "1bcd3f5904010ec54b41a6ee5deffbb589cb84010978901412995559ae8108cc",
+          "downloadedAt": "2026-11-06T09:27:12.483583+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:09 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,31.003526768,-6.903401927,31.024573773",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.003526768%2C-6.903401927%2C31.024573773",
+          "sha256": "816042255fcb5ae4cdffa532ade54d3faf7539ed6323ef6dac81c26fb73820a3",
+          "downloadedAt": "2026-11-06T09:27:13.389877+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:10 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,31.003526768,-6.877858732,31.024573773",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.003526768%2C-6.877858732%2C31.024573773",
+          "sha256": "f364b734f648b74224b2aace78bdc6e317948f0e510e111f37fb18b1b9c7c1b6",
+          "downloadedAt": "2026-11-06T09:27:14.547866+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:11 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,31.003526768,-6.852315537,31.024573773",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.003526768%2C-6.852315537%2C31.024573773",
+          "sha256": "c309c11f713ab20fa9beaf4c08c655f474ba18cbeac28d62615adc6ab0a167b8",
+          "downloadedAt": "2026-11-06T09:27:15.803049+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:12 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,31.003526768,-6.826772342,31.024573773",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.003526768%2C-6.826772342%2C31.024573773",
+          "sha256": "0e5a923b490eccb5922ddfb3b36789276a74f1591f28cafd9aafc25fcfe05138",
+          "downloadedAt": "2026-11-06T09:27:16.917192+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:13 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,31.003526768,-6.801229148,31.024573773",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.003526768%2C-6.801229148%2C31.024573773",
+          "sha256": "f6b33c00fddd87e79def90d56d3150e3fae36f450eeddfeaec8e55357823c9f4",
+          "downloadedAt": "2026-11-06T09:27:17.952202+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:14 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,31.024573773,-6.928945122,31.045620778",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.024573773%2C-6.928945122%2C31.045620778",
+          "sha256": "272ec593db15efd0534d0e0f6fb1eef68697bc79ae28e0d5fa409d694abed5b1",
+          "downloadedAt": "2026-11-06T09:27:18.730772+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:15 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,31.024573773,-6.903401927,31.045620778",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.024573773%2C-6.903401927%2C31.045620778",
+          "sha256": "4a22f48b056e74120c425bdc3328086a4b5685621af27bb8eb557591f76a8c07",
+          "downloadedAt": "2026-11-06T09:27:19.743165+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:16 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,31.024573773,-6.877858732,31.045620778",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.024573773%2C-6.877858732%2C31.045620778",
+          "sha256": "d41e925d6d3a873bb5bb8b474564a686c62a26cca9f60c8211b6433660afc1e8",
+          "downloadedAt": "2026-11-06T09:27:20.964236+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:17 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,31.024573773,-6.852315537,31.045620778",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.024573773%2C-6.852315537%2C31.045620778",
+          "sha256": "97b05c7370e04b6b71589949cefda7df2992ae1a02cb1f7239a5a96dcca1c0b9",
+          "downloadedAt": "2026-11-06T09:27:22.597540+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:19 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,31.024573773,-6.826772342,31.045620778",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.024573773%2C-6.826772342%2C31.045620778",
+          "sha256": "9a4ab5437ee322ce09176c52fe0ac5373321d864ee3a781b1eabb7fe437822cf",
+          "downloadedAt": "2026-11-06T09:27:24.066766+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:20 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,31.024573773,-6.801229148,31.045620778",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.024573773%2C-6.801229148%2C31.045620778",
+          "sha256": "769ea396ddd32e06eabd2697c4273df752ee9e19e43c088bc309d2c8b2eaad89",
+          "downloadedAt": "2026-11-06T09:27:25.457991+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:22 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,31.045620778,-6.928945122,31.066667783",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.045620778%2C-6.928945122%2C31.066667783",
+          "sha256": "e05c31f121ca5d04d455820ee2cf7c506498605db0640f540bfeeb4a5e532e31",
+          "downloadedAt": "2026-11-06T09:27:26.369782+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:23 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,31.045620778,-6.903401927,31.066667783",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.045620778%2C-6.903401927%2C31.066667783",
+          "sha256": "a6662811ad17a2ce6b1f280edf81de2b056d3afe76a51e7b76b8eade38dbeaef",
+          "downloadedAt": "2026-11-06T09:27:27.254922+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:24 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,31.045620778,-6.877858732,31.066667783",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.045620778%2C-6.877858732%2C31.066667783",
+          "sha256": "e6f0ccdc87b3d1a17956609ac0268d11ecb4bdfa2e0d2b50cf8a710d1c712a0e",
+          "downloadedAt": "2026-11-06T09:27:28.576719+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:25 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,31.045620778,-6.852315537,31.066667783",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.045620778%2C-6.852315537%2C31.066667783",
+          "sha256": "e042441806e872bdc5ce5e569e27719e62d485326c3bc89f578c22fb5d730fc4",
+          "downloadedAt": "2026-11-06T09:27:30.361931+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:26 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,31.045620778,-6.826772342,31.066667783",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.045620778%2C-6.826772342%2C31.066667783",
+          "sha256": "c0b6697314366fd49cdaf33b94d3a2eb1cb230e2d93ec47dab9a7886a07c1f4a",
+          "downloadedAt": "2026-11-06T09:27:31.467597+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:28 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,31.045620778,-6.801229148,31.066667783",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.045620778%2C-6.801229148%2C31.066667783",
+          "sha256": "d5018f96c53df792127bc5d7e68510e77356c4210fb45c2ba2a969a58b473589",
+          "downloadedAt": "2026-11-06T09:27:32.570869+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:29 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.954488316,31.066667783,-6.928945122,31.087714788",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.066667783%2C-6.928945122%2C31.087714788",
+          "sha256": "2a1982c37ac7d5270c457a5ffcfb6e9200768003cd97f30e2ff7f83c1e3df182",
+          "downloadedAt": "2026-11-06T09:27:33.521770+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:30 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.928945122,31.066667783,-6.903401927,31.087714788",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.066667783%2C-6.903401927%2C31.087714788",
+          "sha256": "5cb4fccb098d53efcae706243e27c72ef5cf7f3ae18d4ec0f80e595f43beb7ae",
+          "downloadedAt": "2026-11-06T09:27:34.806088+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:31 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.903401927,31.066667783,-6.877858732,31.087714788",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.066667783%2C-6.877858732%2C31.087714788",
+          "sha256": "60f8cba2e5cbd688ffdbf5f8abda0589f33163da90660246c5da58ae3d6a0e74",
+          "downloadedAt": "2026-11-06T09:27:36.209580+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:33 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.877858732,31.066667783,-6.852315537,31.087714788",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.066667783%2C-6.852315537%2C31.087714788",
+          "sha256": "6defc2faead4502dc4a68675e5883c032ff42c27bca47fad8d43da6c99b40620",
+          "downloadedAt": "2026-11-06T09:27:38.091305+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:34 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.852315537,31.066667783,-6.826772342,31.087714788",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.066667783%2C-6.826772342%2C31.087714788",
+          "sha256": "587f3509ce392ab4cb744d17f7d4bca93e28c4c2e1b343fd13b75b9a71e48455",
+          "downloadedAt": "2026-11-06T09:27:39.523211+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:36 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-6.826772342,31.066667783,-6.801229148,31.087714788",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.066667783%2C-6.801229148%2C31.087714788",
+          "sha256": "07f7a88a985ceba0c943ae39c9ffce5d073f0f5e47f4347606513a84c70ca539",
+          "downloadedAt": "2026-11-06T09:27:41.266735+00:00",
+          "responseDate": "Fri, 06 Nov 2026 09:27:38 GMT"
+        }
+      ]
     },
     {
       "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
-      "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
+      "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE + S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE",
       "acquisitionDates": [
-        "2026-10-24"
+        "2026-10-12"
       ],
       "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
-      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RPQ_20261024T111411_L2A",
-      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RPQ_20261024T111411_L2A",
-      "stacItemId": "S2A_T29RPQ_20261024T111411_L2A",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RPQ_20261012T111729_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RPQ_20261012T111729_L2A",
+      "stacItemId": "S2C_T29RPQ_20261012T111729_L2A + S2C_T29RQQ_20261012T111729_L2A",
       "stacCollection": "sentinel-2-c1-l2a",
       "assets": {
-        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2A_T29RPQ_20261024T111411_L2A/TCI.tif",
-        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2A_T29RPQ_20261024T111411_L2A/SCL.tif"
+        "S2C_T29RPQ_20261012T111729_L2A": {
+          "visual": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2C_T29RPQ_20261012T111729_L2A/TCI.tif",
+            "fileChecksum": "1220f8b9400ed450aee0b5f83d172b9c7fe99f74e114e5597f27cb6d262c4cbd8279"
+          },
+          "scl": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2C_T29RPQ_20261012T111729_L2A/SCL.tif",
+            "fileChecksum": "12207d63b28f8ded6bc3c04d1d6e7b27e420c770a917282b93b92eea2dc0ee1e9784"
+          }
+        },
+        "S2C_T29RQQ_20261012T111729_L2A": {
+          "visual": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/QQ/2026/10/S2C_T29RQQ_20261012T111729_L2A/TCI.tif",
+            "fileChecksum": "122062da8675c2fd2e62d7b7fab832529848c248e07819ef1edee28b7b36244a0db0"
+          },
+          "scl": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/QQ/2026/10/S2C_T29RQQ_20261012T111729_L2A/SCL.tif",
+            "fileChecksum": "1220c4a520849a9779e78560efaa485d47ca4f4242b8e58cf73cc8b6cfdc7130d9ff"
+          }
+        }
       },
       "license": "Copernicus Sentinel data licence",
       "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
       "attribution": "Contains modified Copernicus Sentinel data 2026",
-      "downloadedAt": "2026-11-02T22:29:21.801601+00:00",
+      "downloadedAt": "2026-11-06T09:36:47.832886+00:00",
       "crs": "EPSG:32629",
       "nativeResolutionM": 10,
       "productKind": "documented-true-colour",
@@ -64,52 +626,181 @@
       "scale": 1,
       "offset": 0,
       "gamma": 1,
-      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
-      "sceneCloudCoverPercent": 8.334232,
-      "localValidPixelFraction": 0.9998376722196295,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. Adjacent tiles from the same documented satellite pass are copied on their aligned native 10 m grid without RGB interpolation or upsampling; first valid source pixels win in overlaps, and masked pixels may be filled only from another tile of that same pass. Every source item, acquisition timestamp, asset URL and bounded RGB/SCL window checksum is recorded; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 1.327578,
+      "localValidPixelFraction": 0.999087432060659,
       "maskNativeResolutionM": 20.0,
       "areaBoundsWgs84": [
-        -6.910374050077643,
-        30.9098308435254,
-        -6.887622137323773,
-        30.929369032260457
+        -6.954488316404914,
+        30.89829174201572,
+        -6.801229147660716,
+        31.087714788299053
       ],
-      "areaConfigSha256": "42c5abbf72b5872461be77333bb4994ef1640e97605a9c80c4e728ffb841740b",
+      "areaConfigSha256": "17710c1ef16f8e636c6f006b1f99e1ed00c38fd8a3f795381b23fd926dca6d46",
       "region": "ouarzazate",
-      "sha256": "fdd746f45b403b5af539ed807b7915e6aa2a3e2a936caa49dd04cb7b54d50b02",
-      "bytes": 122812,
-      "width": 223,
-      "height": 221,
+      "sha256": "2d8a04d3ae7e1735bd607cd874d39ca9dff2ea8cf285116f1205e57e7641a9a4",
+      "bytes": 6628333,
+      "width": 1505,
+      "height": 2129,
       "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "sourceItems": [
+        {
+          "stacItemId": "S2C_T29RPQ_20261012T111729_L2A",
+          "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RPQ_20261012T111729_L2A",
+          "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE",
+          "acquiredAt": "2026-10-12T11:22:41.782000Z",
+          "datatakeId": "GS2C_20261012T111011_010975_N05.13",
+          "platform": "sentinel-2c",
+          "sceneCloudCoverPercent": 0.061032,
+          "assets": {
+            "visual": {
+              "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2C_T29RPQ_20261012T111729_L2A/TCI.tif",
+              "fileChecksum": "1220f8b9400ed450aee0b5f83d172b9c7fe99f74e114e5597f27cb6d262c4cbd8279"
+            },
+            "scl": {
+              "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/PQ/2026/10/S2C_T29RPQ_20261012T111729_L2A/SCL.tif",
+              "fileChecksum": "12207d63b28f8ded6bc3c04d1d6e7b27e420c770a917282b93b92eea2dc0ee1e9784"
+            }
+          },
+          "window": {
+            "rgbWindowSha256": "9f5987949338c45b1b4228b9cd52000e4ceeb34aebb4a40e1919a6c1e9ba637c",
+            "rgbMaskSha256": "7d8ea2b71045c734813b64d094e3f17b26a2e83d0ab9d6009ace6439f6050137",
+            "sclWindowSha256": "9d9978fd15736585fa3330e58dc49ab4e3908099cc61d2dbb428c673f1a98e97",
+            "rgbTransform": [
+              10.0,
+              0.0,
+              695110.0,
+              0.0,
+              -10.0,
+              3441410.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "sclTransform": [
+              20.0,
+              0.0,
+              695100.0,
+              0.0,
+              -20.0,
+              3441420.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "crs": "EPSG:32629",
+            "sclCrs": "EPSG:32629",
+            "width": 1469,
+            "height": 2129,
+            "sclWidth": 735,
+            "sclHeight": 1065,
+            "contributedPixels": 3125469
+          }
+        },
+        {
+          "stacItemId": "S2C_T29RQQ_20261012T111729_L2A",
+          "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RQQ_20261012T111729_L2A",
+          "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE",
+          "acquiredAt": "2026-10-12T11:22:38.281000Z",
+          "datatakeId": "GS2C_20261012T111011_010975_N05.13",
+          "platform": "sentinel-2c",
+          "sceneCloudCoverPercent": 1.327578,
+          "assets": {
+            "visual": {
+              "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/QQ/2026/10/S2C_T29RQQ_20261012T111729_L2A/TCI.tif",
+              "fileChecksum": "122062da8675c2fd2e62d7b7fab832529848c248e07819ef1edee28b7b36244a0db0"
+            },
+            "scl": {
+              "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/29/R/QQ/2026/10/S2C_T29RQQ_20261012T111729_L2A/SCL.tif",
+              "fileChecksum": "1220c4a520849a9779e78560efaa485d47ca4f4242b8e58cf73cc8b6cfdc7130d9ff"
+            }
+          },
+          "window": {
+            "rgbWindowSha256": "56825fb89cf48b647126bd34158940a9b95547741c1ffa70d9691a0e2d5036d7",
+            "rgbMaskSha256": "f52f691688a527557765f1366127729126e1b0f31939576e4fb295af79ad4eba",
+            "sclWindowSha256": "72a2e5d0edcc73307275f9d1d13b14a195b1b599f9c8ba400559f8027b3c7e33",
+            "rgbTransform": [
+              10.0,
+              0.0,
+              699960.0,
+              0.0,
+              -10.0,
+              3441410.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "sclTransform": [
+              20.0,
+              0.0,
+              699960.0,
+              0.0,
+              -20.0,
+              3441420.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "crs": "EPSG:32629",
+            "sclCrs": "EPSG:32629",
+            "width": 1020,
+            "height": 2129,
+            "sclWidth": 510,
+            "sclHeight": 1065,
+            "contributedPixels": 75752
+          }
+        }
+      ],
+      "productIds": [
+        "S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE",
+        "S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE"
+      ],
+      "stacItemIds": [
+        "S2C_T29RPQ_20261012T111729_L2A",
+        "S2C_T29RQQ_20261012T111729_L2A"
+      ],
+      "stacItemUrls": [
+        "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RPQ_20261012T111729_L2A",
+        "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RQQ_20261012T111729_L2A"
+      ],
+      "mosaic": {
+        "method": "same-pass-native-grid-first-valid",
+        "tiles": 2,
+        "rgbResampled": false,
+        "maximumNativePixels": 4000000,
+        "completeGeometricCoverage": true
+      },
       "rasterCrs": "EPSG:32629",
       "rasterResolution": [
         10.0,
         10.0
       ],
       "id": "local-imagery",
-      "importedAt": "2026-11-03T11:28:37.713959+00:00",
+      "importedAt": "2026-11-06T09:38:53.200095+00:00",
       "samplingVersion": 3,
-      "sourceMetadataSha256": "03c00b1cbc338ccc75f5942b273d8685713f958a2a89f81ca88e986f287b807a",
-      "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b",
+      "sourceMetadataSha256": "9a8334348becdcbefa0713718d334a0f96440a7f9327ff8f2d089f4467ea7c47",
+      "configSha256": "562773e073ebc61be12cfd22a4ac227b13f4c89d05d9fbaadb8d202cb6c2cbd0",
       "sourceChecksums": {
-        "openstreetmap": "f135bfae0f8f37f759f8234836f1e676c89809cb13259b9fe1551ab19b886f7a"
+        "openstreetmap": "3901a5b57c88343142222c09e0b7ca337061d28eae00f737cd635beea128a88e"
       },
-      "sampledRoofCount": 31,
-      "mixedPixelRoofCount": 1929,
-      "sampledBuildingCount": 1960,
+      "sampledRoofCount": 204,
+      "mixedPixelRoofCount": 13356,
+      "sampledGroundPolygonCount": 5,
+      "mixedPixelGroundPolygonCount": 2164,
+      "sampledBuildingCount": 13560,
       "skipped": {
         "outsideRaster": 0,
-        "insufficientValidPixels": 1,
+        "insufficientValidPixels": 98,
         "mappedOrCuratedRoof": 0
       },
       "directSampleRejections": {
-        "smallRoofs": 1929,
+        "smallRoofs": 13352,
         "outsideRaster": 0,
-        "insufficientValidPixels": 1
+        "insufficientValidPixels": 102
       },
       "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
       "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
-      "colorsSha256": "1886ec06d743ad7b23d284426109e435660f176423d53f690d6af37502d990e1"
+      "colorsSha256": "544af6ea5d0c8c49cc7e3d9ca8572e6c935e4df75899a2522e301b4729b571a0"
     },
     {
       "id": "gedtm30",
@@ -122,20 +813,20 @@
       "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
       "license": "CC-BY-4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
       "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
       "sourceTimePeriod": [
         "2006-01-01",
         "2015-12-31"
       ],
-      "downloadedAt": "2026-11-02T22:58:12.231810+00:00",
+      "downloadedAt": "2026-11-06T09:30:20.066986+00:00",
       "acquisitionMethod": "bounded-native-cog-window",
       "region": "ouarzazate",
       "boundsWgs84": [
-        30.9098308435254,
-        -6.910374050077643,
-        30.929369032260457,
-        -6.887622137323773
+        30.89829174201572,
+        -6.954488316404914,
+        31.087714788299053,
+        -6.801229147660716
       ],
       "crs": "EPSG:4326",
       "verticalDatum": "EGM2008",
@@ -143,14 +834,14 @@
       "effectiveScale": 1,
       "nativeResolutionM": 30,
       "gridSpacingArcSeconds": 1,
-      "bytes": 10483,
-      "sha256": "231c6ee12ced662529af400e97687eaa27fab92514262f4cdba838faabf3796b",
+      "bytes": 590141,
+      "sha256": "cc029cd6541ff2cc501ba51428c2ed2dfaeba46eb973a43e0df59c24670ea283",
       "cachePath": "data/raw/ouarzazate/gedtm30.tif",
-      "width": 83,
-      "height": 72,
+      "width": 553,
+      "height": 683,
       "validPixelFraction": 1.0,
-      "minElevation": 1104.9000244140625,
-      "maxElevation": 1148.0999755859375,
+      "minElevation": 1094.0999755859375,
+      "maxElevation": 1329.699951171875,
       "sourceRasterScale": 0.1,
       "sourceRasterOffset": 0.0,
       "sourceRasterDtype": "float32",
@@ -160,20 +851,19 @@
       ],
       "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
       "sourceWindow": {
-        "colOff": 623127,
-        "rowOff": 194658,
-        "width": 83,
-        "height": 72
+        "colOff": 622968,
+        "rowOff": 194088,
+        "width": 553,
+        "height": 683
       },
-      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution.",
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date.",
       "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
     }
   ],
   "derivedDatabaseLicense": "ODbL-1.0",
   "outputProfile": "full",
   "region": "ouarzazate",
-  "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b",
-  "landmarkConfigSha256": "a34a9880f5611d62eff422553fc5af39bf5098150d48caad330d17dc6fae7fb4",
-  "landmarksUpdatedAt": "2026-11-03T16:25:10.160335+00:00",
-  "landmarksSha256": "368e44f8f522f4002fffaae2aafcfbaa81e3f0a168e04cfb13c933a6dab1c82b"
+  "configSha256": "562773e073ebc61be12cfd22a4ac227b13f4c89d05d9fbaadb8d202cb6c2cbd0",
+  "landmarkConfigSha256": "c743b2e450e2ad4978877ab43139fd5f1e00fa6604550f3c8bf2835194f8fa7f",
+  "landmarksSha256": "0d464213d67b52692d97478d3939d324d35a8ade67eb129f6963fb094038ee51"
 }

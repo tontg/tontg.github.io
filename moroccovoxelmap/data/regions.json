@@ -4,15 +4,15 @@
   "regions": [
     {
       "id": "central",
-      "name": "Casablanca",
+      "name": "Casablanca — centre-ville",
       "description": {
         "fr": "De la médina à l’Atlantique",
         "en": "From the medina to the Atlantic"
       },
       "category": "city",
       "displayName": {
-        "fr": "Casablanca",
-        "en": "Casablanca"
+        "fr": "Casablanca — centre-ville",
+        "en": "Casablanca city center"
       },
       "categories": [
         "largest-cities"
@@ -96,6 +96,64 @@
       "crs": "EPSG:32629",
       "buildingCount": 6303,
       "builtAt": "2026-11-03T08:53:44.699592+00:00"
+    },
+    {
+      "id": "aguerd-oudad",
+      "name": "Aguerd Oudad — Chapeau de Napoléon",
+      "description": {
+        "fr": "Le village d’Aguerd Oudad et ses reliefs granitiques autour du Chapeau de Napoléon",
+        "en": "Aguerd Oudad village and the granite hills around Napoleon’s Hat"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Aguerd Oudad — Chapeau de Napoléon",
+        "en": "Aguerd Oudad — Napoleon’s Hat"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://explore-agadirsoussmassa.com/en/circuit-the-souss-massa-between-sea-and-mountain/",
+        "extentBasis": "Dedicated close view of Aguerd Oudad village and the granite hills surrounding the published Napoleon’s Hat location; complements the existing wider Tafraoute–Ameln scene",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=15/29.698/-8.965",
+        "checkedAt": "2026-11-06",
+        "anchors": [
+          {
+            "name": "Napoleon’s Hat, Aguerd Oudad",
+            "lat": 29.697253,
+            "lon": -8.96487,
+            "sourceUrl": "https://explore-agadirsoussmassa.com/en/circuit-the-souss-massa-between-sea-and-mountain/"
+          }
+        ],
+        "representationLimit": "The 2 m voxel display does not improve the approximately 30 m terrain source. It represents the village and broad granite hills, not a surveyed mesh of individual boulders or the detailed silhouette of Napoleon’s Hat. Ground colours follow mapped classes; building roofs use imagery where observations are available."
+      },
+      "sourceUrl": "https://explore-agadirsoussmassa.com/en/circuit-the-souss-massa-between-sea-and-mountain/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 29.713,
+          "lon": -8.983
+        },
+        "bottomRight": {
+          "lat": 29.683,
+          "lon": -8.947
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "aguerd-oudad/index.json",
+      "center": {
+        "lat": 29.698,
+        "lon": -8.965
+      },
+      "bounds": {
+        "minX": -1741.5351918340893,
+        "minY": -1662.435073168017,
+        "maxX": 1742.052504409512,
+        "maxY": 1662.7101876973175
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 39,
+      "builtAt": "2026-11-06T09:30:38.161890+00:00"
     },
     {
       "id": "ait-ben-haddou",
@@ -240,54 +298,6 @@
       "crs": "EPSG:32629",
       "buildingCount": 1636,
       "builtAt": "2026-11-03T08:53:57.705753+00:00"
-    },
-    {
-      "id": "azemmour",
-      "name": "Azemmour",
-      "description": {
-        "fr": "La médina sur l’Oum Er-Rbia",
-        "en": "The medina on the Oum Er-Rbia"
-      },
-      "category": "destination",
-      "displayName": {
-        "fr": "Azemmour",
-        "en": "Azemmour"
-      },
-      "categories": [
-        "curated-destinations"
-      ],
-      "selection": {
-        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
-        "source": "https://www.visitmorocco.com/en/travel/el-jadida-mazagan/medina",
-        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/33.2895/-8.342"
-      },
-      "sourceUrl": "https://www.visitmorocco.com/en/travel/el-jadida-mazagan/medina",
-      "boundsWgs84": {
-        "topLeft": {
-          "lat": 33.2966865,
-          "lon": -8.3505972
-        },
-        "bottomRight": {
-          "lat": 33.2823135,
-          "lon": -8.3334028
-        }
-      },
-      "centerMethod": "configured-display-extent-midpoint",
-      "indexUrl": "azemmour/index.json",
-      "center": {
-        "lat": 33.289500000000004,
-        "lon": -8.341999999999999
-      },
-      "bounds": {
-        "minX": -805.4597200485878,
-        "minY": -801.7663289071061,
-        "maxX": 805.5905696229311,
-        "maxY": 801.8342795772478
-      },
-      "crs": "EPSG:32629",
-      "buildingCount": 2,
-      "builtAt": "2026-11-03T08:53:58.786948+00:00"
     },
     {
       "id": "boujdour",
@@ -681,66 +691,6 @@
       "crs": "EPSG:32629",
       "buildingCount": 2732,
       "builtAt": "2026-11-03T08:54:31.518542+00:00"
-    },
-    {
-      "id": "erg-chigaga",
-      "name": "Erg Chigaga",
-      "description": {
-        "fr": "Un secteur des dunes de Chigaga et des plaines désertiques, à l’ouest de M’Hamid",
-        "en": "A section of the Chigaga dunes and surrounding desert plains west of M’Hamid"
-      },
-      "category": "destination",
-      "displayName": {
-        "fr": "Erg Chigaga",
-        "en": "Erg Chigaga"
-      },
-      "categories": [
-        "landscape-scenes"
-      ],
-      "selection": {
-        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
-        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
-        "extentBasis": "Bounded eastern sector of the mapped Chigaga erg, including dune terrain and its desert-plain margin; deliberately west of M’Hamid village and distinct from Merzouga/Erg Chebbi; not the complete dune sea",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=13/29.84/-6.2475",
-        "checkedAt": "2026-11-05",
-        "anchors": [
-          {
-            "name": "Chigaga dunes/camps area, approximate published reference",
-            "lat": 29.828,
-            "lon": -6.25,
-            "sourceUrl": "https://desert.foumzguid.com/en/guide/desert-map/"
-          }
-        ],
-        "mappedLandformSourceUrl": "https://www.openstreetmap.org/way/225179090",
-        "representationLimit": "The overview uses 4 m geometry with approximately 30 m elevation observations. Broad dune relief may be represented, but crests, wind-driven changes and sand ripples are not reconstructed. Ground colours follow mapped surface classes, not satellite sand-colour samples. The curated reference is approximate to a few hundred metres according to its publisher; it is not a surveyed summit, fixed camp position or navigation waypoint."
-      },
-      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
-      "boundsWgs84": {
-        "topLeft": {
-          "lat": 29.87,
-          "lon": -6.3
-        },
-        "bottomRight": {
-          "lat": 29.81,
-          "lon": -6.195
-        }
-      },
-      "centerMethod": "configured-display-extent-midpoint",
-      "extentProfile": "overview",
-      "indexUrl": "erg-chigaga/index.json",
-      "center": {
-        "lat": 29.84,
-        "lon": -6.2475000000000005
-      },
-      "bounds": {
-        "minX": -5152.608999658376,
-        "minY": -3446.2690254906192,
-        "maxX": 5155.693215602776,
-        "maxY": 3448.751242895145
-      },
-      "crs": "EPSG:32629",
-      "buildingCount": 142,
-      "builtAt": "2026-11-05T18:39:31.307456+00:00"
     },
     {
       "id": "essaouira",
@@ -1212,15 +1162,15 @@
     },
     {
       "id": "merzouga",
-      "name": "Merzouga",
+      "name": "Merzouga — Erg Chebbi",
       "description": {
-        "fr": "Le village de Merzouga",
-        "en": "Merzouga village"
+        "fr": "Merzouga et les dunes de l’Erg Chebbi, dont la dune étoilée Lala Lallia",
+        "en": "Merzouga and the Erg Chebbi dunes, including the Lala Lallia star dune"
       },
       "category": "destination",
       "displayName": {
-        "fr": "Merzouga",
-        "en": "Merzouga"
+        "fr": "Merzouga — Erg Chebbi",
+        "en": "Merzouga — Erg Chebbi"
       },
       "categories": [
         "curated-destinations"
@@ -1228,35 +1178,52 @@
       "selection": {
         "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
         "source": "https://www.visitmorocco.com/en/travel/errachidia-midelt-merzouga",
-        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/31.099/-4.012"
+        "extentBasis": "Continuous bounded viewport containing the original Merzouga village extent and the southern Erg Chebbi dune field, including the published Lala Lallia star-dune location; not the whole Erg Chebbi sand sea",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=13/31.1265/-3.997",
+        "checkedAt": "2026-11-06",
+        "anchors": [
+          {
+            "name": "Merzouga original village centre",
+            "lat": 31.099,
+            "lon": -4.012,
+            "sourceUrl": "https://www.openstreetmap.org/#map=16/31.099/-4.012"
+          },
+          {
+            "name": "Lala Lallia star dune, published survey location",
+            "lat": 31.1470722,
+            "lon": -4.0094556,
+            "sourceUrl": "https://doi.org/10.1038/s41598-024-53485-3"
+          }
+        ],
+        "representationLimit": "Broad dune relief comes from the approximately 30 m terrain source, not an invented dune mesh. The 4 m voxel grid does not add survey detail to that source. Wind-driven changes since the elevation survey are not reconstructed; ground colours remain mapped-class colours rather than per-pixel satellite sand colours."
       },
       "sourceUrl": "https://www.visitmorocco.com/en/travel/errachidia-midelt-merzouga",
       "boundsWgs84": {
         "topLeft": {
-          "lat": 31.1061865,
-          "lon": -4.0203927
+          "lat": 31.17,
+          "lon": -4.036
         },
         "bottomRight": {
-          "lat": 31.0918135,
-          "lon": -4.0036073
+          "lat": 31.083,
+          "lon": -3.958
         }
       },
       "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "overview",
       "indexUrl": "merzouga/index.json",
       "center": {
-        "lat": 31.099,
-        "lon": -4.0120000000000005
+        "lat": 31.1265,
+        "lon": -3.997
       },
       "bounds": {
-        "minX": -807.7752451407723,
-        "minY": -803.7869906728156,
-        "maxX": 807.6552068856545,
-        "maxY": 803.8503785943612
+        "minX": -3763.5683121003094,
+        "minY": -4854.084726762958,
+        "maxX": 3760.208052455855,
+        "maxY": 4855.47889964655
       },
       "crs": "EPSG:32630",
-      "buildingCount": 232,
-      "builtAt": "2026-11-03T11:28:30.662906+00:00"
+      "buildingCount": 531,
+      "builtAt": "2026-11-06T09:23:25.751549+00:00"
     },
     {
       "id": "mohammedia",
@@ -1367,15 +1334,15 @@
     },
     {
       "id": "ouarzazate",
-      "name": "Ouarzazate",
+      "name": "Ouarzazate — complexe solaire Noor",
       "description": {
-        "fr": "La kasbah de Taourirt et les quartiers voisins",
-        "en": "Taourirt Kasbah and neighbouring streets"
+        "fr": "La kasbah de Taourirt, Ouarzazate et le complexe solaire Noor au nord de la ville",
+        "en": "Taourirt Kasbah, Ouarzazate and the Noor solar complex north of the city"
       },
       "category": "destination",
       "displayName": {
-        "fr": "Ouarzazate",
-        "en": "Ouarzazate"
+        "fr": "Ouarzazate — complexe solaire Noor",
+        "en": "Ouarzazate — Noor solar complex"
       },
       "categories": [
         "curated-destinations"
@@ -1383,35 +1350,58 @@
       "selection": {
         "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
         "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
-        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.9196/-6.899"
+        "extentBasis": "Continuous bounded Ouarzazate-to-Noor viewport retaining the original Taourirt neighbourhood and the solar complex approximately 10 km north of the city; project locations checked against the National Laboratory of the Rockies CSP database",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=12/30.993/-6.878",
+        "checkedAt": "2026-11-06",
+        "anchors": [
+          {
+            "name": "Ouarzazate original Taourirt neighbourhood centre",
+            "lat": 30.9196,
+            "lon": -6.899,
+            "sourceUrl": "https://www.openstreetmap.org/#map=16/30.9196/-6.899"
+          },
+          {
+            "name": "Noor I approximate project location",
+            "lat": 30.994,
+            "lon": -6.863,
+            "sourceUrl": "https://solarpaces.nlr.gov/project/noor-i"
+          },
+          {
+            "name": "Noor III approximate project location",
+            "lat": 31.06,
+            "lon": -6.87,
+            "sourceUrl": "https://solarpaces.nlr.gov/project/noor-iii"
+          }
+        ],
+        "representationLimit": "The 8 m overview is a geographic scene, not an engineering model of the power station. Only mapped solar collector, building and road footprints are included; small mirrors and unmapped structures are not invented. Published project-location markers are approximate, and broad terrain uses the approximately 30 m elevation source."
       },
       "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
       "boundsWgs84": {
         "topLeft": {
-          "lat": 30.9276848,
-          "lon": -6.9084241
+          "lat": 31.084,
+          "lon": -6.949
         },
         "bottomRight": {
-          "lat": 30.9115152,
-          "lon": -6.8895759
+          "lat": 30.902,
+          "lon": -6.807
         }
       },
       "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "landscape-overview",
       "indexUrl": "ouarzazate/index.json",
       "center": {
-        "lat": 30.919600000000003,
-        "lon": -6.899
+        "lat": 30.993000000000002,
+        "lon": -6.878
       },
       "bounds": {
-        "minX": -917.5435687301215,
-        "minY": -913.2121237940155,
-        "maxX": 917.6939548105001,
-        "maxY": 913.2945113237947
+        "minX": -6966.993712692638,
+        "minY": -10215.279109566007,
+        "maxX": 6979.530561239808,
+        "maxY": 10220.175482562277
       },
       "crs": "EPSG:32629",
-      "buildingCount": 1961,
-      "builtAt": "2026-11-03T11:28:41.924715+00:00"
+      "buildingCount": 13658,
+      "builtAt": "2026-11-06T09:39:17.336934+00:00"
     },
     {
       "id": "oujda",
@@ -2282,15 +2272,15 @@
     },
     {
       "id": "zagora",
-      "name": "Zagora",
+      "name": "Zagora — dunes de Tinfou",
       "description": {
-        "fr": "Le centre de Zagora et ses rues",
-        "en": "The centre of Zagora and its streets"
+        "fr": "Zagora, sa montagne et la vallée du Drâa jusqu’aux dunes de Tinfou",
+        "en": "Zagora, its mountain and the Drâa Valley extending to the Tinfou dunes"
       },
       "category": "destination",
       "displayName": {
-        "fr": "Zagora",
-        "en": "Zagora"
+        "fr": "Zagora — dunes de Tinfou",
+        "en": "Zagora — Tinfou dunes"
       },
       "categories": [
         "curated-destinations"
@@ -2298,35 +2288,52 @@
       "selection": {
         "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
         "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
-        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.33/-5.838"
+        "extentBasis": "Continuous Zagora-to-Tinfou viewport retaining the original city extent and reaching the real dunes east of Tamegroute; the intervening valley and rocky desert are retained rather than placing synthetic dunes beside the city",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=12/30.2855/-5.7215",
+        "checkedAt": "2026-11-06",
+        "anchors": [
+          {
+            "name": "Zagora original city centre",
+            "lat": 30.33,
+            "lon": -5.838,
+            "sourceUrl": "https://www.openstreetmap.org/#map=16/30.33/-5.838"
+          },
+          {
+            "name": "Tinfou mapped dune field",
+            "lat": 30.24114,
+            "lon": -5.60254,
+            "sourceUrl": "https://www.openstreetmap.org/way/240320716"
+          }
+        ],
+        "representationLimit": "The 8 m overview grid keeps the continuous city-to-dunes scene bounded; heights still come from the approximately 30 m terrain source. Small sand crests and recent dune movement are not reconstructed. Ground colours follow mapped classes rather than per-pixel satellite ground texture."
       },
       "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
       "boundsWgs84": {
         "topLeft": {
-          "lat": 30.3380848,
-          "lon": -5.8473668
+          "lat": 30.344,
+          "lon": -5.849
         },
         "bottomRight": {
-          "lat": 30.3219152,
-          "lon": -5.8286332
+          "lat": 30.227,
+          "lon": -5.594
         }
       },
       "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "landscape-overview",
       "indexUrl": "zagora/index.json",
       "center": {
-        "lat": 30.33,
-        "lon": -5.837999999999999
+        "lat": 30.2855,
+        "lon": -5.721500000000001
       },
       "bounds": {
-        "minX": -923.4621284165769,
-        "minY": -918.9615526306443,
-        "maxX": 923.3154042714159,
-        "maxY": 919.0442023104988
+        "minX": -12431.552432029566,
+        "minY": -6773.023131648544,
+        "maxX": 12416.576354594465,
+        "maxY": 6787.561301273759
       },
       "crs": "EPSG:32630",
-      "buildingCount": 400,
-      "builtAt": "2026-11-03T11:32:30.972549+00:00"
+      "buildingCount": 4506,
+      "builtAt": "2026-11-06T09:26:20.748652+00:00"
     }
   ]
 }

@@ -3,7 +3,7 @@
   "verifiedAt": "2026-11-02",
   "buildDate": "2026-11-03T08:53:28.674244+00:00",
   "project": {
-    "name": "Casa Voxel",
+    "name": "MoroccoVoxelMap",
     "sourceUrl": null,
     "license": "MIT",
     "licenseUrl": "licenses/LICENSE.txt",
@@ -48,8 +48,8 @@
       "northing": 3718548.727985361
     },
     "description": {
-      "fr": "Casablanca : une emprise de 3,2 × 3,4 km calculée en mètres (EPSG:32629).",
-      "en": "Casablanca: a 3.2 × 3.4 km extent calculated in metres (EPSG:32629)."
+      "fr": "Casablanca — centre-ville : une emprise de 3,2 × 3,4 km calculée en mètres (EPSG:32629).",
+      "en": "Casablanca — centre-ville: a 3.2 × 3.4 km extent calculated in metres (EPSG:32629)."
     }
   },
   "datasets": [
@@ -292,7 +292,7 @@
       "downloadDate": "2026-11-02T22:56:13.862761+00:00",
       "buildDate": "2026-11-03T08:53:28.674244+00:00",
       "sha256": "81f36a3920377ee64e050b92aefd3c31e4bc0edc6ab35be495b764cb5e41d070",
-      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
       "sourceFiles": [],
       "sourceRecordUrl": "data/source-manifest.json",
       "processing": {
@@ -435,7 +435,7 @@
   "regions": [
     {
       "id": "central",
-      "name": "Casablanca",
+      "name": "Casablanca — centre-ville",
       "datasets": [
         {
           "id": "osm",
@@ -676,7 +676,7 @@
           "downloadDate": "2026-11-02T22:56:13.862761+00:00",
           "buildDate": "2026-11-03T08:53:28.674244+00:00",
           "sha256": "81f36a3920377ee64e050b92aefd3c31e4bc0edc6ab35be495b764cb5e41d070",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/source-manifest.json",
           "processing": {
@@ -713,8 +713,8 @@
           "northing": 3718548.727985361
         },
         "description": {
-          "fr": "Casablanca : une emprise de 3,2 × 3,4 km calculée en mètres (EPSG:32629).",
-          "en": "Casablanca: a 3.2 × 3.4 km extent calculated in metres (EPSG:32629)."
+          "fr": "Casablanca — centre-ville : une emprise de 3,2 × 3,4 km calculée en mètres (EPSG:32629).",
+          "en": "Casablanca — centre-ville: a 3.2 × 3.4 km extent calculated in metres (EPSG:32629)."
         }
       },
       "dataLicenseUrl": "data/README-LICENSE.txt",
@@ -1015,7 +1015,7 @@
           "downloadDate": "2026-11-02T22:57:58.352805+00:00",
           "buildDate": "2026-11-03T08:53:44.699592+00:00",
           "sha256": "23eefbcfb189b3b1f034a7e5079efc72cd255a3d2730895719b09d0dd16bb584",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/agadir/source-manifest.json",
           "processing": {
@@ -1108,6 +1108,335 @@
           "baseElevation": 0,
           "minElevation": 0,
           "maxElevation": 118.6,
+          "resolutionM": 30,
+          "sourceId": "gedtm30",
+          "sourceUrl": "https://zenodo.org/records/18887460",
+          "release": "v1.2.0",
+          "license": "CC-BY-4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+          "apronExtendedNodataSamples": 0,
+          "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+        }
+      }
+    },
+    {
+      "id": "aguerd-oudad",
+      "name": "Aguerd Oudad — Chapeau de Napoléon",
+      "datasets": [
+        {
+          "id": "osm",
+          "name": "OpenStreetMap",
+          "provider": "OpenStreetMap contributors",
+          "status": "active",
+          "sourceUrl": "https://www.openstreetmap.org/copyright",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-8.984555600838544%2C29.681636105466715%2C-8.945432714528875%2C29.71436345536776",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-06T09:29:58.960978+00:00",
+          "buildDate": "2026-11-06T09:30:38.161890+00:00",
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors",
+          "usage": {
+            "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
+            "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
+          },
+          "limitations": {
+            "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
+            "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
+          },
+          "sha256": "334cff117c8ca0008dd71d6cc4869a93785c9fc519ca511ddd4cab8af9963bb5",
+          "sourceFiles": [],
+          "sourceRecordUrl": "data/aguerd-oudad/source-manifest.json",
+          "downloadUrls": [
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-8.984555600838544%2C29.681636105466715%2C-8.945432714528875%2C29.71436345536776"
+          ],
+          "acquisitionMethod": "osm-map-api"
+        },
+        {
+          "id": "microsoft",
+          "name": "Microsoft Global ML Building Footprints",
+          "provider": "Microsoft",
+          "status": "optional",
+          "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+          "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
+          "license": "CDLA-Permissive-2.0",
+          "licenseUrl": "https://cdla.dev/permissive-2-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": null,
+          "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
+          "usage": {
+            "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
+            "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
+          },
+          "limitations": {
+            "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
+            "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
+          }
+        },
+        {
+          "id": "overture",
+          "name": "Overture Maps Buildings",
+          "provider": "Overture Maps Foundation",
+          "status": "optional",
+          "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
+          "downloadUrl": "https://docs.overturemaps.org/getting-data/",
+          "license": "ODbL-1.0",
+          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": null,
+          "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
+          "usage": {
+            "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
+            "en": "A future alternative building source; no Overture data is loaded in this build."
+          },
+          "limitations": {
+            "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
+            "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
+          }
+        },
+        {
+          "id": "sentinel2",
+          "name": "Copernicus Sentinel-2 Level-2A",
+          "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "status": "active",
+          "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RMN_20261012T111729_L2A",
+          "license": "Copernicus Sentinel data licence",
+          "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+          "release": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RMN_20261012T145210.SAFE",
+          "acquisitionDate": "2026-10-12",
+          "downloadDate": "2026-11-06T09:30:12.949276+00:00",
+          "buildDate": "2026-11-06T09:30:38.161890+00:00",
+          "resolutionMeters": 10,
+          "attribution": "Contains modified Copernicus Sentinel data 2026",
+          "usage": {
+            "fr": "Couleurs échantillonnées dans l’intérieur des grands toits. Les autres toits utilisent le pixel natif valide à leur emplacement, comme estimation de pixel mélangé. Aucun emprunt à une palette régionale ni à un pixel voisin ; sans pixel utilisable, le toit est gris et inconnu. Les couleurs explicitement cartographiées ou sourcées gardent la priorité ; un matériau seul reste une estimation. Les façades restent indépendantes.",
+            "en": "Colours sampled inside large roofs. Other roofs use the valid native pixel at their location as a mixed-pixel estimate. No regional palette or neighbouring pixel supplies missing colours; a roof without a usable pixel is grey and unknown. Explicit mapped or sourced colours retain priority; a material tag alone is an estimate. Facades remain independent."
+          },
+          "limitations": {
+            "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Un pixel peut mélanger plusieurs toits, rues et végétation ; sa couleur n’est pas une mesure individuelle d’un petit toit ni d’une façade. Ombres et décalages géométriques peuvent subsister.",
+            "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. A pixel can mix roofs, streets and vegetation; its colour is not an individual measurement of a small roof or facade. Shadows and alignment errors may remain."
+          },
+          "sourceMetadataSha256": "58c3078854f256983c47292849a1cacadb1e41202b369fe96c3fe5329dc79191",
+          "acquisitionDates": [
+            "2026-10-12"
+          ],
+          "importDate": "2026-11-06T09:30:13.581136+00:00",
+          "sha256": "b0e9924b0f8a5429f1396c9abed15eb5678cb54e31ddb0e1937f7d8d131b19b9",
+          "processing": {
+            "kind": "documented-true-colour",
+            "scale": 1,
+            "offset": 0,
+            "gamma": 1,
+            "displayRange": [
+              0,
+              255
+            ],
+            "rgbBands": [
+              1,
+              2,
+              3
+            ],
+            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
+          },
+          "sourceRecordUrl": "data/aguerd-oudad/source-manifest.json"
+        },
+        {
+          "id": "copdem",
+          "name": "Copernicus DEM GLO-30",
+          "provider": "European Union / ESA / DLR / Airbus",
+          "status": "optional",
+          "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+          "downloadUrl": "https://dataspace.copernicus.eu/",
+          "license": "Copernicus DEM GLO-30 free licence",
+          "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 30,
+          "attribution": null,
+          "usage": {
+            "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
+            "en": "Future option; this build uses a flat base without an elevation dataset."
+          },
+          "limitations": {
+            "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
+            "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
+          }
+        },
+        {
+          "id": "gba",
+          "name": "GlobalBuildingAtlas heights / LoD1",
+          "provider": "Zhu et al. / Technical University of Munich",
+          "status": "excluded",
+          "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
+          "downloadUrl": null,
+          "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 3,
+          "attribution": null,
+          "usage": {
+            "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
+            "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
+          },
+          "limitations": {
+            "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
+            "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
+          }
+        },
+        {
+          "id": "ghsl-height",
+          "name": "GHSL GHS-BUILT-H R2023A",
+          "provider": "European Commission Joint Research Centre",
+          "status": "optional",
+          "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
+          "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
+          "license": "CC-BY-4.0 with dataset and methodology citation",
+          "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
+          "release": null,
+          "acquisitionDate": null,
+          "downloadDate": null,
+          "buildDate": null,
+          "resolutionMeters": 100,
+          "attribution": null,
+          "usage": {
+            "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
+            "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
+          },
+          "limitations": {
+            "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
+            "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
+          }
+        },
+        {
+          "id": "gedtm30",
+          "name": "GEDTM30 v1.2 — bare-earth terrain",
+          "provider": "OpenGeoHub",
+          "status": "active",
+          "sourceUrl": "https://zenodo.org/records/18887460",
+          "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+          "license": "CC-BY-4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "resolutionMeters": 30,
+          "usage": {
+            "fr": "Relief précalculé et altitude de base estimée des bâtiments. Interpolation bilinéaire en UTM, médiane sous chaque emprise, océan à 0 m et plans d’eau cartographiés nivelés. Les hauteurs bâties restent relatives au sol.",
+            "en": "Precomputed ground relief and estimated building base elevations. Bilinear UTM interpolation, median under each footprint, ocean at 0 m and mapped standing water levelled. Building heights remain relative to the ground."
+          },
+          "limitations": {
+            "fr": "Terrain modélisé à environ 30 m, référentiel vertical EGM2008. Ce ne sont ni des relevés de seuils ou de planchers, ni des hauteurs de toits. Des erreurs locales et résidus de structures peuvent subsister.",
+            "en": "Modelled terrain at approximately 30 m in the EGM2008 vertical datum. These are neither surveyed entrances/floors nor roof heights. Local errors and residual structures may remain."
+          },
+          "downloadUrls": [
+            "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif"
+          ],
+          "acquisitionMethod": "bounded-native-cog-window",
+          "release": "v1.2.0",
+          "acquisitionDate": null,
+          "downloadDate": "2026-11-06T09:30:32.728497+00:00",
+          "buildDate": "2026-11-06T09:30:38.161890+00:00",
+          "sha256": "0b1b21b8fbbb7ee05a7c9d96461786bd85163c622591bc06907cf310981a68eb",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
+          "sourceFiles": [],
+          "sourceRecordUrl": "data/aguerd-oudad/source-manifest.json",
+          "processing": {
+            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date."
+          },
+          "verticalDatum": "EGM2008",
+          "units": "metre",
+          "publicationDate": "2026-03-06",
+          "sourceTimePeriod": [
+            "2006-01-01",
+            "2015-12-31"
+          ]
+        }
+      ],
+      "area": {
+        "crs": "EPSG:32629",
+        "centerLatLon": [
+          29.698,
+          -8.965
+        ],
+        "sizeMeters": [
+          3483.5876962436014,
+          3325.1452608653344
+        ],
+        "voxelSizeMeters": 2,
+        "bounds": {
+          "minX": -1741.5351918340893,
+          "minY": -1662.435073168017,
+          "maxX": 1742.052504409512,
+          "maxY": 1662.7101876973175
+        },
+        "origin": {
+          "easting": 503385.84318419354,
+          "northing": 3285322.58491529
+        },
+        "description": {
+          "fr": "Aguerd Oudad — Chapeau de Napoléon : une emprise de 3,48 × 3,33 km calculée en mètres (EPSG:32629).",
+          "en": "Aguerd Oudad — Chapeau de Napoléon: a 3.48 × 3.33 km extent calculated in metres (EPSG:32629)."
+        }
+      },
+      "dataLicenseUrl": "data/aguerd-oudad/README-LICENSE.txt",
+      "derivedDatabaseUrl": "data/aguerd-oudad/normalized.geojson.7z",
+      "qualityReportUrl": "data/aguerd-oudad/quality.json",
+      "sourceManifestUrl": "data/aguerd-oudad/source-manifest.json",
+      "buildDate": "2026-11-06T09:30:38.161890+00:00",
+      "quality": {
+        "buildingCount": 39,
+        "sourceBreakdown": {
+          "openstreetmap": 39
+        },
+        "heightMethods": {
+          "estimated": 39
+        },
+        "wallColorMethods": {
+          "estimated": 39
+        },
+        "roofColorMethods": {
+          "imagery-mixed": 39
+        },
+        "facadeStyling": {
+          "included": false,
+          "method": "curated-zone",
+          "zones": []
+        },
+        "estimatedHeightCount": 39,
+        "imageryIncluded": true,
+        "imagery": {
+          "included": true,
+          "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+          "acquisitionDates": [
+            "2026-10-12"
+          ],
+          "sampledRoofs": 0,
+          "mixedPixelRoofs": 39,
+          "unknownRoofs": 0,
+          "samplingVersion": 3,
+          "nativeResolutionM": 10,
+          "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RMN_20261012T145210.SAFE",
+          "attribution": "Contains modified Copernicus Sentinel data 2026"
+        },
+        "terrain": {
+          "included": true,
+          "datum": "EGM2008",
+          "units": "metre",
+          "baseElevation": 992,
+          "minElevation": 998.1,
+          "maxElevation": 1387.77,
           "resolutionM": 30,
           "sourceId": "gedtm30",
           "sourceUrl": "https://zenodo.org/records/18887460",
@@ -1349,7 +1678,7 @@
           "downloadDate": "2026-11-02T22:57:59.663410+00:00",
           "buildDate": "2026-11-03T08:53:47.932914+00:00",
           "sha256": "75af122ddc88d02e088fc652d108cda00032cbe2c67077e94d37bea50ee81a5c",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/ait-ben-haddou/source-manifest.json",
           "processing": {
@@ -1712,7 +2041,7 @@
           "downloadDate": "2026-11-02T22:58:00.498407+00:00",
           "buildDate": "2026-11-03T08:53:52.574028+00:00",
           "sha256": "40788c6dacba826606eea2738f6fdf1b4b41950c78fe9522b9d89a5b5f7b22f2",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/al-hoceima/source-manifest.json",
           "processing": {
@@ -2084,7 +2413,7 @@
           "downloadDate": "2026-11-02T22:58:00.998379+00:00",
           "buildDate": "2026-11-03T08:53:57.705753+00:00",
           "sha256": "23ba3f366bee89066cc62aaa2f262786a22f54cb43084cbcfec691cfdbed042d",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/asilah/source-manifest.json",
           "processing": {
@@ -2176,351 +2505,6 @@
           "baseElevation": 0,
           "minElevation": 0,
           "maxElevation": 59.9,
-          "resolutionM": 30,
-          "sourceId": "gedtm30",
-          "sourceUrl": "https://zenodo.org/records/18887460",
-          "release": "v1.2.0",
-          "license": "CC-BY-4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
-          "apronExtendedNodataSamples": 0,
-          "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
-        }
-      }
-    },
-    {
-      "id": "azemmour",
-      "name": "Azemmour",
-      "datasets": [
-        {
-          "id": "osm",
-          "name": "OpenStreetMap",
-          "provider": "OpenStreetMap contributors",
-          "status": "active",
-          "sourceUrl": "https://www.openstreetmap.org/copyright",
-          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-8.352324419503443%2C33.28086093344357%2C-8.33167216149786%2C33.29813884816618",
-          "license": "ODbL-1.0",
-          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:06:34.495396+00:00",
-          "buildDate": "2026-11-03T08:53:58.786948+00:00",
-          "resolutionMeters": null,
-          "attribution": "© OpenStreetMap contributors",
-          "usage": {
-            "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
-            "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
-          },
-          "limitations": {
-            "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
-            "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
-          },
-          "sha256": "df8c213ce7dc7fdb780b24153a02a2a97bf2e183de348c5c082ffe48e86c2f0c",
-          "sourceFiles": [],
-          "sourceRecordUrl": "data/azemmour/source-manifest.json",
-          "downloadUrls": [
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-8.352324419503443%2C33.28086093344357%2C-8.33167216149786%2C33.29813884816618"
-          ],
-          "acquisitionMethod": "osm-map-api"
-        },
-        {
-          "id": "microsoft",
-          "name": "Microsoft Global ML Building Footprints",
-          "provider": "Microsoft",
-          "status": "active",
-          "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
-          "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
-          "license": "CDLA-Permissive-2.0",
-          "licenseUrl": "https://cdla.dev/permissive-2-0/",
-          "release": "2026-08-13",
-          "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:17:41.706892+00:00",
-          "buildDate": "2026-11-03T08:53:58.786948+00:00",
-          "resolutionMeters": null,
-          "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
-          "usage": {
-            "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
-            "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
-          },
-          "limitations": {
-            "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
-            "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
-          },
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "sourceFiles": [
-            {
-              "quadkey": "033112302",
-              "url": "https://bfppub.z5.web.core.windows.net/2026-08-13/global-buildings.geojsonl/RegionName=Morocco/quadkey=033112302/part-00085-110f5303-ff85-4c71-a2bf-c6070024fec8.c000.csv.gz",
-              "sha256": "ae6401a32b36c7f4e3a414d384f43b6d943014e5c271b0a47ae8ec2bec0001d3",
-              "bytes": 955621,
-              "providerLocation": "Morocco",
-              "downloadedAt": "2026-11-02T22:17:41.706892+00:00"
-            }
-          ],
-          "sourceRecordUrl": "data/azemmour/source-manifest.json",
-          "downloadUrls": [
-            "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv"
-          ],
-          "acquisitionMethod": null
-        },
-        {
-          "id": "overture",
-          "name": "Overture Maps Buildings",
-          "provider": "Overture Maps Foundation",
-          "status": "optional",
-          "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
-          "downloadUrl": "https://docs.overturemaps.org/getting-data/",
-          "license": "ODbL-1.0",
-          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": null,
-          "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
-          "usage": {
-            "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
-            "en": "A future alternative building source; no Overture data is loaded in this build."
-          },
-          "limitations": {
-            "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
-            "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
-          }
-        },
-        {
-          "id": "sentinel2",
-          "name": "Copernicus Sentinel-2 Level-2A",
-          "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
-          "status": "active",
-          "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
-          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29SNS_20261101T112054_L2A",
-          "license": "Copernicus Sentinel data licence",
-          "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
-          "release": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SNS_20261102T152046.SAFE",
-          "acquisitionDate": "2026-11-01",
-          "downloadDate": "2026-11-02T22:17:48.171102+00:00",
-          "buildDate": "2026-11-03T08:53:58.786948+00:00",
-          "resolutionMeters": 10,
-          "attribution": "Contains modified Copernicus Sentinel data 2026",
-          "usage": {
-            "fr": "Couleurs échantillonnées dans l’intérieur des grands toits. Les autres toits utilisent le pixel natif valide à leur emplacement, comme estimation de pixel mélangé. Aucun emprunt à une palette régionale ni à un pixel voisin ; sans pixel utilisable, le toit est gris et inconnu. Les couleurs explicitement cartographiées ou sourcées gardent la priorité ; un matériau seul reste une estimation. Les façades restent indépendantes.",
-            "en": "Colours sampled inside large roofs. Other roofs use the valid native pixel at their location as a mixed-pixel estimate. No regional palette or neighbouring pixel supplies missing colours; a roof without a usable pixel is grey and unknown. Explicit mapped or sourced colours retain priority; a material tag alone is an estimate. Facades remain independent."
-          },
-          "limitations": {
-            "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Un pixel peut mélanger plusieurs toits, rues et végétation ; sa couleur n’est pas une mesure individuelle d’un petit toit ni d’une façade. Ombres et décalages géométriques peuvent subsister.",
-            "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. A pixel can mix roofs, streets and vegetation; its colour is not an individual measurement of a small roof or facade. Shadows and alignment errors may remain."
-          },
-          "sourceMetadataSha256": "b9602b0de54557a18156051d2957d181f1311b4bbdbdcd046447655165f4442b",
-          "acquisitionDates": [
-            "2026-11-01"
-          ],
-          "importDate": "2026-11-03T08:53:58.497087+00:00",
-          "sha256": "8914c7af5d920cdf5eadb4458cc5548adde60e892f2a3e87afc718f9896e8c59",
-          "processing": {
-            "kind": "documented-true-colour",
-            "scale": 1,
-            "offset": 0,
-            "gamma": 1,
-            "displayRange": [
-              0,
-              255
-            ],
-            "rgbBands": [
-              1,
-              2,
-              3
-            ],
-            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
-          },
-          "sourceRecordUrl": "data/azemmour/source-manifest.json"
-        },
-        {
-          "id": "copdem",
-          "name": "Copernicus DEM GLO-30",
-          "provider": "European Union / ESA / DLR / Airbus",
-          "status": "optional",
-          "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-          "downloadUrl": "https://dataspace.copernicus.eu/",
-          "license": "Copernicus DEM GLO-30 free licence",
-          "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": 30,
-          "attribution": null,
-          "usage": {
-            "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
-            "en": "Future option; this build uses a flat base without an elevation dataset."
-          },
-          "limitations": {
-            "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
-            "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
-          }
-        },
-        {
-          "id": "gba",
-          "name": "GlobalBuildingAtlas heights / LoD1",
-          "provider": "Zhu et al. / Technical University of Munich",
-          "status": "excluded",
-          "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
-          "downloadUrl": null,
-          "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
-          "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": 3,
-          "attribution": null,
-          "usage": {
-            "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
-            "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
-          },
-          "limitations": {
-            "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
-            "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
-          }
-        },
-        {
-          "id": "ghsl-height",
-          "name": "GHSL GHS-BUILT-H R2023A",
-          "provider": "European Commission Joint Research Centre",
-          "status": "optional",
-          "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
-          "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
-          "license": "CC-BY-4.0 with dataset and methodology citation",
-          "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": 100,
-          "attribution": null,
-          "usage": {
-            "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
-            "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
-          },
-          "limitations": {
-            "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
-            "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
-          }
-        },
-        {
-          "id": "gedtm30",
-          "name": "GEDTM30 v1.2 — bare-earth terrain",
-          "provider": "OpenGeoHub",
-          "status": "active",
-          "sourceUrl": "https://zenodo.org/records/18887460",
-          "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
-          "license": "CC-BY-4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "resolutionMeters": 30,
-          "usage": {
-            "fr": "Relief précalculé et altitude de base estimée des bâtiments. Interpolation bilinéaire en UTM, médiane sous chaque emprise, océan à 0 m et plans d’eau cartographiés nivelés. Les hauteurs bâties restent relatives au sol.",
-            "en": "Precomputed ground relief and estimated building base elevations. Bilinear UTM interpolation, median under each footprint, ocean at 0 m and mapped standing water levelled. Building heights remain relative to the ground."
-          },
-          "limitations": {
-            "fr": "Terrain modélisé à environ 30 m, référentiel vertical EGM2008. Ce ne sont ni des relevés de seuils ou de planchers, ni des hauteurs de toits. Des erreurs locales et résidus de structures peuvent subsister.",
-            "en": "Modelled terrain at approximately 30 m in the EGM2008 vertical datum. These are neither surveyed entrances/floors nor roof heights. Local errors and residual structures may remain."
-          },
-          "downloadUrls": [
-            "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif"
-          ],
-          "acquisitionMethod": "bounded-native-cog-window",
-          "release": "v1.2.0",
-          "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:58:01.354137+00:00",
-          "buildDate": "2026-11-03T08:53:58.786948+00:00",
-          "sha256": "c5e85efbec6a6bf69a9b0ba580d0446682776574062ef123733eb037c2340692",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
-          "sourceFiles": [],
-          "sourceRecordUrl": "data/azemmour/source-manifest.json",
-          "processing": {
-            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution."
-          },
-          "verticalDatum": "EGM2008",
-          "units": "metre",
-          "publicationDate": "2026-03-06",
-          "sourceTimePeriod": [
-            "2006-01-01",
-            "2015-12-31"
-          ]
-        }
-      ],
-      "area": {
-        "crs": "EPSG:32629",
-        "centerLatLon": [
-          33.289500000000004,
-          -8.341999999999999
-        ],
-        "sizeMeters": [
-          1611.0502896715188,
-          1603.6006084843539
-        ],
-        "voxelSizeMeters": 2,
-        "bounds": {
-          "minX": -805.4597200485878,
-          "minY": -801.7663289071061,
-          "maxX": 805.5905696229311,
-          "maxY": 801.8342795772478
-        },
-        "origin": {
-          "easting": 561266.6324751745,
-          "northing": 3683574.786068296
-        },
-        "description": {
-          "fr": "Azemmour : une emprise de 1,61 × 1,6 km calculée en mètres (EPSG:32629).",
-          "en": "Azemmour: a 1.61 × 1.6 km extent calculated in metres (EPSG:32629)."
-        }
-      },
-      "dataLicenseUrl": "data/azemmour/README-LICENSE.txt",
-      "derivedDatabaseUrl": "data/azemmour/normalized.geojson.7z",
-      "qualityReportUrl": "data/azemmour/quality.json",
-      "sourceManifestUrl": "data/azemmour/source-manifest.json",
-      "buildDate": "2026-11-03T08:53:58.786948+00:00",
-      "quality": {
-        "buildingCount": 2,
-        "sourceBreakdown": {
-          "openstreetmap": 2
-        },
-        "heightMethods": {
-          "estimated": 2
-        },
-        "wallColorMethods": {
-          "estimated": 2
-        },
-        "roofColorMethods": {
-          "imagery": 2
-        },
-        "facadeStyling": {
-          "included": false,
-          "method": "curated-zone",
-          "zones": []
-        },
-        "estimatedHeightCount": 2,
-        "imageryIncluded": true,
-        "imagery": {
-          "included": true,
-          "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
-          "acquisitionDates": [
-            "2026-11-01"
-          ],
-          "sampledRoofs": 2,
-          "mixedPixelRoofs": 0,
-          "unknownRoofs": 0,
-          "samplingVersion": 3,
-          "nativeResolutionM": 10,
-          "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SNS_20261102T152046.SAFE",
-          "attribution": "Contains modified Copernicus Sentinel data 2026"
-        },
-        "terrain": {
-          "included": true,
-          "datum": "EGM2008",
-          "units": "metre",
-          "baseElevation": 0,
-          "minElevation": 1.1,
-          "maxElevation": 47.03,
           "resolutionM": 30,
           "sourceId": "gedtm30",
           "sourceUrl": "https://zenodo.org/records/18887460",
@@ -3134,7 +3118,7 @@
           "downloadDate": "2026-11-02T22:58:01.847987+00:00",
           "buildDate": "2026-11-03T08:54:09.497207+00:00",
           "sha256": "cd69f6e4e26b65a053fc0cd8deacba65028a42b83e07c5f3f51e5890bbf9ee5d",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/cfc/source-manifest.json",
           "processing": {
@@ -3492,7 +3476,7 @@
           "downloadDate": "2026-11-02T22:56:14.882675+00:00",
           "buildDate": "2026-11-03T08:54:20.259299+00:00",
           "sha256": "f5dd0389c6cc49f1ec5b9739c62382e4719989cb22c5a537b18d0afacebe67fb",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/chefchaouen/source-manifest.json",
           "processing": {
@@ -4943,7 +4927,7 @@
           "downloadDate": "2026-11-02T22:58:02.406327+00:00",
           "buildDate": "2026-11-03T08:54:31.518542+00:00",
           "sha256": "d87234ff246b200790f0a5cb4e90106b0f18d9c6b2829265a2101e4df38ae868",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/el-jadida/source-manifest.json",
           "processing": {
@@ -5033,349 +5017,6 @@
           "baseElevation": -8,
           "minElevation": -0.34,
           "maxElevation": 24.11,
-          "resolutionM": 30,
-          "sourceId": "gedtm30",
-          "sourceUrl": "https://zenodo.org/records/18887460",
-          "release": "v1.2.0",
-          "license": "CC-BY-4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
-          "apronExtendedNodataSamples": 0,
-          "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
-        }
-      }
-    },
-    {
-      "id": "erg-chigaga",
-      "name": "Erg Chigaga",
-      "datasets": [
-        {
-          "id": "osm",
-          "name": "OpenStreetMap",
-          "provider": "OpenStreetMap contributors",
-          "status": "active",
-          "sourceUrl": "https://www.openstreetmap.org/copyright",
-          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.303200446%2C29.806427762%2C-6.280907038%2C29.828809847",
-          "license": "ODbL-1.0",
-          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": "2026-11-05T18:39:08.712231+00:00",
-          "buildDate": "2026-11-05T18:39:31.307456+00:00",
-          "resolutionMeters": null,
-          "attribution": "© OpenStreetMap contributors",
-          "usage": {
-            "fr": "Emprises bâties, rues, espaces verts, zones piétonnes, rails, littoral, noms et repères.",
-            "en": "Building outlines, streets, green spaces, pedestrian areas, rails, coastline, names and landmarks."
-          },
-          "limitations": {
-            "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
-            "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
-          },
-          "sha256": "41775208597e5eb9faa2a60c4b27cecfd1a16c07149bcd671ddb49f7a8b582ed",
-          "sourceFiles": [],
-          "sourceRecordUrl": "data/erg-chigaga/source-manifest.json",
-          "downloadUrls": [
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.303200446%2C29.806427762%2C-6.280907038%2C29.828809847",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.280907038%2C29.806427762%2C-6.258613629%2C29.828809847",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.258613629%2C29.806427762%2C-6.236320221%2C29.828809847",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.236320221%2C29.806427762%2C-6.214026812%2C29.828809847",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.214026812%2C29.806427762%2C-6.191733404%2C29.828809847",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.303200446%2C29.828809847%2C-6.280907038%2C29.851191932",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.280907038%2C29.828809847%2C-6.258613629%2C29.851191932",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.258613629%2C29.828809847%2C-6.236320221%2C29.851191932",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.236320221%2C29.828809847%2C-6.214026812%2C29.851191932",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.214026812%2C29.828809847%2C-6.191733404%2C29.851191932",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.303200446%2C29.851191932%2C-6.280907038%2C29.873574016",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.280907038%2C29.851191932%2C-6.258613629%2C29.873574016",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.258613629%2C29.851191932%2C-6.236320221%2C29.873574016",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.236320221%2C29.851191932%2C-6.214026812%2C29.873574016",
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.214026812%2C29.851191932%2C-6.191733404%2C29.873574016"
-          ],
-          "acquisitionMethod": "osm-map-api-bbox-grid"
-        },
-        {
-          "id": "microsoft",
-          "name": "Microsoft Global ML Building Footprints",
-          "provider": "Microsoft",
-          "status": "optional",
-          "sourceUrl": "https://github.com/microsoft/GlobalMLBuildingFootprints",
-          "downloadUrl": "https://bfppub.blob.core.windows.net/%24web/2026-08-13/dataset-links.csv",
-          "license": "CDLA-Permissive-2.0",
-          "licenseUrl": "https://cdla.dev/permissive-2-0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": null,
-          "attribution": "Microsoft Global ML Building Footprints, CDLA Permissive 2.0",
-          "usage": {
-            "fr": "Complément d’emprises bâties après exclusion des doublons avec OpenStreetMap.",
-            "en": "Supplementary building outlines after removing overlaps with OpenStreetMap."
-          },
-          "limitations": {
-            "fr": "Emprises détectées par apprentissage automatique ; erreurs et omissions possibles. −1 signifie hauteur absente. Une version récente ne garantit pas une image source récente.",
-            "en": "Machine-detected outlines may contain omissions and errors. −1 means height unavailable. A recent release does not imply recent source imagery."
-          }
-        },
-        {
-          "id": "overture",
-          "name": "Overture Maps Buildings",
-          "provider": "Overture Maps Foundation",
-          "status": "optional",
-          "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
-          "downloadUrl": "https://docs.overturemaps.org/getting-data/",
-          "license": "ODbL-1.0",
-          "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": null,
-          "attribution": "© OpenStreetMap contributors, Overture Maps Foundation",
-          "usage": {
-            "fr": "Alternative future pour les bâtiments ; aucune donnée Overture chargée dans cette version.",
-            "en": "A future alternative building source; no Overture data is loaded in this build."
-          },
-          "limitations": {
-            "fr": "Le thème buildings est distribué sous ODbL, même lorsqu’une source amont est Microsoft. La présence locale de hauteurs reste à vérifier.",
-            "en": "The buildings theme is distributed under ODbL, including records originating from Microsoft. Local height coverage remains unverified."
-          }
-        },
-        {
-          "id": "sentinel2",
-          "name": "Copernicus Sentinel-2 Level-2A",
-          "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
-          "status": "active",
-          "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
-          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RQP_20261011T111228_L2A",
-          "license": "Copernicus Sentinel data licence",
-          "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
-          "release": "S2A_MSIL2A_20261011T105911_N0513_R094_T29RQP_20261011T191207.SAFE",
-          "acquisitionDate": "2026-10-11",
-          "downloadDate": "2026-11-05T18:39:18.504092+00:00",
-          "buildDate": "2026-11-05T18:39:31.307456+00:00",
-          "resolutionMeters": 10,
-          "attribution": "Contains modified Copernicus Sentinel data 2026",
-          "usage": {
-            "fr": "Couleurs échantillonnées dans l’intérieur des grands toits. Les autres toits utilisent le pixel natif valide à leur emplacement, comme estimation de pixel mélangé. Aucun emprunt à une palette régionale ni à un pixel voisin ; sans pixel utilisable, le toit est gris et inconnu. Les couleurs explicitement cartographiées ou sourcées gardent la priorité ; un matériau seul reste une estimation. Les façades restent indépendantes.",
-            "en": "Colours sampled inside large roofs. Other roofs use the valid native pixel at their location as a mixed-pixel estimate. No regional palette or neighbouring pixel supplies missing colours; a roof without a usable pixel is grey and unknown. Explicit mapped or sourced colours retain priority; a material tag alone is an estimate. Facades remain independent."
-          },
-          "limitations": {
-            "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Un pixel peut mélanger plusieurs toits, rues et végétation ; sa couleur n’est pas une mesure individuelle d’un petit toit ni d’une façade. Ombres et décalages géométriques peuvent subsister.",
-            "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. A pixel can mix roofs, streets and vegetation; its colour is not an individual measurement of a small roof or facade. Shadows and alignment errors may remain."
-          },
-          "sourceMetadataSha256": "40ad0f0361fcd0aec8b86ec44b06f718a99774d1fa8cd77efdbcf948196a2e9c",
-          "acquisitionDates": [
-            "2026-10-11"
-          ],
-          "importDate": "2026-11-05T18:39:19.122348+00:00",
-          "sha256": "d9783dc54ad0fd03d3f8f42d915d1807c469646535f216d7888c20ae6fe5ccd7",
-          "processing": {
-            "kind": "documented-true-colour",
-            "scale": 1,
-            "offset": 0,
-            "gamma": 1,
-            "displayRange": [
-              0,
-              255
-            ],
-            "rgbBands": [
-              1,
-              2,
-              3
-            ],
-            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
-          },
-          "sourceRecordUrl": "data/erg-chigaga/source-manifest.json"
-        },
-        {
-          "id": "copdem",
-          "name": "Copernicus DEM GLO-30",
-          "provider": "European Union / ESA / DLR / Airbus",
-          "status": "optional",
-          "sourceUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-          "downloadUrl": "https://dataspace.copernicus.eu/",
-          "license": "Copernicus DEM GLO-30 free licence",
-          "licenseUrl": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM#licensing-and-citation-guidelines",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": 30,
-          "attribution": null,
-          "usage": {
-            "fr": "Option future ; base plane dans cette version, sans modèle d’altitude.",
-            "en": "Future option; this build uses a flat base without an elevation dataset."
-          },
-          "limitations": {
-            "fr": "Modèle de surface de 30 m qui comprend bâtiments et végétation, et non terrain nu ni hauteur individuelle des toits. Ne pas additionner sans correction les hauteurs de bâtiments à ce modèle.",
-            "en": "A 30 m surface model including buildings and vegetation, not bare earth or individual roof heights. Do not add building heights to the urban DSM without correcting for existing structures."
-          }
-        },
-        {
-          "id": "gba",
-          "name": "GlobalBuildingAtlas heights / LoD1",
-          "provider": "Zhu et al. / Technical University of Munich",
-          "status": "excluded",
-          "sourceUrl": "https://github.com/zhu-xlab/GlobalBuildingAtlas",
-          "downloadUrl": null,
-          "license": "CC-BY-NC-4.0 (height / LoD1); polygons have separate terms",
-          "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": 3,
-          "attribution": null,
-          "usage": {
-            "fr": "Exclu de la distribution par défaut. Un éventuel profil non commercial doit être sélectionné et vérifié séparément.",
-            "en": "Excluded from the default distribution. Any noncommercial profile must be explicitly selected and reviewed separately."
-          },
-          "limitations": {
-            "fr": "Les hauteurs et LoD1 sont sous CC BY-NC 4.0. GBA.ODbLPolygon est sous ODbL, tandis que GBA.Polygon est sous CC BY-NC 4.0. Qualité locale non validée ; ne pas mélanger ces hauteurs à la base ODbL par défaut.",
-            "en": "Heights and LoD1 are CC BY-NC 4.0. GBA.ODbLPolygon is ODbL, while GBA.Polygon is CC BY-NC 4.0. Local quality is unvalidated; do not merge these heights into the default ODbL database."
-          }
-        },
-        {
-          "id": "ghsl-height",
-          "name": "GHSL GHS-BUILT-H R2023A",
-          "provider": "European Commission Joint Research Centre",
-          "status": "optional",
-          "sourceUrl": "https://human-settlement.emergency.copernicus.eu/ghs_buH2023.php",
-          "downloadUrl": "https://human-settlement.emergency.copernicus.eu/download.php?ds=builtH",
-          "license": "CC-BY-4.0 with dataset and methodology citation",
-          "licenseUrl": "https://human-settlement.emergency.copernicus.eu/GHSLhowToCite.php",
-          "release": null,
-          "acquisitionDate": null,
-          "downloadDate": null,
-          "buildDate": null,
-          "resolutionMeters": 100,
-          "attribution": null,
-          "usage": {
-            "fr": "Option pour un a priori de hauteur par quartier ; aucun fichier GHSL inclus. Le produit disponible R2023A représente 2018.",
-            "en": "Possible neighborhood height prior; no GHSL file is included. The available R2023A product represents 2018."
-          },
-          "limitations": {
-            "fr": "Hauteurs modélisées sur une grille de 100 m, pas des hauteurs observées par bâtiment. ANBH moyenne la hauteur des surfaces bâties ; AGBH est un volume bâti rapporté à toute la cellule. Audit local nécessaire.",
-            "en": "Modeled heights on a 100 m grid, not observed per-building heights. ANBH averages the height of built surfaces; AGBH is built volume per whole-cell area. A local audit is required."
-          }
-        },
-        {
-          "id": "gedtm30",
-          "name": "GEDTM30 v1.2 — bare-earth terrain",
-          "provider": "OpenGeoHub",
-          "status": "active",
-          "sourceUrl": "https://zenodo.org/records/18887460",
-          "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
-          "license": "CC-BY-4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "resolutionMeters": 30,
-          "usage": {
-            "fr": "Relief précalculé et altitude de base estimée des bâtiments. Interpolation bilinéaire en UTM, médiane sous chaque emprise, océan à 0 m et plans d’eau cartographiés nivelés. Les hauteurs bâties restent relatives au sol.",
-            "en": "Precomputed ground relief and estimated building base elevations. Bilinear UTM interpolation, median under each footprint, ocean at 0 m and mapped standing water levelled. Building heights remain relative to the ground."
-          },
-          "limitations": {
-            "fr": "Terrain modélisé à environ 30 m, référentiel vertical EGM2008. Ce ne sont ni des relevés de seuils ou de planchers, ni des hauteurs de toits. Des erreurs locales et résidus de structures peuvent subsister.",
-            "en": "Modelled terrain at approximately 30 m in the EGM2008 vertical datum. These are neither surveyed entrances/floors nor roof heights. Local errors and residual structures may remain."
-          },
-          "downloadUrls": [
-            "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif"
-          ],
-          "acquisitionMethod": "bounded-native-cog-window",
-          "release": "v1.2.0",
-          "acquisitionDate": null,
-          "downloadDate": "2026-11-05T18:39:29.125060+00:00",
-          "buildDate": "2026-11-05T18:39:31.307456+00:00",
-          "sha256": "45f9b93a5d7a8b9aaa769f58061935b720e3601a62b121f9bd99831245a89b07",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
-          "sourceFiles": [],
-          "sourceRecordUrl": "data/erg-chigaga/source-manifest.json",
-          "processing": {
-            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date."
-          },
-          "verticalDatum": "EGM2008",
-          "units": "metre",
-          "publicationDate": "2026-03-06",
-          "sourceTimePeriod": [
-            "2006-01-01",
-            "2015-12-31"
-          ]
-        }
-      ],
-      "area": {
-        "crs": "EPSG:32629",
-        "centerLatLon": [
-          29.84,
-          -6.2475000000000005
-        ],
-        "sizeMeters": [
-          10308.302215261152,
-          6895.020268385764
-        ],
-        "voxelSizeMeters": 4,
-        "bounds": {
-          "minX": -5152.608999658376,
-          "minY": -3446.2690254906192,
-          "maxX": 5155.693215602776,
-          "maxY": 3448.751242895145
-        },
-        "origin": {
-          "easting": 765949.0949788298,
-          "northing": 3304236.419897692
-        },
-        "description": {
-          "fr": "Erg Chigaga : une emprise de 10,31 × 6,9 km calculée en mètres (EPSG:32629).",
-          "en": "Erg Chigaga: a 10.31 × 6.9 km extent calculated in metres (EPSG:32629)."
-        }
-      },
-      "dataLicenseUrl": "data/erg-chigaga/README-LICENSE.txt",
-      "derivedDatabaseUrl": "data/erg-chigaga/normalized.geojson.7z",
-      "qualityReportUrl": "data/erg-chigaga/quality.json",
-      "sourceManifestUrl": "data/erg-chigaga/source-manifest.json",
-      "buildDate": "2026-11-05T18:39:31.307456+00:00",
-      "quality": {
-        "buildingCount": 142,
-        "sourceBreakdown": {
-          "openstreetmap": 142
-        },
-        "heightMethods": {
-          "estimated": 142
-        },
-        "wallColorMethods": {
-          "estimated": 142
-        },
-        "roofColorMethods": {
-          "imagery-mixed": 142
-        },
-        "facadeStyling": {
-          "included": false,
-          "method": "curated-zone",
-          "zones": []
-        },
-        "estimatedHeightCount": 142,
-        "imageryIncluded": true,
-        "imagery": {
-          "included": true,
-          "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
-          "acquisitionDates": [
-            "2026-10-11"
-          ],
-          "sampledRoofs": 0,
-          "mixedPixelRoofs": 142,
-          "unknownRoofs": 0,
-          "samplingVersion": 3,
-          "nativeResolutionM": 10,
-          "productId": "S2A_MSIL2A_20261011T105911_N0513_R094_T29RQP_20261011T191207.SAFE",
-          "attribution": "Contains modified Copernicus Sentinel data 2026"
-        },
-        "terrain": {
-          "included": true,
-          "datum": "EGM2008",
-          "units": "metre",
-          "baseElevation": 464,
-          "minElevation": 469.54,
-          "maxElevation": 556.32,
           "resolutionM": 30,
           "sourceId": "gedtm30",
           "sourceUrl": "https://zenodo.org/records/18887460",
@@ -5617,7 +5258,7 @@
           "downloadDate": "2026-11-02T22:58:03.597132+00:00",
           "buildDate": "2026-11-03T08:54:34.221289+00:00",
           "sha256": "02294782c1947e12676fdaa1aaca8611bee913411bc3037ab61b54bc341e3281",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/essaouira/source-manifest.json",
           "processing": {
@@ -5968,7 +5609,7 @@
           "downloadDate": "2026-11-02T22:58:04.719739+00:00",
           "buildDate": "2026-11-03T08:54:58.866881+00:00",
           "sha256": "911e2f8c5e84cb2e89519be7834ab45b88074fc984ca4633e0489ea5a3cab6ea",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/fes/source-manifest.json",
           "processing": {
@@ -7049,7 +6690,7 @@
           "downloadDate": "2026-11-02T22:58:07.295589+00:00",
           "buildDate": "2026-11-03T08:55:14.002066+00:00",
           "sha256": "c30b5ae32669683f5dd738404cb633b14602349ab0676db6fd689aa1fc962d6d",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/kenitra/source-manifest.json",
           "processing": {
@@ -7735,7 +7376,7 @@
           "downloadDate": "2026-11-02T22:58:08.351316+00:00",
           "buildDate": "2026-11-03T11:27:50.521491+00:00",
           "sha256": "b902c62000f5179d12552a58f115d4dd82c63350916c89197a201918cd1d033b",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/marrakech/source-manifest.json",
           "processing": {
@@ -8087,7 +7728,7 @@
           "downloadDate": "2026-11-02T22:58:09.628076+00:00",
           "buildDate": "2026-11-03T11:28:27.376674+00:00",
           "sha256": "3f539d91ba3fd7b6312e81e589e639f5b455dfa92da24c2fea282ffc3bd4f407",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/meknes/source-manifest.json",
           "processing": {
@@ -8193,7 +7834,7 @@
     },
     {
       "id": "merzouga",
-      "name": "Merzouga",
+      "name": "Merzouga — Erg Chebbi",
       "datasets": [
         {
           "id": "osm",
@@ -8201,13 +7842,13 @@
           "provider": "OpenStreetMap contributors",
           "status": "active",
           "sourceUrl": "https://www.openstreetmap.org/copyright",
-          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-4.022133592286872%2C31.090316035586447%2C-4.001869481731714%2C31.10768378600437",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-4.038534277%2C31.081031020%2C-4.017785795%2C31.099218621",
           "license": "ODbL-1.0",
           "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
           "release": null,
           "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:08:08.760877+00:00",
-          "buildDate": "2026-11-03T11:28:30.662906+00:00",
+          "downloadDate": "2026-11-06T09:19:48.898502+00:00",
+          "buildDate": "2026-11-06T09:23:25.751549+00:00",
           "resolutionMeters": null,
           "attribution": "© OpenStreetMap contributors",
           "usage": {
@@ -8218,13 +7859,32 @@
             "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
             "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
           },
-          "sha256": "092c9aa26a4ae61a7014e77000a10479cfeffc1bb6206a3b97a4ba63b95883ee",
+          "sha256": "922d888f137d0f16dcba0fa72e739f27b2edc5efbbf861acc240652623157f5f",
           "sourceFiles": [],
           "sourceRecordUrl": "data/merzouga/source-manifest.json",
           "downloadUrls": [
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.022133592286872%2C31.090316035586447%2C-4.001869481731714%2C31.10768378600437"
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.038534277%2C31.081031020%2C-4.017785795%2C31.099218621",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.017785795%2C31.081031020%2C-3.997037313%2C31.099218621",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.997037313%2C31.081031020%2C-3.976288831%2C31.099218621",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.976288831%2C31.081031020%2C-3.955540349%2C31.099218621",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.038534277%2C31.099218621%2C-4.017785795%2C31.117406223",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.017785795%2C31.099218621%2C-3.997037313%2C31.117406223",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.997037313%2C31.099218621%2C-3.976288831%2C31.117406223",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.976288831%2C31.099218621%2C-3.955540349%2C31.117406223",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.038534277%2C31.117406223%2C-4.017785795%2C31.135593824",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.017785795%2C31.117406223%2C-3.997037313%2C31.135593824",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.997037313%2C31.117406223%2C-3.976288831%2C31.135593824",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.976288831%2C31.117406223%2C-3.955540349%2C31.135593824",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.038534277%2C31.135593824%2C-4.017785795%2C31.153781426",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.017785795%2C31.135593824%2C-3.997037313%2C31.153781426",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.997037313%2C31.135593824%2C-3.976288831%2C31.153781426",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.976288831%2C31.135593824%2C-3.955540349%2C31.153781426",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.038534277%2C31.153781426%2C-4.017785795%2C31.171969027",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-4.017785795%2C31.153781426%2C-3.997037313%2C31.171969027",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.997037313%2C31.153781426%2C-3.976288831%2C31.171969027",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-3.976288831%2C31.153781426%2C-3.955540349%2C31.171969027"
           ],
-          "acquisitionMethod": "osm-map-api"
+          "acquisitionMethod": "osm-map-api-bbox-grid"
         },
         {
           "id": "microsoft",
@@ -8280,13 +7940,13 @@
           "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
           "status": "active",
           "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
-          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T30RUV_20261026T110127_L2A",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T30RUV_20261105T105426_L2A",
           "license": "Copernicus Sentinel data licence",
           "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
-          "release": "S2C_MSIL2A_20261026T105131_N0513_R051_T30RUV_20261026T154859.SAFE",
-          "acquisitionDate": "2026-10-26",
-          "downloadDate": "2026-11-02T22:29:05.820491+00:00",
-          "buildDate": "2026-11-03T11:28:30.662906+00:00",
+          "release": "S2C_MSIL2A_20261105T105221_N0513_R051_T30RUV_20261105T143306.SAFE",
+          "acquisitionDate": "2026-11-05",
+          "downloadDate": "2026-11-06T09:19:59.699619+00:00",
+          "buildDate": "2026-11-06T09:23:25.751549+00:00",
           "resolutionMeters": 10,
           "attribution": "Contains modified Copernicus Sentinel data 2026",
           "usage": {
@@ -8297,12 +7957,12 @@
             "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Un pixel peut mélanger plusieurs toits, rues et végétation ; sa couleur n’est pas une mesure individuelle d’un petit toit ni d’une façade. Ombres et décalages géométriques peuvent subsister.",
             "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. A pixel can mix roofs, streets and vegetation; its colour is not an individual measurement of a small roof or facade. Shadows and alignment errors may remain."
           },
-          "sourceMetadataSha256": "5f33442fae16e35d18cbce7335b93c1116c3411a50c72ecf799511badcbb7661",
+          "sourceMetadataSha256": "0e4b595690f4605a33f27318d6e40866b4eaca1020b248210f3551a1886e6683",
           "acquisitionDates": [
-            "2026-10-26"
+            "2026-11-05"
           ],
-          "importDate": "2026-11-03T11:28:30.091263+00:00",
-          "sha256": "be5c2434a33836fea7989af7272e1dc5322cbf79768545af7eb485bab244cf20",
+          "importDate": "2026-11-06T09:20:01.398665+00:00",
+          "sha256": "c3417d1761c363d584e38e5491bad278794486d28c39e00dcb29347b78f9e1aa",
           "processing": {
             "kind": "documented-true-colour",
             "scale": 1,
@@ -8417,14 +8077,14 @@
           "acquisitionMethod": "bounded-native-cog-window",
           "release": "v1.2.0",
           "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:58:10.677787+00:00",
-          "buildDate": "2026-11-03T11:28:30.662906+00:00",
-          "sha256": "a81dd15e47ef75671aa067cf5efb3ec2b4ae4b9dc1c5aa9a36ef49c589e887dc",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "downloadDate": "2026-11-06T09:20:11.532822+00:00",
+          "buildDate": "2026-11-06T09:23:25.751549+00:00",
+          "sha256": "eb88f8d4bf7e4f1b68c8f1aaad806d11560ff5a1e684a0d6313763f61b473cbc",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/merzouga/source-manifest.json",
           "processing": {
-            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution."
+            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date."
           },
           "verticalDatum": "EGM2008",
           "units": "metre",
@@ -8438,70 +8098,70 @@
       "area": {
         "crs": "EPSG:32630",
         "centerLatLon": [
-          31.099,
-          -4.0120000000000005
+          31.1265,
+          -3.997
         ],
         "sizeMeters": [
-          1615.4304520264268,
-          1607.6373692671768
+          7523.7763645561645,
+          9709.563626409508
         ],
-        "voxelSizeMeters": 2,
+        "voxelSizeMeters": 4,
         "bounds": {
-          "minX": -807.7752451407723,
-          "minY": -803.7869906728156,
-          "maxX": 807.6552068856545,
-          "maxY": 803.8503785943612
+          "minX": -3763.5683121003094,
+          "minY": -4854.084726762958,
+          "maxX": 3760.208052455855,
+          "maxY": 4855.47889964655
         },
         "origin": {
-          "easting": 403485.94136169576,
-          "northing": 3441013.9880230706
+          "easting": 404943.9625469626,
+          "northing": 3444048.992455038
         },
         "description": {
-          "fr": "Merzouga : une emprise de 1,62 × 1,61 km calculée en mètres (EPSG:32630).",
-          "en": "Merzouga: a 1.62 × 1.61 km extent calculated in metres (EPSG:32630)."
+          "fr": "Merzouga — Erg Chebbi : une emprise de 7,52 × 9,71 km calculée en mètres (EPSG:32630).",
+          "en": "Merzouga — Erg Chebbi: a 7.52 × 9.71 km extent calculated in metres (EPSG:32630)."
         }
       },
       "dataLicenseUrl": "data/merzouga/README-LICENSE.txt",
       "derivedDatabaseUrl": "data/merzouga/normalized.geojson.7z",
       "qualityReportUrl": "data/merzouga/quality.json",
       "sourceManifestUrl": "data/merzouga/source-manifest.json",
-      "buildDate": "2026-11-03T11:28:30.662906+00:00",
+      "buildDate": "2026-11-06T09:23:25.751549+00:00",
       "quality": {
-        "buildingCount": 232,
+        "buildingCount": 531,
         "sourceBreakdown": {
-          "openstreetmap": 232
+          "openstreetmap": 531
         },
         "heightMethods": {
-          "estimated": 229,
+          "estimated": 528,
           "levels": 3
         },
         "wallColorMethods": {
-          "estimated": 232
+          "estimated": 531
         },
         "roofColorMethods": {
-          "imagery-mixed": 216,
-          "imagery": 15,
-          "unknown": 1
+          "imagery-mixed": 503,
+          "imagery": 26,
+          "unknown": 2
         },
         "facadeStyling": {
           "included": false,
           "method": "curated-zone",
           "zones": []
         },
-        "estimatedHeightCount": 232,
+        "estimatedHeightCount": 531,
         "imageryIncluded": true,
         "imagery": {
           "included": true,
           "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
           "acquisitionDates": [
-            "2026-10-26"
+            "2026-11-05"
           ],
-          "sampledRoofs": 15,
-          "mixedPixelRoofs": 216,
-          "unknownRoofs": 1,
+          "sampledRoofs": 26,
+          "mixedPixelRoofs": 503,
+          "unknownRoofs": 2,
           "samplingVersion": 3,
           "nativeResolutionM": 10,
-          "productId": "S2C_MSIL2A_20261026T105131_N0513_R051_T30RUV_20261026T154859.SAFE",
+          "productId": "S2C_MSIL2A_20261105T105221_N0513_R051_T30RUV_20261105T143306.SAFE",
           "attribution": "Contains modified Copernicus Sentinel data 2026"
         },
         "terrain": {
@@ -8509,8 +8169,8 @@
           "datum": "EGM2008",
           "units": "metre",
           "baseElevation": 688,
-          "minElevation": 693.51,
-          "maxElevation": 707.31,
+          "minElevation": 693.59,
+          "maxElevation": 902.48,
           "resolutionM": 30,
           "sourceId": "gedtm30",
           "sourceUrl": "https://zenodo.org/records/18887460",
@@ -9124,7 +8784,7 @@
           "downloadDate": "2026-11-02T22:58:10.753634+00:00",
           "buildDate": "2026-11-03T11:28:34.527532+00:00",
           "sha256": "fa20ffefa4758ccbe86937d586b47575fb9d1c2735b292f2a4c2f0193ad410e0",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/moulay-idriss-zerhoun/source-manifest.json",
           "processing": {
@@ -9229,7 +8889,7 @@
     },
     {
       "id": "ouarzazate",
-      "name": "Ouarzazate",
+      "name": "Ouarzazate — complexe solaire Noor",
       "datasets": [
         {
           "id": "osm",
@@ -9237,13 +8897,13 @@
           "provider": "OpenStreetMap contributors",
           "status": "active",
           "sourceUrl": "https://www.openstreetmap.org/copyright",
-          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.898291742%2C-6.928945122%2C30.919338747",
           "license": "ODbL-1.0",
           "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
           "release": null,
           "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:08:14.100202+00:00",
-          "buildDate": "2026-11-03T11:28:41.924715+00:00",
+          "downloadDate": "2026-11-06T09:27:45.045929+00:00",
+          "buildDate": "2026-11-06T09:39:17.336934+00:00",
           "resolutionMeters": null,
           "attribution": "© OpenStreetMap contributors",
           "usage": {
@@ -9254,13 +8914,66 @@
             "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
             "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
           },
-          "sha256": "f135bfae0f8f37f759f8234836f1e676c89809cb13259b9fe1551ab19b886f7a",
+          "sha256": "3901a5b57c88343142222c09e0b7ca337061d28eae00f737cd635beea128a88e",
           "sourceFiles": [],
           "sourceRecordUrl": "data/ouarzazate/source-manifest.json",
           "downloadUrls": [
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.910374050077643%2C30.9098308435254%2C-6.887622137323773%2C30.929369032260457"
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.898291742%2C-6.928945122%2C30.919338747",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.898291742%2C-6.903401927%2C30.919338747",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.898291742%2C-6.877858732%2C30.919338747",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.898291742%2C-6.852315537%2C30.919338747",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.898291742%2C-6.826772342%2C30.919338747",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.898291742%2C-6.801229148%2C30.919338747",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.919338747%2C-6.928945122%2C30.940385752",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.919338747%2C-6.903401927%2C30.940385752",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.919338747%2C-6.877858732%2C30.940385752",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.919338747%2C-6.852315537%2C30.940385752",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.919338747%2C-6.826772342%2C30.940385752",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.919338747%2C-6.801229148%2C30.940385752",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.940385752%2C-6.928945122%2C30.961432757",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.940385752%2C-6.903401927%2C30.961432757",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.940385752%2C-6.877858732%2C30.961432757",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.940385752%2C-6.852315537%2C30.961432757",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.940385752%2C-6.826772342%2C30.961432757",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.940385752%2C-6.801229148%2C30.961432757",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.961432757%2C-6.928945122%2C30.982479763",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.961432757%2C-6.903401927%2C30.982479763",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.961432757%2C-6.877858732%2C30.982479763",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.961432757%2C-6.852315537%2C30.982479763",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.961432757%2C-6.826772342%2C30.982479763",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.961432757%2C-6.801229148%2C30.982479763",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C30.982479763%2C-6.928945122%2C31.003526768",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C30.982479763%2C-6.903401927%2C31.003526768",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C30.982479763%2C-6.877858732%2C31.003526768",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C30.982479763%2C-6.852315537%2C31.003526768",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C30.982479763%2C-6.826772342%2C31.003526768",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C30.982479763%2C-6.801229148%2C31.003526768",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.003526768%2C-6.928945122%2C31.024573773",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.003526768%2C-6.903401927%2C31.024573773",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.003526768%2C-6.877858732%2C31.024573773",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.003526768%2C-6.852315537%2C31.024573773",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.003526768%2C-6.826772342%2C31.024573773",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.003526768%2C-6.801229148%2C31.024573773",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.024573773%2C-6.928945122%2C31.045620778",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.024573773%2C-6.903401927%2C31.045620778",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.024573773%2C-6.877858732%2C31.045620778",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.024573773%2C-6.852315537%2C31.045620778",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.024573773%2C-6.826772342%2C31.045620778",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.024573773%2C-6.801229148%2C31.045620778",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.045620778%2C-6.928945122%2C31.066667783",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.045620778%2C-6.903401927%2C31.066667783",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.045620778%2C-6.877858732%2C31.066667783",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.045620778%2C-6.852315537%2C31.066667783",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.045620778%2C-6.826772342%2C31.066667783",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.045620778%2C-6.801229148%2C31.066667783",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.954488316%2C31.066667783%2C-6.928945122%2C31.087714788",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.928945122%2C31.066667783%2C-6.903401927%2C31.087714788",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.903401927%2C31.066667783%2C-6.877858732%2C31.087714788",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.877858732%2C31.066667783%2C-6.852315537%2C31.087714788",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.852315537%2C31.066667783%2C-6.826772342%2C31.087714788",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-6.826772342%2C31.066667783%2C-6.801229148%2C31.087714788"
           ],
-          "acquisitionMethod": "osm-map-api"
+          "acquisitionMethod": "osm-map-api-bbox-grid"
         },
         {
           "id": "microsoft",
@@ -9316,13 +9029,13 @@
           "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
           "status": "active",
           "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
-          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RPQ_20261024T111411_L2A",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T29RPQ_20261012T111729_L2A",
           "license": "Copernicus Sentinel data licence",
           "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
-          "release": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
-          "acquisitionDate": "2026-10-24",
-          "downloadDate": "2026-11-02T22:29:21.801601+00:00",
-          "buildDate": "2026-11-03T11:28:41.924715+00:00",
+          "release": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE + S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE",
+          "acquisitionDate": "2026-10-12",
+          "downloadDate": "2026-11-06T09:36:47.832886+00:00",
+          "buildDate": "2026-11-06T09:39:17.336934+00:00",
           "resolutionMeters": 10,
           "attribution": "Contains modified Copernicus Sentinel data 2026",
           "usage": {
@@ -9333,12 +9046,12 @@
             "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Un pixel peut mélanger plusieurs toits, rues et végétation ; sa couleur n’est pas une mesure individuelle d’un petit toit ni d’une façade. Ombres et décalages géométriques peuvent subsister.",
             "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. A pixel can mix roofs, streets and vegetation; its colour is not an individual measurement of a small roof or facade. Shadows and alignment errors may remain."
           },
-          "sourceMetadataSha256": "03c00b1cbc338ccc75f5942b273d8685713f958a2a89f81ca88e986f287b807a",
+          "sourceMetadataSha256": "9a8334348becdcbefa0713718d334a0f96440a7f9327ff8f2d089f4467ea7c47",
           "acquisitionDates": [
-            "2026-10-24"
+            "2026-10-12"
           ],
-          "importDate": "2026-11-03T11:28:37.713959+00:00",
-          "sha256": "fdd746f45b403b5af539ed807b7915e6aa2a3e2a936caa49dd04cb7b54d50b02",
+          "importDate": "2026-11-06T09:38:53.200095+00:00",
+          "sha256": "2d8a04d3ae7e1735bd607cd874d39ca9dff2ea8cf285116f1205e57e7641a9a4",
           "processing": {
             "kind": "documented-true-colour",
             "scale": 1,
@@ -9353,7 +9066,7 @@
               2,
               3
             ],
-            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
+            "notes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. Adjacent tiles from the same documented satellite pass are copied on their aligned native 10 m grid without RGB interpolation or upsampling; first valid source pixels win in overlaps, and masked pixels may be filled only from another tile of that same pass. Every source item, acquisition timestamp, asset URL and bounded RGB/SCL window checksum is recorded; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours."
           },
           "sourceRecordUrl": "data/ouarzazate/source-manifest.json"
         },
@@ -9453,14 +9166,14 @@
           "acquisitionMethod": "bounded-native-cog-window",
           "release": "v1.2.0",
           "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:58:12.231810+00:00",
-          "buildDate": "2026-11-03T11:28:41.924715+00:00",
-          "sha256": "231c6ee12ced662529af400e97687eaa27fab92514262f4cdba838faabf3796b",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "downloadDate": "2026-11-06T09:30:20.066986+00:00",
+          "buildDate": "2026-11-06T09:39:17.336934+00:00",
+          "sha256": "cc029cd6541ff2cc501ba51428c2ed2dfaeba46eb973a43e0df59c24670ea283",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/ouarzazate/source-manifest.json",
           "processing": {
-            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution."
+            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date."
           },
           "verticalDatum": "EGM2008",
           "units": "metre",
@@ -9474,80 +9187,83 @@
       "area": {
         "crs": "EPSG:32629",
         "centerLatLon": [
-          30.919600000000003,
-          -6.899
+          30.993000000000002,
+          -6.878
         ],
         "sizeMeters": [
-          1835.2375235406216,
-          1826.5066351178102
+          13946.524273932446,
+          20435.454592128284
         ],
-        "voxelSizeMeters": 2,
+        "voxelSizeMeters": 8,
         "bounds": {
-          "minX": -917.5435687301215,
-          "minY": -913.2121237940155,
-          "maxX": 917.6939548105001,
-          "maxY": 913.2945113237947
+          "minX": -6966.993712692638,
+          "minY": -10215.279109566007,
+          "maxX": 6979.530561239808,
+          "maxY": 10220.175482562277
         },
         "origin": {
-          "easting": 700763.6714655887,
-          "northing": 3422583.5735070677
+          "easting": 702615.6967131586,
+          "northing": 3430758.7529304195
         },
         "description": {
-          "fr": "Ouarzazate : une emprise de 1,84 × 1,83 km calculée en mètres (EPSG:32629).",
-          "en": "Ouarzazate: a 1.84 × 1.83 km extent calculated in metres (EPSG:32629)."
+          "fr": "Ouarzazate — complexe solaire Noor : une emprise de 13,95 × 20,44 km calculée en mètres (EPSG:32629).",
+          "en": "Ouarzazate — complexe solaire Noor: a 13.95 × 20.44 km extent calculated in metres (EPSG:32629)."
         }
       },
       "dataLicenseUrl": "data/ouarzazate/README-LICENSE.txt",
       "derivedDatabaseUrl": "data/ouarzazate/normalized.geojson.7z",
       "qualityReportUrl": "data/ouarzazate/quality.json",
       "sourceManifestUrl": "data/ouarzazate/source-manifest.json",
-      "buildDate": "2026-11-03T11:28:41.924715+00:00",
+      "buildDate": "2026-11-06T09:39:17.336934+00:00",
       "quality": {
-        "buildingCount": 1961,
+        "buildingCount": 13658,
         "sourceBreakdown": {
-          "openstreetmap": 1961
+          "openstreetmap": 13658
         },
         "heightMethods": {
-          "estimated": 1957,
-          "levels": 2,
-          "mapped": 2
+          "estimated": 13647,
+          "levels": 5,
+          "mapped": 6
         },
         "wallColorMethods": {
-          "estimated": 1961
+          "estimated": 13658
         },
         "roofColorMethods": {
-          "imagery-mixed": 1929,
-          "imagery": 31,
-          "unknown": 1
+          "imagery-mixed": 13356,
+          "unknown": 98,
+          "imagery": 204
         },
         "facadeStyling": {
           "included": false,
           "method": "curated-zone",
           "zones": []
         },
-        "estimatedHeightCount": 1959,
+        "estimatedHeightCount": 13652,
         "imageryIncluded": true,
         "imagery": {
           "included": true,
           "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
           "acquisitionDates": [
-            "2026-10-24"
+            "2026-10-12"
           ],
-          "sampledRoofs": 31,
-          "mixedPixelRoofs": 1929,
-          "unknownRoofs": 1,
+          "sampledRoofs": 204,
+          "mixedPixelRoofs": 13356,
+          "unknownRoofs": 98,
           "samplingVersion": 3,
           "nativeResolutionM": 10,
-          "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
-          "attribution": "Contains modified Copernicus Sentinel data 2026"
+          "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RPQ_20261012T145210.SAFE + S2C_MSIL2A_20261012T111011_N0513_R137_T29RQQ_20261012T145210.SAFE",
+          "attribution": "Contains modified Copernicus Sentinel data 2026",
+          "sampledGroundPolygons": 5,
+          "mixedPixelGroundPolygons": 2164,
+          "unknownGroundPolygons": 0
         },
         "terrain": {
           "included": true,
           "datum": "EGM2008",
           "units": "metre",
-          "baseElevation": 1104,
-          "minElevation": 1105.45,
-          "maxElevation": 1146.94,
+          "baseElevation": 1088,
+          "minElevation": 1099.32,
+          "maxElevation": 1325.77,
           "resolutionM": 30,
           "sourceId": "gedtm30",
           "sourceUrl": "https://zenodo.org/records/18887460",
@@ -9813,7 +9529,7 @@
           "downloadDate": "2026-11-02T22:58:13.646630+00:00",
           "buildDate": "2026-11-03T11:29:17.296620+00:00",
           "sha256": "01b36679731eed81ac933575a2ea7882cba681cc9182e7fac2d977e3c2aa29c3",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/oujda/source-manifest.json",
           "processing": {
@@ -10170,7 +9886,7 @@
           "downloadDate": "2026-11-02T22:58:14.547411+00:00",
           "buildDate": "2026-11-03T11:30:03.064988+00:00",
           "sha256": "262d6eda0ca35e2a0a4c94d1d37462b9b3e7d184d35e27b64dbeb70dab2a8eb9",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/rabat/source-manifest.json",
           "processing": {
@@ -10506,7 +10222,7 @@
           "downloadDate": "2026-11-02T22:58:15.470986+00:00",
           "buildDate": "2026-11-03T11:30:11.677749+00:00",
           "sha256": "5fe7cf111a457fec5c36ea2184190caa3880b18127fa88e8eca186341712c4ba",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/safi/source-manifest.json",
           "processing": {
@@ -10861,7 +10577,7 @@
           "downloadDate": "2026-11-02T22:58:15.538496+00:00",
           "buildDate": "2026-11-03T11:30:38.937435+00:00",
           "sha256": "920a2b5ee919a9232c07c4a39b83910817532e231c7d3f62e25e776fdeb0085c",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/sale/source-manifest.json",
           "processing": {
@@ -11194,7 +10910,7 @@
           "downloadDate": "2026-11-02T22:58:16.207530+00:00",
           "buildDate": "2026-11-03T11:30:43.722669+00:00",
           "sha256": "1873cba2f2c6f758d41940ea6eaf06a3b955dc139f0dd1ee7cd0d7b64688c567",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/sidi-ifni/source-manifest.json",
           "processing": {
@@ -11539,7 +11255,7 @@
           "downloadDate": "2026-11-02T22:58:16.726928+00:00",
           "buildDate": "2026-11-03T11:31:00.014811+00:00",
           "sha256": "e162822e3ec761e8e271f44415eb714c7b5f82f2043ad4e9a8e3fc1c3fa297be",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/sidi-maarouf/source-manifest.json",
           "processing": {
@@ -12572,7 +12288,7 @@
           "downloadDate": "2026-11-02T22:58:17.806496+00:00",
           "buildDate": "2026-11-03T11:31:03.723937+00:00",
           "sha256": "cd400f1956f50b9f1c8ad029d2699efbf8180f5a2fd18757bb0b443c7dea96b3",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/taghazout/source-manifest.json",
           "processing": {
@@ -12928,7 +12644,7 @@
           "downloadDate": "2026-11-02T22:58:18.731262+00:00",
           "buildDate": "2026-11-03T11:31:25.008383+00:00",
           "sha256": "6f4206f11c84ba55bee9e1ac5064bd7babe9b9caeb6d3e403278c43cb346734a",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/tanger/source-manifest.json",
           "processing": {
@@ -13265,7 +12981,7 @@
           "downloadDate": "2026-11-02T22:58:19.831175+00:00",
           "buildDate": "2026-11-03T11:31:57.352588+00:00",
           "sha256": "07f18ddf4880018dd3a6e45a273ea56b26eaa5b71225ba37f6b4ec811ffe2d99",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/taroudant/source-manifest.json",
           "processing": {
@@ -13632,7 +13348,7 @@
           "downloadDate": "2026-11-02T22:58:19.900133+00:00",
           "buildDate": "2026-11-03T11:32:22.170745+00:00",
           "sha256": "f1ac1b61380989bd4f4c2d163bf65d44871325713965e32b97352ddff3fad84e",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/tetouan/source-manifest.json",
           "processing": {
@@ -14310,7 +14026,7 @@
           "downloadDate": "2026-11-02T22:58:20.914092+00:00",
           "buildDate": "2026-11-03T11:32:25.493862+00:00",
           "sha256": "54d1df070d7449e8e4b342d79cd5d6155cd8f41ad14800dfd94bff9893ed9b1d",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/tiznit/source-manifest.json",
           "processing": {
@@ -14987,7 +14703,7 @@
           "downloadDate": "2026-11-02T22:58:21.937531+00:00",
           "buildDate": "2026-11-03T11:32:27.190033+00:00",
           "sha256": "8f54ce4bf2605118edfea58faadd24531b8b6cac93d7c1394622ad17f156f5ff",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/volubilis/source-manifest.json",
           "processing": {
@@ -15091,7 +14807,7 @@
     },
     {
       "id": "zagora",
-      "name": "Zagora",
+      "name": "Zagora — dunes de Tinfou",
       "datasets": [
         {
           "id": "osm",
@@ -15099,13 +14815,13 @@
           "provider": "OpenStreetMap contributors",
           "status": "active",
           "sourceUrl": "https://www.openstreetmap.org/copyright",
-          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-5.849432527145199%2C30.320122805166847%2C-5.826571195897048%2C30.339877126838662",
+          "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.220318613%2C-5.829922164%2C30.242047507",
           "license": "ODbL-1.0",
           "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
           "release": null,
           "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:11:30.359327+00:00",
-          "buildDate": "2026-11-03T11:32:30.972549+00:00",
+          "downloadDate": "2026-11-06T09:24:58.674270+00:00",
+          "buildDate": "2026-11-06T09:26:20.748652+00:00",
           "resolutionMeters": null,
           "attribution": "© OpenStreetMap contributors",
           "usage": {
@@ -15116,13 +14832,78 @@
             "fr": "Cartographie collaborative de précision et de fraîcheur variables. Les dates d’édition ne sont pas des dates d’observation ; une hauteur cartographiée n’est pas nécessairement mesurée.",
             "en": "Community mapping with variable accuracy and freshness. Edit dates are not observation dates; a mapped height is not necessarily a surveyed height."
           },
-          "sha256": "8ae1f53626c2e3264aa38a2cc6726e7da420e400416874dd824efeace6967c3b",
+          "sha256": "44a00bc9c3024e6605aaa13cb5e9e6454dc77110aa0d85166a05943d4535f787",
           "sourceFiles": [],
           "sourceRecordUrl": "data/zagora/source-manifest.json",
           "downloadUrls": [
-            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.849432527145199%2C30.320122805166847%2C-5.826571195897048%2C30.339877126838662"
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.220318613%2C-5.829922164%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.829922164%2C30.220318613%2C-5.805863004%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.805863004%2C30.220318613%2C-5.781803844%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.781803844%2C30.220318613%2C-5.757744684%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.757744684%2C30.220318613%2C-5.733685524%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.733685524%2C30.220318613%2C-5.709626364%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.709626364%2C30.220318613%2C-5.685567204%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.685567204%2C30.220318613%2C-5.661508044%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.661508044%2C30.220318613%2C-5.637448883%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.637448883%2C30.220318613%2C-5.613389723%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.613389723%2C30.220318613%2C-5.589330563%2C30.242047507",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.242047507%2C-5.829922164%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.829922164%2C30.242047507%2C-5.805863004%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.805863004%2C30.242047507%2C-5.781803844%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.781803844%2C30.242047507%2C-5.757744684%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.757744684%2C30.242047507%2C-5.733685524%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.733685524%2C30.242047507%2C-5.709626364%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.709626364%2C30.242047507%2C-5.685567204%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.685567204%2C30.242047507%2C-5.661508044%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.661508044%2C30.242047507%2C-5.637448883%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.637448883%2C30.242047507%2C-5.613389723%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.613389723%2C30.242047507%2C-5.589330563%2C30.263776401",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.263776401%2C-5.829922164%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.829922164%2C30.263776401%2C-5.805863004%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.805863004%2C30.263776401%2C-5.781803844%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.781803844%2C30.263776401%2C-5.757744684%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.757744684%2C30.263776401%2C-5.733685524%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.733685524%2C30.263776401%2C-5.709626364%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.709626364%2C30.263776401%2C-5.685567204%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.685567204%2C30.263776401%2C-5.661508044%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.661508044%2C30.263776401%2C-5.637448883%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.637448883%2C30.263776401%2C-5.613389723%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.613389723%2C30.263776401%2C-5.589330563%2C30.285505295",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.285505295%2C-5.829922164%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.829922164%2C30.285505295%2C-5.805863004%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.805863004%2C30.285505295%2C-5.781803844%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.781803844%2C30.285505295%2C-5.757744684%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.757744684%2C30.285505295%2C-5.733685524%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.733685524%2C30.285505295%2C-5.709626364%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.709626364%2C30.285505295%2C-5.685567204%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.685567204%2C30.285505295%2C-5.661508044%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.661508044%2C30.285505295%2C-5.637448883%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.637448883%2C30.285505295%2C-5.613389723%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.613389723%2C30.285505295%2C-5.589330563%2C30.307234189",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.307234189%2C-5.829922164%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.829922164%2C30.307234189%2C-5.805863004%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.805863004%2C30.307234189%2C-5.781803844%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.781803844%2C30.307234189%2C-5.757744684%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.757744684%2C30.307234189%2C-5.733685524%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.733685524%2C30.307234189%2C-5.709626364%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.709626364%2C30.307234189%2C-5.685567204%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.685567204%2C30.307234189%2C-5.661508044%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.661508044%2C30.307234189%2C-5.637448883%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.637448883%2C30.307234189%2C-5.613389723%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.613389723%2C30.307234189%2C-5.589330563%2C30.328963083",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.853981324%2C30.328963083%2C-5.829922164%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.829922164%2C30.328963083%2C-5.805863004%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.805863004%2C30.328963083%2C-5.781803844%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.781803844%2C30.328963083%2C-5.757744684%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.757744684%2C30.328963083%2C-5.733685524%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.733685524%2C30.328963083%2C-5.709626364%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.709626364%2C30.328963083%2C-5.685567204%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.685567204%2C30.328963083%2C-5.661508044%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.661508044%2C30.328963083%2C-5.637448883%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.637448883%2C30.328963083%2C-5.613389723%2C30.350691976",
+            "https://api.openstreetmap.org/api/0.6/map?bbox=-5.613389723%2C30.328963083%2C-5.589330563%2C30.350691976"
           ],
-          "acquisitionMethod": "osm-map-api"
+          "acquisitionMethod": "osm-map-api-bbox-grid"
         },
         {
           "id": "microsoft",
@@ -15178,13 +14959,13 @@
           "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
           "status": "active",
           "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
-          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2A_T29RQP_20261011T111228_L2A",
+          "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T30RTU_20260924T110542_L2A",
           "license": "Copernicus Sentinel data licence",
           "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
-          "release": "S2A_MSIL2A_20261011T105911_N0513_R094_T29RQP_20261011T191207.SAFE",
-          "acquisitionDate": "2026-10-11",
-          "downloadDate": "2026-11-02T22:33:26.534257+00:00",
-          "buildDate": "2026-11-03T11:32:30.972549+00:00",
+          "release": "S2B_MSIL2A_20260924T105709_N0513_R094_T30RTU_20260924T150018.SAFE",
+          "acquisitionDate": "2026-09-24",
+          "downloadDate": "2026-11-06T09:25:36.729150+00:00",
+          "buildDate": "2026-11-06T09:26:20.748652+00:00",
           "resolutionMeters": 10,
           "attribution": "Contains modified Copernicus Sentinel data 2026",
           "usage": {
@@ -15195,12 +14976,12 @@
             "fr": "RGB B4/B3/B2 de résolution native 10 m, masque de classification de 20 m. Un pixel peut mélanger plusieurs toits, rues et végétation ; sa couleur n’est pas une mesure individuelle d’un petit toit ni d’une façade. Ombres et décalages géométriques peuvent subsister.",
             "en": "B4/B3/B2 RGB has 10 m native resolution and a 20 m classification mask. A pixel can mix roofs, streets and vegetation; its colour is not an individual measurement of a small roof or facade. Shadows and alignment errors may remain."
           },
-          "sourceMetadataSha256": "52c9f6085ee65f31869748d524f8ce0a9fc055834343b4ef7f0072bf1d622c68",
+          "sourceMetadataSha256": "302156e84194936687f61d4873d960d86d763355a01a7f91ecc9bff5e747395b",
           "acquisitionDates": [
-            "2026-10-11"
+            "2026-09-24"
           ],
-          "importDate": "2026-11-03T11:32:29.327826+00:00",
-          "sha256": "83a4d8c453f80a21734f71e6c77ceb42907af6e0ca95ec8acd83079687c039f6",
+          "importDate": "2026-11-06T09:25:52.943264+00:00",
+          "sha256": "b2a8b287e90ef7e53f122fca73f9e7d9a046f38158217530a999b5fa985c8b50",
           "processing": {
             "kind": "documented-true-colour",
             "scale": 1,
@@ -15315,14 +15096,14 @@
           "acquisitionMethod": "bounded-native-cog-window",
           "release": "v1.2.0",
           "acquisitionDate": null,
-          "downloadDate": "2026-11-02T22:58:22.834068+00:00",
-          "buildDate": "2026-11-03T11:32:30.972549+00:00",
-          "sha256": "7a0e703926ba9fd95006951ca84cad3cf5a7ea0ff9692fcc7022dacad2e4938b",
-          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+          "downloadDate": "2026-11-06T09:26:06.896303+00:00",
+          "buildDate": "2026-11-06T09:26:20.748652+00:00",
+          "sha256": "f32c0955c58609e371ab8b118358b67f27c52c157b1268e730654df1443ceeb5",
+          "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
           "sourceFiles": [],
           "sourceRecordUrl": "data/zagora/source-manifest.json",
           "processing": {
-            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution."
+            "notes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date."
           },
           "verticalDatum": "EGM2008",
           "units": "metre",
@@ -15336,78 +15117,82 @@
       "area": {
         "crs": "EPSG:32630",
         "centerLatLon": [
-          30.33,
-          -5.837999999999999
+          30.2855,
+          -5.721500000000001
         ],
         "sizeMeters": [
-          1846.7775326879928,
-          1838.005754941143
+          24848.12878662403,
+          13560.584432922304
         ],
-        "voxelSizeMeters": 2,
+        "voxelSizeMeters": 8,
         "bounds": {
-          "minX": -923.4621284165769,
-          "minY": -918.9615526306443,
-          "maxX": 923.3154042714159,
-          "maxY": 919.0442023104988
+          "minX": -12431.552432029566,
+          "minY": -6773.023131648544,
+          "maxX": 12416.576354594465,
+          "maxY": 6787.561301273759
         },
         "origin": {
-          "easting": 227136.55164074746,
-          "northing": 3358767.25181436
+          "easting": 238223.494406803,
+          "northing": 3353558.567916255
         },
         "description": {
-          "fr": "Zagora : une emprise de 1,85 × 1,84 km calculée en mètres (EPSG:32630).",
-          "en": "Zagora: a 1.85 × 1.84 km extent calculated in metres (EPSG:32630)."
+          "fr": "Zagora — dunes de Tinfou : une emprise de 24,85 × 13,56 km calculée en mètres (EPSG:32630).",
+          "en": "Zagora — dunes de Tinfou: a 24.85 × 13.56 km extent calculated in metres (EPSG:32630)."
         }
       },
       "dataLicenseUrl": "data/zagora/README-LICENSE.txt",
       "derivedDatabaseUrl": "data/zagora/normalized.geojson.7z",
       "qualityReportUrl": "data/zagora/quality.json",
       "sourceManifestUrl": "data/zagora/source-manifest.json",
-      "buildDate": "2026-11-03T11:32:30.972549+00:00",
+      "buildDate": "2026-11-06T09:26:20.748652+00:00",
       "quality": {
-        "buildingCount": 400,
+        "buildingCount": 4506,
         "sourceBreakdown": {
-          "openstreetmap": 400
+          "openstreetmap": 4506
         },
         "heightMethods": {
-          "estimated": 400
+          "estimated": 4505,
+          "mapped": 1
         },
         "wallColorMethods": {
-          "estimated": 400
+          "estimated": 4506
         },
         "roofColorMethods": {
-          "imagery-mixed": 344,
-          "imagery": 55,
-          "unknown": 1
+          "imagery-mixed": 4286,
+          "imagery": 199,
+          "unknown": 21
         },
         "facadeStyling": {
           "included": false,
           "method": "curated-zone",
           "zones": []
         },
-        "estimatedHeightCount": 400,
+        "estimatedHeightCount": 4505,
         "imageryIncluded": true,
         "imagery": {
           "included": true,
           "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
           "acquisitionDates": [
-            "2026-10-11"
+            "2026-09-24"
           ],
-          "sampledRoofs": 55,
-          "mixedPixelRoofs": 344,
-          "unknownRoofs": 1,
+          "sampledRoofs": 199,
+          "mixedPixelRoofs": 4286,
+          "unknownRoofs": 21,
           "samplingVersion": 3,
           "nativeResolutionM": 10,
-          "productId": "S2A_MSIL2A_20261011T105911_N0513_R094_T29RQP_20261011T191207.SAFE",
-          "attribution": "Contains modified Copernicus Sentinel data 2026"
+          "productId": "S2B_MSIL2A_20260924T105709_N0513_R094_T30RTU_20260924T150018.SAFE",
+          "attribution": "Contains modified Copernicus Sentinel data 2026",
+          "sampledGroundPolygons": 16,
+          "mixedPixelGroundPolygons": 0,
+          "unknownGroundPolygons": 0
         },
         "terrain": {
           "included": true,
           "datum": "EGM2008",
           "units": "metre",
-          "baseElevation": 704,
-          "minElevation": 706.31,
-          "maxElevation": 741.59,
+          "baseElevation": 640,
+          "minElevation": 662.33,
+          "maxElevation": 1020.62,
           "resolutionM": 30,
           "sourceId": "gedtm30",
           "sourceUrl": "https://zenodo.org/records/18887460",
