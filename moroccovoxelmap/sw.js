@@ -1,9 +1,9 @@
 /* Release shells plus a bounded, visited-only geographic cache. */
-const VERSION = '6b79d91c78f264de9020';
+const VERSION = '51513ae6a51cb694d489';
 const SHELL = `morocco-voxel-map-shell-${VERSION}`;
 // URL revisions identify content, so an unchanged CVM survives a UI release.
 const DATA = 'morocco-voxel-map-data-v2';
-const SHELL_FILES = ["index.html","icon.svg","favicon.ico","favicon-16.png","favicon-32.png","apple-touch-icon.png","icon-192.png","icon-512.png","icon-maskable-512.png","manifest.webmanifest","provenance.json?v=6b79d91c78f264de9020","third-party-notices.json?v=6b79d91c78f264de9020","data/regions.json?v=6b79d91c78f264de9020","previews/manifest.json?v=6b79d91c78f264de9020","data/greater-casablanca/index.json?v=6b79d91c78f264de9020","assets/index-Bs7xPM_c.js","assets/brotli_dec_wasm-CwfJC3e-.js","assets/brotli_dec_wasm_bg-CG1KBs8r.js","assets/NotoSansTifinagh-Regular-BcGNahJE.woff2","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/index-Du4qLBgd.css"];
+const SHELL_FILES = ["index.html","icon.svg","favicon.ico","favicon-16.png","favicon-32.png","apple-touch-icon.png","icon-192.png","icon-512.png","icon-maskable-512.png","manifest.webmanifest","provenance.json?v=51513ae6a51cb694d489","third-party-notices.json?v=51513ae6a51cb694d489","data/regions.json?v=51513ae6a51cb694d489","previews/manifest.json?v=51513ae6a51cb694d489","data/greater-casablanca/index.json?v=51513ae6a51cb694d489","assets/index-Di7YdTp5.js","assets/brotli_dec_wasm-CwfJC3e-.js","assets/brotli_dec_wasm_bg-CG1KBs8r.js","assets/NotoSansTifinagh-Regular-BcGNahJE.woff2","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/index-C8GXWplL.css"];
 const MAX_FILES = 2048;
 const MAX_BYTES = 128 * 1024 * 1024;
 const BYTE_HEADER = 'x-casa-cache-bytes';
