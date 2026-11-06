@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "chefchaouen",
-  "builtAt": "2026-11-02T23:04:23.040406+00:00",
+  "builtAt": "2026-11-03T08:54:20.259299+00:00",
   "crs": "EPSG:32630",
   "bounds": {
     "minX": -819.0004084487446,
@@ -21,11 +21,13 @@
   "estimatedHeightCount": 3619,
   "mappedOrCuratedHeightCount": 0,
   "wallColorMethods": {
-    "estimated": 3618,
+    "estimated": 2058,
+    "curated-zone": 1560,
     "mapped": 1
   },
   "roofColorMethods": {
-    "estimated": 3615,
+    "imagery-mixed": 3575,
+    "unknown": 40,
     "imagery": 4
   },
   "courtyardBuildings": 67,
@@ -34,7 +36,7 @@
   "mappedTreeLocations": 3131,
   "groundPolygons": 52,
   "tiles": 26,
-  "tileBytes": 3371762,
+  "tileBytes": 4850828,
   "audit": {
     "outOfExtentGeometryExcluded": 647,
     "invalidGeometryRepaired": 279,
@@ -46,6 +48,8 @@
     "microsoftOverlappingOsmRemoved": 1543,
     "microsoftMissingHeight": 256,
     "microsoftOverlappingFootprintsTrimmed": 3,
+    "facadeZoneBuildingsStyled": 1560,
+    "facadeZonesConfigured": 1,
     "coastlineAvailable": false
   },
   "imagery": {
@@ -55,11 +59,40 @@
       "2026-11-01"
     ],
     "sampledRoofs": 4,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "mixedPixelRoofs": 3575,
+    "unknownRoofs": 40,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T30STD_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": true,
+    "method": "curated-zone",
+    "zones": [
+      {
+        "id": "chefchaouen-medina-blue-white",
+        "sourceFeatureId": "osm/way/379729907",
+        "excludeSourceFeatureIds": [
+          "osm/way/379559177"
+        ],
+        "palette": [
+          "#519ac8",
+          "#7ab4d8",
+          "#a4cbe2",
+          "#d2e4ed",
+          "#f1f2ee"
+        ],
+        "sourceUrl": "https://www.visitmorocco.com/en/travel/chefchaouen-the-beautiful-blue/medina",
+        "description": "Curated blue-and-white façade estimates inside the mapped medina, excluding the Kasbah. The source documents the local character, not these exact RGB values or each building's paint. Mapped and individually curated colours take priority. Roof colours remain separate satellite samples.",
+        "boundarySourceUrl": "https://www.openstreetmap.org/way/379729907",
+        "excludedBoundarySourceUrls": [
+          "https://www.openstreetmap.org/way/379559177"
+        ],
+        "styledBuildings": 1560,
+        "method": "Curated wall colours, not imagery measurements; footprint representative-point membership."
+      }
+    ]
   },
   "terrain": {
     "included": true,

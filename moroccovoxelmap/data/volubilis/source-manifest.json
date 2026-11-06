@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-02T23:07:03.874379+00:00",
+  "builtAt": "2026-11-03T11:32:27.190033+00:00",
   "sources": [
     {
       "id": "openstreetmap",
@@ -123,22 +123,30 @@
         10.0
       ],
       "id": "local-imagery",
-      "importedAt": "2026-11-02T22:33:21.760859+00:00",
+      "importedAt": "2026-11-03T11:32:26.473178+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "7d010484720fcf230bb30502c6be1e9cf06ca6451c1fbd4cc3e117aa85ef4add",
       "configSha256": "07744ac9edcac05ce46ec50b67ed4128cfbb289a7ab6a48dbe348c35bfa28941",
       "sourceChecksums": {
         "openstreetmap": "6919ba2d2a9b980dabbb82c21fed8a9e7cf352c656ef6400f942e36d26f39d29",
         "microsoft": "d421c00fb02ad4958ce51c04599ad7b54737a4b369837487176a3b5ada377567"
       },
       "sampledRoofCount": 1,
+      "mixedPixelRoofCount": 36,
+      "sampledBuildingCount": 37,
       "skipped": {
-        "smallRoofs": 36,
         "outsideRaster": 0,
         "insufficientValidPixels": 0,
         "mappedOrCuratedRoof": 0
       },
-      "regionalRoofPalette": [],
-      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
-      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+      "directSampleRejections": {
+        "smallRoofs": 36,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 0
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "2a9eff19703a0ea90429972f788b525eb673ca9f06212eb202a6f521fed9c1f8"
     },
     {
       "id": "gedtm30",
@@ -201,5 +209,8 @@
   "derivedDatabaseLicense": "ODbL-1.0",
   "outputProfile": "full",
   "region": "volubilis",
-  "configSha256": "07744ac9edcac05ce46ec50b67ed4128cfbb289a7ab6a48dbe348c35bfa28941"
+  "configSha256": "07744ac9edcac05ce46ec50b67ed4128cfbb289a7ab6a48dbe348c35bfa28941",
+  "landmarkConfigSha256": "d14856029ca0bc10f5221f6657ed14ab31a79071c3d91bc00025d77618695ab6",
+  "landmarksUpdatedAt": "2026-11-03T16:25:11.212792+00:00",
+  "landmarksSha256": "b7d9f2a3cafad5570bb5d01dc2ad8996dd6f7901230b29af9ecbf33f4d05c7f9"
 }

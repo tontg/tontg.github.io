@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "builtAt": "2026-11-05T18:33:32.627159+00:00",
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-5.61670672517397%2C31.566683221294156%2C-5.565314285731891%2C31.61031694289056",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "downloadedAt": "2026-11-05T18:33:00.572555+00:00",
+      "snapshotAt": null,
+      "responseDate": "Thu, 05 Nov 2026 18:32:58 GMT",
+      "requestKind": "osm-map-api",
+      "acquisitionMethod": "osm-map-api",
+      "apiVersion": "0.6",
+      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-5.61670672517397%2C31.566683221294156%2C-5.565314285731891%2C31.61031694289056",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(31.5666832,-5.6167067,31.6103169,-5.5653143);relation[type=multipolygon](31.5666832,-5.6167067,31.6103169,-5.5653143);node[name](31.5666832,-5.6167067,31.6103169,-5.5653143););out body geom;",
+      "querySha256": "8837c6c207b48293b72100cadda8a5c93615356aefd5336dca84e750685b6546",
+      "sha256": "952c38c1a67bb61a3f570dfa45a1a64096339920e30a2c2da31018425901b704",
+      "bytes": 252696,
+      "boundsWgs84": [
+        31.566683221294156,
+        -5.61670672517397,
+        31.61031694289056,
+        -5.565314285731891
+      ],
+      "cachePath": "data/raw/todra-gorge/osm-casablanca.json",
+      "region": "todra-gorge"
+    },
+    {
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "productId": "S2B_MSIL2A_20260924T105709_N0513_R094_T30STA_20260924T150018.SAFE",
+      "acquisitionDates": [
+        "2026-09-24"
+      ],
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T30STA_20260924T110542_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T30STA_20260924T110542_L2A",
+      "stacItemId": "S2B_T30STA_20260924T110542_L2A",
+      "stacCollection": "sentinel-2-c1-l2a",
+      "assets": {
+        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/S/TA/2026/9/S2B_T30STA_20260924T110542_L2A/TCI.tif",
+        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/S/TA/2026/9/S2B_T30STA_20260924T110542_L2A/SCL.tif"
+      },
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "downloadedAt": "2026-11-05T18:33:26.550717+00:00",
+      "crs": "EPSG:32630",
+      "nativeResolutionM": 10,
+      "productKind": "documented-true-colour",
+      "rgbBands": [
+        1,
+        2,
+        3
+      ],
+      "displayRange": [
+        0,
+        255
+      ],
+      "scale": 1,
+      "offset": 0,
+      "gamma": 1,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 0.010259,
+      "localValidPixelFraction": 0.9745967741935484,
+      "maskNativeResolutionM": 20.0,
+      "areaBoundsWgs84": [
+        -5.61670672517397,
+        31.566683221294156,
+        -5.565314285731891,
+        31.61031694289056
+      ],
+      "areaConfigSha256": "fd6f2c3c439c08be25f0c0c209897b815ac4312d2eeb2e981f20f81887acaca2",
+      "region": "todra-gorge",
+      "sha256": "7e39357797be26c27d6f6054d7298b1165db9c2c8f869604cfef227111be458e",
+      "bytes": 497496,
+      "width": 500,
+      "height": 496,
+      "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "rasterCrs": "EPSG:32630",
+      "rasterResolution": [
+        10.0,
+        10.0
+      ],
+      "id": "local-imagery",
+      "importedAt": "2026-11-05T18:33:26.785728+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "2401df6f4bf50dac18ade24185290cde915710debea5019e5d949b348c12f634",
+      "configSha256": "80c83c75fa93cc1500907410ca416d366ebdee84c0e93fbc1ed0cf9487cb53a6",
+      "sourceChecksums": {
+        "openstreetmap": "952c38c1a67bb61a3f570dfa45a1a64096339920e30a2c2da31018425901b704"
+      },
+      "sampledRoofCount": 0,
+      "mixedPixelRoofCount": 64,
+      "sampledBuildingCount": 64,
+      "skipped": {
+        "outsideRaster": 0,
+        "insufficientValidPixels": 0,
+        "mappedOrCuratedRoof": 0
+      },
+      "directSampleRejections": {
+        "smallRoofs": 64,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 0
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "596738ae6f082f2742ce2d9fdaa284225e0aea2ad8d756adb662039b59f237b6"
+    },
+    {
+      "id": "gedtm30",
+      "name": "GEDTM30 global bare-earth terrain",
+      "provider": "OpenGeoHub",
+      "release": "v1.2.0",
+      "publicationDate": "2026-03-06",
+      "sourceUrl": "https://zenodo.org/records/18887460",
+      "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+      "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
+      "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
+      "sourceTimePeriod": [
+        "2006-01-01",
+        "2015-12-31"
+      ],
+      "downloadedAt": "2026-11-05T18:33:30.108188+00:00",
+      "acquisitionMethod": "bounded-native-cog-window",
+      "region": "todra-gorge",
+      "boundsWgs84": [
+        31.566683221294156,
+        -5.61670672517397,
+        31.61031694289056,
+        -5.565314285731891
+      ],
+      "crs": "EPSG:4326",
+      "verticalDatum": "EGM2008",
+      "units": "metre",
+      "effectiveScale": 1,
+      "nativeResolutionM": 30,
+      "gridSpacingArcSeconds": 1,
+      "bytes": 60975,
+      "sha256": "e95f8eb5a76d78b53f29b4d9d86c3b1c6dae5075af51400282d54058a072b721",
+      "cachePath": "data/raw/todra-gorge/gedtm30.tif",
+      "width": 186,
+      "height": 158,
+      "validPixelFraction": 1.0,
+      "minElevation": 1379.9000244140625,
+      "maxElevation": 2266.300048828125,
+      "sourceRasterScale": 0.1,
+      "sourceRasterOffset": 0.0,
+      "sourceRasterDtype": "float32",
+      "sourceNativeResolutionDegrees": [
+        0.00027777777777799305,
+        0.00027777777777799305
+      ],
+      "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
+      "sourceWindow": {
+        "colOff": 627784,
+        "rowOff": 192207,
+        "width": 186,
+        "height": 158
+      },
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date.",
+      "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
+    }
+  ],
+  "derivedDatabaseLicense": "ODbL-1.0",
+  "outputProfile": "full",
+  "region": "todra-gorge",
+  "configSha256": "80c83c75fa93cc1500907410ca416d366ebdee84c0e93fbc1ed0cf9487cb53a6",
+  "landmarkConfigSha256": "a3c25696d658f220d49a1a5e059ad33a2dc568cbd15b1a15dd02673be5ab6fc2",
+  "landmarksSha256": "f91d81b0182716795e5f56ab25ed7714bd8292223c78749005b5b55aea7d1bd1"
+}

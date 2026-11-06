@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "builtAt": "2026-11-03T14:01:31.601826+00:00",
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-13.217963586%2C27.144242333%2C-13.200995954%2C27.159499982",
+      "sourceUrl": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "downloadedAt": "2026-11-03T14:00:56.521221+00:00",
+      "snapshotAt": null,
+      "responseDate": "Tue, 03 Nov 2026 14:00:54 GMT",
+      "requestKind": "osm-map-api-bbox-grid",
+      "acquisitionMethod": "osm-map-api-bbox-grid",
+      "apiVersion": "0.6",
+      "requestDescription": "Sequential bounded grid cells, at most 128 requests; dense or timed-out cells subdivided at most three times. Verified source cells cached individually and merged by ID/version.",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(27.1442423,-13.2179636,27.1747576,-13.1840283);relation[type=multipolygon](27.1442423,-13.2179636,27.1747576,-13.1840283);node[name](27.1442423,-13.2179636,27.1747576,-13.1840283););out body geom;",
+      "querySha256": "063406c14205f89546f35843014f975197d1045e6cfd5e625e369f63dbdd5aa1",
+      "sha256": "c83f604eb8a533ec903aacfc84e59c1b4f662b31c1d3c5faefc9086da4b4f715",
+      "bytes": 3338602,
+      "boundsWgs84": [
+        27.144242332853995,
+        -13.217963586458145,
+        27.174757630187138,
+        -13.184028320709352
+      ],
+      "cachePath": "data/raw/laayoune/osm-casablanca.json",
+      "region": "laayoune",
+      "downloadUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-13.217963586%2C27.144242333%2C-13.200995954%2C27.159499982",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-13.200995954%2C27.144242333%2C-13.184028321%2C27.159499982",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-13.217963586%2C27.159499982%2C-13.200995954%2C27.174757630",
+        "https://api.openstreetmap.org/api/0.6/map?bbox=-13.200995954%2C27.159499982%2C-13.184028321%2C27.174757630"
+      ],
+      "acquisitionAttempts": [
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-13.217963586,27.144242333,-13.200995954,27.159499982",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-13.217963586%2C27.144242333%2C-13.200995954%2C27.159499982",
+          "sha256": "f28394910b15f4992ff1357320e474fedd55e0d5862bfeabedd53a332f32cdf9",
+          "downloadedAt": "2026-11-03T14:00:42.414347+00:00",
+          "responseDate": "Tue, 03 Nov 2026 14:00:39 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-13.200995954,27.144242333,-13.184028321,27.159499982",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-13.200995954%2C27.144242333%2C-13.184028321%2C27.159499982",
+          "sha256": "8ab0f9f93fb0602332e47887cf67faead5c4698f3e7749b7bd888dee821ce3f2",
+          "downloadedAt": "2026-11-03T14:00:49.851765+00:00",
+          "responseDate": "Tue, 03 Nov 2026 14:00:46 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-13.217963586,27.159499982,-13.200995954,27.174757630",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-13.217963586%2C27.159499982%2C-13.200995954%2C27.174757630",
+          "sha256": "e8a6e384359e0dcba589feecda8a1960c4fea57510db42de35ae0a0031f59d3b",
+          "downloadedAt": "2026-11-03T14:00:54.060079+00:00",
+          "responseDate": "Tue, 03 Nov 2026 14:00:51 GMT"
+        },
+        {
+          "method": "osm-map-api-grid",
+          "status": 200,
+          "bbox": "-13.200995954,27.159499982,-13.184028321,27.174757630",
+          "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-13.200995954%2C27.159499982%2C-13.184028321%2C27.174757630",
+          "sha256": "c1dcefaadea4085cde12c0de15aeb6c40c35c9a97a0e9fcf2ef948418a719cfe",
+          "downloadedAt": "2026-11-03T14:00:56.057601+00:00",
+          "responseDate": "Tue, 03 Nov 2026 14:00:54 GMT"
+        }
+      ]
+    },
+    {
+      "provider": "Copernicus Sentinel-2 via Element 84 Earth Search",
+      "productId": "S2B_MSIL2A_20261003T113319_N0513_R080_T28RFR_20261003T165743.SAFE",
+      "acquisitionDates": [
+        "2026-10-03"
+      ],
+      "sourceUrl": "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2",
+      "downloadUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T28RFR_20261003T114330_L2A",
+      "stacItemUrl": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T28RFR_20261003T114330_L2A",
+      "stacItemId": "S2B_T28RFR_20261003T114330_L2A",
+      "stacCollection": "sentinel-2-c1-l2a",
+      "assets": {
+        "visual": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/28/R/FR/2026/10/S2B_T28RFR_20261003T114330_L2A/TCI.tif",
+        "scl": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/28/R/FR/2026/10/S2B_T28RFR_20261003T114330_L2A/SCL.tif"
+      },
+      "license": "Copernicus Sentinel data licence",
+      "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
+      "attribution": "Contains modified Copernicus Sentinel data 2026",
+      "downloadedAt": "2026-11-03T14:01:16.982078+00:00",
+      "crs": "EPSG:32628",
+      "nativeResolutionM": 10,
+      "productKind": "documented-true-colour",
+      "rgbBands": [
+        1,
+        2,
+        3
+      ],
+      "displayRange": [
+        0,
+        255
+      ],
+      "scale": 1,
+      "offset": 0,
+      "gamma": 1,
+      "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
+      "sceneCloudCoverPercent": 7.264993,
+      "localValidPixelFraction": 0.9803311573507412,
+      "maskNativeResolutionM": 20.0,
+      "areaBoundsWgs84": [
+        -13.217963586458145,
+        27.144242332853995,
+        -13.184028320709352,
+        27.174757630187138
+      ],
+      "areaConfigSha256": "5e731f9a964d1586b3fd0c3e310fac25fb7ad58b7151d551c1c4d2d95ef61ab4",
+      "region": "laayoune",
+      "sha256": "99aba047abae56a71076f5c31fa87305871aa80b13bd84eb803001ef5fa8c981",
+      "bytes": 267931,
+      "width": 342,
+      "height": 344,
+      "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
+      "rasterCrs": "EPSG:32628",
+      "rasterResolution": [
+        10.0,
+        10.0
+      ],
+      "id": "local-imagery",
+      "importedAt": "2026-11-03T14:01:25.169796+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "d562a9ddb46c0db6cc9fd68b6b97c24b73fbf984e4c277c59d81e7f850eea9c7",
+      "configSha256": "0d9302b3145da0115b78bf20ecadf2b31bbaca129d435326e3e84443dfa943a5",
+      "sourceChecksums": {
+        "openstreetmap": "c83f604eb8a533ec903aacfc84e59c1b4f662b31c1d3c5faefc9086da4b4f715"
+      },
+      "sampledRoofCount": 72,
+      "mixedPixelRoofCount": 5166,
+      "sampledBuildingCount": 5238,
+      "skipped": {
+        "outsideRaster": 0,
+        "insufficientValidPixels": 499,
+        "mappedOrCuratedRoof": 0
+      },
+      "directSampleRejections": {
+        "smallRoofs": 5165,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 500
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "37209b5346086228a86d2a51e0e9b101176ff6eed0c120815d9b086b1f5d1e6f"
+    },
+    {
+      "id": "gedtm30",
+      "name": "GEDTM30 global bare-earth terrain",
+      "provider": "OpenGeoHub",
+      "release": "v1.2.0",
+      "publicationDate": "2026-03-06",
+      "sourceUrl": "https://zenodo.org/records/18887460",
+      "downloadUrl": "https://s3.opengeohub.org/global/dtm/v1.2/gedtm_rf_m_30m_s_20060101_20151231_go_epsg.4326.3855_v1.2.tif",
+      "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
+      "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
+      "sourceTimePeriod": [
+        "2006-01-01",
+        "2015-12-31"
+      ],
+      "downloadedAt": "2026-11-03T14:01:27.355559+00:00",
+      "acquisitionMethod": "bounded-native-cog-window",
+      "region": "laayoune",
+      "boundsWgs84": [
+        27.144242332853995,
+        -13.217963586458145,
+        27.174757630187138,
+        -13.184028320709352
+      ],
+      "crs": "EPSG:4326",
+      "verticalDatum": "EGM2008",
+      "units": "metre",
+      "effectiveScale": 1,
+      "nativeResolutionM": 30,
+      "gridSpacingArcSeconds": 1,
+      "bytes": 24499,
+      "sha256": "16799534f39d2c41632342a6de02eaad6db3c63d175664b227ece288cf289bb1",
+      "cachePath": "data/raw/laayoune/gedtm30.tif",
+      "width": 123,
+      "height": 111,
+      "validPixelFraction": 1.0,
+      "minElevation": 8.600000381469727,
+      "maxElevation": 80.4000015258789,
+      "sourceRasterScale": 0.1,
+      "sourceRasterOffset": 0.0,
+      "sourceRasterDtype": "float32",
+      "sourceNativeResolutionDegrees": [
+        0.00027777777777799305,
+        0.00027777777777799305
+      ],
+      "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
+      "sourceWindow": {
+        "colOff": 600419,
+        "rowOff": 208175,
+        "width": 123,
+        "height": 111
+      },
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date.",
+      "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
+    }
+  ],
+  "derivedDatabaseLicense": "ODbL-1.0",
+  "outputProfile": "full",
+  "region": "laayoune",
+  "configSha256": "0d9302b3145da0115b78bf20ecadf2b31bbaca129d435326e3e84443dfa943a5",
+  "landmarkConfigSha256": "680bc61c16fbaacbb2029d6017ba20381bff5f650dd159e4ab92fed17f827c68",
+  "landmarksUpdatedAt": "2026-11-03T16:25:09.525031+00:00",
+  "landmarksSha256": "211dc289bbb62845bc4244fcdfb978453dd1f1158e17f8f6848e951d206f4b45"
+}

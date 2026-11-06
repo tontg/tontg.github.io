@@ -1,0 +1,77 @@
+# MoroccoVoxelMap / Apache 2.4.10+. Copied unchanged to dist by npm run build.
+# Works at the site root or in a subdirectory, without a RewriteBase or hostname.
+# Hosting must allow FileInfo, Indexes and Options=Indexes,MultiViews overrides.
+Options -Indexes -MultiViews
+FileETag MTime Size
+
+<IfModule dir_module>
+    DirectoryIndex index.html
+</IfModule>
+
+<IfModule mime_module>
+    AddType text/javascript .js .mjs
+    AddType application/json .json
+    AddType application/manifest+json .webmanifest
+    AddType application/wasm .wasm
+    AddType model/vnd.usdz+zip .usdz
+    AddType model/gltf-binary .glb
+    AddType application/octet-stream .cvm
+    AddType application/x-7z-compressed .7z
+    RemoveEncoding .cvm .7z .usdz .glb
+    RemoveOutputFilter .cvm .7z .usdz .glb
+</IfModule>
+
+# These are complete binary files. CVM2's internal Brotli payload is decoded
+# by the application; it must never be mistaken for HTTP Content-Encoding.
+<IfModule setenvif_module>
+    SetEnvIfNoCase Request_URI "\.(?:cvm|7z|usdz|glb)$" no-gzip=1 no-brotli=1
+    SetEnvIfExpr "%{REQUEST_URI} =~ m#\.(?:json|cvm)$# && %{QUERY_STRING} =~ m#(?:^|&)v=(?:[a-f0-9]{20}|[a-f0-9]{64})(?:&|$)#" voxel_revisioned=1
+</IfModule>
+<FilesMatch "\.cvm$">
+    ForceType application/octet-stream
+</FilesMatch>
+<FilesMatch "\.7z$">
+    ForceType application/x-7z-compressed
+</FilesMatch>
+<FilesMatch "\.usdz$">
+    ForceType model/vnd.usdz+zip
+</FilesMatch>
+<FilesMatch "\.glb$">
+    ForceType model/gltf-binary
+</FilesMatch>
+
+<IfModule headers_module>
+    # Bare stable URLs revalidate; ETag/Last-Modified can avoid another body.
+    Header set Cache-Control "no-cache"
+    Header set X-Content-Type-Options "nosniff"
+
+    # Runtime JSON uses its build revision; CVM uses its content SHA-256.
+    # Restrict immutable caching to successful responses, never missing files.
+    Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_STATUS} < 400 && reqenv('voxel_revisioned') == '1'"
+
+    # Vite's hashed filenames are immutable, including the local WASM decoder.
+    <FilesMatch "-[A-Za-z0-9_-]{8,}\.(?:js|css|wasm)$">
+        Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_STATUS} < 400"
+    </FilesMatch>
+    # Keep navigation and worker discovery fresh even with a revision query.
+    <FilesMatch "(?:\.html$|^sw\.js$|\.webmanifest$)">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+    <FilesMatch "\.(?:cvm|7z|usdz|glb)$">
+        Header unset Content-Encoding
+        Header always unset Content-Encoding
+    </FilesMatch>
+</IfModule>
+
+# Optional transfer compression for text and WASM only. No extra sidecar files.
+# Prefer Brotli when installed; otherwise use gzip. Quality stays host-managed.
+<IfModule filter_module>
+    <IfModule brotli_module>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json application/manifest+json application/wasm image/svg+xml
+    </IfModule>
+    <IfModule !brotli_module>
+        <IfModule deflate_module>
+            AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/manifest+json application/wasm image/svg+xml
+        </IfModule>
+    </IfModule>
+</IfModule>

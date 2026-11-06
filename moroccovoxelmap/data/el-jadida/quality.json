@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "el-jadida",
-  "builtAt": "2026-11-02T23:04:30.739922+00:00",
+  "builtAt": "2026-11-03T08:54:31.518542+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -904.744849476614,
@@ -22,8 +22,9 @@
     "estimated": 2732
   },
   "roofColorMethods": {
-    "imagery-palette": 2722,
-    "imagery": 10
+    "imagery-mixed": 2702,
+    "imagery": 10,
+    "unknown": 20
   },
   "courtyardBuildings": 0,
   "buildingParts": 0,
@@ -31,7 +32,7 @@
   "mappedTreeLocations": 265,
   "groundPolygons": 199,
   "tiles": 36,
-  "tileBytes": 2606975,
+  "tileBytes": 3199794,
   "audit": {
     "outOfExtentGeometryExcluded": 305,
     "emptyOrSmallGeometryDiscarded": 1,
@@ -47,20 +48,17 @@
       "2026-11-01"
     ],
     "sampledRoofs": 10,
-    "paletteStyledRoofs": 2722,
-    "regionalRoofPalette": [
-      {
-        "color": "#ae987e",
-        "sourceRoofSamples": 5
-      },
-      {
-        "color": "#ffddbf",
-        "sourceRoofSamples": 5
-      }
-    ],
+    "mixedPixelRoofs": 2702,
+    "unknownRoofs": 20,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SNS_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

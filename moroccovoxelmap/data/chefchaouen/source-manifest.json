@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-02T23:04:23.040406+00:00",
+  "builtAt": "2026-11-03T08:54:20.259299+00:00",
   "sources": [
     {
       "id": "openstreetmap",
@@ -131,22 +131,30 @@
         10.0
       ],
       "id": "local-imagery",
-      "importedAt": "2026-11-02T22:18:48.297706+00:00",
-      "configSha256": "b22a978133dcfe5500efcfa6dc30d0ae780c2b34557b37508f365308d747c4f2",
+      "importedAt": "2026-11-03T08:54:16.097760+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "7c71f455628ca26b4cd1116753a05de0f87fdcbd42be979a901e8d8d5b5788e8",
+      "configSha256": "f28468d816cf46081fb6b15a4eb5e6a7e7d83e16a374ae73e49b3c49bbf7fc40",
       "sourceChecksums": {
         "openstreetmap": "532881eb8afa1e877da6ff3a79455a24b1ab110286306a1539c77dfcd1049b4c",
         "microsoft": "5885d8d80562580796c9bf33e451f88452fdb01e7751ac88c80e0f2316472c69"
       },
       "sampledRoofCount": 4,
+      "mixedPixelRoofCount": 3575,
+      "sampledBuildingCount": 3579,
       "skipped": {
-        "smallRoofs": 3615,
         "outsideRaster": 0,
-        "insufficientValidPixels": 0,
+        "insufficientValidPixels": 40,
         "mappedOrCuratedRoof": 0
       },
-      "regionalRoofPalette": [],
-      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
-      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+      "directSampleRejections": {
+        "smallRoofs": 3575,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 40
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "021ee0770a2291fe20aead1a56d07e2f03b67e00635556a54b0781e1f363cf93"
     },
     {
       "id": "gedtm30",
@@ -209,5 +217,8 @@
   "derivedDatabaseLicense": "ODbL-1.0",
   "outputProfile": "full",
   "region": "chefchaouen",
-  "configSha256": "b22a978133dcfe5500efcfa6dc30d0ae780c2b34557b37508f365308d747c4f2"
+  "configSha256": "f28468d816cf46081fb6b15a4eb5e6a7e7d83e16a374ae73e49b3c49bbf7fc40",
+  "landmarkConfigSha256": "3b5ad5eb751ab292fc742f6cb9863e7587fa107703a272225c5cf4afc9fc688d",
+  "landmarksUpdatedAt": "2026-11-03T16:25:07.757212+00:00",
+  "landmarksSha256": "5762f878441aad107829db94bf0ecb84cb1d87dc96b690e8975319e13c114e22"
 }

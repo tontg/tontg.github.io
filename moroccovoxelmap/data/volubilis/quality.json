@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "volubilis",
-  "builtAt": "2026-11-02T23:07:03.874379+00:00",
+  "builtAt": "2026-11-03T11:32:27.190033+00:00",
   "crs": "EPSG:32630",
   "bounds": {
     "minX": -718.2115853204159,
@@ -24,7 +24,7 @@
   },
   "roofColorMethods": {
     "imagery": 1,
-    "estimated": 36
+    "imagery-mixed": 36
   },
   "courtyardBuildings": 0,
   "buildingParts": 0,
@@ -32,7 +32,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 4,
   "tiles": 16,
-  "tileBytes": 110549,
+  "tileBytes": 121217,
   "audit": {
     "osmBuildingsBeforeConflation": 9,
     "microsoftAvailable": true,
@@ -49,11 +49,17 @@
       "2026-11-01"
     ],
     "sampledRoofs": 1,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "mixedPixelRoofs": 36,
+    "unknownRoofs": 0,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T30STC_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

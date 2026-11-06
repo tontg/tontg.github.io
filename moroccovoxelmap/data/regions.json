@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "defaultRegion": "central",
+  "defaultRegion": "greater-casablanca",
   "regions": [
     {
       "id": "central",
@@ -34,14 +34,14 @@
         "lon": -7.62
       },
       "bounds": {
-        "minX": -1600.0,
-        "minY": -1700.0,
-        "maxX": 1600.0,
-        "maxY": 1700.0
+        "minX": -1600,
+        "minY": -1700,
+        "maxX": 1600,
+        "maxY": 1700
       },
       "crs": "EPSG:32629",
       "buildingCount": 7048,
-      "builtAt": "2026-11-02T23:03:50.663177+00:00"
+      "builtAt": "2026-11-03T08:53:28.674244+00:00"
     },
     {
       "id": "agadir",
@@ -95,7 +95,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 6303,
-      "builtAt": "2026-11-02T23:03:59.266391+00:00"
+      "builtAt": "2026-11-03T08:53:44.699592+00:00"
     },
     {
       "id": "ait-ben-haddou",
@@ -143,7 +143,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 508,
-      "builtAt": "2026-11-02T23:04:02.788844+00:00"
+      "builtAt": "2026-11-03T08:53:47.932914+00:00"
     },
     {
       "id": "al-hoceima",
@@ -191,7 +191,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 1200,
-      "builtAt": "2026-11-02T23:04:05.936037+00:00"
+      "builtAt": "2026-11-03T08:53:52.574028+00:00"
     },
     {
       "id": "asilah",
@@ -239,7 +239,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 1636,
-      "builtAt": "2026-11-02T23:04:10.010263+00:00"
+      "builtAt": "2026-11-03T08:53:57.705753+00:00"
     },
     {
       "id": "azemmour",
@@ -287,7 +287,72 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 2,
-      "builtAt": "2026-11-02T23:04:11.137304+00:00"
+      "builtAt": "2026-11-03T08:53:58.786948+00:00"
+    },
+    {
+      "id": "boujdour",
+      "name": "Boujdour",
+      "description": {
+        "fr": "Le cap, le phare et les quartiers qui bordent l’Atlantique",
+        "en": "The cape, lighthouse and neighbourhoods beside the Atlantic"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Boujdour",
+        "en": "Boujdour"
+      },
+      "categories": [
+        "sahara-scenes",
+        "additional-destinations"
+      ],
+      "selection": {
+        "basis": "Requested geographic scene, selected for its urban, coastal or cultural features; not a visitor-count or beauty ranking",
+        "source": "https://diffusion.shom.fr/downloadable/download/sample/sample_id/63/",
+        "extentBasis": "Editorial display rectangle; not an administrative or heritage-property boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/26.125000/-14.486500",
+        "checkedAt": "2026-11-03",
+        "anchors": [
+          {
+            "name": "Boujdour",
+            "lat": 26.1263378,
+            "lon": -14.4836537,
+            "sourceUrl": "https://www.openstreetmap.org/relation/3552424",
+            "sourceId": "osm/relation/3552424"
+          },
+          {
+            "name": "Cap Boujdour nautical reference",
+            "lat": 26.125,
+            "lon": -14.491,
+            "sourceUrl": "https://diffusion.shom.fr/downloadable/download/sample/sample_id/63/"
+          }
+        ]
+      },
+      "sourceUrl": "https://diffusion.shom.fr/downloadable/download/sample/sample_id/63/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 26.138,
+          "lon": -14.5
+        },
+        "bottomRight": {
+          "lat": 26.112,
+          "lon": -14.473
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "boujdour/index.json",
+      "center": {
+        "lat": 26.125,
+        "lon": -14.4865
+      },
+      "bounds": {
+        "minX": -1355.1817697942024,
+        "minY": -1444.981573460158,
+        "maxX": 1355.479672615067,
+        "maxY": 1445.1279438901693
+      },
+      "crs": "EPSG:32628",
+      "buildingCount": 1440,
+      "builtAt": "2026-11-03T13:54:34.245311+00:00"
     },
     {
       "id": "cfc",
@@ -305,14 +370,14 @@
         "lon": -7.6604232
       },
       "bounds": {
-        "minX": -1300.0,
-        "minY": -1300.0,
-        "maxX": 1300.0,
-        "maxY": 1300.0
+        "minX": -1300,
+        "minY": -1300,
+        "maxX": 1300,
+        "maxY": 1300
       },
       "crs": "EPSG:32629",
       "buildingCount": 3745,
-      "builtAt": "2026-11-02T23:04:17.715074+00:00"
+      "builtAt": "2026-11-03T08:54:09.497207+00:00"
     },
     {
       "id": "chefchaouen",
@@ -360,14 +425,80 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 3619,
-      "builtAt": "2026-11-02T23:04:23.040406+00:00"
+      "builtAt": "2026-11-03T08:54:20.259299+00:00"
+    },
+    {
+      "id": "dades-gorge",
+      "name": "Gorges du Dadès",
+      "description": {
+        "fr": "Les lacets du Dadès, le canyon et les villages du corridor de l’oued",
+        "en": "Dadès switchbacks, canyon slopes and villages along the river corridor"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Gorges du Dadès",
+        "en": "Dadès Gorge"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
+        "extentBasis": "Compact rectangle containing the celebrated R704 switchbacks and the adjoining narrow Dadès river reach; not the full Dadès valley",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/31.5335/-5.9225",
+        "checkedAt": "2026-11-05",
+        "anchors": [
+          {
+            "name": "Dadès switchback viewpoint",
+            "lat": 31.5302915,
+            "lon": -5.9251885,
+            "sourceId": "osm/node/1151856175",
+            "sourceUrl": "https://www.openstreetmap.org/node/1151856175"
+          },
+          {
+            "name": "Dadès gorge viewpoint",
+            "lat": 31.5377029,
+            "lon": -5.919202,
+            "sourceId": "osm/node/1151856125",
+            "sourceUrl": "https://www.openstreetmap.org/node/1151856125"
+          }
+        ],
+        "representationLimit": "The 2 m voxel display grid uses approximately 30 m terrain observations. Switchback centre lines come from mapped roads, while narrow canyon floors and cliff faces remain smoothed by the elevation source. Surface colours follow mapped classes rather than satellite ground-colour measurements."
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.552,
+          "lon": -5.946
+        },
+        "bottomRight": {
+          "lat": 31.515,
+          "lon": -5.899
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "dades-gorge/index.json",
+      "center": {
+        "lat": 31.5335,
+        "lon": -5.922499999999999
+      },
+      "bounds": {
+        "minX": -2287.406792630267,
+        "minY": -2110.9897514097393,
+        "maxX": 2286.5308902591933,
+        "maxY": 2111.5139323323965
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 11,
+      "builtAt": "2026-11-05T18:34:25.065378+00:00"
     },
     {
       "id": "dakhla",
       "name": "Dakhla",
       "description": {
-        "fr": "Le centre de la ville sur la péninsule",
-        "en": "The city centre on the peninsula"
+        "fr": "La ville, la lagune et la Dune Blanche dans une carte continue ; géométrie à 4 m, relief à 30 m et imagerie à 10 m",
+        "en": "The city, lagoon and White Dune in one continuous map; 4 m geometry, 30 m terrain and 10 m imagery"
       },
       "category": "city",
       "displayName": {
@@ -375,7 +506,9 @@
         "en": "Dakhla"
       },
       "categories": [
-        "additional-city"
+        "additional-city",
+        "sahara-scenes",
+        "additional-destinations"
       ],
       "selection": {
         "basis": "Dakhla explicitly included in addition to the ten largest communes; HCP population supplied for context",
@@ -385,35 +518,121 @@
         "source": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
         "sourceWorkbook": "https://www.hcp.ma/file/242341/",
         "sourceWorksheetRow": 2309,
-        "extentBasis": "Editorial central viewport; not an administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=15/23.706/-15.931"
+        "extentBasis": "Continuous union rectangle containing both complete previous Dakhla city and White Dune footprints; not an administrative boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=12/23.763661/-15.8378771",
+        "anchors": [
+          {
+            "name": "Hôtel de ville de Dakhla",
+            "lat": 23.7011867,
+            "lon": -15.9328267,
+            "sourceUrl": "https://www.openstreetmap.org/node/1899855661",
+            "sourceId": "osm/node/1899855661"
+          },
+          {
+            "name": "La Dune Blanche",
+            "lat": 23.821995,
+            "lon": -15.7447573,
+            "sourceUrl": "https://www.openstreetmap.org/node/5303302622",
+            "sourceId": "osm/node/5303302622"
+          }
+        ],
+        "representationLimit": "The complete 335 km² coastal union uses 4 m geometry instead of the previous separate 2 m views to bound compilation and viewer memory. Native 30 m GEDTM30 terrain and 10 m Sentinel-2 imagery are unchanged in resolution. Dune crests, tidal levels and shoreline changes are not reconstructed."
       },
       "sourceUrl": "https://www.hcp.ma/Population-legale-du-Royaume-du-Maroc-repartie-par-regions-provinces-et-prefectures-et-communes-selon-les-resultats-du_a3975.html",
       "boundsWgs84": {
         "topLeft": {
-          "lat": 23.717678,
+          "lat": 23.833,
           "lon": -15.9437542
         },
         "bottomRight": {
           "lat": 23.694322,
-          "lon": -15.9182458
+          "lon": -15.732
         }
       },
       "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "coastal-overview",
       "indexUrl": "dakhla/index.json",
       "center": {
-        "lat": 23.706,
-        "lon": -15.931000000000001
+        "lat": 23.763661,
+        "lon": -15.8378771
       },
       "bounds": {
-        "minX": -1308.8533571729204,
-        "minY": -1301.4170789774507,
-        "maxX": 1308.622548230167,
-        "maxY": 1301.541774822399
+        "minX": -10840.22860341525,
+        "minY": -7736.514175484423,
+        "maxX": 10828.717561093159,
+        "maxY": 7744.900714975316
       },
       "crs": "EPSG:32628",
-      "buildingCount": 1033,
-      "builtAt": "2026-11-02T23:04:27.483043+00:00"
+      "buildingCount": 1954,
+      "builtAt": "2026-11-04T10:30:08.409529+00:00"
+    },
+    {
+      "id": "draa-valley",
+      "name": "Vallée du Drâa — Agdz et Tamnougalt",
+      "description": {
+        "fr": "La palmeraie d’Agdz, le cours du Drâa et les ksour autour de Tamnougalt",
+        "en": "The Agdz palm grove, Drâa river corridor and ksour around Tamnougalt"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Vallée du Drâa — Agdz et Tamnougalt",
+        "en": "Drâa Valley — Agdz and Tamnougalt"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
+        "referenceUrl": "https://www.visitmorocco.com/sites/default/files/atoms/files/maroc_desert_oasis_150226_il_en.pdf",
+        "extentBasis": "Representative upper Drâa reach linking Agdz and its palm grove with Tamnougalt and neighbouring ksour; not the whole Drâa river valley or its complete oasis chain",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=13/30.684/-6.4125",
+        "checkedAt": "2026-11-05",
+        "anchors": [
+          {
+            "name": "Tamnougalt heritage site",
+            "lat": 30.675148,
+            "lon": -6.3880807,
+            "sourceId": "osm/node/2039131721",
+            "sourceUrl": "https://www.openstreetmap.org/node/2039131721"
+          },
+          {
+            "name": "Tamnougalt valley viewpoint",
+            "lat": 30.6764693,
+            "lon": -6.3968855,
+            "sourceId": "osm/node/1802125901",
+            "sourceUrl": "https://www.openstreetmap.org/node/1802125901"
+          }
+        ],
+        "representationLimit": "The 4 m overview grid uses approximately 30 m terrain. Palm-grove coverage depends on mapped land cover; individual palms are shown only where source records exist. Missing ksar footprints are not invented. Water levels and seasonal greenness are not a live observation; ground colours follow mapped classes rather than satellite ground-colour measurements."
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 30.711,
+          "lon": -6.462
+        },
+        "bottomRight": {
+          "lat": 30.657,
+          "lon": -6.363
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "overview",
+      "indexUrl": "draa-valley/index.json",
+      "center": {
+        "lat": 30.683999999999997,
+        "lon": -6.4125
+      },
+      "bounds": {
+        "minX": -4811.110241701594,
+        "minY": -3101.8848444400355,
+        "maxX": 4813.792095186538,
+        "maxY": 3104.10505137546
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 199,
+      "builtAt": "2026-11-05T18:38:17.776491+00:00"
     },
     {
       "id": "el-jadida",
@@ -461,7 +680,67 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 2732,
-      "builtAt": "2026-11-02T23:04:30.739922+00:00"
+      "builtAt": "2026-11-03T08:54:31.518542+00:00"
+    },
+    {
+      "id": "erg-chigaga",
+      "name": "Erg Chigaga",
+      "description": {
+        "fr": "Un secteur des dunes de Chigaga et des plaines désertiques, à l’ouest de M’Hamid",
+        "en": "A section of the Chigaga dunes and surrounding desert plains west of M’Hamid"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Erg Chigaga",
+        "en": "Erg Chigaga"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
+        "extentBasis": "Bounded eastern sector of the mapped Chigaga erg, including dune terrain and its desert-plain margin; deliberately west of M’Hamid village and distinct from Merzouga/Erg Chebbi; not the complete dune sea",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=13/29.84/-6.2475",
+        "checkedAt": "2026-11-05",
+        "anchors": [
+          {
+            "name": "Chigaga dunes/camps area, approximate published reference",
+            "lat": 29.828,
+            "lon": -6.25,
+            "sourceUrl": "https://desert.foumzguid.com/en/guide/desert-map/"
+          }
+        ],
+        "mappedLandformSourceUrl": "https://www.openstreetmap.org/way/225179090",
+        "representationLimit": "The overview uses 4 m geometry with approximately 30 m elevation observations. Broad dune relief may be represented, but crests, wind-driven changes and sand ripples are not reconstructed. Ground colours follow mapped surface classes, not satellite sand-colour samples. The curated reference is approximate to a few hundred metres according to its publisher; it is not a surveyed summit, fixed camp position or navigation waypoint."
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir/nature",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 29.87,
+          "lon": -6.3
+        },
+        "bottomRight": {
+          "lat": 29.81,
+          "lon": -6.195
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "overview",
+      "indexUrl": "erg-chigaga/index.json",
+      "center": {
+        "lat": 29.84,
+        "lon": -6.2475000000000005
+      },
+      "bounds": {
+        "minX": -5152.608999658376,
+        "minY": -3446.2690254906192,
+        "maxX": 5155.693215602776,
+        "maxY": 3448.751242895145
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 142,
+      "builtAt": "2026-11-05T18:39:31.307456+00:00"
     },
     {
       "id": "essaouira",
@@ -509,7 +788,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 230,
-      "builtAt": "2026-11-02T23:04:32.927262+00:00"
+      "builtAt": "2026-11-03T08:54:34.221289+00:00"
     },
     {
       "id": "fes",
@@ -563,62 +842,88 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 9794,
-      "builtAt": "2026-11-02T23:04:43.254870+00:00"
+      "builtAt": "2026-11-03T08:54:58.866881+00:00"
     },
     {
-      "id": "figuig",
-      "name": "Figuig",
+      "id": "greater-casablanca",
+      "name": "Grand Casablanca",
       "description": {
-        "fr": "Le ksar Zenaga et les abords de l’oasis",
-        "en": "Ksar Zenaga and the oasis surroundings"
+        "fr": "Une carte continue du centre, des Roches Noires, de CFC et de Sidi Maarouf",
+        "en": "One continuous map of the centre, Roches Noires, CFC and Sidi Maarouf"
       },
-      "category": "destination",
+      "category": "city",
       "displayName": {
-        "fr": "Figuig",
-        "en": "Figuig"
+        "fr": "Grand Casablanca",
+        "en": "Greater Casablanca"
       },
       "categories": [
-        "curated-destinations"
+        "requested-additions",
+        "metropolitan-overviews"
       ],
       "selection": {
-        "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
-        "source": "https://whc.unesco.org/fr/listesindicatives/5625/",
-        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/32.1/-1.236"
+        "basis": "Requested geographic scene, selected for its urban, coastal or cultural features; not a visitor-count or beauty ranking",
+        "source": "https://www.openstreetmap.org/node/2186584987",
+        "extentBasis": "Editorial continuous overview containing the existing central, CFC and Sidi Maarouf scene extents plus Roches Noires; not the full metropolitan administrative area",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/33.566000/-7.625500",
+        "checkedAt": "2026-11-03",
+        "anchors": [
+          {
+            "name": "Roches-Noires",
+            "lat": 33.5931914,
+            "lon": -7.5957822,
+            "sourceUrl": "https://www.openstreetmap.org/node/2186584987",
+            "sourceId": "osm/node/2186584987"
+          },
+          {
+            "name": "Casablanca Finance City",
+            "lat": 33.5631545,
+            "lon": -7.6604232,
+            "sourceUrl": "https://www.openstreetmap.org/node/12223124337",
+            "sourceId": "osm/node/12223124337"
+          },
+          {
+            "name": "Sidi Maarouf",
+            "lat": 33.5286123,
+            "lon": -7.646462,
+            "sourceUrl": "https://www.openstreetmap.org/node/12269473986",
+            "sourceId": "osm/node/12269473986"
+          }
+        ]
       },
-      "sourceUrl": "https://whc.unesco.org/fr/listesindicatives/5625/",
+      "sourceUrl": "https://www.openstreetmap.org/node/2186584987",
       "boundsWgs84": {
         "topLeft": {
-          "lat": 32.1080848,
-          "lon": -1.2455438
+          "lat": 33.619,
+          "lon": -7.677
         },
         "bottomRight": {
-          "lat": 32.0919152,
-          "lon": -1.2264562
+          "lat": 33.513,
+          "lon": -7.574
         }
       },
       "centerMethod": "configured-display-extent-midpoint",
-      "indexUrl": "figuig/index.json",
+      "extentProfile": "overview",
+      "indexUrl": "greater-casablanca/index.json",
       "center": {
-        "lat": 32.1,
-        "lon": -1.2360000000000002
+        "lat": 33.566,
+        "lon": -7.6255
       },
       "bounds": {
-        "minX": -915.2607689804863,
-        "minY": -911.0371945942752,
-        "maxX": 915.4183752910467,
-        "maxY": 911.1220953566954
+        "minX": -4855.575472004362,
+        "minY": -5938.941703286022,
+        "maxX": 4861.352399852243,
+        "maxY": 5941.466148712207
       },
-      "crs": "EPSG:32630",
-      "buildingCount": 6,
-      "builtAt": "2026-11-02T23:04:46.626750+00:00"
+      "crs": "EPSG:32629",
+      "buildingCount": 65802,
+      "builtAt": "2026-11-03T13:52:26.070345+00:00"
     },
     {
       "id": "ifrane",
       "name": "Ifrane",
       "description": {
-        "fr": "Le centre d’Ifrane",
-        "en": "Central Ifrane"
+        "fr": "Le centre d’Ifrane, le campus Al Akhawayn et son centre de conférences",
+        "en": "Central Ifrane, the Al Akhawayn campus and its conference centre"
       },
       "category": "destination",
       "displayName": {
@@ -631,35 +936,51 @@
       "selection": {
         "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
         "source": "https://www.visitmorocco.com/en/travel/ifrane",
-        "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/33.5285/-5.106"
+        "extentBasis": "Editorial expanded viewport containing central Ifrane, the full mapped Al Akhawayn campus and the separate Conference Center on the El Hajeb road",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/33.5325/-5.117",
+        "checkedAt": "2026-11-03",
+        "anchors": [
+          {
+            "name": "Al Akhawayn campus",
+            "lat": 33.5391007,
+            "lon": -5.106785,
+            "sourceUrl": "https://www.openstreetmap.org/way/798030636",
+            "sourceId": "osm/way/798030636"
+          },
+          {
+            "name": "Al Akhawayn Conference Center",
+            "lat": 33.5274518,
+            "lon": -5.1335416,
+            "sourceUrl": "https://www.amicalnet.org/conference/2023/accommodation"
+          }
+        ]
       },
       "sourceUrl": "https://www.visitmorocco.com/en/travel/ifrane",
       "boundsWgs84": {
         "topLeft": {
-          "lat": 33.5365848,
-          "lon": -5.1156985
+          "lat": 33.546,
+          "lon": -5.138
         },
         "bottomRight": {
-          "lat": 33.5204152,
-          "lon": -5.0963015
+          "lat": 33.519,
+          "lon": -5.096
         }
       },
       "centerMethod": "configured-display-extent-midpoint",
       "indexUrl": "ifrane/index.json",
       "center": {
-        "lat": 33.5285,
-        "lon": -5.106
+        "lat": 33.5325,
+        "lon": -5.117
       },
       "bounds": {
-        "minX": -919.0871530203149,
-        "minY": -914.8477787710726,
-        "maxX": 918.920875192387,
-        "maxY": 914.9375548739918
+        "minX": -1981.2616920861183,
+        "minY": -1536.761031623464,
+        "maxX": 1980.6548411536496,
+        "maxY": 1537.1754206628539
       },
       "crs": "EPSG:32630",
-      "buildingCount": 365,
-      "builtAt": "2026-11-02T23:04:47.461491+00:00"
+      "buildingCount": 759,
+      "builtAt": "2026-11-03T13:53:57.867047+00:00"
     },
     {
       "id": "kenitra",
@@ -713,7 +1034,73 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 3729,
-      "builtAt": "2026-11-02T23:04:53.829681+00:00"
+      "builtAt": "2026-11-03T08:55:14.002066+00:00"
+    },
+    {
+      "id": "laayoune",
+      "name": "Laâyoune",
+      "description": {
+        "fr": "Le tissu urbain, les places et la cathédrale Saint-François-d’Assise",
+        "en": "Urban streets, squares and Saint Francis of Assisi Cathedral"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Laâyoune",
+        "en": "Laayoune"
+      },
+      "categories": [
+        "sahara-scenes",
+        "additional-destinations"
+      ],
+      "selection": {
+        "basis": "Requested geographic scene, selected for its urban, coastal or cultural features; not a visitor-count or beauty ranking",
+        "source": "https://www.openstreetmap.org/way/310863257",
+        "extentBasis": "Editorial display rectangle; not an administrative or heritage-property boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/27.159500/-13.201000",
+        "checkedAt": "2026-11-03",
+        "anchors": [
+          {
+            "name": "Saint Francis of Assisi Cathedral",
+            "lat": 27.1631665,
+            "lon": -13.2057776,
+            "sourceUrl": "https://www.openstreetmap.org/way/310863257",
+            "sourceId": "osm/way/310863257"
+          },
+          {
+            "name": "Laayoune",
+            "lat": 27.154512,
+            "lon": -13.1953921,
+            "sourceUrl": "https://www.openstreetmap.org/relation/3409845",
+            "sourceId": "osm/relation/3409845"
+          }
+        ]
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/310863257",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 27.173,
+          "lon": -13.216
+        },
+        "bottomRight": {
+          "lat": 27.146,
+          "lon": -13.186
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "laayoune/index.json",
+      "center": {
+        "lat": 27.1595,
+        "lon": -13.201
+      },
+      "bounds": {
+        "minX": -1507.8194496987853,
+        "minY": -1516.9317125771195,
+        "maxX": 1508.1747915778542,
+        "maxY": 1517.1266787219793
+      },
+      "crs": "EPSG:32628",
+      "buildingCount": 5737,
+      "builtAt": "2026-11-03T14:01:31.601826+00:00"
     },
     {
       "id": "marrakech",
@@ -767,7 +1154,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 19889,
-      "builtAt": "2026-11-02T23:05:13.153839+00:00"
+      "builtAt": "2026-11-03T11:27:50.521491+00:00"
     },
     {
       "id": "meknes",
@@ -821,7 +1208,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 4232,
-      "builtAt": "2026-11-02T23:05:35.715171+00:00"
+      "builtAt": "2026-11-03T11:28:27.376674+00:00"
     },
     {
       "id": "merzouga",
@@ -869,7 +1256,66 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 232,
-      "builtAt": "2026-11-02T23:05:39.121586+00:00"
+      "builtAt": "2026-11-03T11:28:30.662906+00:00"
+    },
+    {
+      "id": "mohammedia",
+      "name": "Mohammedia",
+      "description": {
+        "fr": "Le centre, la kasbah, les parcs et le front de mer",
+        "en": "The centre, kasbah, parks and seafront"
+      },
+      "category": "city",
+      "displayName": {
+        "fr": "Mohammedia",
+        "en": "Mohammedia"
+      },
+      "categories": [
+        "requested-additions",
+        "coastal-scenes"
+      ],
+      "selection": {
+        "basis": "Requested geographic scene, selected for its urban, coastal or cultural features; not a visitor-count or beauty ranking",
+        "source": "https://visitcasablanca.ma/ou-aller/mohammedia/",
+        "extentBasis": "Editorial display rectangle; not an administrative or heritage-property boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/33.702000/-7.389500",
+        "checkedAt": "2026-11-03",
+        "anchors": [
+          {
+            "name": "Mohammedia",
+            "lat": 33.6958383,
+            "lon": -7.3893292,
+            "sourceUrl": "https://www.openstreetmap.org/relation/2523547",
+            "sourceId": "osm/relation/2523547"
+          }
+        ]
+      },
+      "sourceUrl": "https://visitcasablanca.ma/ou-aller/mohammedia/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 33.718,
+          "lon": -7.412
+        },
+        "bottomRight": {
+          "lat": 33.686,
+          "lon": -7.367
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "mohammedia/index.json",
+      "center": {
+        "lat": 33.702,
+        "lon": -7.3895
+      },
+      "bounds": {
+        "minX": -2112.666678646696,
+        "minY": -1806.5302719273604,
+        "maxX": 2113.43799563183,
+        "maxY": 1807.0045792618766
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 7459,
+      "builtAt": "2026-11-03T14:02:20.895099+00:00"
     },
     {
       "id": "moulay-idriss-zerhoun",
@@ -917,7 +1363,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 1080,
-      "builtAt": "2026-11-02T23:05:40.673219+00:00"
+      "builtAt": "2026-11-03T11:28:34.527532+00:00"
     },
     {
       "id": "ouarzazate",
@@ -965,7 +1411,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 1961,
-      "builtAt": "2026-11-02T23:05:42.791906+00:00"
+      "builtAt": "2026-11-03T11:28:41.924715+00:00"
     },
     {
       "id": "oujda",
@@ -1019,7 +1465,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 9645,
-      "builtAt": "2026-11-02T23:05:58.261236+00:00"
+      "builtAt": "2026-11-03T11:29:17.296620+00:00"
     },
     {
       "id": "rabat",
@@ -1073,7 +1519,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 6653,
-      "builtAt": "2026-11-02T23:06:17.612067+00:00"
+      "builtAt": "2026-11-03T11:30:03.064988+00:00"
     },
     {
       "id": "safi",
@@ -1094,7 +1540,25 @@
         "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
         "source": "https://www.visitmorocco.com/en/travel/safi",
         "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/32.2994/-9.2372"
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/32.2994/-9.2372",
+        "coverageReviewedAt": "2026-11-03",
+        "coverageReview": "Existing extent retained: named central and coastal landmarks are inside the viewport; no duplicate scene.",
+        "anchors": [
+          {
+            "name": "Medina Kdima",
+            "lat": 32.2988678,
+            "lon": -9.2406558,
+            "sourceUrl": "https://www.openstreetmap.org/node/1363619421",
+            "sourceId": "osm/node/1363619421"
+          },
+          {
+            "name": "Chateau de Mer",
+            "lat": 32.2973683,
+            "lon": -9.2442213,
+            "sourceUrl": "https://www.openstreetmap.org/way/121855888",
+            "sourceId": "osm/way/121855888"
+          }
+        ]
       },
       "sourceUrl": "https://www.visitmorocco.com/en/travel/safi",
       "boundsWgs84": {
@@ -1121,7 +1585,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 375,
-      "builtAt": "2026-11-02T23:06:21.311095+00:00"
+      "builtAt": "2026-11-03T11:30:11.677749+00:00"
     },
     {
       "id": "sale",
@@ -1175,7 +1639,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 7560,
-      "builtAt": "2026-11-02T23:06:30.581608+00:00"
+      "builtAt": "2026-11-03T11:30:38.937435+00:00"
     },
     {
       "id": "sidi-ifni",
@@ -1223,7 +1687,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 55,
-      "builtAt": "2026-11-02T23:06:33.964461+00:00"
+      "builtAt": "2026-11-03T11:30:43.722669+00:00"
     },
     {
       "id": "sidi-maarouf",
@@ -1233,6 +1697,10 @@
         "en": "Sidi Maârouf and its surroundings"
       },
       "category": "district",
+      "displayName": {
+        "fr": "Casablanca Sidi Maârouf",
+        "en": "Casablanca Sidi Maarouf"
+      },
       "sourceId": "osm/node/12269473986",
       "sourceUrl": "https://www.openstreetmap.org/node/12269473986",
       "indexUrl": "sidi-maarouf/index.json",
@@ -1241,14 +1709,138 @@
         "lon": -7.646462
       },
       "bounds": {
-        "minX": -1500.0,
-        "minY": -1500.0,
-        "maxX": 1500.0,
-        "maxY": 1500.0
+        "minX": -1500,
+        "minY": -1500,
+        "maxX": 1500,
+        "maxY": 1500
       },
       "crs": "EPSG:32629",
       "buildingCount": 3728,
-      "builtAt": "2026-11-02T23:06:38.798134+00:00"
+      "builtAt": "2026-11-03T11:31:00.014811+00:00"
+    },
+    {
+      "id": "smara",
+      "name": "Smara",
+      "description": {
+        "fr": "La zaouïa de Cheikh Ma El Aïnin et les rues de la ville",
+        "en": "The Zaouia of Cheikh Ma El Ainin and surrounding town streets"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Smara",
+        "en": "Smara"
+      },
+      "categories": [
+        "sahara-scenes",
+        "additional-destinations"
+      ],
+      "selection": {
+        "basis": "Requested geographic scene, selected for its urban, coastal or cultural features; not a visitor-count or beauty ranking",
+        "source": "https://www.openstreetmap.org/way/116504652",
+        "extentBasis": "Editorial display rectangle; not an administrative or heritage-property boundary",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/26.742000/-11.672500",
+        "checkedAt": "2026-11-03",
+        "anchors": [
+          {
+            "name": "Zaouia de Cheikh Ma El Ainin",
+            "lat": 26.7423822,
+            "lon": -11.680121,
+            "sourceUrl": "https://www.openstreetmap.org/way/116504652",
+            "sourceId": "osm/way/116504652"
+          }
+        ]
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/116504652",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 26.753,
+          "lon": -11.69
+        },
+        "bottomRight": {
+          "lat": 26.731,
+          "lon": -11.655
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "smara/index.json",
+      "center": {
+        "lat": 26.742,
+        "lon": -11.6725
+      },
+      "bounds": {
+        "minX": -1767.1219354160712,
+        "minY": -1255.5450585470535,
+        "maxX": 1766.780586442852,
+        "maxY": 1255.8075119182467
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 3282,
+      "builtAt": "2026-11-03T14:02:54.045080+00:00"
+    },
+    {
+      "id": "tafraoute-ameln",
+      "name": "Tafraoute — vallée des Ameln",
+      "description": {
+        "fr": "Tafraoute, les reliefs granitiques d’Aguerd Oudad et les villages de la vallée des Ameln",
+        "en": "Tafraoute, the Aguerd Oudad granite hills and villages of the Ameln Valley"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Tafraoute — vallée des Ameln",
+        "en": "Tafraoute — Ameln Valley"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://visitagadir.com/destinations/la-vallee-des-ammeln/",
+        "extentBasis": "Bounded Anti-Atlas overview linking the Ameln valley and its northern ridge slopes with Tafraoute, Aday and the granite hills around Aguerd Oudad; excludes the more distant Painted Rocks and Aït Mansour gorge",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=13/29.7385/-8.972",
+        "checkedAt": "2026-11-05",
+        "anchors": [
+          {
+            "name": "Ameln Valley published viewpoint",
+            "lat": 29.753204,
+            "lon": -8.969222,
+            "sourceUrl": "https://explore-agadirsoussmassa.com/en/circuit-the-souss-massa-between-sea-and-mountain/"
+          },
+          {
+            "name": "Napoleon’s Hat, Aguerd Oudad",
+            "lat": 29.697253,
+            "lon": -8.96487,
+            "sourceUrl": "https://explore-agadirsoussmassa.com/en/circuit-the-souss-massa-between-sea-and-mountain/"
+          }
+        ],
+        "representationLimit": "The 4 m overview grid does not improve the approximately 30 m elevation source: broad ridgelines are represented, but individual granite boulders and their pink or yellow hues are not reconstructed. Ground colours follow mapped classes; only building roofs use sampled satellite colour observations. The named rock marker locates the published site without creating a rock model."
+      },
+      "sourceUrl": "https://visitagadir.com/destinations/la-vallee-des-ammeln/",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 29.79,
+          "lon": -9.016
+        },
+        "bottomRight": {
+          "lat": 29.687,
+          "lon": -8.928
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "overview",
+      "indexUrl": "tafraoute-ameln/index.json",
+      "center": {
+        "lat": 29.738500000000002,
+        "lon": -8.972000000000001
+      },
+      "bounds": {
+        "minX": -4255.569941356021,
+        "minY": -5706.696820059326,
+        "maxX": 4258.335169060971,
+        "maxY": 5708.257295448799
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 431,
+      "builtAt": "2026-11-05T18:37:45.230776+00:00"
     },
     {
       "id": "taghazout",
@@ -1269,7 +1861,32 @@
         "basis": "Editorial selection of heritage, coastal and oasis destinations; not a visitor-count or beauty ranking",
         "source": "https://www.visitmorocco.com/en/travel/agadir-taghazout",
         "extentBasis": "Editorial compact viewport; not a heritage-property or administrative boundary",
-        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.5448/-9.709"
+        "extentMapUrl": "https://www.openstreetmap.org/#map=16/30.5448/-9.709",
+        "coverageReviewedAt": "2026-11-03",
+        "coverageReview": "Existing extent retained: named central and coastal landmarks are inside the viewport; no duplicate scene.",
+        "anchors": [
+          {
+            "name": "Taghazout",
+            "lat": 30.544722,
+            "lon": -9.709128,
+            "sourceUrl": "https://www.openstreetmap.org/node/2020436713",
+            "sourceId": "osm/node/2020436713"
+          },
+          {
+            "name": "Taghazout Skatepark",
+            "lat": 30.5481643,
+            "lon": -9.7131242,
+            "sourceUrl": "https://www.openstreetmap.org/node/5916160685",
+            "sourceId": "osm/node/5916160685"
+          },
+          {
+            "name": "Panorama Beach viewpoint",
+            "lat": 30.542904,
+            "lon": -9.7074524,
+            "sourceUrl": "https://www.openstreetmap.org/node/12486157401",
+            "sourceId": "osm/node/12486157401"
+          }
+        ]
       },
       "sourceUrl": "https://www.visitmorocco.com/en/travel/agadir-taghazout",
       "boundsWgs84": {
@@ -1296,7 +1913,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 104,
-      "builtAt": "2026-11-02T23:06:40.444562+00:00"
+      "builtAt": "2026-11-03T11:31:03.723937+00:00"
     },
     {
       "id": "tanger",
@@ -1350,7 +1967,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 2944,
-      "builtAt": "2026-11-02T23:06:44.940731+00:00"
+      "builtAt": "2026-11-03T11:31:25.008383+00:00"
     },
     {
       "id": "taroudant",
@@ -1398,7 +2015,7 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 10218,
-      "builtAt": "2026-11-02T23:06:55.578414+00:00"
+      "builtAt": "2026-11-03T11:31:57.352588+00:00"
     },
     {
       "id": "tetouan",
@@ -1446,7 +2063,67 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 2301,
-      "builtAt": "2026-11-02T23:07:01.465368+00:00"
+      "builtAt": "2026-11-03T11:32:22.170745+00:00"
+    },
+    {
+      "id": "tizi-n-tichka",
+      "name": "Haut Atlas — Tizi n’Tichka",
+      "description": {
+        "fr": "Le col de Tizi n’Tichka, les lacets de la N9 et les vallons du Haut Atlas",
+        "en": "Tizi n’Tichka Pass, the winding N9 and surrounding High Atlas valleys"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Haut Atlas — Tizi n’Tichka",
+        "en": "High Atlas — Tizi n’Tichka"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
+        "extentBasis": "Bounded High Atlas overview centred on the mapped pass, including the winding northern N9 approach and surrounding slopes; not the entire Marrakech–Ouarzazate road or High Atlas range",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=13/31.301/-7.3915",
+        "checkedAt": "2026-11-05",
+        "anchors": [
+          {
+            "name": "Tizi n’Tichka Pass",
+            "lat": 31.2860592,
+            "lon": -7.3810892,
+            "sourceId": "osm/node/21444527",
+            "sourceUrl": "https://www.openstreetmap.org/node/21444527"
+          }
+        ],
+        "representationLimit": "The overview uses 4 m geometry with approximately 30 m terrain. Road bends follow acquired OSM lines; individual retaining walls, narrow gullies and rock outcrops are not reconstructed. Surface colours follow mapped classes rather than a measured satellite ground-colour texture."
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir-hollywood-africa",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.335,
+          "lon": -7.429
+        },
+        "bottomRight": {
+          "lat": 31.267,
+          "lon": -7.354
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "extentProfile": "overview",
+      "indexUrl": "tizi-n-tichka/index.json",
+      "center": {
+        "lat": 31.301000000000002,
+        "lon": -7.391500000000001
+      },
+      "bounds": {
+        "minX": -3623.048468035762,
+        "minY": -3820.343640978448,
+        "maxX": 3625.5910422906745,
+        "maxY": 3821.641354023479
+      },
+      "crs": "EPSG:32629",
+      "buildingCount": 97,
+      "builtAt": "2026-11-05T18:36:54.431004+00:00"
     },
     {
       "id": "tiznit",
@@ -1494,7 +2171,66 @@
       },
       "crs": "EPSG:32629",
       "buildingCount": 178,
-      "builtAt": "2026-11-02T23:07:03.101179+00:00"
+      "builtAt": "2026-11-03T11:32:25.493862+00:00"
+    },
+    {
+      "id": "todra-gorge",
+      "name": "Gorges du Todra",
+      "description": {
+        "fr": "Le défilé du Todra, ses versants calcaires et le ruban de vallée en amont de Tinghir",
+        "en": "The Todra narrows, limestone slopes and river valley upstream of Tinghir"
+      },
+      "category": "destination",
+      "displayName": {
+        "fr": "Gorges du Todra",
+        "en": "Todra Gorge"
+      },
+      "categories": [
+        "landscape-scenes"
+      ],
+      "selection": {
+        "basis": "Requested landscape scene; editorial selection rather than a visitor-count ranking",
+        "source": "https://www.visitmorocco.com/en/suggested-tours/road-kasbahs",
+        "extentBasis": "Compact rectangle around the mapped Todra narrows, adjoining limestone ridges and river corridor; neither the entire Todra watershed nor Tinghir city",
+        "extentMapUrl": "https://www.openstreetmap.org/#map=14/31.5885/-5.591",
+        "checkedAt": "2026-11-05",
+        "anchors": [
+          {
+            "name": "Todra Gorge narrows",
+            "lat": 31.5873522,
+            "lon": -5.5914946,
+            "sourceId": "osm/node/10871656393",
+            "sourceUrl": "https://www.openstreetmap.org/node/10871656393"
+          }
+        ],
+        "representationLimit": "The 2 m voxel display grid uses approximately 30 m terrain observations. Narrow canyon floors, sheer or overhanging cliff faces and individual terraces are smoothed; mapped roads and buildings are not reconstructed when absent. Terrain colours follow mapped surface classes, not a measured satellite ground-colour texture."
+      },
+      "sourceUrl": "https://www.visitmorocco.com/en/suggested-tours/road-kasbahs",
+      "boundsWgs84": {
+        "topLeft": {
+          "lat": 31.608,
+          "lon": -5.614
+        },
+        "bottomRight": {
+          "lat": 31.569,
+          "lon": -5.568
+        }
+      },
+      "centerMethod": "configured-display-extent-midpoint",
+      "indexUrl": "todra-gorge/index.json",
+      "center": {
+        "lat": 31.5885,
+        "lon": -5.590999999999999
+      },
+      "bounds": {
+        "minX": -2234.8395376356493,
+        "minY": -2213.7911371891387,
+        "maxX": 2233.937956719834,
+        "maxY": 2214.2924856073223
+      },
+      "crs": "EPSG:32630",
+      "buildingCount": 64,
+      "builtAt": "2026-11-05T18:33:32.627159+00:00"
     },
     {
       "id": "volubilis",
@@ -1542,7 +2278,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 37,
-      "builtAt": "2026-11-02T23:07:03.874379+00:00"
+      "builtAt": "2026-11-03T11:32:27.190033+00:00"
     },
     {
       "id": "zagora",
@@ -1590,7 +2326,7 @@
       },
       "crs": "EPSG:32630",
       "buildingCount": 400,
-      "builtAt": "2026-11-02T23:07:05.052085+00:00"
+      "builtAt": "2026-11-03T11:32:30.972549+00:00"
     }
   ]
 }

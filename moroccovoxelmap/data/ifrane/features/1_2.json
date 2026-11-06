@@ -1,1 +1,1 @@
-{"schemaVersion":1,"features":[]}
+{"schemaVersion":1,"features":[{"id":"osm/way/583835909","name":"","source":"openstreetmap","sourceUrl":"https://www.openstreetmap.org/way/583835909","height":12.4,"minHeight":0,"heightMethod":"estimated","minHeightMethod":"ground","colorMethod":"estimated","roofColorMethod":"imagery","lat":33.540119,"lon":-5.1093989,"groundElevation":1654.94,"groundElevationMethod":"terrain-median","groundElevationSource":"gedtm30","x":721.0455555555556,"y":815.2444444444445}]}

@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "tetouan",
-  "builtAt": "2026-11-02T23:07:01.465368+00:00",
+  "builtAt": "2026-11-03T11:32:22.170745+00:00",
   "crs": "EPSG:32630",
   "bounds": {
     "minX": -922.5750387849985,
@@ -25,7 +25,8 @@
   },
   "roofColorMethods": {
     "imagery": 96,
-    "imagery-palette": 2205
+    "imagery-mixed": 2137,
+    "unknown": 68
   },
   "courtyardBuildings": 3,
   "buildingParts": 0,
@@ -33,7 +34,7 @@
   "mappedTreeLocations": 15,
   "groundPolygons": 42,
   "tiles": 36,
-  "tileBytes": 2359163,
+  "tileBytes": 2853751,
   "audit": {
     "unclosedRelations": 1,
     "outOfExtentGeometryExcluded": 326,
@@ -53,36 +54,17 @@
       "2026-10-24"
     ],
     "sampledRoofs": 96,
-    "paletteStyledRoofs": 2205,
-    "regionalRoofPalette": [
-      {
-        "color": "#96644f",
-        "sourceRoofSamples": 16
-      },
-      {
-        "color": "#b87c6a",
-        "sourceRoofSamples": 16
-      },
-      {
-        "color": "#ca866a",
-        "sourceRoofSamples": 16
-      },
-      {
-        "color": "#cc947c",
-        "sourceRoofSamples": 16
-      },
-      {
-        "color": "#dea288",
-        "sourceRoofSamples": 16
-      },
-      {
-        "color": "#fabea4",
-        "sourceRoofSamples": 16
-      }
-    ],
+    "mixedPixelRoofs": 2137,
+    "unknownRoofs": 68,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2B_MSIL2A_20261024T110129_N0513_R094_T30STE_20261024T145654.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

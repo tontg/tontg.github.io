@@ -1,0 +1,80 @@
+{
+  "profile": "full",
+  "region": "tafraoute-ameln",
+  "builtAt": "2026-11-05T18:37:45.230776+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -4255.569941356021,
+    "minY": -5706.696820059326,
+    "maxX": 4258.335169060971,
+    "maxY": 5708.257295448799
+  },
+  "buildingCount": 431,
+  "sourceBreakdown": {
+    "openstreetmap": 431
+  },
+  "heightMethods": {
+    "estimated": 431
+  },
+  "estimatedHeightCount": 431,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 431
+  },
+  "roofColorMethods": {
+    "imagery-mixed": 417,
+    "imagery": 5,
+    "unknown": 9
+  },
+  "courtyardBuildings": 4,
+  "buildingParts": 0,
+  "roads": 654,
+  "mappedTreeLocations": 0,
+  "groundPolygons": 8,
+  "tiles": 140,
+  "tileBytes": 2142416,
+  "audit": {
+    "outOfExtentGeometryExcluded": 3,
+    "osmBuildingsBeforeConflation": 431,
+    "microsoftAvailable": false,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-10-12"
+    ],
+    "sampledRoofs": 5,
+    "mixedPixelRoofs": 417,
+    "unknownRoofs": 9,
+    "samplingVersion": 3,
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261012T111011_N0513_R137_T29RMN_20261012T145210.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 848,
+    "minElevation": 862.24,
+    "maxElevation": 2169.99,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

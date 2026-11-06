@@ -1,41 +1,42 @@
 {
   "profile": "full",
   "region": "ifrane",
-  "builtAt": "2026-11-02T23:04:47.461491+00:00",
+  "builtAt": "2026-11-03T13:53:57.867047+00:00",
   "crs": "EPSG:32630",
   "bounds": {
-    "minX": -919.0871530203149,
-    "minY": -914.8477787710726,
-    "maxX": 918.920875192387,
-    "maxY": 914.9375548739918
+    "minX": -1981.2616920861183,
+    "minY": -1536.761031623464,
+    "maxX": 1980.6548411536496,
+    "maxY": 1537.1754206628539
   },
-  "buildingCount": 365,
+  "buildingCount": 759,
   "sourceBreakdown": {
-    "openstreetmap": 365
+    "openstreetmap": 759
   },
   "heightMethods": {
-    "estimated": 365
+    "estimated": 758,
+    "levels": 1
   },
-  "estimatedHeightCount": 365,
+  "estimatedHeightCount": 759,
   "mappedOrCuratedHeightCount": 0,
   "wallColorMethods": {
-    "estimated": 365
+    "estimated": 759
   },
   "roofColorMethods": {
-    "estimated": 359,
-    "imagery": 6
+    "imagery-mixed": 740,
+    "imagery": 17,
+    "unknown": 2
   },
-  "courtyardBuildings": 0,
+  "courtyardBuildings": 1,
   "buildingParts": 0,
-  "roads": 234,
+  "roads": 920,
   "mappedTreeLocations": 0,
-  "groundPolygons": 24,
-  "tiles": 36,
-  "tileBytes": 474926,
+  "groundPolygons": 54,
+  "tiles": 80,
+  "tileBytes": 1417495,
   "audit": {
-    "outOfExtentGeometryExcluded": 59,
-    "emptyOrSmallGeometryDiscarded": 2,
-    "osmBuildingsBeforeConflation": 365,
+    "outOfExtentGeometryExcluded": 53,
+    "osmBuildingsBeforeConflation": 759,
     "microsoftAvailable": false,
     "coastlineAvailable": false
   },
@@ -45,20 +46,26 @@
     "acquisitionDates": [
       "2026-10-29"
     ],
-    "sampledRoofs": 6,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "sampledRoofs": 17,
+    "mixedPixelRoofs": 740,
+    "unknownRoofs": 2,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261029T110151_N0513_R094_T30SUC_20261029T143811.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,
     "datum": "EGM2008",
     "units": "metre",
-    "baseElevation": 1592,
-    "minElevation": 1596.85,
-    "maxElevation": 1712.44,
+    "baseElevation": 1560,
+    "minElevation": 1563.27,
+    "maxElevation": 1722.07,
     "resolutionM": 30,
     "sourceId": "gedtm30",
     "sourceUrl": "https://zenodo.org/records/18887460",

@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "safi",
-  "builtAt": "2026-11-02T23:06:21.311095+00:00",
+  "builtAt": "2026-11-03T11:30:11.677749+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -902.5640682271915,
@@ -22,8 +22,9 @@
     "estimated": 375
   },
   "roofColorMethods": {
-    "imagery-palette": 355,
-    "imagery": 20
+    "imagery-mixed": 351,
+    "imagery": 20,
+    "unknown": 4
   },
   "courtyardBuildings": 1,
   "buildingParts": 0,
@@ -31,7 +32,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 24,
   "tiles": 36,
-  "tileBytes": 570976,
+  "tileBytes": 651713,
   "audit": {
     "outOfExtentGeometryExcluded": 129,
     "emptyOrSmallGeometryDiscarded": 1,
@@ -47,32 +48,17 @@
       "2026-10-25"
     ],
     "sampledRoofs": 20,
-    "paletteStyledRoofs": 355,
-    "regionalRoofPalette": [
-      {
-        "color": "#84734f",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#967c62",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#c29f74",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#e7cca4",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#fee1ba",
-        "sourceRoofSamples": 4
-      }
-    ],
+    "mixedPixelRoofs": 351,
+    "unknownRoofs": 4,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261025T112141_N0513_R037_T29SMR_20261025T131608.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

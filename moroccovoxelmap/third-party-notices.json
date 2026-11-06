@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T23:56:34.570Z",
+  "generatedAt": "2026-11-05T15:53:15.358Z",
   "pythonInventoryMode": "installed-metadata",
   "sources": [
     "package-lock.json",
@@ -10,6 +10,128 @@
     "Python .dist-info metadata"
   ],
   "packages": [
+    {
+      "ecosystem": "npm",
+      "name": "@cbor-extract/cbor-extract-darwin-arm64",
+      "version": "2.2.3",
+      "installed": false,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/@cbor-extract/cbor-extract-darwin-arm64",
+      "integrity": "sha512-qpUy9Yoisi6a7QHOVa+AlnqfN7eVstSRhpLwiLnwi6i3SNLkM5D2Z7MXl4LC5nUGA77mZEt479cPH3u8GD163Q==",
+      "projectUrl": null,
+      "license": null,
+      "licenseStatus": "not-installed",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "lockfile only; package not installed",
+      "licenseUrl": null,
+      "licenseFiles": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cbor-extract/cbor-extract-darwin-x64",
+      "version": "2.2.3",
+      "installed": false,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/@cbor-extract/cbor-extract-darwin-x64",
+      "integrity": "sha512-6bZbK7dyKn8BUNmG3UfzSnM4L/OzJ8xGAtBHYycprl+bgvtZmZoQC7CucWXuF/oHJP5skzqkqFr6BLSSGIkoWw==",
+      "projectUrl": null,
+      "license": null,
+      "licenseStatus": "not-installed",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "lockfile only; package not installed",
+      "licenseUrl": null,
+      "licenseFiles": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cbor-extract/cbor-extract-linux-arm",
+      "version": "2.2.3",
+      "installed": false,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/@cbor-extract/cbor-extract-linux-arm",
+      "integrity": "sha512-joCovTc7uEYCL9XxdAJJpGIH7Vvc31Fi7vh3HnlY5zgkLSU/64WxYl5iUi/puE21qT3bmxMfOZEZUbnqVKeJTQ==",
+      "projectUrl": null,
+      "license": null,
+      "licenseStatus": "not-installed",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "lockfile only; package not installed",
+      "licenseUrl": null,
+      "licenseFiles": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cbor-extract/cbor-extract-linux-arm64",
+      "version": "2.2.3",
+      "installed": false,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/@cbor-extract/cbor-extract-linux-arm64",
+      "integrity": "sha512-QAuFuQkOw0cm4MNc+QwxH9aiMxmrczESnVEu33B8m2Du9fBuH/1AvJfmO8YajpeWLoHqt2iUG3d1/gIWAKY8IQ==",
+      "projectUrl": null,
+      "license": null,
+      "licenseStatus": "not-installed",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "lockfile only; package not installed",
+      "licenseUrl": null,
+      "licenseFiles": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cbor-extract/cbor-extract-linux-x64",
+      "version": "2.2.3",
+      "installed": false,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/@cbor-extract/cbor-extract-linux-x64",
+      "integrity": "sha512-IQMPVLulOvFv9Had7J1idJyfQzsFamDVdjH37qW7suHI7mgO4w1Oo3MisL7AjnWARxo0/ZmEEQ3i81WA7y34Ug==",
+      "projectUrl": null,
+      "license": null,
+      "licenseStatus": "not-installed",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "lockfile only; package not installed",
+      "licenseUrl": null,
+      "licenseFiles": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cbor-extract/cbor-extract-win32-x64",
+      "version": "2.2.3",
+      "installed": true,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/@cbor-extract/cbor-extract-win32-x64",
+      "integrity": "sha512-fGFfq6F3l0GCoKOZeyjjm3q+NHO7jo8ILtQ93U3rYJOgG2BGLS/QmBdoFLNEsoWPjyxAS8svWhTyo73MTDawog==",
+      "projectUrl": "http://github.com/kriszyp/cbor-extract",
+      "license": "MIT",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "Verified companion cbor-extract@2.2.3: same project repository, author, version and MIT declaration; parent explicitly pins this optional binary and includes its complete Kris Zyp MIT copyright/licence text",
+      "licenseUrl": "licenses/software/npm--cbor-extract-cbor-extract-win32-x64-2.2.3.txt",
+      "licenseFiles": [
+        "cbor-extract/LICENSE"
+      ]
+    },
     {
       "ecosystem": "npm",
       "name": "@dimforge/rapier3d-compat",
@@ -872,6 +994,95 @@
     },
     {
       "ecosystem": "npm",
+      "name": "7zip-bin",
+      "version": "5.2.0",
+      "installed": true,
+      "direct": true,
+      "scope": "development",
+      "location": "node_modules/7zip-bin",
+      "integrity": "sha512-ukTPVhqG4jNzMro2qA9HSCSSVJN3aN7tlb+hfqYCt3ER0yWroeA2VR38MNrOHLQ/cVj+DaIMad0kFCtWWowh/A==",
+      "projectUrl": "develar/7zip-bin",
+      "license": "MIT",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Build-time LZMA2 source database archiving and archive verification",
+        "fr": "Archivage LZMA2 et vérification des bases de données sources à la compilation"
+      },
+      "licenseEvidence": "installed package licence files",
+      "licenseUrl": "licenses/software/npm-7zip-bin-5.2.0.txt",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "brotli-dec-wasm",
+      "version": "2.3.2",
+      "installed": true,
+      "direct": true,
+      "scope": "runtime",
+      "location": "node_modules/brotli-dec-wasm",
+      "integrity": "sha512-5H+k8eVLIJY6B4olN2HP9QzJAxcplf0jV7mWnkpxvOSeUE9Npg3dQ2pgLn30a9MUFHNro1iSmtdu6VNdlb+TIw==",
+      "projectUrl": "https://github.com/ustclug-dev/brotli-dec-wasm",
+      "license": "MIT OR Apache-2.0",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Local lossless Brotli mesh decoder for browsers without native Brotli streams",
+        "fr": "Décodeur Brotli local sans perte pour les navigateurs sans flux Brotli natifs"
+      },
+      "licenseEvidence": "installed package licence files",
+      "licenseUrl": "licenses/software/npm-brotli-dec-wasm-2.3.2.txt",
+      "licenseFiles": [
+        "LICENSE-Apache.txt",
+        "LICENSE-MIT.txt"
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "cbor-extract",
+      "version": "2.2.3",
+      "installed": true,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/cbor-extract",
+      "integrity": "sha512-zTOCEYwiQDChj5DV/sUqccv3jhdZqbhymztwcrW2LncIG2fPPkb1ceK5rmr0bdtxzJCXoWzZ95shA+uaSH8cKw==",
+      "projectUrl": "http://github.com/kriszyp/cbor-extract",
+      "license": "MIT",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "installed package licence files",
+      "licenseUrl": "licenses/software/npm-cbor-extract-2.2.3.txt",
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "cbor-x",
+      "version": "1.6.8",
+      "installed": true,
+      "direct": true,
+      "scope": "development",
+      "location": "node_modules/cbor-x",
+      "integrity": "sha512-wUtIwq2J+Y2bEvDpdJj0z9QIX+PGMzms489HFvNwr0V8Zq3ejqOdZKTaTe6Zru8WU0IwuRDtpys3nUF4LDRKAQ==",
+      "projectUrl": "http://github.com/kriszyp/cbor-x",
+      "license": "MIT",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Build-only JSON/CBOR storage and decoding benchmarks",
+        "fr": "Mesures de stockage et de décodage JSON/CBOR, uniquement à la compilation"
+      },
+      "licenseEvidence": "installed package licence files",
+      "licenseUrl": "licenses/software/npm-cbor-x-1.6.8.txt",
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    },
+    {
+      "ecosystem": "npm",
       "name": "detect-libc",
       "version": "2.1.2",
       "installed": true,
@@ -1306,6 +1517,28 @@
       },
       "licenseEvidence": "installed package licence files",
       "licenseUrl": "licenses/software/npm-nanoid-3.3.20.txt",
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "node-gyp-build-optional-packages",
+      "version": "5.1.1",
+      "installed": true,
+      "direct": false,
+      "scope": "development",
+      "location": "node_modules/node-gyp-build-optional-packages",
+      "integrity": "sha512-+P72GAjVAbTxjjwUmwjVrqrdZROD4nf8KgpBoDxqXXTiYZZt/ud60dE5yvCSr9lRO8e8yv6kgJIC0K0PfZFVQw==",
+      "projectUrl": "https://github.com/prebuild/node-gyp-build",
+      "license": "MIT",
+      "licenseStatus": "text-included",
+      "purpose": {
+        "en": "Transitive software dependency",
+        "fr": "Dépendance logicielle indirecte"
+      },
+      "licenseEvidence": "installed package licence files",
+      "licenseUrl": "licenses/software/npm-node-gyp-build-optional-packages-5.1.1.txt",
       "licenseFiles": [
         "LICENSE"
       ]

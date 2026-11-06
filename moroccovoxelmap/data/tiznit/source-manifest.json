@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-02T23:07:03.101179+00:00",
+  "builtAt": "2026-11-03T11:32:25.493862+00:00",
   "sources": [
     {
       "id": "openstreetmap",
@@ -87,21 +87,29 @@
         10.0
       ],
       "id": "local-imagery",
-      "importedAt": "2026-11-02T22:33:14.627056+00:00",
+      "importedAt": "2026-11-03T11:32:24.533729+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "76d357d671be03387306c4a9539de82279eb36a81ca806acccb230a1ba356101",
       "configSha256": "e32bbb15bd3fd7c17fa1b6b031d2746232a8c90874f6ede0d372f810e3e3d36c",
       "sourceChecksums": {
         "openstreetmap": "d5a2c9e0b0dba028d1bfae05eb2fb4c84a637cbf9d3497bf1107b3f265f03155"
       },
       "sampledRoofCount": 7,
+      "mixedPixelRoofCount": 167,
+      "sampledBuildingCount": 174,
       "skipped": {
-        "smallRoofs": 169,
         "outsideRaster": 0,
-        "insufficientValidPixels": 2,
+        "insufficientValidPixels": 4,
         "mappedOrCuratedRoof": 0
       },
-      "regionalRoofPalette": [],
-      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
-      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+      "directSampleRejections": {
+        "smallRoofs": 167,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 4
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "e7ee936407942f48e93f8aa0260d2e11c7e2b13718b821968c92b183b4562dbf"
     },
     {
       "id": "gedtm30",
@@ -164,5 +172,8 @@
   "derivedDatabaseLicense": "ODbL-1.0",
   "outputProfile": "full",
   "region": "tiznit",
-  "configSha256": "e32bbb15bd3fd7c17fa1b6b031d2746232a8c90874f6ede0d372f810e3e3d36c"
+  "configSha256": "e32bbb15bd3fd7c17fa1b6b031d2746232a8c90874f6ede0d372f810e3e3d36c",
+  "landmarkConfigSha256": "3dec56359d283079d6d8096720d53bf35ab23642a2ba1c5e7cc976cd2711bf40",
+  "landmarksUpdatedAt": "2026-11-03T16:25:11.196095+00:00",
+  "landmarksSha256": "e0104c38a351e9d45c4a3674853c19b345825a57428f96b4ae3a2508125c2400"
 }

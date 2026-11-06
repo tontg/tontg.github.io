@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "ait-ben-haddou",
-  "builtAt": "2026-11-02T23:04:02.788844+00:00",
+  "builtAt": "2026-11-03T08:53:47.932914+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -712.2123222224182,
@@ -22,7 +22,8 @@
     "estimated": 508
   },
   "roofColorMethods": {
-    "estimated": 503,
+    "imagery-mixed": 499,
+    "unknown": 4,
     "imagery": 5
   },
   "courtyardBuildings": 2,
@@ -31,7 +32,7 @@
   "mappedTreeLocations": 2,
   "groundPolygons": 4,
   "tiles": 16,
-  "tileBytes": 444948,
+  "tileBytes": 605769,
   "audit": {
     "emptyOrSmallGeometryDiscarded": 2,
     "outOfExtentGeometryExcluded": 57,
@@ -46,11 +47,17 @@
       "2026-10-24"
     ],
     "sampledRoofs": 5,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "mixedPixelRoofs": 499,
+    "unknownRoofs": 4,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29RPQ_20261024T174906.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

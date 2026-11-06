@@ -1,69 +1,174 @@
-/* A bounded, visited-only map cache. No geographic archives are prefetched. */
-const VERSION = 'aa82174291e0';
-const SHELL = `casa-shell-${VERSION}`;
-const DATA = `casa-data-${VERSION}`;
-const SHELL_FILES = ["index.html","icon.svg","icon-192.png","icon-512.png","manifest.webmanifest","provenance.json","third-party-notices.json","data/regions.json","data/index.json","assets/index-BO4oWVQb.js","assets/index-Bib36PgQ.css"];
-const MAX_FILES = 24;
-const MAX_BYTES = 32 * 1024 * 1024;
+/* Release shells plus a bounded, visited-only geographic cache. */
+const VERSION = 'e2f653aea893445391b5';
+const SHELL = `morocco-voxel-map-shell-${VERSION}`;
+// URL revisions identify content, so an unchanged CVM survives a UI release.
+const DATA = 'morocco-voxel-map-data-v2';
+const SHELL_FILES = ["index.html","icon.svg","icon-192.png","icon-512.png","manifest.webmanifest","provenance.json?v=e2f653aea893445391b5","third-party-notices.json?v=e2f653aea893445391b5","data/regions.json?v=e2f653aea893445391b5","data/greater-casablanca/index.json?v=e2f653aea893445391b5","assets/index-Btt135MR.js","assets/brotli_dec_wasm-CwfJC3e-.js","assets/brotli_dec_wasm_bg-CG1KBs8r.js","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/index-Din8pWIl.css"];
+const MAX_FILES = 2048;
+const MAX_BYTES = 128 * 1024 * 1024;
+const BYTE_HEADER = 'x-casa-cache-bytes';
 let cacheWork = Promise.resolve();
+let dataState;
+const inFlight = new Map();
 const local = path => new URL(path, self.registration.scope).href;
+const SHELL_URLS = new Set(SHELL_FILES.map(local));
+function httpCache(request, installing = false) {
+  if (typeof request !== 'string' && (request.cache === 'reload' || request.cache === 'no-cache')) return 'reload';
+  const url = new URL(typeof request === 'string' ? request : request.url);
+  // Revisioned requests may reuse an earlier uncontrolled HTTP-cache response.
+  // Stable names must validate once before joining the service-worker cache.
+  const immutable = /^(?:[a-f0-9]{20}|[a-f0-9]{64})$/.test(url.searchParams.get('v') || '')
+    || /\/assets\/[^/]+-[A-Za-z0-9_-]{8}\.(?:js|css|wasm)$/.test(url.pathname);
+  return immutable ? 'default' : installing ? 'reload' : 'no-cache';
+}
+
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(SHELL).then(cache => Promise.all(SHELL_FILES.map(async path => {
-    const response = await fetch(local(path), {cache:'reload'});
-    if (response.ok) await cache.put(local(path), response);
-  }))).then(()=>self.skipWaiting()));
+    const response = await fetch(local(path), { cache: httpCache(local(path), true) });
+    if (!response.ok) throw new Error(`Application shell HTTP ${response.status}: ${path}`);
+    await cache.put(local(path), response);
+  }))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('casa-')&&key!==SHELL&&key!==DATA).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key =>
+    (key.startsWith('casa-') || key.startsWith('morocco-voxel-map-')) && key !== SHELL && key !== DATA,
+  ).map(key => caches.delete(key)))).then(() => self.clients.claim()));
 });
-async function boundedPut(request, response) {
-  const body = await response.clone().arrayBuffer();
-  if (body.byteLength > MAX_BYTES) return;
-  const cache = await caches.open(DATA);
-  const headers = new Headers(response.headers); headers.set('x-casa-cache-bytes', String(body.byteLength));
-  await cache.delete(request);
-  await cache.put(request, new Response(body, {status:response.status,headers}));
-  const keys = await cache.keys();
-  // Retain the latest visited region index alongside its partial geometry.
-  // It arrives before the meshes and would otherwise be the first file evicted.
-  const currentIndex = keys.filter(key => /\/index\.json$/.test(new URL(key.url).pathname)).at(-1)?.url;
-  let bytes = 0;
-  for (const key of keys) { const value = await cache.match(key); bytes += Number(value.headers.get('x-casa-cache-bytes') || 0); }
-  while (keys.length > MAX_FILES || bytes > MAX_BYTES) {
-    const candidate = keys.findIndex(key => key.url !== currentIndex);
-    const [key] = keys.splice(candidate < 0 ? 0 : candidate, 1); if (!key) break;
-    const value = await cache.match(key); bytes -= Number(value.headers.get('x-casa-cache-bytes') || 0);
-    await cache.delete(key);
+
+// CacheStorage insertion order is the persisted LRU order. Keep sizes in memory
+// after one scan, rather than rereading every cached body/header for each tile.
+function state() {
+  if (!dataState) dataState = (async () => {
+    const cache = await caches.open(DATA), entries = new Map();
+    let bytes = 0;
+    for (const key of await cache.keys()) {
+      const response = await cache.match(key);
+      if (!response) continue;
+      const size = Number(response.headers.get(BYTE_HEADER) || 0);
+      entries.set(key.url, size); bytes += size;
+    }
+    return { cache, entries, bytes };
+  })().catch(error => { dataState = undefined; throw error; });
+  return dataState;
+}
+function schedule(event, operation) {
+  const work = cacheWork.catch(() => {}).then(operation);
+  // A disabled/full cache must never break the online viewer or future writes.
+  cacheWork = work.catch(() => {});
+  event.waitUntil(cacheWork);
+  return cacheWork;
+}
+async function remove(value, url) {
+  await value.cache.delete(url);
+  value.bytes -= value.entries.get(url) || 0;
+  value.entries.delete(url);
+}
+function retainedMetadata(entries) {
+  const currentIndex = [...entries.keys()].filter(url => /\/index\.json$/.test(new URL(url).pathname)).at(-1);
+  if (!currentIndex) return new Set();
+  const foundation = new URL('foundation.json', currentIndex);
+  foundation.search = new URL(currentIndex).search;
+  return new Set([currentIndex, foundation.href]);
+}
+async function trim(value) {
+  const retained = retainedMetadata(value.entries);
+  while (value.entries.size > MAX_FILES || value.bytes > MAX_BYTES) {
+    const candidate = [...value.entries.keys()].find(url => !retained.has(url)) || value.entries.keys().next().value;
+    if (!candidate) break;
+    await remove(value, candidate);
   }
+}
+async function boundedPut(request, response) {
+  const body = await response.arrayBuffer();
+  if (body.byteLength > MAX_BYTES) return;
+  const value = await state(), headers = new Headers(response.headers);
+  // fetch() has already decoded HTTP transfer compression. This reconstructed
+  // Response stores those decoded bytes, not the compressed network envelope.
+  headers.delete('content-encoding');
+  headers.set('content-length', String(body.byteLength));
+  headers.set(BYTE_HEADER, String(body.byteLength));
+  const stored = new Response(body, { status: response.status, statusText: response.statusText, headers });
+  // Make room before writing, including for browsers with a small storage quota.
+  await remove(value, request.url);
+  value.entries.set(request.url, body.byteLength); value.bytes += body.byteLength;
+  try {
+    await trim(value);
+    if (!value.entries.has(request.url)) return;
+    await value.cache.put(request, stored);
+  } catch (error) {
+    value.bytes -= value.entries.get(request.url) || 0; value.entries.delete(request.url);
+    throw error;
+  }
+}
+async function promote(request, response) {
+  const value = await state(), bytes = value.entries.get(request.url);
+  if (bytes === undefined) return; // It may have been evicted by another write.
+  await value.cache.delete(request);
+  try {
+    await value.cache.put(request, response);
+    value.entries.delete(request.url); value.entries.set(request.url, bytes);
+  } catch (error) {
+    value.entries.delete(request.url); value.bytes -= bytes;
+    throw error;
+  }
+}
+async function cachedAsset(event, isMap, isShell) {
+  const request = event.request;
+  const refresh = request.cache === 'reload' || request.cache === 'no-cache';
+  try {
+    // Wait for a preceding successful fetch to finish storing its bytes.
+    await cacheWork;
+    if (!refresh && isMap) {
+      const cached = await (await state()).cache.match(request);
+      if (cached) { schedule(event, () => promote(request, cached.clone())); return cached; }
+    }
+    if (!refresh && isShell) {
+      const cached = await (await caches.open(SHELL)).match(request);
+      if (cached) {
+        if (isMap) schedule(event, () => boundedPut(request, cached.clone()));
+        return cached;
+      }
+    }
+  } catch { /* CacheStorage is optional; use the network when unavailable. */ }
+
+  // Switching scenes quickly can ask for the same tile twice before its first
+  // response is cached. Share that transfer and return an independent body to
+  // every caller. Detach a single caller's abort signal from the shared request.
+  const transferKey = request.url + (refresh ? '|refresh' : '');
+  let pending = inFlight.get(transferKey);
+  if (!pending) {
+    pending = fetch(request, { cache: httpCache(request), signal: null }).then(response => {
+      if (response.status === 200 && !response.headers.has('content-range') && !/\bno-store\b/i.test(response.headers.get('cache-control') || '')) {
+        const copy = response.clone();
+        const written = isMap ? schedule(event, () => boundedPut(request, copy))
+          : schedule(event, async () => { await (await caches.open(SHELL)).put(request, copy); });
+        written.finally(() => { if (inFlight.get(transferKey) === pending) inFlight.delete(transferKey); });
+      } else inFlight.delete(transferKey);
+      return response;
+    }, error => { inFlight.delete(transferKey); throw error; });
+    inFlight.set(transferKey, pending);
+  }
+  return (await pending).clone();
 }
 self.addEventListener('fetch', event => {
   const request = event.request;
-  if (request.method !== 'GET' || !request.url.startsWith(self.registration.scope)) return;
-  const path = request.url.slice(self.registration.scope.length).split('?')[0];
-  const isMap = /^data\/(?:[^/]+\/)?(?:index\.json|meshes\/\d+\/[^/]+\.cvm|features\/[^/]+\.json)$/.test(path);
-  const isShell = SHELL_FILES.includes(path);
-  if (!isMap && !isShell && request.mode !== 'navigate') return;
-  event.respondWith((async()=>{
-    try {
-      const response = await fetch(request);
-      if (response.ok && isMap) {
-        const copy = response.clone();
-        cacheWork = cacheWork.catch(()=>{}).then(()=>boundedPut(request,copy));
-        event.waitUntil(cacheWork);
-      }
-      return response;
-    } catch (error) {
-      const cached = await caches.match(request) || (request.mode === 'navigate' ? await caches.match(local('index.html')) : undefined);
+  if (request.method !== 'GET' || !request.url.startsWith(self.registration.scope) || request.headers.has('range') || request.headers.has('authorization') || request.cache === 'no-store') return;
+  const path = new URL(request.url).pathname.slice(new URL(self.registration.scope).pathname.length);
+  const isMap = /^data\/(?:[^/]+\/)?(?:(?:index|foundation)\.json|meshes\/\d+\/[^/]+\.cvm|features\/[^/]+\.json)$/.test(path);
+  const isShell = SHELL_URLS.has(request.url);
+  if (request.mode === 'navigate') {
+    // HTML remains fresh: a new page can discover a newly deployed release.
+    event.respondWith(fetch(request, { cache: 'no-cache' }).catch(async error => {
+      const cached = await (await caches.open(SHELL)).match(local('index.html'));
       if (cached) return cached;
       throw error;
-    }
-  })());
+    }));
+  } else if (isMap || isShell) event.respondWith(cachedAsset(event, isMap, isShell));
 });
 self.addEventListener('message', event => {
-  if(event.data !== 'cache-status' || !event.ports[0]) return;
-  event.waitUntil(cacheWork.catch(()=>{}).then(async()=>{
-    const cache = await caches.open(DATA); const keys = await cache.keys(); let bytes = 0;
-    for(const key of keys) {const value=await cache.match(key); if(value)bytes+=Number(value.headers.get('x-casa-cache-bytes')||0);}
-    event.ports[0].postMessage({count:keys.length,bytes});
+  if (event.data !== 'cache-status' || !event.ports[0]) return;
+  event.waitUntil(cacheWork.catch(() => {}).then(async () => {
+    const value = await state();
+    event.ports[0].postMessage({ count: value.entries.size, bytes: value.bytes, maxFiles: MAX_FILES, maxBytes: MAX_BYTES, version: VERSION, policy: 'cache-first-visited-lru' });
   }));
 });

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-02T23:04:10.010263+00:00",
+  "builtAt": "2026-11-03T08:53:57.705753+00:00",
   "profile": "full",
   "region": "asilah",
   "name": "Asilah",
@@ -42,34 +42,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-2_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "ab950b61d6ea2ddf28e4ace7421287cccb63a1df8667dc3fccfc5384a56daccd",
-          "bytes": 10269,
-          "uncompressedBytes": 40484,
+          "encoding": "brotli",
+          "sha256": "7b99f885d921b4184ce2ae06d570a923d1d00ea1ab7cbfaa5c2551e132ef3fae",
+          "bytes": 1567,
+          "uncompressedBytes": 5903,
           "quads": 481
         },
         "4": {
           "url": "meshes/4/-2_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "8a1dba77b641c33571eaf4c136f104c541579ed50ef025d679174deffed4ed6e",
-          "bytes": 3049,
-          "uncompressedBytes": 11420,
+          "encoding": "brotli",
+          "sha256": "e33b3222826a30b3ba17456e695dbb757333be8e22d36125a06170fb7f5bf910",
+          "bytes": 758,
+          "uncompressedBytes": 3009,
           "quads": 135
         },
         "8": {
           "url": "meshes/8/-2_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "e4743d3cca8dbb73c5e622a27dcd84e5b3f046379c186742aab2226bcf0a963a",
-          "bytes": 1456,
-          "uncompressedBytes": 5372,
+          "encoding": "brotli",
+          "sha256": "2f81b414c25607da75786b550152f234c44efc94c82611a13be8272a64677875",
+          "bytes": 450,
+          "uncompressedBytes": 1305,
           "quads": 63
         },
         "16": {
           "url": "meshes/16/-2_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "0518b1af34d34204cd131e884e033c85e9aa4dc285e5151d7b7cd62f508568a6",
-          "bytes": 520,
-          "uncompressedBytes": 1760,
+          "encoding": "brotli",
+          "sha256": "c4baa2f5f482276e70bcdd20b2d3bbf6a5784c00d16f7bd3befc59122ea6b853",
+          "bytes": 247,
+          "uncompressedBytes": 552,
           "quads": 20
         }
       },
@@ -96,34 +96,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-1_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "66e730e47fc4b23e538c4d51c3b66b94a4dadd0d5e51dde2c3923b9192e05bb6",
-          "bytes": 2524,
-          "uncompressedBytes": 9908,
+          "encoding": "brotli",
+          "sha256": "b733ac66dc029e8660c2a3f997409cbc95d57705724c096d864bad903d1ba7fe",
+          "bytes": 647,
+          "uncompressedBytes": 2295,
           "quads": 117
         },
         "4": {
           "url": "meshes/4/-1_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "d4bb6d6594ea48710868952e0c5e5a8ed8ae0db2665f7ebf606cd56126f0b045",
-          "bytes": 956,
-          "uncompressedBytes": 3524,
+          "encoding": "brotli",
+          "sha256": "f1910b13611f5886e7dbe6661e89a6acf2192fd5141c834d08fa619ee2b953ae",
+          "bytes": 366,
+          "uncompressedBytes": 717,
           "quads": 41
         },
         "8": {
           "url": "meshes/8/-1_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "72f8f5362b76ceb95e979e444112e47637e83f6f1c1828b911ac227ce94acc2f",
-          "bytes": 487,
-          "uncompressedBytes": 1760,
+          "encoding": "brotli",
+          "sha256": "f6d6a83423640b770070878a8da7ae89545f2769793fbf163b6230acfad6b401",
+          "bytes": 241,
+          "uncompressedBytes": 532,
           "quads": 20
         },
         "16": {
           "url": "meshes/16/-1_-3.cvm",
-          "encoding": "gzip",
-          "sha256": "9c145d48b300cde3c566d1ade91a64147578ddea2290ff0c85d26eec1fb72f84",
-          "bytes": 289,
-          "uncompressedBytes": 836,
+          "encoding": "brotli",
+          "sha256": "f2cba986a85825705babe2e7785a3722b5d580958396a11adec96dd869c125e8",
+          "bytes": 175,
+          "uncompressedBytes": 300,
           "quads": 9
         }
       },
@@ -145,39 +145,39 @@
         "roads": 4,
         "trees": 0
       },
-      "bytes": 7026,
-      "sha256": "d61b284a3da12c1723a83d8b292e4e24a04bbc23978858aefab6c14018fc3e7d",
+      "bytes": 7842,
+      "sha256": "fe76c510be22eb0366b28e862ae95437ef6f1566130ca0772f52bb42112134a5",
       "meshes": {
         "2": {
           "url": "meshes/2/-2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "f5173d370d529d2faa5b0ccb1124b35ee6651c22504354986de6e560f920da1f",
-          "bytes": 91224,
-          "uncompressedBytes": 381272,
+          "encoding": "brotli",
+          "sha256": "d8fb6615c8a9ced2c535a7e93ba95c30acbac9bf6acab3e7a95ebd167716f2de",
+          "bytes": 9513,
+          "uncompressedBytes": 56416,
           "quads": 4538
         },
         "4": {
           "url": "meshes/4/-2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "d140667a13362fbe7e3b3cd0d6cd0e79b71480cbf8bac3a88d4a94729005c979",
-          "bytes": 28907,
-          "uncompressedBytes": 113816,
+          "encoding": "brotli",
+          "sha256": "48eae21c7c00a1c3210f644f6e47a4df43550f6f2c30424dc7b1651933fe080f",
+          "bytes": 3774,
+          "uncompressedBytes": 17852,
           "quads": 1354
         },
         "8": {
           "url": "meshes/8/-2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "ae71b22d2532aae3c065719a92b3e7f65315ce74b4a9ca113635db7af43ea042",
-          "bytes": 9760,
-          "uncompressedBytes": 37880,
+          "encoding": "brotli",
+          "sha256": "fab2a0dd7992a4c03e9f92100e95bc92d4bde45a89a7de693c00368e9a01aef7",
+          "bytes": 1610,
+          "uncompressedBytes": 8508,
           "quads": 450
         },
         "16": {
           "url": "meshes/16/-2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "af9ab5c5575736439605e8647660e3475e05271f393dd76617a1454a89532d57",
-          "bytes": 3184,
-          "uncompressedBytes": 12092,
+          "encoding": "brotli",
+          "sha256": "478d8b836cd9af29c9b68f87e3a993e900762568e97bcd75b366dbee30d4447f",
+          "bytes": 739,
+          "uncompressedBytes": 3208,
           "quads": 143
         }
       },
@@ -204,39 +204,39 @@
         "roads": 29,
         "trees": 0
       },
-      "bytes": 85765,
-      "sha256": "c60b8997a26b48a9eae118db4bae4d5fbe984569ab54ae9216c034adbd47a6c4",
+      "bytes": 105934,
+      "sha256": "0d5e4fdb7d64a65a408c72ffca867dd85bb94a054d0dde16cb8a32e6936ba3f6",
       "meshes": {
         "2": {
           "url": "meshes/2/-1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "46b833f4e224612642bf0c5af2feec62ee6df7ff5a64d4e9ea4f0b036cd99786",
-          "bytes": 422703,
-          "uncompressedBytes": 1771472,
+          "encoding": "brotli",
+          "sha256": "93b01645971321bed74e7eb49f6fb55671143547f62a764303488168362b34ef",
+          "bytes": 52238,
+          "uncompressedBytes": 263701,
           "quads": 21088
         },
         "4": {
           "url": "meshes/4/-1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "a4dc29b0c352607a1e0a67d999f71675afb35d8d362b40ba16ab6ff1258cefd8",
-          "bytes": 172583,
-          "uncompressedBytes": 721052,
+          "encoding": "brotli",
+          "sha256": "813d08989353289262fbe7c7c85370401e2a15a712e8252afae2843c5d334df8",
+          "bytes": 24662,
+          "uncompressedBytes": 111786,
           "quads": 8583
         },
         "8": {
           "url": "meshes/8/-1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "8f88fde84c265602b108fe57356a6a1d69521947970e3d6f0aeba4c3cf65ca02",
-          "bytes": 57425,
-          "uncompressedBytes": 228056,
+          "encoding": "brotli",
+          "sha256": "84f2c6d2eec57aaeb5190612f87ec2d5a0d439bd7fdb17c724c6848c2a4cc128",
+          "bytes": 10534,
+          "uncompressedBytes": 50492,
           "quads": 2714
         },
         "16": {
           "url": "meshes/16/-1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "f812bdba36bf1b490d82dedc142d90085cb2df79117c20055a7d2b98eef37fbf",
-          "bytes": 17156,
-          "uncompressedBytes": 61400,
+          "encoding": "brotli",
+          "sha256": "cc93b25b5233d3fa79bbfbe2bf34316570f3bc5e200d891916e8c46231abf01c",
+          "bytes": 3780,
+          "uncompressedBytes": 14207,
           "quads": 730
         }
       },
@@ -360,39 +360,39 @@
         "roads": 58,
         "trees": 0
       },
-      "bytes": 292234,
-      "sha256": "fbb09b2bd4585fa3851e25c4b83f808d9295e7e7970a05910782d2f5449fd9dc",
+      "bytes": 365106,
+      "sha256": "ae70dc23d019b103b89cf95414b1246d19f3a392414e933677242fda54fadb03",
       "meshes": {
         "2": {
           "url": "meshes/2/0_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "4dd451716ce57be3fb59a468010b47bbb2fcb4864aeba39318dc525767318b4f",
-          "bytes": 915185,
-          "uncompressedBytes": 3863912,
+          "encoding": "brotli",
+          "sha256": "834bda9321d09bdd82fdd56c2f379f7cd75f185543547c2839d143452aae6390",
+          "bytes": 117869,
+          "uncompressedBytes": 579293,
           "quads": 45998
         },
         "4": {
           "url": "meshes/4/0_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "19ecbf213a21cda6f7cc3c2076e3f1c5bc7093ee1fd7c3300b66c3a822a6bc29",
-          "bytes": 382704,
-          "uncompressedBytes": 1616240,
+          "encoding": "brotli",
+          "sha256": "ce8eb9389afd8801fd8af1a917b80681be155ffbaf2dab3406e745f11690981b",
+          "bytes": 57061,
+          "uncompressedBytes": 253489,
           "quads": 19240
         },
         "8": {
           "url": "meshes/8/0_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "f0e57d2464cf318f21e6032f427dc69d20c768e6fc8db48781bfb9486cf0f0a6",
-          "bytes": 113314,
-          "uncompressedBytes": 456536,
+          "encoding": "brotli",
+          "sha256": "2be86839cbd4bfe66beb0ca42c65181e30e22798d0c8d95cd20458475c4f7fe8",
+          "bytes": 22309,
+          "uncompressedBytes": 101266,
           "quads": 5434
         },
         "16": {
           "url": "meshes/16/0_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "323407a40b24d0daeb74aaca8098762090d95273caa6028fb1b67fb68d0ccb21",
-          "bytes": 28675,
-          "uncompressedBytes": 104156,
+          "encoding": "brotli",
+          "sha256": "672a90b1d1040574bd9c538955cd48fb412a281ec4fd6dd4ef0a47877ce65bed",
+          "bytes": 7320,
+          "uncompressedBytes": 24455,
           "quads": 1239
         }
       },
@@ -774,39 +774,39 @@
         "roads": 46,
         "trees": 0
       },
-      "bytes": 135210,
-      "sha256": "a2ea73a4f3cde77acf547f2843598ee23f2bfb4e4d2a52fd33dcc7e2db519220",
+      "bytes": 167137,
+      "sha256": "dd16f16db4fa7929410b52aceea0863936f2edd186a4e8ce237885f3162c8ed2",
       "meshes": {
         "2": {
           "url": "meshes/2/1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "fe947cabe68a837a6ec3d58cdac1fdcf927ffee2b6890e488240ebdc418f72ab",
-          "bytes": 563865,
-          "uncompressedBytes": 2365436,
+          "encoding": "brotli",
+          "sha256": "6dc22b04190a54963940746ad1ad748e82f2da74b6e8c00269d18a0eecffb611",
+          "bytes": 75127,
+          "uncompressedBytes": 354072,
           "quads": 28159
         },
         "4": {
           "url": "meshes/4/1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "8a7c22210eb0ef17a8e06937cc8873ec02be80363cfaaf5280958e10c9725fc9",
-          "bytes": 235882,
-          "uncompressedBytes": 992120,
+          "encoding": "brotli",
+          "sha256": "53013d25469ef0516ef25533d47b2bed942c96d33d86b6609777766722bdbfc8",
+          "bytes": 35397,
+          "uncompressedBytes": 154541,
           "quads": 11810
         },
         "8": {
           "url": "meshes/8/1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "769dffde9431a61ea42432736fbaf5c7bc72e7c577ea38842de7955554d74db0",
-          "bytes": 78287,
-          "uncompressedBytes": 310460,
+          "encoding": "brotli",
+          "sha256": "f188af1ec141b7103a0398bf5d8d6a25fc176548d6654557824f3849c41bb62f",
+          "bytes": 14439,
+          "uncompressedBytes": 68699,
           "quads": 3695
         },
         "16": {
           "url": "meshes/16/1_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "78d899d5aca396b3fafe1094968778a2a8591ba817d0a1cbe63c6da0e091474c",
-          "bytes": 22618,
-          "uncompressedBytes": 81308,
+          "encoding": "brotli",
+          "sha256": "7fb29f0bd8e088b6286cc68d1631bf545e262155d9e0ef3a7919d6b7785e7571",
+          "bytes": 5273,
+          "uncompressedBytes": 18776,
           "quads": 967
         }
       },
@@ -987,39 +987,39 @@
         "roads": 5,
         "trees": 0
       },
-      "bytes": 10154,
-      "sha256": "5025215ea33f22aed027ff453b6b9383201c98bd8f7a35eeb3f07f43f18f95d2",
+      "bytes": 12134,
+      "sha256": "6bf623bc2693cdbeca0b0b3f645b6bcb8b4831e5f00d54888cf2274c9bcf720a",
       "meshes": {
         "2": {
           "url": "meshes/2/2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "1d6731954feaf77f62fe04b1d416ad3f37b2c692589221a82de103c241f705a6",
-          "bytes": 28653,
-          "uncompressedBytes": 112304,
+          "encoding": "brotli",
+          "sha256": "86540a58a64b42d1cbd748a2c578c8079247b62296c276593b0a69e49a37d67d",
+          "bytes": 4471,
+          "uncompressedBytes": 16788,
           "quads": 1336
         },
         "4": {
           "url": "meshes/4/2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "4ceeec834ff3743db89ee2718beb67883d599db40626e6eee327b12eb7535629",
-          "bytes": 16028,
-          "uncompressedBytes": 60644,
+          "encoding": "brotli",
+          "sha256": "11c065e2c9edb6e48b73df36dc12bb82825424723dedeb83f90ae92a6292ae72",
+          "bytes": 2709,
+          "uncompressedBytes": 13365,
           "quads": 721
         },
         "8": {
           "url": "meshes/8/2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "cd55cd7036767518df1fb4d4ce2e32d8d9af5429915341e79f11a5905ffcf99b",
-          "bytes": 6351,
-          "uncompressedBytes": 23348,
+          "encoding": "brotli",
+          "sha256": "5e74b64d650b19c82da92e6e132a181df8d9eb9c1581d0d56d4ce77ab42f0d79",
+          "bytes": 1430,
+          "uncompressedBytes": 5040,
           "quads": 277
         },
         "16": {
           "url": "meshes/16/2_-2.cvm",
-          "encoding": "gzip",
-          "sha256": "d45a049882476543de92aa436d5b00c2eb1c1f8369066758cc94d15ad17e346c",
-          "bytes": 1906,
-          "uncompressedBytes": 7304,
+          "encoding": "brotli",
+          "sha256": "e62a0b2205bece962c41b0dee6833b09cd7e92020883d79a96b611df908a73c1",
+          "bytes": 504,
+          "uncompressedBytes": 1964,
           "quads": 86
         }
       },
@@ -1057,33 +1057,33 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-3_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "e476cc8937adc367c6a31a607a463be8bf6c7933fb0ad1b3fa619a9812365f6f",
-          "bytes": 206,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "bc61074740bb1f38792f394bf309a98d4fbf0fc63168aab47072767864177aa6",
+          "bytes": 140,
+          "uncompressedBytes": 195,
           "quads": 5
         },
         "4": {
           "url": "meshes/4/-3_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "34e2dc8d967fb7e7182105dc17a0be72bb56a68aa5c78f3eb361af29d7fcd651",
-          "bytes": 38,
+          "encoding": "brotli",
+          "sha256": "53a4ab4864a3c0d1a24a61c98690b322b662b4f70ad1b11c46b3fb50b4c5926e",
+          "bytes": 55,
           "uncompressedBytes": 80,
           "quads": 0
         },
         "8": {
           "url": "meshes/8/-3_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "4ccd442cc49319edff4ed7b06d20e22d03815422ddb9bd19a632027ac2bf0cb6",
-          "bytes": 37,
+          "encoding": "brotli",
+          "sha256": "98c6dd2b66a0d271feadd829bce74461f664cabb13aa2b7aad688a869d9f698d",
+          "bytes": 49,
           "uncompressedBytes": 80,
           "quads": 0
         },
         "16": {
           "url": "meshes/16/-3_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "2c1bde971b21f10391cf4423b03f71d40cdb4a7bf741cf32612ed9008c8285c7",
-          "bytes": 38,
+          "encoding": "brotli",
+          "sha256": "28d2d6b40ee037c50e824af25512d33fa1c5b6014149735a677d5bfe1b2b2f17",
+          "bytes": 55,
           "uncompressedBytes": 80,
           "quads": 0
         }
@@ -1111,34 +1111,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "58325aac6d8f3b5147b2d85e06528c4b4116fb9b1089cc22a79bf103fc49f285",
-          "bytes": 1686,
-          "uncompressedBytes": 6128,
+          "encoding": "brotli",
+          "sha256": "b3fedfcc84bc7463475b12f833fc21f2ed784c6b1b4cdb1708ae66a151d80236",
+          "bytes": 486,
+          "uncompressedBytes": 1479,
           "quads": 72
         },
         "4": {
           "url": "meshes/4/-2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "04b337297b5d26374f12a6fd8f991004ba1fd4534c5adde03a30173ca9e2832f",
-          "bytes": 989,
-          "uncompressedBytes": 3440,
+          "encoding": "brotli",
+          "sha256": "b0c7a34f8812d853dc28a292f1f506ae97b2d170ef461f77d223b8cf50375b6c",
+          "bytes": 372,
+          "uncompressedBytes": 892,
           "quads": 40
         },
         "8": {
           "url": "meshes/8/-2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "1fb893cffb32579927f0d7852b239e69d6775917f4e8f209d66b894ebfb48e24",
-          "bytes": 399,
-          "uncompressedBytes": 1172,
+          "encoding": "brotli",
+          "sha256": "ae61118da25c4f456bc4a813936082dbf3c2a32fa1dbbc055c0f7422c143dfe7",
+          "bytes": 237,
+          "uncompressedBytes": 363,
           "quads": 13
         },
         "16": {
           "url": "meshes/16/-2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "8e8e60e0df3d5908b8044082bcdbf5adbdc34518bdd81c35941b093893ab4ce4",
-          "bytes": 363,
-          "uncompressedBytes": 1088,
+          "encoding": "brotli",
+          "sha256": "3dbb1e2fa252a3d85fff271292148bd708b9f326c567c9a765443f5f8e466c9a",
+          "bytes": 205,
+          "uncompressedBytes": 347,
           "quads": 12
         }
       },
@@ -1160,39 +1160,39 @@
         "roads": 78,
         "trees": 0
       },
-      "bytes": 137095,
-      "sha256": "70d2d05d17e3200f63c19c58dcc7b8bae3c182cc94124900ecf086e7f104742d",
+      "bytes": 168351,
+      "sha256": "d4f6a4c912cdff9f3c9c6aefa6dbad1ad53984b7c86fbddb5a7e193884718380",
       "meshes": {
         "2": {
           "url": "meshes/2/-1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "2c3a2127298aa426e72d6a6feb696eefbd0bfe020e5e6ff73de11e133187210e",
-          "bytes": 517773,
-          "uncompressedBytes": 2184248,
+          "encoding": "brotli",
+          "sha256": "4bcb94608a2b413411f258b4b501471ae0b9af57adcd61f4f9c5f0d4df199629",
+          "bytes": 63452,
+          "uncompressedBytes": 328019,
           "quads": 26002
         },
         "4": {
           "url": "meshes/4/-1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "f7305c8c268c26254fde939a88aaa7fa19b7de53ba61280fef3c0ec9842327be",
-          "bytes": 213085,
-          "uncompressedBytes": 888296,
+          "encoding": "brotli",
+          "sha256": "eaa21f0e4191e7cbd1b887088328a597710b387d8b5974a9fdccfe5097314cdc",
+          "bytes": 30050,
+          "uncompressedBytes": 139384,
           "quads": 10574
         },
         "8": {
           "url": "meshes/8/-1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "da36950147e2815d5d64dd59ab5cb7440a85e20de102cef02dec954e9f5ccf47",
-          "bytes": 68106,
-          "uncompressedBytes": 271400,
+          "encoding": "brotli",
+          "sha256": "6e738d143103c1957f43183cf62db7246fd04a2abd63cb2e5603d79cf2f46cad",
+          "bytes": 12388,
+          "uncompressedBytes": 60069,
           "quads": 3230
         },
         "16": {
           "url": "meshes/16/-1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "1689dc69320b412cf2fca1b88cc94bd94b1695b9bb20b37c501257b1697b6453",
-          "bytes": 18058,
-          "uncompressedBytes": 63416,
+          "encoding": "brotli",
+          "sha256": "064f406e3eca5faac4e92e2609080873dff84bcd7ee752769a5cb4b3d4e6eb6e",
+          "bytes": 4136,
+          "uncompressedBytes": 14768,
           "quads": 754
         }
       },
@@ -1371,39 +1371,39 @@
         "roads": 83,
         "trees": 0
       },
-      "bytes": 302535,
-      "sha256": "6dc396527840f45eac13fb1300514c44e972f64436161563e38862e3fe9b18e8",
+      "bytes": 377786,
+      "sha256": "8901bfdb43660e8a0aeebc2e1b109d0e45c14bf3f4d4e8d3c057ab7af59eca2e",
       "meshes": {
         "2": {
           "url": "meshes/2/0_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "0bb55d5f6ec08865dd3af3855661ff2e0380fa489747685365a890cce6c2762e",
-          "bytes": 911652,
-          "uncompressedBytes": 3879536,
+          "encoding": "brotli",
+          "sha256": "71ae039ad25a701fb4f16b1df75d1bb2292e094fcd1e9a973c7c62550d5d974f",
+          "bytes": 113663,
+          "uncompressedBytes": 582785,
           "quads": 46184
         },
         "4": {
           "url": "meshes/4/0_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "a02be89adceb71a1be61c7ee5f106ff85e25d3a4014ba12cc0c7278b50a644e4",
-          "bytes": 391693,
-          "uncompressedBytes": 1666472,
+          "encoding": "brotli",
+          "sha256": "7a459e0bcb6811e0ebcf1d6e5866e1a40b0d94895ce8dcc92fcce1d4f7758e04",
+          "bytes": 55692,
+          "uncompressedBytes": 260940,
           "quads": 19838
         },
         "8": {
           "url": "meshes/8/0_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "1fdfc9aeec9e3627aba0628cc70117836f37e70ca08cb5fd184e5eb8e3ba3098",
-          "bytes": 119713,
-          "uncompressedBytes": 484844,
+          "encoding": "brotli",
+          "sha256": "a7e41bd8022b71843e2e2ecd57adbf7a72a3a06a7b54b3bd6b30655b2170cdb7",
+          "bytes": 22991,
+          "uncompressedBytes": 107515,
           "quads": 5771
         },
         "16": {
           "url": "meshes/16/0_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "7de065447ff6687b574519579187856de47f4a4d6bb22bab61dd2b93428782c8",
-          "bytes": 29312,
-          "uncompressedBytes": 106760,
+          "encoding": "brotli",
+          "sha256": "bbac093dcdea93d3581f408a51f82903833d12dc425204884cfd0f8c487b325a",
+          "bytes": 7356,
+          "uncompressedBytes": 28521,
           "quads": 1270
         }
       },
@@ -1797,39 +1797,39 @@
         "roads": 66,
         "trees": 0
       },
-      "bytes": 238630,
-      "sha256": "51487fb056fe95bfa56588a849eb51a7f2a85f30b1036c000148cf660991518d",
+      "bytes": 297594,
+      "sha256": "5bc13feb14e7f8938a31e2bcecef52798fb697c12bd0fb291b9bbca9d0e12bf2",
       "meshes": {
         "2": {
           "url": "meshes/2/1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "cbf417f5d7e571008c1713d2e1b7b3cf67e004710c6739d02713a75421378d36",
-          "bytes": 791230,
-          "uncompressedBytes": 3312788,
+          "encoding": "brotli",
+          "sha256": "7b35cf5d888efb737ced95f0436ed5425a73a1e2780d67bc4236029ed392e58f",
+          "bytes": 103353,
+          "uncompressedBytes": 498770,
           "quads": 39437
         },
         "4": {
           "url": "meshes/4/1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "264fcbb42873a1e4a25ae0a94c4b102a437888c7e38cf1ed076b7eedf4d73ccd",
-          "bytes": 309405,
-          "uncompressedBytes": 1299476,
+          "encoding": "brotli",
+          "sha256": "66afc3d3af7b4c665588311425565cfea0b091807155ec08612b5a4bd65f8562",
+          "bytes": 47390,
+          "uncompressedBytes": 205245,
           "quads": 15469
         },
         "8": {
           "url": "meshes/8/1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "6b5f9a498c462a4b9af808a2df0c65bf9bebb48b80c7b8c07492b16186abfb79",
-          "bytes": 97812,
-          "uncompressedBytes": 389504,
+          "encoding": "brotli",
+          "sha256": "4865b2a7d0db83fce5d9ddbb3e032ff9c87b46b49bb3149d76717d0ac61876ec",
+          "bytes": 19099,
+          "uncompressedBytes": 86459,
           "quads": 4636
         },
         "16": {
           "url": "meshes/16/1_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "6ac3cf6ce6ea3a952dfe563f2650bfefa37a6518b75204557f14d175e32015c9",
-          "bytes": 25010,
-          "uncompressedBytes": 88196,
+          "encoding": "brotli",
+          "sha256": "a2d3ca7c3b919c36a6417b16ce920a2b0d0648583711363ad0b5827bac6d93a0",
+          "bytes": 6199,
+          "uncompressedBytes": 23615,
           "quads": 1049
         }
       },
@@ -2141,39 +2141,39 @@
         "roads": 4,
         "trees": 0
       },
-      "bytes": 3700,
-      "sha256": "3a1c90a977ea079f9403aef8bd6d293da687a64ac33d9bd43f3574454b42f208",
+      "bytes": 4110,
+      "sha256": "eedc437e298e51c7a2ea3f8db562b82f6e8297c54131689474323eaefe045b1c",
       "meshes": {
         "2": {
           "url": "meshes/2/2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "c85d4a4491e9031d1c1be25f7ba5247a8058afe183642d5e6303103b0451e168",
-          "bytes": 6928,
-          "uncompressedBytes": 26876,
+          "encoding": "brotli",
+          "sha256": "108caf12814e684f6cecc65bc76719d74b4f0b3e8a43f570439b0a0d7489d9f8",
+          "bytes": 1353,
+          "uncompressedBytes": 4398,
           "quads": 319
         },
         "4": {
           "url": "meshes/4/2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "1294256c094827799505be876206e1944ed30d2e2d1405e4afb6412901ed7619",
-          "bytes": 2947,
-          "uncompressedBytes": 11000,
+          "encoding": "brotli",
+          "sha256": "9330541b4566dba9f48762e5d2939b12302f89a9313d46186d57b17de9180faa",
+          "bytes": 771,
+          "uncompressedBytes": 2431,
           "quads": 130
         },
         "8": {
           "url": "meshes/8/2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "d100ea849ca58a1f26dde368d7a9cffdcb124c4768bd3bc65c4637dad51a3aeb",
-          "bytes": 1253,
-          "uncompressedBytes": 4616,
+          "encoding": "brotli",
+          "sha256": "d5d6f6614a696b5a0fe37737af727a481f3611fc0d49a724e854123926c3a72e",
+          "bytes": 438,
+          "uncompressedBytes": 1331,
           "quads": 54
         },
         "16": {
           "url": "meshes/16/2_-1.cvm",
-          "encoding": "gzip",
-          "sha256": "5fb5d39be13ae55774f6610eafb0ad54fb7313beb7d2050e61fec4cd5a0c9ec8",
-          "bytes": 452,
-          "uncompressedBytes": 1592,
+          "encoding": "brotli",
+          "sha256": "a86099e6675199c2b8f99d01db7465c2885ac88aa4df2445313b90fbc33bc3a0",
+          "bytes": 216,
+          "uncompressedBytes": 444,
           "quads": 18
         }
       },
@@ -2203,34 +2203,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-3_0.cvm",
-          "encoding": "gzip",
-          "sha256": "e16ba5332d6b2e41a4e96a1cdfc18c7cb02fd897ace992b6db4b811fd91b1254",
-          "bytes": 704,
-          "uncompressedBytes": 2684,
+          "encoding": "brotli",
+          "sha256": "b201292959e68848e5aa60cf46a6b8a69ce46ac6305598280a3e075b394b19df",
+          "bytes": 243,
+          "uncompressedBytes": 694,
           "quads": 31
         },
         "4": {
           "url": "meshes/4/-3_0.cvm",
-          "encoding": "gzip",
-          "sha256": "0dc1f0816afc99d60364f329699beefcdbf0958bc4268c6974e181b151f05993",
-          "bytes": 431,
-          "uncompressedBytes": 1340,
+          "encoding": "brotli",
+          "sha256": "439bdd3a1e85126dcfe82322b4ecff91245acdae148b5b6de9d815a50f647479",
+          "bytes": 222,
+          "uncompressedBytes": 409,
           "quads": 15
         },
         "8": {
           "url": "meshes/8/-3_0.cvm",
-          "encoding": "gzip",
-          "sha256": "8358906b9f3d5108ba518b9e3664195be774577fde1daafeeec2c7e7f32ac28d",
-          "bytes": 371,
-          "uncompressedBytes": 1088,
+          "encoding": "brotli",
+          "sha256": "6b1fa72a2545af3c48995d82cbf72142df2ddc54e3ff31d3d60818b1b9bade98",
+          "bytes": 221,
+          "uncompressedBytes": 364,
           "quads": 12
         },
         "16": {
           "url": "meshes/16/-3_0.cvm",
-          "encoding": "gzip",
-          "sha256": "409d67ef81e519947b78786d6d864c3c4f16473d472f018983aec55ae908d837",
-          "bytes": 213,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "5c433d92c4ba77b0393ce39e3f81698cc559f016ad557113ebe876eebb4a9102",
+          "bytes": 156,
+          "uncompressedBytes": 204,
           "quads": 5
         }
       },
@@ -2257,34 +2257,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "799309120081d23627a30555769de836e6fa0153f2488fa4a31c807ab23a67e5",
-          "bytes": 202,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "22101edb3dc661d8c72e3bb88802a2fff74e7a50a62ebd0b45be96eb2f7ea0df",
+          "bytes": 151,
+          "uncompressedBytes": 205,
           "quads": 5
         },
         "4": {
           "url": "meshes/4/-2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "b8310b5595133b5b1ed8f494f05294edab6fe2d97d84547ca43877643871d1a2",
-          "bytes": 201,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "43e374b0c93ae1ac87b595df6674f8b3ad17415ba99f250e55fcadae28a4b4eb",
+          "bytes": 153,
+          "uncompressedBytes": 205,
           "quads": 5
         },
         "8": {
           "url": "meshes/8/-2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "8bf0a7aa7cb927c64ac5b8c7fe0ad7cf655e0f1dbdef2df403846204f34fad6a",
-          "bytes": 202,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "9294061547bc50f9d741ef6a7cd3fc3107564f181cad17af2e65e3c06d067ad2",
+          "bytes": 152,
+          "uncompressedBytes": 205,
           "quads": 5
         },
         "16": {
           "url": "meshes/16/-2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "165736b9c5dfa5e8f95ef5df3f2c7764c79c34cf63ae858c3aeaad8c4a007681",
-          "bytes": 200,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "ae525de68543bd6a6373b31583f1449104ef5b33e1e2d9badc004f1ee49fcd50",
+          "bytes": 151,
+          "uncompressedBytes": 200,
           "quads": 5
         }
       },
@@ -2306,39 +2306,39 @@
         "roads": 29,
         "trees": 0
       },
-      "bytes": 12040,
-      "sha256": "c6f1d018b47c81f0ad3120d09d332f15ea7c71e1e79591b4cbd692201baa315a",
+      "bytes": 12495,
+      "sha256": "26c099e3ef53154c61b040dc317f949f89fa8acfa76499823e5a8fe547d2fcf7",
       "meshes": {
         "2": {
           "url": "meshes/2/-1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "1a72afa988b570e7e9a86d111e3e8eafe9052f54c5b86579a05c9363b49a6ac3",
-          "bytes": 86573,
-          "uncompressedBytes": 360692,
+          "encoding": "brotli",
+          "sha256": "05bd80d9ac4a00ce9be6ee8876b90d416bc38513f28fed77780658fb780c002d",
+          "bytes": 9769,
+          "uncompressedBytes": 54065,
           "quads": 4293
         },
         "4": {
           "url": "meshes/4/-1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "34fbb8abb7cd1099cbba74732bd076a988b197bcc1a18a7eb7f612d07ef2bffc",
-          "bytes": 33602,
-          "uncompressedBytes": 134396,
+          "encoding": "brotli",
+          "sha256": "b81e595741401a05100362c9a921188f8f62e32c590436b5e33bb90540aaf228",
+          "bytes": 4406,
+          "uncompressedBytes": 19614,
           "quads": 1599
         },
         "8": {
           "url": "meshes/8/-1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "a69ce90ce8ff0359b92e43e0870c221a97f3dd41677c1208d43ba4c091764989",
-          "bytes": 10390,
-          "uncompressedBytes": 39896,
+          "encoding": "brotli",
+          "sha256": "09dd4e4cdc083862fd4f0a7db3ff8b4ce9b7644742d217954ecf349aca14bd04",
+          "bytes": 1684,
+          "uncompressedBytes": 8900,
           "quads": 474
         },
         "16": {
           "url": "meshes/16/-1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "b70f5a114804e6c1e72aabaede20e6f36a42735c011fecf784fcebd319ff043f",
-          "bytes": 3699,
-          "uncompressedBytes": 13772,
+          "encoding": "brotli",
+          "sha256": "d34bfd56c496dc98c48c9062acdae006b8ecfa5aa449314fd2ac68a02af4cbc5",
+          "bytes": 894,
+          "uncompressedBytes": 2673,
           "quads": 163
         }
       },
@@ -2365,39 +2365,39 @@
         "roads": 74,
         "trees": 0
       },
-      "bytes": 96464,
-      "sha256": "126b85e65001b7db32c96ee21f8eb51b6faa00522f7509f610bf85cfdc30319b",
+      "bytes": 115853,
+      "sha256": "29d33112f178a5408bb0c6bef2f8ab4446e7623ee55621504cf71db5c318b550",
       "meshes": {
         "2": {
           "url": "meshes/2/0_0.cvm",
-          "encoding": "gzip",
-          "sha256": "8e311b85a0c0857331e17c56b3d9131346287c2cddd3fd71c7c8cf21d408210a",
-          "bytes": 388350,
-          "uncompressedBytes": 1640516,
+          "encoding": "brotli",
+          "sha256": "b347c72576253f00c34ddf88efd0364bd42a708b94f06cbb6002577aea4cb054",
+          "bytes": 51175,
+          "uncompressedBytes": 247382,
           "quads": 19529
         },
         "4": {
           "url": "meshes/4/0_0.cvm",
-          "encoding": "gzip",
-          "sha256": "e99ad03bb9c726c04586c8dd10f816d5b715aab4a208a16bc597833d7b73c009",
-          "bytes": 159987,
-          "uncompressedBytes": 666368,
+          "encoding": "brotli",
+          "sha256": "f3258b8b0cf9b61f9e7b59ecd956da11216f2a4abddbebd551dcfed3381a9e18",
+          "bytes": 23905,
+          "uncompressedBytes": 105345,
           "quads": 7932
         },
         "8": {
           "url": "meshes/8/0_0.cvm",
-          "encoding": "gzip",
-          "sha256": "2e84b516c226e08d3841a22625664aff622772fa198af6551d8b917d638314fd",
-          "bytes": 55266,
-          "uncompressedBytes": 219320,
+          "encoding": "brotli",
+          "sha256": "96321ba15d687f6dcd9aafc7b1feb08b689aeb030b0d34dd539630f4363cecb9",
+          "bytes": 10031,
+          "uncompressedBytes": 48516,
           "quads": 2610
         },
         "16": {
           "url": "meshes/16/0_0.cvm",
-          "encoding": "gzip",
-          "sha256": "534c02e6bde9ab714c737e420f0908bc43f4edb1c26126caa6449d6a16040eff",
-          "bytes": 16660,
-          "uncompressedBytes": 58124,
+          "encoding": "brotli",
+          "sha256": "f08702d2fe75298cb5860e37e8974910b529af227194cfaec679bf31c7eda5f0",
+          "bytes": 3672,
+          "uncompressedBytes": 13419,
           "quads": 691
         }
       },
@@ -2522,39 +2522,39 @@
         "roads": 61,
         "trees": 0
       },
-      "bytes": 123973,
-      "sha256": "000e1e670a16bb31eeeb10a0b35fdba80badebc92644af780e65591d0b08b263",
+      "bytes": 152344,
+      "sha256": "844927df8b58dfcef36c8a1934b515335dc02e7e0457750d4ae499e2658b6dbc",
       "meshes": {
         "2": {
           "url": "meshes/2/1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "adb6816f8d59a9de6d431c3e309c4b025632850dbaa175f2daea25d501ed83ba",
-          "bytes": 542093,
-          "uncompressedBytes": 2276648,
+          "encoding": "brotli",
+          "sha256": "418d0bd2209adc7a26d724dc87085a5827f9668d264a904bf725f9b02fa69bd2",
+          "bytes": 69570,
+          "uncompressedBytes": 341768,
           "quads": 27102
         },
         "4": {
           "url": "meshes/4/1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "be6598e6a8f88b6fbcec442a6f50ce84576d7623206ee666a4eb0f4fda29c8a9",
-          "bytes": 233137,
-          "uncompressedBytes": 979016,
+          "encoding": "brotli",
+          "sha256": "4847fed8416fbb66d83e8e6b2bf098f6237f1f494d34962f8861568d1330b94e",
+          "bytes": 33835,
+          "uncompressedBytes": 152945,
           "quads": 11654
         },
         "8": {
           "url": "meshes/8/1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "574abc47415b6924cf112a604cc91dd4244073189dd91459bd465ff65e265f6c",
-          "bytes": 78929,
-          "uncompressedBytes": 312812,
+          "encoding": "brotli",
+          "sha256": "dd5f183493306a7d1c9fa95df420d65e1d77cee2aff12154c227164d1343f03d",
+          "bytes": 13990,
+          "uncompressedBytes": 69071,
           "quads": 3723
         },
         "16": {
           "url": "meshes/16/1_0.cvm",
-          "encoding": "gzip",
-          "sha256": "dc15b0708aab5ed457c711e0db275a4e8a0c1a23c1c3472ddac613764031f389",
-          "bytes": 23534,
-          "uncompressedBytes": 83324,
+          "encoding": "brotli",
+          "sha256": "f82092edaea98c8753e83c5af8a2beae6500ed77180ede262d350fcb57594f82",
+          "bytes": 5279,
+          "uncompressedBytes": 19219,
           "quads": 991
         }
       },
@@ -2722,38 +2722,38 @@
         "roads": 0,
         "trees": 0
       },
-      "bytes": 1509,
-      "sha256": "918e3df35b4c14c2db80c25b99443bddcf05888e8259eb09f790b4d63a0b99a5",
+      "bytes": 1714,
+      "sha256": "c1f03495458805f3ca0fb2fcc788dab22cbfcf21ed32e846809f57972bf2b83d",
       "meshes": {
         "2": {
           "url": "meshes/2/2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "6a6de7baf58c039fa22c1fa35ed9b2b6ae266b5e1d074f631e5eede81c70fff3",
-          "bytes": 285,
-          "uncompressedBytes": 836,
+          "encoding": "brotli",
+          "sha256": "70ad8c8bc1ae3b89e42dc79d2938801b8ce0bbef28d855dc5f578917497f1a63",
+          "bytes": 166,
+          "uncompressedBytes": 294,
           "quads": 9
         },
         "4": {
           "url": "meshes/4/2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "34e2dc8d967fb7e7182105dc17a0be72bb56a68aa5c78f3eb361af29d7fcd651",
-          "bytes": 38,
+          "encoding": "brotli",
+          "sha256": "53a4ab4864a3c0d1a24a61c98690b322b662b4f70ad1b11c46b3fb50b4c5926e",
+          "bytes": 55,
           "uncompressedBytes": 80,
           "quads": 0
         },
         "8": {
           "url": "meshes/8/2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "4ccd442cc49319edff4ed7b06d20e22d03815422ddb9bd19a632027ac2bf0cb6",
-          "bytes": 37,
+          "encoding": "brotli",
+          "sha256": "98c6dd2b66a0d271feadd829bce74461f664cabb13aa2b7aad688a869d9f698d",
+          "bytes": 49,
           "uncompressedBytes": 80,
           "quads": 0
         },
         "16": {
           "url": "meshes/16/2_0.cvm",
-          "encoding": "gzip",
-          "sha256": "2c1bde971b21f10391cf4423b03f71d40cdb4a7bf741cf32612ed9008c8285c7",
-          "bytes": 38,
+          "encoding": "brotli",
+          "sha256": "28d2d6b40ee037c50e824af25512d33fa1c5b6014149735a677d5bfe1b2b2f17",
+          "bytes": 55,
           "uncompressedBytes": 80,
           "quads": 0
         }
@@ -2783,34 +2783,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-3_1.cvm",
-          "encoding": "gzip",
-          "sha256": "9eda5f67b3f5b291825bb2f869beba3dd6479cbc035bb61d75c576ee049db7ec",
-          "bytes": 629,
-          "uncompressedBytes": 2348,
+          "encoding": "brotli",
+          "sha256": "0b52a590fd263ff1e92a076ce2b70e60bc0309761175a3a6ab21097a4bde10f3",
+          "bytes": 244,
+          "uncompressedBytes": 616,
           "quads": 27
         },
         "4": {
           "url": "meshes/4/-3_1.cvm",
-          "encoding": "gzip",
-          "sha256": "d010634d2d804539cdcbe81eef69f0cb55d72a11f74c79dcf7cb28c837f74d7c",
-          "bytes": 674,
-          "uncompressedBytes": 2348,
+          "encoding": "brotli",
+          "sha256": "2f4962849c57f9bc6457eab1467739521596a264f30743f56b2062cef8b7afd5",
+          "bytes": 288,
+          "uncompressedBytes": 735,
           "quads": 27
         },
         "8": {
           "url": "meshes/8/-3_1.cvm",
-          "encoding": "gzip",
-          "sha256": "5a08879280ce4cc3d7dc4352e677b87e71121864ef397bb737b29a25ec9108f9",
-          "bytes": 370,
-          "uncompressedBytes": 1088,
+          "encoding": "brotli",
+          "sha256": "b2c1102e315d2ff7472cdc650d43eeb405f6e5c9ba42f6d10959159a71a32189",
+          "bytes": 208,
+          "uncompressedBytes": 338,
           "quads": 12
         },
         "16": {
           "url": "meshes/16/-3_1.cvm",
-          "encoding": "gzip",
-          "sha256": "00343ec241fd396fd9fae58d8289124ea26086fb0ca15af0ea2129afe2d0b525",
-          "bytes": 336,
-          "uncompressedBytes": 920,
+          "encoding": "brotli",
+          "sha256": "042377987792e3f7b523d9144e7e76a22bb2a6f3710e5d9665c8027cdc3b5bd5",
+          "bytes": 189,
+          "uncompressedBytes": 291,
           "quads": 10
         }
       },
@@ -2837,34 +2837,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-2_1.cvm",
-          "encoding": "gzip",
-          "sha256": "f64cdb69deb7f0c7e4eaf063def448ab8ac23da0f8df0081d30093894ece8776",
-          "bytes": 664,
-          "uncompressedBytes": 2516,
+          "encoding": "brotli",
+          "sha256": "4f52b5acf07e3e4ba83aa31138dba67ddcec7272a9b25e503dca096335b8c63c",
+          "bytes": 262,
+          "uncompressedBytes": 638,
           "quads": 29
         },
         "4": {
           "url": "meshes/4/-2_1.cvm",
-          "encoding": "gzip",
-          "sha256": "7821d0e953995aeab3802bcfbf81f7687247d7258da9804ac2d4713ec87e9905",
-          "bytes": 472,
-          "uncompressedBytes": 1508,
+          "encoding": "brotli",
+          "sha256": "927aecb6ddc9da39e5f7bbd2256caa0924e63f6d2ec6f4cd51bb14e8d9fd7ea9",
+          "bytes": 245,
+          "uncompressedBytes": 507,
           "quads": 17
         },
         "8": {
           "url": "meshes/8/-2_1.cvm",
-          "encoding": "gzip",
-          "sha256": "cbbe42aff360e34417c1b67433f1ade4dc64d47b73a9043fd1baf3f80c655fac",
-          "bytes": 311,
-          "uncompressedBytes": 836,
+          "encoding": "brotli",
+          "sha256": "c35c8d131ae41b79aab94d75c7f0e824b97262b69f13cdd3e44b2bb78e8579f8",
+          "bytes": 201,
+          "uncompressedBytes": 285,
           "quads": 9
         },
         "16": {
           "url": "meshes/16/-2_1.cvm",
-          "encoding": "gzip",
-          "sha256": "b1a820e19af779fb425d22657f4f2a801cf280559944910621520c7152f560a6",
-          "bytes": 331,
-          "uncompressedBytes": 920,
+          "encoding": "brotli",
+          "sha256": "002bd3042ced6da91195516282a2a61cf8ad4d81803b45f989bb6d369c9df0aa",
+          "bytes": 211,
+          "uncompressedBytes": 313,
           "quads": 10
         }
       },
@@ -2891,34 +2891,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/-1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "37fbef0b9f189d054cdecdd698dd8dcddab14364040187e71ec2798a56a5e5db",
-          "bytes": 19379,
-          "uncompressedBytes": 76268,
+          "encoding": "brotli",
+          "sha256": "f89fbc6cf7a03593f6c66b19208211f05fc36f78bc7857c65c11fa99ba239945",
+          "bytes": 2287,
+          "uncompressedBytes": 11758,
           "quads": 907
         },
         "4": {
           "url": "meshes/4/-1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "b15b333227ce4a016a0f9ddd4d036c800090a241347679d91b6b5d75cf06bb69",
-          "bytes": 7075,
-          "uncompressedBytes": 27800,
+          "encoding": "brotli",
+          "sha256": "0c7c77ea6edfc917ebb84385d1a414808a92186fe0359067a08c2b9ea862bdde",
+          "bytes": 1148,
+          "uncompressedBytes": 4724,
           "quads": 330
         },
         "8": {
           "url": "meshes/8/-1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "6a3eaed76abf6eb8e77fbfd577432ac8bd8d07bb2d2c6655be9f95a8f03ead15",
-          "bytes": 2956,
-          "uncompressedBytes": 10748,
+          "encoding": "brotli",
+          "sha256": "e11778e0506ab24dd27fd2fdf1f0dd6ee0884bb73c482890f63abadedcb0ba80",
+          "bytes": 746,
+          "uncompressedBytes": 2372,
           "quads": 127
         },
         "16": {
           "url": "meshes/16/-1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "a0163a426b8ca4ad70a6d0c1d1f5b17d3a9e15509fe1e0e8f83eb80039eb144c",
-          "bytes": 994,
-          "uncompressedBytes": 3608,
+          "encoding": "brotli",
+          "sha256": "5ab83c1ac801a4934e36be9b66e4aa8f2cc5d85753420e99a85ae3d7e3b43139",
+          "bytes": 355,
+          "uncompressedBytes": 927,
           "quads": 42
         }
       },
@@ -2940,39 +2940,39 @@
         "roads": 2,
         "trees": 0
       },
-      "bytes": 16167,
-      "sha256": "ed7272a7f928eb274e09cfc03f625231ffe2190ab533dfea971b7132a2d71b73",
+      "bytes": 18467,
+      "sha256": "8b926691d048dd9ec5095dcd6422a73ed5a7fe0c6d711e8f305f0213f0350107",
       "meshes": {
         "2": {
           "url": "meshes/2/0_1.cvm",
-          "encoding": "gzip",
-          "sha256": "850527eadd33bfd169242e704137a1c44fba6130cbd640727dfa540b08b96d24",
-          "bytes": 134825,
-          "uncompressedBytes": 561620,
+          "encoding": "brotli",
+          "sha256": "e718a64e427f6ba0d561eb580df8b76bed276fe6c5a0456955dfc1caad5c6e2e",
+          "bytes": 16147,
+          "uncompressedBytes": 78116,
           "quads": 6685
         },
         "4": {
           "url": "meshes/4/0_1.cvm",
-          "encoding": "gzip",
-          "sha256": "046ddc3548a23151112944ddbfb79afc07c7957b1dea4b4eb4d1fbda6c04b22c",
-          "bytes": 46546,
-          "uncompressedBytes": 188408,
+          "encoding": "brotli",
+          "sha256": "93ef27fc9f79fd9621a4a41f9064c207ed5611bf4b66cfe87660449204322516",
+          "bytes": 6758,
+          "uncompressedBytes": 27840,
           "quads": 2242
         },
         "8": {
           "url": "meshes/8/0_1.cvm",
-          "encoding": "gzip",
-          "sha256": "8a106cccab40126c48bf7739c9b391975049c53eadbdb2685898108646bee8ea",
-          "bytes": 16517,
-          "uncompressedBytes": 61820,
+          "encoding": "brotli",
+          "sha256": "d11a937021e26dee982e4960420ea7121920a2271e181d5cc7a1c52838569a6a",
+          "bytes": 2745,
+          "uncompressedBytes": 13094,
           "quads": 735
         },
         "16": {
           "url": "meshes/16/0_1.cvm",
-          "encoding": "gzip",
-          "sha256": "35b732bced45b97d4f6ee9eeb9e963c6a4641f181f878132373cb7e89bbeb4da",
-          "bytes": 4858,
-          "uncompressedBytes": 17888,
+          "encoding": "brotli",
+          "sha256": "108a479a4347be7042b1d647bed5fd6e08040f190cc85199346f27b04dc85aba",
+          "bytes": 1078,
+          "uncompressedBytes": 4174,
           "quads": 212
         }
       },
@@ -3012,39 +3012,39 @@
         "roads": 23,
         "trees": 0
       },
-      "bytes": 36399,
-      "sha256": "12a6afd2aa1e1903338cb99a7ace8b3ee83d337da2b16bcd4831dbc2bf5604bf",
+      "bytes": 44078,
+      "sha256": "f79bbe2e0138a74ceefee54885c881e4c9c8740b54a5178180ef4a5c6c1485db",
       "meshes": {
         "2": {
           "url": "meshes/2/1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "4c05d3fe5d5bf0ef8489f38c23add2a64572949daa20d1e909e906aa3b4291f6",
-          "bytes": 267058,
-          "uncompressedBytes": 1124084,
+          "encoding": "brotli",
+          "sha256": "2dbcd6333dddfc49a28cd7d58f118e896f81d64c5ed264a93b4343447227fa12",
+          "bytes": 30210,
+          "uncompressedBytes": 167228,
           "quads": 13381
         },
         "4": {
           "url": "meshes/4/1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "e497cc520785d457d37b4d6687f6680d8408a51820f979aa03b02910a4509887",
-          "bytes": 108532,
-          "uncompressedBytes": 453344,
+          "encoding": "brotli",
+          "sha256": "90a657aae0876be0d3c30992404164593115cc354ebdd9ab3635427a82c437de",
+          "bytes": 13694,
+          "uncompressedBytes": 69712,
           "quads": 5396
         },
         "8": {
           "url": "meshes/8/1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "816a9b58e9e355922e80fd96716b30c4d40017082384c0de890b6fbed599b037",
-          "bytes": 41178,
-          "uncompressedBytes": 160100,
+          "encoding": "brotli",
+          "sha256": "8cf5704e26ec70ce007e58d37aaac5360d2690cb67bcc9998b2ed67e3f2f0e65",
+          "bytes": 6511,
+          "uncompressedBytes": 35268,
           "quads": 1905
         },
         "16": {
           "url": "meshes/16/1_1.cvm",
-          "encoding": "gzip",
-          "sha256": "70fcee90e59104cf36471b1e820d57a0d6fa128d846cd2db4472e33f354c93cc",
-          "bytes": 12141,
-          "uncompressedBytes": 42836,
+          "encoding": "brotli",
+          "sha256": "4a62d6defb5a71139d3ff12f284bf1745a488b7907f40cd7e5aa5eca91a7db51",
+          "bytes": 2488,
+          "uncompressedBytes": 9773,
           "quads": 509
         }
       },
@@ -3111,34 +3111,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/0_2.cvm",
-          "encoding": "gzip",
-          "sha256": "ec4957898aecd4f248c9eb97e7de1be7670cb88d450334f773ab11acf4d8098d",
-          "bytes": 1778,
-          "uncompressedBytes": 6380,
+          "encoding": "brotli",
+          "sha256": "5f12a39437fa3deaf77908b0daa0288ce3619387164463c2d86060a6818e4ddf",
+          "bytes": 525,
+          "uncompressedBytes": 1530,
           "quads": 75
         },
         "4": {
           "url": "meshes/4/0_2.cvm",
-          "encoding": "gzip",
-          "sha256": "db66c7c5351315de7b2a97267dd5e07b73c5a899641af3cb45e40e246a3a6a9a",
-          "bytes": 802,
-          "uncompressedBytes": 2768,
+          "encoding": "brotli",
+          "sha256": "748ded29b51639b42e9d0be155de5eb8614dcc316487fca030f6ac68eb9250e1",
+          "bytes": 350,
+          "uncompressedBytes": 708,
           "quads": 32
         },
         "8": {
           "url": "meshes/8/0_2.cvm",
-          "encoding": "gzip",
-          "sha256": "d92357f83847f9b64ba9fa1178996af11ac4a318f190d1ecfbcd7810f246191a",
-          "bytes": 466,
-          "uncompressedBytes": 1508,
+          "encoding": "brotli",
+          "sha256": "eb0d8ae933eb50320f3b4ed2ff47b3d9046294bbf51d54675db26c0fe8337d9a",
+          "bytes": 235,
+          "uncompressedBytes": 482,
           "quads": 17
         },
         "16": {
           "url": "meshes/16/0_2.cvm",
-          "encoding": "gzip",
-          "sha256": "497ec0e2e95d2f80ab79ecf328a7b98724fd874ac764819fc4543bb874fad766",
-          "bytes": 213,
-          "uncompressedBytes": 500,
+          "encoding": "brotli",
+          "sha256": "e52cb4281778cb0dc77b3ae9a160cbe826ece91837a9c3fb28a6f14503d4c834",
+          "bytes": 154,
+          "uncompressedBytes": 196,
           "quads": 5
         }
       },
@@ -3165,34 +3165,34 @@
       "meshes": {
         "2": {
           "url": "meshes/2/1_2.cvm",
-          "encoding": "gzip",
-          "sha256": "84f5245536e10794a50c78e0bc698a33f4c6c5aa0e7dc9bba5213bd98c21a0f2",
-          "bytes": 2071,
-          "uncompressedBytes": 7724,
+          "encoding": "brotli",
+          "sha256": "b94da3ea444abcdb77d01405f9f7ed0644e8a584c36c631364bec48142cd43d5",
+          "bytes": 602,
+          "uncompressedBytes": 1720,
           "quads": 91
         },
         "4": {
           "url": "meshes/4/1_2.cvm",
-          "encoding": "gzip",
-          "sha256": "acc35330309f0e36c95a6933aee7221142f8d99cd39b2c467e2f169ed60d433a",
-          "bytes": 1043,
-          "uncompressedBytes": 3692,
+          "encoding": "brotli",
+          "sha256": "0b8149fa4cf5cc5f7675b8c241c152a349637c5d93f75818cf8fe8d07752e01c",
+          "bytes": 380,
+          "uncompressedBytes": 945,
           "quads": 43
         },
         "8": {
           "url": "meshes/8/1_2.cvm",
-          "encoding": "gzip",
-          "sha256": "48bfe885d1318d626086dcdf7e0df34b6cb8cfff2519b6e1b07b66044625b326",
-          "bytes": 1141,
-          "uncompressedBytes": 4028,
+          "encoding": "brotli",
+          "sha256": "4f67c7a0178e8a7d809144c1513da223686a22be985a7c60588ebf4d0ca1e960",
+          "bytes": 386,
+          "uncompressedBytes": 1006,
           "quads": 47
         },
         "16": {
           "url": "meshes/16/1_2.cvm",
-          "encoding": "gzip",
-          "sha256": "d6868c5dabbeb87c10c2a96abadb408eafe14665559c93117097f94d6d49ab46",
-          "bytes": 305,
-          "uncompressedBytes": 752,
+          "encoding": "brotli",
+          "sha256": "1f4f1565eac70eca50c81cf710aed6c75a3a5f673812e53426d9d09093a02cb8",
+          "bytes": 205,
+          "uncompressedBytes": 287,
           "quads": 8
         }
       },
@@ -3200,7 +3200,41 @@
       "featureUrl": "features/1_2.json"
     }
   ],
-  "landmarks": [],
+  "landmarks": [
+    {
+      "id": "asilah-medina",
+      "name": "Médina",
+      "sourceId": "osm/node/6210028485",
+      "sourceUrl": "https://www.openstreetmap.org/node/6210028485",
+      "x": 83.64,
+      "y": 39.27,
+      "lat": 35.465531,
+      "lon": -6.0381664,
+      "groundElevation": 15.77
+    },
+    {
+      "id": "asilah-al-qamra",
+      "name": "Tour Al Qamra",
+      "sourceId": "osm/way/1228863463",
+      "sourceUrl": "https://www.openstreetmap.org/way/1228863463",
+      "x": 115.32,
+      "y": 119.75,
+      "lat": 35.4662471,
+      "lon": -6.0377912,
+      "groundElevation": 10.23
+    },
+    {
+      "id": "asilah-palais-rassouni",
+      "name": "Palais Rassouni",
+      "sourceId": "osm/way/1228863452",
+      "sourceUrl": "https://www.openstreetmap.org/way/1228863452",
+      "x": -99.36,
+      "y": 55.77,
+      "lat": 35.465729,
+      "lon": -6.0401752,
+      "groundElevation": 13.07
+    }
+  ],
   "metadata": {
     "buildingCount": 1636,
     "sourceBreakdown": {
@@ -3209,6 +3243,19 @@
     },
     "qualityUrl": "quality.json",
     "featureCatalogUrl": "features.json",
+    "colorCoverage": {
+      "buildingCount": 1636,
+      "roofColorMethods": {
+        "unknown": 18,
+        "imagery-mixed": 1595,
+        "imagery": 23
+      },
+      "wallColorMethods": {
+        "estimated": 1635,
+        "material-estimate": 1
+      },
+      "nativeResolutionM": 10
+    },
     "dataLicense": "ODbL-1.0",
     "imageryIncluded": true,
     "coordinateConvention": "x east, y north; renderer z=-y",
@@ -7230,9 +7277,10 @@
     "en": "Asilah"
   },
   "compiledMeshes": {
-    "format": "CVM1",
-    "version": 1,
-    "encoding": "gzip",
+    "format": "CVM2",
+    "version": 2,
+    "encoding": "brotli",
+    "envelope": "CVB2",
     "levels": [
       2,
       4,
@@ -7247,8 +7295,11 @@
     "exportOnlyLevels": [
       16
     ],
-    "generatorSha256": "7ad1370c170d294780f231deaa8f65bc3f1e8e1f7ba20c2481b5d852720b5b96",
+    "generatorSha256": "220c0293e54ad5224bba46b56f9c06983571b243ecce09cc496d6e805b1348ed",
     "features": "lazy-per-tile",
     "runtimeMeshing": false
-  }
+  },
+  "landmarkConfigSha256": "36633d301296627225ef91e8c8b054ad9e97e02102582d2e60886a1d49417869",
+  "landmarksUpdatedAt": "2026-11-03T16:25:07.477756+00:00",
+  "landmarksSha256": "6937b3cb41ee2b41fa8b2f64c3c039b854c489a97393ba68c251d5751935dbdd"
 }

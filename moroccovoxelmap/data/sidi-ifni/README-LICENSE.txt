@@ -1,6 +1,6 @@
-Casa Voxel — Sidi Ifni — Geographic data / Données géographiques
+MoroccoVoxelMap — Sidi Ifni — Geographic data / Données géographiques
 
-Build / génération: 2026-11-02T23:06:33.964461+00:00
+Build / génération: 2026-11-03T11:30:43.722669+00:00
 
 OpenStreetMap
 © OpenStreetMap contributors
@@ -36,8 +36,8 @@ Licence text / texte: ../../licenses/ODbL-1.0.txt
 GEDTM30 retains CC BY 4.0 attribution; full text: ../../licenses/CC-BY-4.0.txt
 Les altitudes GEDTM30 conservent leur attribution CC BY 4.0.
 
-The normalized database (normalized.geojson.gz), source-manifest.json and tiles in this directory are provided for reuse under these data terms. Preserve attribution, licence references and access to the derived database when redistributing or hosting.
-La base normalisée, les métadonnées de sources et les tuiles sont réutilisables selon ces conditions. Préserver les crédits, licences et l’accès à la base dérivée lors de toute redistribution.
+The normalized database (normalized.geojson.7z), source-manifest.json in this directory are provided for reuse under these data terms. Preserve attribution, licence references and access to the derived database when redistributing or hosting.
+La base normalisée et les métadonnées de sources sont réutilisables selon ces conditions. Préserver les crédits, licences et l’accès à la base dérivée lors de toute redistribution.
 
 Application code is separately MIT licensed. The MIT licence does not relicense geographic data or imagery.
 Le code de l’application est séparément sous MIT ; cette licence ne s’applique pas aux données géographiques ni aux images.

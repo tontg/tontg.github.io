@@ -1,0 +1,97 @@
+{
+  "profile": "full",
+  "region": "greater-casablanca",
+  "builtAt": "2026-11-03T13:52:26.070345+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -4855.575472004362,
+    "minY": -5938.941703286022,
+    "maxX": 4861.352399852243,
+    "maxY": 5941.466148712207
+  },
+  "buildingCount": 65802,
+  "sourceBreakdown": {
+    "openstreetmap": 30831,
+    "microsoft": 34971
+  },
+  "heightMethods": {
+    "estimated": 61128,
+    "mapped": 712,
+    "levels": 3962
+  },
+  "estimatedHeightCount": 65090,
+  "mappedOrCuratedHeightCount": 712,
+  "wallColorMethods": {
+    "estimated": 65584,
+    "curated": 2,
+    "mapped": 214,
+    "material-estimate": 2
+  },
+  "roofColorMethods": {
+    "imagery-mixed": 63924,
+    "curated": 3,
+    "unknown": 622,
+    "mapped": 8,
+    "imagery": 1245
+  },
+  "courtyardBuildings": 138,
+  "buildingParts": 111,
+  "roads": 23493,
+  "mappedTreeLocations": 1708,
+  "groundPolygons": 1323,
+  "tiles": 168,
+  "tileBytes": 74535532,
+  "audit": {
+    "outOfExtentGeometryExcluded": 2017,
+    "emptyOrSmallGeometryDiscarded": 58,
+    "osmBuildingsBeforeConflation": 30855,
+    "buildingOutlinesTrimmedForParts": 60,
+    "buildingOutlinesReplacedByParts": 24,
+    "microsoftAvailable": true,
+    "microsoftFootprintsInExtent": 62950,
+    "microsoftMissingHeight": 35006,
+    "microsoftOverlappingOsmRemoved": 27944,
+    "invalidGeometryRepaired": 4,
+    "microsoftOverlappingFootprintsTrimmed": 1729,
+    "oceanAreaM2": 12877520,
+    "coastlineAvailable": true
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-11-01"
+    ],
+    "sampledRoofs": 1245,
+    "mixedPixelRoofs": 63924,
+    "unknownRoofs": 622,
+    "samplingVersion": 3,
+    "nativeResolutionM": 10,
+    "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SPT_20261102T152046.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": -16,
+    "minElevation": -8.84,
+    "maxElevation": 171.85,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 265,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 0.9891796601926993
+}

@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "marrakech",
-  "builtAt": "2026-11-02T23:05:13.153839+00:00",
+  "builtAt": "2026-11-03T11:27:50.521491+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -1413.5318124942714,
@@ -26,9 +26,10 @@
     "mapped": 66
   },
   "roofColorMethods": {
-    "imagery-palette": 19784,
+    "imagery-mixed": 19667,
     "mapped": 47,
-    "imagery": 58
+    "imagery": 58,
+    "unknown": 117
   },
   "courtyardBuildings": 576,
   "buildingParts": 48,
@@ -36,7 +37,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 200,
   "tiles": 64,
-  "tileBytes": 16314402,
+  "tileBytes": 20548992,
   "audit": {
     "outOfExtentGeometryExcluded": 951,
     "emptyOrSmallGeometryDiscarded": 18,
@@ -59,36 +60,17 @@
       "2026-11-01"
     ],
     "sampledRoofs": 58,
-    "paletteStyledRoofs": 19784,
-    "regionalRoofPalette": [
-      {
-        "color": "#a47859",
-        "sourceRoofSamples": 9
-      },
-      {
-        "color": "#ae8266",
-        "sourceRoofSamples": 10
-      },
-      {
-        "color": "#bc9b78",
-        "sourceRoofSamples": 10
-      },
-      {
-        "color": "#d2a47f",
-        "sourceRoofSamples": 9
-      },
-      {
-        "color": "#e2af84",
-        "sourceRoofSamples": 10
-      },
-      {
-        "color": "#fccc9e",
-        "sourceRoofSamples": 10
-      }
-    ],
+    "mixedPixelRoofs": 19667,
+    "unknownRoofs": 117,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SNR_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

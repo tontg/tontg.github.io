@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "merzouga",
-  "builtAt": "2026-11-02T23:05:39.121586+00:00",
+  "builtAt": "2026-11-03T11:28:30.662906+00:00",
   "crs": "EPSG:32630",
   "bounds": {
     "minX": -807.7752451407723,
@@ -23,8 +23,9 @@
     "estimated": 232
   },
   "roofColorMethods": {
-    "imagery-palette": 217,
-    "imagery": 15
+    "imagery-mixed": 216,
+    "imagery": 15,
+    "unknown": 1
   },
   "courtyardBuildings": 1,
   "buildingParts": 0,
@@ -32,7 +33,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 6,
   "tiles": 26,
-  "tileBytes": 326239,
+  "tileBytes": 378308,
   "audit": {
     "outOfExtentGeometryExcluded": 17,
     "osmBuildingsBeforeConflation": 232,
@@ -46,24 +47,17 @@
       "2026-10-26"
     ],
     "sampledRoofs": 15,
-    "paletteStyledRoofs": 217,
-    "regionalRoofPalette": [
-      {
-        "color": "#f5be86",
-        "sourceRoofSamples": 5
-      },
-      {
-        "color": "#ffca92",
-        "sourceRoofSamples": 5
-      },
-      {
-        "color": "#ffe4aa",
-        "sourceRoofSamples": 5
-      }
-    ],
+    "mixedPixelRoofs": 216,
+    "unknownRoofs": 1,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261026T105131_N0513_R051_T30RUV_20261026T154859.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

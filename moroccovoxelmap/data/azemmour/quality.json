@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "azemmour",
-  "builtAt": "2026-11-02T23:04:11.137304+00:00",
+  "builtAt": "2026-11-03T08:53:58.786948+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -805.4597200485878,
@@ -30,7 +30,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 8,
   "tiles": 24,
-  "tileBytes": 195065,
+  "tileBytes": 195337,
   "audit": {
     "osmBuildingsBeforeConflation": 2,
     "microsoftAvailable": true,
@@ -43,11 +43,17 @@
       "2026-11-01"
     ],
     "sampledRoofs": 2,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "mixedPixelRoofs": 0,
+    "unknownRoofs": 0,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T29SNS_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

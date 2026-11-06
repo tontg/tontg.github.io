@@ -1,169 +1,262 @@
-Casa Voxel static tabletop AR models
+MoroccoVoxelMap static tabletop AR models
 
-These stored, 64-byte-aligned USDZ archives contain a model.usda layer and a packaged sRGB PNG diffuse atlas. Source provenance, acquisition dates, source terms and full MIT/ODbL/CDLA/CC-BY notices are embedded in customLayerData. No external assets are required for rendering.
+These stored, 64-byte-aligned USDZ archives contain a native USD layer and packaged sRGB PNG diffuse atlas pages. The default binary USDC layer uses lossless OpenUSD crate compression; diagnostic USDA text remains supported. Source provenance, acquisition dates, source terms and full MIT/ODbL/CDLA/CC-BY notices are embedded in customLayerData. No external assets are required for rendering.
 
 Casablanca: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/normalized.geojson.7z
 Source provenance: ../data/source-manifest.json
-Uses complete 16 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Agadir: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/agadir/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/agadir/normalized.geojson.7z
 Source provenance: ../data/agadir/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Aït Ben Haddou: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/ait-ben-haddou/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/ait-ben-haddou/normalized.geojson.7z
 Source provenance: ../data/ait-ben-haddou/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Al Hoceïma: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/al-hoceima/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/al-hoceima/normalized.geojson.7z
 Source provenance: ../data/al-hoceima/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Asilah: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/asilah/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/asilah/normalized.geojson.7z
 Source provenance: ../data/asilah/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Azemmour: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/azemmour/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/azemmour/normalized.geojson.7z
 Source provenance: ../data/azemmour/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
+Boujdour: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/boujdour/normalized.geojson.7z
+Source provenance: ../data/boujdour/source-manifest.json
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
 Casablanca Finance City: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/cfc/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/cfc/normalized.geojson.7z
 Source provenance: ../data/cfc/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Chefchaouen: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/chefchaouen/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/chefchaouen/normalized.geojson.7z
 Source provenance: ../data/chefchaouen/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
-Dakhla: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/dakhla/normalized.geojson.gz
+Gorges du Dadès: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/dades-gorge/normalized.geojson.7z
+Source provenance: ../data/dades-gorge/source-manifest.json
+Uses complete 16 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Dakhla: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/dakhla/normalized.geojson.7z
 Source provenance: ../data/dakhla/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Vallée du Drâa — Agdz et Tamnougalt: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/draa-valley/normalized.geojson.7z
+Source provenance: ../data/draa-valley/source-manifest.json
+Uses complete 16 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 El Jadida: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/el-jadida/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/el-jadida/normalized.geojson.7z
 Source provenance: ../data/el-jadida/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Erg Chigaga: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/erg-chigaga/normalized.geojson.7z
+Source provenance: ../data/erg-chigaga/source-manifest.json
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Essaouira: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/essaouira/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/essaouira/normalized.geojson.7z
 Source provenance: ../data/essaouira/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Fès: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/fes/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/fes/normalized.geojson.7z
 Source provenance: ../data/fes/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
-Figuig: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/figuig/normalized.geojson.gz
-Source provenance: ../data/figuig/source-manifest.json
-Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Grand Casablanca: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/greater-casablanca/normalized.geojson.7z
+Source provenance: ../data/greater-casablanca/source-manifest.json
+Uses complete 32 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
-Ifrane: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/ifrane/normalized.geojson.gz
+Ifrane: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/ifrane/normalized.geojson.7z
 Source provenance: ../data/ifrane/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Kénitra: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/kenitra/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/kenitra/normalized.geojson.7z
 Source provenance: ../data/kenitra/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Laâyoune: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/laayoune/normalized.geojson.7z
+Source provenance: ../data/laayoune/source-manifest.json
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Marrakech: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/marrakech/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/marrakech/normalized.geojson.7z
 Source provenance: ../data/marrakech/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Meknès: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/meknes/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/meknes/normalized.geojson.7z
 Source provenance: ../data/meknes/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Merzouga: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/merzouga/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/merzouga/normalized.geojson.7z
 Source provenance: ../data/merzouga/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
+Mohammedia: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/mohammedia/normalized.geojson.7z
+Source provenance: ../data/mohammedia/source-manifest.json
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
 Moulay Idriss Zerhoun: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/moulay-idriss-zerhoun/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/moulay-idriss-zerhoun/normalized.geojson.7z
 Source provenance: ../data/moulay-idriss-zerhoun/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Ouarzazate: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/ouarzazate/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/ouarzazate/normalized.geojson.7z
 Source provenance: ../data/ouarzazate/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Oujda: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/oujda/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/oujda/normalized.geojson.7z
 Source provenance: ../data/oujda/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Rabat: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/rabat/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/rabat/normalized.geojson.7z
 Source provenance: ../data/rabat/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Safi: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/safi/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/safi/normalized.geojson.7z
 Source provenance: ../data/safi/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Salé: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/sale/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/sale/normalized.geojson.7z
 Source provenance: ../data/sale/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Sidi Ifni: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/sidi-ifni/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/sidi-ifni/normalized.geojson.7z
 Source provenance: ../data/sidi-ifni/source-manifest.json
-Uses complete 4 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Sidi Maârouf: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/sidi-maarouf/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/sidi-maarouf/normalized.geojson.7z
 Source provenance: ../data/sidi-maarouf/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Smara: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/smara/normalized.geojson.7z
+Source provenance: ../data/smara/source-manifest.json
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Tafraoute — vallée des Ameln: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/tafraoute-ameln/normalized.geojson.7z
+Source provenance: ../data/tafraoute-ameln/source-manifest.json
+Uses complete 32 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Taghazout: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/taghazout/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/taghazout/normalized.geojson.7z
 Source provenance: ../data/taghazout/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Tanger: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/tanger/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/tanger/normalized.geojson.7z
 Source provenance: ../data/tanger/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Taroudant: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/taroudant/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/taroudant/normalized.geojson.7z
 Source provenance: ../data/taroudant/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 8 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Tétouan: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/tetouan/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/tetouan/normalized.geojson.7z
 Source provenance: ../data/tetouan/source-manifest.json
-Uses complete 8 m baked LOD to meet the byte budget; small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+Uses complete 4 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
+Haut Atlas — Tizi n’Tichka: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/tizi-n-tichka/normalized.geojson.7z
+Source provenance: ../data/tizi-n-tichka/source-manifest.json
+Uses complete 16 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Tiznit: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/tiznit/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/tiznit/normalized.geojson.7z
 Source provenance: ../data/tiznit/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
+Gorges du Todra: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.
+Layer: model.usdc
+Derived database: ../data/todra-gorge/normalized.geojson.7z
+Source provenance: ../data/todra-gorge/source-manifest.json
+Uses complete 16 m baked LOD within the byte budget and explicit compile-work limits; see attempts. Small footprints may be absent at this voxel resolution. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
+
 Volubilis: © OpenStreetMap contributors; Microsoft Global ML Building Footprints, CDLA Permissive 2.0; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/volubilis/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/volubilis/normalized.geojson.7z
 Source provenance: ../data/volubilis/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 
 Zagora: © OpenStreetMap contributors; Contains modified Copernicus Sentinel data 2026; GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.
-Derived database: ../data/zagora/normalized.geojson.gz
+Layer: model.usdc
+Derived database: ../data/zagora/normalized.geojson.7z
 Source provenance: ../data/zagora/source-manifest.json
 Uses complete 2 m baked LOD. No geographic cropping or palette clustering; sRGB8 texture encoding has at most 0.0045 linear RGB error at face corners. Baked ambient occlusion is resampled to a padded texture; interactive facade shading, lighting modes, labels and selections are omitted.
 

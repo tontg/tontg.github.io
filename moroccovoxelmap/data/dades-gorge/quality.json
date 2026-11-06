@@ -1,0 +1,78 @@
+{
+  "profile": "full",
+  "region": "dades-gorge",
+  "builtAt": "2026-11-05T18:34:25.065378+00:00",
+  "crs": "EPSG:32630",
+  "bounds": {
+    "minX": -2287.406792630267,
+    "minY": -2110.9897514097393,
+    "maxX": 2286.5308902591933,
+    "maxY": 2111.5139323323965
+  },
+  "buildingCount": 11,
+  "sourceBreakdown": {
+    "openstreetmap": 11
+  },
+  "heightMethods": {
+    "estimated": 11
+  },
+  "estimatedHeightCount": 11,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 11
+  },
+  "roofColorMethods": {
+    "imagery-mixed": 11
+  },
+  "courtyardBuildings": 0,
+  "buildingParts": 0,
+  "roads": 15,
+  "mappedTreeLocations": 0,
+  "groundPolygons": 0,
+  "tiles": 142,
+  "tileBytes": 536710,
+  "audit": {
+    "outOfExtentGeometryExcluded": 1,
+    "osmBuildingsBeforeConflation": 11,
+    "microsoftAvailable": false,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-09-24"
+    ],
+    "sampledRoofs": 0,
+    "mixedPixelRoofs": 11,
+    "unknownRoofs": 0,
+    "samplingVersion": 3,
+    "nativeResolutionM": 10,
+    "productId": "S2B_MSIL2A_20260924T105709_N0513_R094_T29RQQ_20260924T150018.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 1664,
+    "minElevation": 1664.36,
+    "maxElevation": 2452.83,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

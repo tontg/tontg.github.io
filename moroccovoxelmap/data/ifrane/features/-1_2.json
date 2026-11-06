@@ -1,1 +1,1 @@
-{"schemaVersion":1,"features":[]}
+{"schemaVersion":1,"features":[{"id":"osm/way/1271419453","name":"Masjid Abou Bakr Seddik","source":"openstreetmap","sourceUrl":"https://www.openstreetmap.org/way/1271419453","height":12.4,"minHeight":0,"heightMethod":"estimated","minHeightMethod":"ground","colorMethod":"estimated","roofColorMethod":"imagery","lat":33.5401314,"lon":-5.1185659,"groundElevation":1618.06,"groundElevationMethod":"terrain-median","groundElevationSource":"gedtm30","x":-132.188,"y":845.9960000000001}]}

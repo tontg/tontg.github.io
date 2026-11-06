@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "agadir",
-  "builtAt": "2026-11-02T23:03:59.266391+00:00",
+  "builtAt": "2026-11-03T08:53:44.699592+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -1408.241196984658,
@@ -26,7 +26,8 @@
   },
   "roofColorMethods": {
     "imagery": 51,
-    "imagery-palette": 6252
+    "imagery-mixed": 6191,
+    "unknown": 61
   },
   "courtyardBuildings": 37,
   "buildingParts": 10,
@@ -34,7 +35,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 396,
   "tiles": 64,
-  "tileBytes": 5834913,
+  "tileBytes": 7203909,
   "audit": {
     "outOfExtentGeometryExcluded": 1752,
     "emptyOrSmallGeometryDiscarded": 4,
@@ -51,36 +52,17 @@
       "2026-10-25"
     ],
     "sampledRoofs": 51,
-    "paletteStyledRoofs": 6252,
-    "regionalRoofPalette": [
-      {
-        "color": "#ba9370",
-        "sourceRoofSamples": 8
-      },
-      {
-        "color": "#d3aa86",
-        "sourceRoofSamples": 9
-      },
-      {
-        "color": "#debd9b",
-        "sourceRoofSamples": 8
-      },
-      {
-        "color": "#eec8a1",
-        "sourceRoofSamples": 9
-      },
-      {
-        "color": "#fed6aa",
-        "sourceRoofSamples": 8
-      },
-      {
-        "color": "#ffedc7",
-        "sourceRoofSamples": 9
-      }
-    ],
+    "mixedPixelRoofs": 6191,
+    "unknownRoofs": 61,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261025T112141_N0513_R037_T29RMP_20261025T142809.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

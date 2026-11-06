@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "asilah",
-  "builtAt": "2026-11-02T23:04:10.010263+00:00",
+  "builtAt": "2026-11-03T08:53:57.705753+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -824.7866537402151,
@@ -21,10 +21,11 @@
   "mappedOrCuratedHeightCount": 0,
   "wallColorMethods": {
     "estimated": 1635,
-    "mapped": 1
+    "material-estimate": 1
   },
   "roofColorMethods": {
-    "imagery-palette": 1613,
+    "unknown": 18,
+    "imagery-mixed": 1595,
     "imagery": 23
   },
   "courtyardBuildings": 4,
@@ -33,7 +34,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 15,
   "tiles": 26,
-  "tileBytes": 1522196,
+  "tileBytes": 1874240,
   "audit": {
     "outOfExtentGeometryExcluded": 83,
     "osmBuildingsBeforeConflation": 200,
@@ -54,32 +55,17 @@
       "2026-10-24"
     ],
     "sampledRoofs": 23,
-    "paletteStyledRoofs": 1613,
-    "regionalRoofPalette": [
-      {
-        "color": "#aa624e",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#bc8663",
-        "sourceRoofSamples": 5
-      },
-      {
-        "color": "#b69374",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#e29c78",
-        "sourceRoofSamples": 5
-      },
-      {
-        "color": "#f2bc8a",
-        "sourceRoofSamples": 5
-      }
-    ],
+    "mixedPixelRoofs": 1595,
+    "unknownRoofs": 18,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2A_MSIL2A_20261024T111101_N0513_R137_T29SQV_20261024T174906.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

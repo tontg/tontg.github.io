@@ -1,0 +1,83 @@
+{
+  "profile": "full",
+  "region": "laayoune",
+  "builtAt": "2026-11-03T14:01:31.601826+00:00",
+  "crs": "EPSG:32628",
+  "bounds": {
+    "minX": -1507.8194496987853,
+    "minY": -1516.9317125771195,
+    "maxX": 1508.1747915778542,
+    "maxY": 1517.1266787219793
+  },
+  "buildingCount": 5737,
+  "sourceBreakdown": {
+    "openstreetmap": 5737
+  },
+  "heightMethods": {
+    "estimated": 5698,
+    "levels": 39
+  },
+  "estimatedHeightCount": 5737,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 5698,
+    "mapped": 39
+  },
+  "roofColorMethods": {
+    "imagery-mixed": 5166,
+    "imagery": 72,
+    "unknown": 499
+  },
+  "courtyardBuildings": 1,
+  "buildingParts": 0,
+  "roads": 1210,
+  "mappedTreeLocations": 0,
+  "groundPolygons": 67,
+  "tiles": 64,
+  "tileBytes": 6046324,
+  "audit": {
+    "outOfExtentGeometryExcluded": 914,
+    "emptyOrSmallGeometryDiscarded": 3,
+    "osmBuildingsBeforeConflation": 5737,
+    "microsoftAvailable": false,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-10-03"
+    ],
+    "sampledRoofs": 72,
+    "mixedPixelRoofs": 5166,
+    "unknownRoofs": 499,
+    "samplingVersion": 3,
+    "nativeResolutionM": 10,
+    "productId": "S2B_MSIL2A_20261003T113319_N0513_R080_T28RFR_20261003T165743.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 8,
+    "minElevation": 10.11,
+    "maxElevation": 79.36,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

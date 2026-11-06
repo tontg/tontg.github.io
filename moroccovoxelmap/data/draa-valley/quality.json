@@ -1,0 +1,81 @@
+{
+  "profile": "full",
+  "region": "draa-valley",
+  "builtAt": "2026-11-05T18:38:17.776491+00:00",
+  "crs": "EPSG:32629",
+  "bounds": {
+    "minX": -4811.110241701594,
+    "minY": -3101.8848444400355,
+    "maxX": 4813.792095186538,
+    "maxY": 3104.10505137546
+  },
+  "buildingCount": 199,
+  "sourceBreakdown": {
+    "openstreetmap": 199
+  },
+  "heightMethods": {
+    "estimated": 192,
+    "levels": 7
+  },
+  "estimatedHeightCount": 199,
+  "mappedOrCuratedHeightCount": 0,
+  "wallColorMethods": {
+    "estimated": 199
+  },
+  "roofColorMethods": {
+    "imagery-mixed": 190,
+    "imagery": 4,
+    "unknown": 5
+  },
+  "courtyardBuildings": 0,
+  "buildingParts": 0,
+  "roads": 745,
+  "mappedTreeLocations": 0,
+  "groundPolygons": 1,
+  "tiles": 96,
+  "tileBytes": 1342083,
+  "audit": {
+    "outOfExtentGeometryExcluded": 10,
+    "osmBuildingsBeforeConflation": 199,
+    "microsoftAvailable": false,
+    "coastlineAvailable": false
+  },
+  "imagery": {
+    "included": true,
+    "source": "Copernicus Sentinel-2 via Element 84 Earth Search",
+    "acquisitionDates": [
+      "2026-09-24"
+    ],
+    "sampledRoofs": 4,
+    "mixedPixelRoofs": 190,
+    "unknownRoofs": 5,
+    "samplingVersion": 3,
+    "nativeResolutionM": 10,
+    "productId": "S2B_MSIL2A_20260924T105709_N0513_R094_T29RQQ_20260924T150018.SAFE",
+    "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
+  },
+  "terrain": {
+    "included": true,
+    "datum": "EGM2008",
+    "units": "metre",
+    "baseElevation": 880,
+    "minElevation": 895.09,
+    "maxElevation": 1506.36,
+    "resolutionM": 30,
+    "sourceId": "gedtm30",
+    "sourceUrl": "https://zenodo.org/records/18887460",
+    "release": "v1.2.0",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "method": "GEDTM30 v1.2 bare-earth estimates, bilinear projected display interpolation; ocean at 0 m, mapped standing water at local median; rivers follow terrain.",
+    "apronExtendedNodataSamples": 0,
+    "buildingGroundMethod": "Median terrain samples within each footprint, plus representative-point interpolation. Estimated ground anchor, not a surveyed entrance or floor elevation."
+  },
+  "completeness": "Not measured. No citywide completeness or confidence percentage is claimed.",
+  "estimatedHeightFraction": 1.0
+}

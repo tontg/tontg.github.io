@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "sidi-ifni",
-  "builtAt": "2026-11-02T23:06:33.964461+00:00",
+  "builtAt": "2026-11-03T11:30:43.722669+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -909.5289007024257,
@@ -22,7 +22,8 @@
     "estimated": 55
   },
   "roofColorMethods": {
-    "estimated": 54,
+    "imagery-mixed": 52,
+    "unknown": 2,
     "imagery": 1
   },
   "courtyardBuildings": 2,
@@ -31,7 +32,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 6,
   "tiles": 36,
-  "tileBytes": 221014,
+  "tileBytes": 238743,
   "audit": {
     "outOfExtentGeometryExcluded": 3,
     "osmBuildingsBeforeConflation": 55,
@@ -46,11 +47,17 @@
       "2026-10-25"
     ],
     "sampledRoofs": 1,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "mixedPixelRoofs": 52,
+    "unknownRoofs": 2,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261025T112141_N0513_R037_T29RLN_20261025T142809.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

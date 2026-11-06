@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "essaouira",
-  "builtAt": "2026-11-02T23:04:32.927262+00:00",
+  "builtAt": "2026-11-03T08:54:34.221289+00:00",
   "crs": "EPSG:32629",
   "bounds": {
     "minX": -906.864327568328,
@@ -25,9 +25,10 @@
     "mapped": 10
   },
   "roofColorMethods": {
-    "imagery-palette": 203,
+    "imagery-mixed": 193,
+    "unknown": 11,
     "imagery": 25,
-    "mapped": 2
+    "mapped": 1
   },
   "courtyardBuildings": 10,
   "buildingParts": 0,
@@ -35,7 +36,7 @@
   "mappedTreeLocations": 31,
   "groundPolygons": 53,
   "tiles": 36,
-  "tileBytes": 450304,
+  "tileBytes": 498842,
   "audit": {
     "outOfExtentGeometryExcluded": 66,
     "osmBuildingsBeforeConflation": 230,
@@ -50,36 +51,17 @@
       "2026-10-30"
     ],
     "sampledRoofs": 25,
-    "paletteStyledRoofs": 203,
-    "regionalRoofPalette": [
-      {
-        "color": "#a28373",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#c19e82",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#d4a485",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#e1b590",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#e6c09f",
-        "sourceRoofSamples": 4
-      },
-      {
-        "color": "#fcd7b7",
-        "sourceRoofSamples": 5
-      }
-    ],
+    "mixedPixelRoofs": 193,
+    "unknownRoofs": 11,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2B_MSIL2A_20261030T112209_N0513_R037_T29RMQ_20261030T140107.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

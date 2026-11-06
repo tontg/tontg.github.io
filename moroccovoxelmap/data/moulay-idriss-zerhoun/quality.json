@@ -1,7 +1,7 @@
 {
   "profile": "full",
   "region": "moulay-idriss-zerhoun",
-  "builtAt": "2026-11-02T23:05:40.673219+00:00",
+  "builtAt": "2026-11-03T11:28:34.527532+00:00",
   "crs": "EPSG:32630",
   "bounds": {
     "minX": -717.9578849305399,
@@ -24,7 +24,8 @@
   },
   "roofColorMethods": {
     "imagery": 3,
-    "estimated": 1077
+    "unknown": 10,
+    "imagery-mixed": 1067
   },
   "courtyardBuildings": 3,
   "buildingParts": 0,
@@ -32,7 +33,7 @@
   "mappedTreeLocations": 0,
   "groundPolygons": 10,
   "tiles": 16,
-  "tileBytes": 888959,
+  "tileBytes": 1216752,
   "audit": {
     "outOfExtentGeometryExcluded": 1,
     "osmBuildingsBeforeConflation": 128,
@@ -50,11 +51,17 @@
       "2026-11-01"
     ],
     "sampledRoofs": 3,
-    "paletteStyledRoofs": 0,
-    "regionalRoofPalette": [],
+    "mixedPixelRoofs": 1067,
+    "unknownRoofs": 10,
+    "samplingVersion": 3,
     "nativeResolutionM": 10,
     "productId": "S2C_MSIL2A_20261101T111211_N0513_R137_T30STC_20261102T152046.SAFE",
     "attribution": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "facadeStyling": {
+    "included": false,
+    "method": "curated-zone",
+    "zones": []
   },
   "terrain": {
     "included": true,

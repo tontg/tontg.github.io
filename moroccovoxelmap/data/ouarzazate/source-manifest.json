@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-02T23:05:42.791906+00:00",
+  "builtAt": "2026-11-03T11:28:41.924715+00:00",
   "sources": [
     {
       "id": "openstreetmap",
@@ -87,46 +87,29 @@
         10.0
       ],
       "id": "local-imagery",
-      "importedAt": "2026-11-02T22:29:22.632249+00:00",
+      "importedAt": "2026-11-03T11:28:37.713959+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "03c00b1cbc338ccc75f5942b273d8685713f958a2a89f81ca88e986f287b807a",
       "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b",
       "sourceChecksums": {
         "openstreetmap": "f135bfae0f8f37f759f8234836f1e676c89809cb13259b9fe1551ab19b886f7a"
       },
       "sampledRoofCount": 31,
+      "mixedPixelRoofCount": 1929,
+      "sampledBuildingCount": 1960,
       "skipped": {
-        "smallRoofs": 1930,
         "outsideRaster": 0,
-        "insufficientValidPixels": 0,
+        "insufficientValidPixels": 1,
         "mappedOrCuratedRoof": 0
       },
-      "regionalRoofPalette": [
-        {
-          "color": "#846445",
-          "sourceRoofSamples": 5
-        },
-        {
-          "color": "#b07c53",
-          "sourceRoofSamples": 5
-        },
-        {
-          "color": "#ba8560",
-          "sourceRoofSamples": 5
-        },
-        {
-          "color": "#c89469",
-          "sourceRoofSamples": 5
-        },
-        {
-          "color": "#e6a877",
-          "sourceRoofSamples": 5
-        },
-        {
-          "color": "#f7b67e",
-          "sourceRoofSamples": 6
-        }
-      ],
-      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
-      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+      "directSampleRejections": {
+        "smallRoofs": 1929,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 1
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "1886ec06d743ad7b23d284426109e435660f176423d53f690d6af37502d990e1"
     },
     {
       "id": "gedtm30",
@@ -189,5 +172,8 @@
   "derivedDatabaseLicense": "ODbL-1.0",
   "outputProfile": "full",
   "region": "ouarzazate",
-  "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b"
+  "configSha256": "7814ee97162b221dc444dea82df8586f16b619518abf03a248324796c5ef0c3b",
+  "landmarkConfigSha256": "a34a9880f5611d62eff422553fc5af39bf5098150d48caad330d17dc6fae7fb4",
+  "landmarksUpdatedAt": "2026-11-03T16:25:10.160335+00:00",
+  "landmarksSha256": "368e44f8f522f4002fffaae2aafcfbaa81e3f0a168e04cfb13c933a6dab1c82b"
 }

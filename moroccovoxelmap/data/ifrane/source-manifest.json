@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
-  "builtAt": "2026-11-02T23:04:47.461491+00:00",
+  "builtAt": "2026-11-03T13:53:57.867047+00:00",
   "sources": [
     {
       "id": "openstreetmap",
       "name": "OpenStreetMap",
-      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-5.117739783553942%2C33.51870579609134%2C-5.094264563504049%2C33.53829404025489",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-5.140312662577178%2C33.51690231244393%2C-5.0937018125581215%2C33.548097476277",
       "sourceUrl": "https://www.openstreetmap.org/copyright",
       "license": "ODbL-1.0",
       "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
       "attribution": "© OpenStreetMap contributors",
-      "downloadedAt": "2026-11-02T22:07:12.868606+00:00",
+      "downloadedAt": "2026-11-03T13:53:47.234370+00:00",
       "snapshotAt": null,
-      "responseDate": "Mon, 02 Nov 2026 22:07:12 GMT",
+      "responseDate": "Tue, 03 Nov 2026 13:53:42 GMT",
       "requestKind": "osm-map-api",
       "acquisitionMethod": "osm-map-api",
       "apiVersion": "0.6",
-      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-5.117739783553942%2C33.51870579609134%2C-5.094264563504049%2C33.53829404025489",
-      "equivalentOverpassQuery": "[out:json][timeout:180];(way(33.5187058,-5.1177398,33.5382940,-5.0942646);relation[type=multipolygon](33.5187058,-5.1177398,33.5382940,-5.0942646);node[name](33.5187058,-5.1177398,33.5382940,-5.0942646););out body geom;",
-      "querySha256": "a1572898b0d9ab962ce8848da0df727dc45a11ddb02a7cf303224b977d56da8b",
-      "sha256": "48ccdd40a11c01b602b726e6cd7a0a2478793a88935485cd3b51c16be96a7e6d",
-      "bytes": 704776,
+      "requestDescription": "GET https://api.openstreetmap.org/api/0.6/map?bbox=-5.140312662577178%2C33.51690231244393%2C-5.0937018125581215%2C33.548097476277",
+      "equivalentOverpassQuery": "[out:json][timeout:180];(way(33.5169023,-5.1403127,33.5480975,-5.0937018);relation[type=multipolygon](33.5169023,-5.1403127,33.5480975,-5.0937018);node[name](33.5169023,-5.1403127,33.5480975,-5.0937018););out body geom;",
+      "querySha256": "ee68952fdfeb9b0488c46e640158f986f1a9d36636904d781b4d475e0e92f669",
+      "sha256": "09b47592671fc0927848f56262b6b98608a134f91c3816efa427683af125aba1",
+      "bytes": 1532990,
       "boundsWgs84": [
-        33.51870579609134,
-        -5.117739783553942,
-        33.53829404025489,
-        -5.094264563504049
+        33.51690231244393,
+        -5.140312662577178,
+        33.548097476277,
+        -5.0937018125581215
       ],
       "cachePath": "data/raw/ifrane/osm-casablanca.json",
       "region": "ifrane"
@@ -48,7 +48,7 @@
       "license": "Copernicus Sentinel data licence",
       "licenseUrl": "https://cds.climate.copernicus.eu/licences/ec-sentinel",
       "attribution": "Contains modified Copernicus Sentinel data 2026",
-      "downloadedAt": "2026-11-02T22:20:54.322007+00:00",
+      "downloadedAt": "2026-11-03T13:53:52.618965+00:00",
       "crs": "EPSG:32630",
       "nativeResolutionM": 10,
       "productKind": "documented-true-colour",
@@ -66,20 +66,20 @@
       "gamma": 1,
       "processingNotes": "Provider-documented 8-bit true-colour image (TCI), RGB from Sentinel-2 B4/B3/B2; native 10 m COG windows only, no artificial upsampling, scale=1/offset=0/gamma=1 for this display-ready product. Nearest-neighbour 20 m scene classification mask retains only classes 4 (vegetation), 5 (non-vegetated land) and 6 (water), rejecting cloud, cirrus, shadow, snow, defective and unclassified pixels. This is a single acquisition, not a composite; local cloud masking is imperfect. Roof sampling separately requires large interior areas and never infers facade colours.",
       "sceneCloudCoverPercent": 3.84075,
-      "localValidPixelFraction": 1.0,
+      "localValidPixelFraction": 0.9997706947947719,
       "maskNativeResolutionM": 20.0,
       "areaBoundsWgs84": [
-        -5.117739783553942,
-        33.51870579609134,
-        -5.094264563504049,
-        33.53829404025489
+        -5.140312662577178,
+        33.51690231244393,
+        -5.0937018125581215,
+        33.548097476277
       ],
-      "areaConfigSha256": "1a488c2dd3bdb71edd79f8bf831ce157f17dd134ef91e1269476a2daaa98fdf1",
+      "areaConfigSha256": "91b27ffed7ab3158410ff742d213e7167ea0c43d560dede7a13a96dadd5e337c",
       "region": "ifrane",
-      "sha256": "3f87cb631ee88fe808444f5190ad77c1d72fd0d0b6afb1e3cd8df9b9f60eaff9",
-      "bytes": 123764,
-      "width": 224,
-      "height": 223,
+      "sha256": "d432d0145d5f5e39cc43a8d33e2069826207446f8444cd266ead6a27b079cdf6",
+      "bytes": 373918,
+      "width": 441,
+      "height": 356,
       "registryUrl": "https://registry.opendata.aws/sentinel-2-l2a-cogs/",
       "rasterCrs": "EPSG:32630",
       "rasterResolution": [
@@ -87,21 +87,29 @@
         10.0
       ],
       "id": "local-imagery",
-      "importedAt": "2026-11-02T22:20:54.501062+00:00",
-      "configSha256": "4820b46b9b68da5e26a9cb0e1a7a9497f217c9a89ee1ff35772df7c0a1794772",
+      "importedAt": "2026-11-03T13:53:53.466520+00:00",
+      "samplingVersion": 3,
+      "sourceMetadataSha256": "f710138cb3ac8402c9172986e1e1f1442460adba44e0f255bbf3740199e07185",
+      "configSha256": "ce2682f2a73b67484995e92c122e5d1c22444a59f6ade35e9c16f5ff4a8980c6",
       "sourceChecksums": {
-        "openstreetmap": "48ccdd40a11c01b602b726e6cd7a0a2478793a88935485cd3b51c16be96a7e6d"
+        "openstreetmap": "09b47592671fc0927848f56262b6b98608a134f91c3816efa427683af125aba1"
       },
-      "sampledRoofCount": 6,
+      "sampledRoofCount": 17,
+      "mixedPixelRoofCount": 740,
+      "sampledBuildingCount": 757,
       "skipped": {
-        "smallRoofs": 359,
         "outsideRaster": 0,
-        "insufficientValidPixels": 0,
+        "insufficientValidPixels": 2,
         "mappedOrCuratedRoof": 0
       },
-      "regionalRoofPalette": [],
-      "regionalPaletteMethod": "Luminance-ordered quantile medians of observed large-roof interior colours; stable-ID assignment to other roofs is estimated regional styling, not an observed individual roof colour.",
-      "limitations": "Native pixel resolution is not improved by resampling. Roof colours do not describe facade colours. Shadow rejection is incomplete."
+      "directSampleRejections": {
+        "smallRoofs": 739,
+        "outsideRaster": 0,
+        "insufficientValidPixels": 3
+      },
+      "spatialSamplingMethod": "At least four valid roof-interior pixels: median RGB. Otherwise: the single native pixel containing the footprint representative point. No neighbour search or palette assignment.",
+      "limitations": "Mixed native pixels can include streets, vegetation and other roofs; they are not individual roof measurements. Roof colours do not describe facade colours. Shadow/cloud rejection is incomplete. Missing or invalid pixels remain unobserved.",
+      "colorsSha256": "afefa1fe05c2db2caa7b8ff2e7d73af40c5fb9642cecdaa371851475ee64d9c7"
     },
     {
       "id": "gedtm30",
@@ -114,20 +122,20 @@
       "metadataUrl": "https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/GEDTM30_metadata.pdf",
       "license": "CC-BY-4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for Casa Voxel; water levels conditioned from mapped hydrography.",
+      "attribution": "GEDTM30 v1.2 — Ho, Y.-F. and Hengl, T. / OpenGeoHub (2026), CC BY 4.0. Cropped, reprojected and sampled for MoroccoVoxelMap; water levels conditioned from mapped hydrography.",
       "citation": "Ho et al. (2025), GEDTM30: global ensemble digital terrain model at 30 m and derived multiscale terrain variables. PeerJ 13:e19673. https://doi.org/10.7717/peerj.19673",
       "sourceTimePeriod": [
         "2006-01-01",
         "2015-12-31"
       ],
-      "downloadedAt": "2026-11-02T22:56:15.813333+00:00",
+      "downloadedAt": "2026-11-03T13:53:56.632501+00:00",
       "acquisitionMethod": "bounded-native-cog-window",
       "region": "ifrane",
       "boundsWgs84": [
-        33.51870579609134,
-        -5.117739783553942,
-        33.53829404025489,
-        -5.094264563504049
+        33.51690231244393,
+        -5.140312662577178,
+        33.548097476277,
+        -5.0937018125581215
       ],
       "crs": "EPSG:4326",
       "verticalDatum": "EGM2008",
@@ -135,14 +143,14 @@
       "effectiveScale": 1,
       "nativeResolutionM": 30,
       "gridSpacingArcSeconds": 1,
-      "bytes": 12847,
-      "sha256": "1d0d9b854fc77e14cc08ff6d0ec34f4b5a7e1177e51671384610a4015db3b5e9",
+      "bytes": 35231,
+      "sha256": "b4364b75bb970097774ba214c47533beac7241f4edbc669c229448960fb5bf65",
       "cachePath": "data/raw/ifrane/gedtm30.tif",
-      "width": 86,
-      "height": 72,
+      "width": 169,
+      "height": 113,
       "validPixelFraction": 1.0,
-      "minElevation": 1589.9000244140625,
-      "maxElevation": 1718.199951171875,
+      "minElevation": 1559.699951171875,
+      "maxElevation": 1722.4000244140625,
       "sourceRasterScale": 0.1,
       "sourceRasterOffset": 0.0,
       "sourceRasterDtype": "float32",
@@ -152,17 +160,20 @@
       ],
       "sourceRasterVerticalDatum": "EGM2008/EPSG:3855",
       "sourceWindow": {
-        "colOff": 629580,
-        "rowOff": 185266,
-        "width": 86,
-        "height": 72
+        "colOff": 629499,
+        "rowOff": 185231,
+        "width": 169,
+        "height": 113
       },
-      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution.",
+      "processingNotes": "Current v1.2 Float32 raw values are metres according to publisher metadata dated June 10, 2026. The source still exposes a stale 0.1 raster scale tag; it is explicitly ignored for this pinned product, never applied twice. No elevation samples are synthesized during acquisition. Native window retained with scale=1; 30 m projected display interpolation does not improve source resolution. The sourceTimePeriod is the product filename reference interval, not one survey acquisition date.",
       "limitations": "Modeled bare-earth terrain at approximately 30 m, not surveyed floor/entrance elevation or a building-height measurement. Residual structures, shoreline artifacts and local errors may remain."
     }
   ],
   "derivedDatabaseLicense": "ODbL-1.0",
   "outputProfile": "full",
   "region": "ifrane",
-  "configSha256": "4820b46b9b68da5e26a9cb0e1a7a9497f217c9a89ee1ff35772df7c0a1794772"
+  "configSha256": "ce2682f2a73b67484995e92c122e5d1c22444a59f6ade35e9c16f5ff4a8980c6",
+  "landmarkConfigSha256": "5be97e71f218a469e3aeb2c92f67b66f52ad1f199f31ead8e0afda62056a854f",
+  "landmarksUpdatedAt": "2026-11-03T16:25:09.314895+00:00",
+  "landmarksSha256": "39cbfb226163f73f21929b423a2810c2faf844bcaa2bede18d50315137330c57"
 }
