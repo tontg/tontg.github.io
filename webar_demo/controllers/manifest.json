@@ -1,0 +1,86 @@
+{
+  "package": "@webxr-input-profiles/assets",
+  "version": "1.0.20",
+  "archive": "https://registry.npmjs.org/@webxr-input-profiles/assets/-/assets-1.0.20.tgz",
+  "archiveSha256": "30df2a2268220fc0d0e034bed1550aabdd7a2500573c5216f64fc70d59c3d91e",
+  "repository": "https://github.com/immersive-web/webxr-input-profiles",
+  "license": "MIT",
+  "modified": false,
+  "files": [
+    {
+      "path": "meta-quest-touch-plus/left.glb",
+      "bytes": 217984,
+      "sha256": "41a35b80221398d37029cbfaa9e39084ccd43e0206be72a5e8460f52e7882cb4"
+    },
+    {
+      "path": "meta-quest-touch-plus/profile.json",
+      "bytes": 11430,
+      "sha256": "f69041753f555fb91c36d97fd4a58885f3ceb35e2273b179f59cedd464aec688"
+    },
+    {
+      "path": "meta-quest-touch-plus/right.glb",
+      "bytes": 213868,
+      "sha256": "5126d638fb1d03e05d16d8eec3b31b9588df88eaa8b42cc21b857fac3bd44916"
+    },
+    {
+      "path": "meta-quest-touch-plus-v2/left.glb",
+      "bytes": 804740,
+      "sha256": "2df6f94439d23e9bedda4c60b55d2c45c477e2590b9338ad4f452a2b81fe27c7"
+    },
+    {
+      "path": "meta-quest-touch-plus-v2/profile.json",
+      "bytes": 11468,
+      "sha256": "303427e74f751137eaa0886895cd67460eb9993250f7554752d2efd616b0375d"
+    },
+    {
+      "path": "meta-quest-touch-plus-v2/right.glb",
+      "bytes": 806196,
+      "sha256": "380b1a6fb82fecaf76f8a3c202aadaa441d58da66020c692b90adc0e9490a672"
+    },
+    {
+      "path": "meta-quest-touch-pro/left.glb",
+      "bytes": 297644,
+      "sha256": "5f64ff585815292bd7e35ac0db67e269cd10dd9f215f8a5f14b29de4c83819f9"
+    },
+    {
+      "path": "meta-quest-touch-pro/profile.json",
+      "bytes": 11427,
+      "sha256": "aaf3b93e0b54f3c0154b9cd43f636d2e0e010173aacb61c5a6aa5a209f969905"
+    },
+    {
+      "path": "meta-quest-touch-pro/right.glb",
+      "bytes": 300304,
+      "sha256": "de508862ac1460814b9236441982dfe2611ac5b1002d48503186e35a09d38272"
+    },
+    {
+      "path": "oculus-touch-v2/left.glb",
+      "bytes": 527940,
+      "sha256": "1385bc8df4258cf67fbcab5665e502c0faa5b2d2374d5747125224ab850f6a7f"
+    },
+    {
+      "path": "oculus-touch-v2/profile.json",
+      "bytes": 10778,
+      "sha256": "69c7bd8eba00c3f9db0d2e924db7c1c659d2460e71f0669e945ab6e1c87141f7"
+    },
+    {
+      "path": "oculus-touch-v2/right.glb",
+      "bytes": 528220,
+      "sha256": "73c3945e6b001db5503747514c9cc31d0804fefca2e0d9dcff37adb409e55a61"
+    },
+    {
+      "path": "oculus-touch-v3/left.glb",
+      "bytes": 665820,
+      "sha256": "5a3015792dac074b31607e63eeb75743eac479540a36739e5f94b65335a7f88a"
+    },
+    {
+      "path": "oculus-touch-v3/profile.json",
+      "bytes": 11412,
+      "sha256": "438acabcdb360998d9e8fd97526292f5df5bfc88de9033dabe5817b5d5b29cc8"
+    },
+    {
+      "path": "oculus-touch-v3/right.glb",
+      "bytes": 665920,
+      "sha256": "18a2e651328b684d3aeeef9f16c083af1eea9c1f98f78f9da94960432c8a021b"
+    }
+  ]
+}
