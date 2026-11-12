@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="text-scale" content="scale" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f5f0" />
+    <script>
+      try {
+        const saved = localStorage.getItem('qr-link-theme');
+        const theme = saved === 'light' || saved === 'dark' ? saved : 'system';
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="color-scheme"]').content = theme === 'system' ? 'light dark' : theme;
+        document.querySelector('meta[name="theme-color"]').content = (theme === 'dark' || (theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)) ? '#141c17' : '#f5f5f0';
+      } catch { /* Follow the system when preferences cannot be read. */ }
+    </script>
+    <meta name="description" content="Pair two devices with QR codes. Share files and video calls directly, with no accounts or signaling server." />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>QR Link — Directly between devices</title>
+    <script type="module" crossorigin src="./assets/index-Rv9NRQGp.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-2MSIpI-M.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <noscript><p lang="en">Enable JavaScript to pair devices, share files and make calls with QR Link.</p><p lang="fr">Activez JavaScript pour appairer vos appareils, partager des fichiers et passer des appels avec QR Link.</p></noscript>
+  </body>
+</html>
