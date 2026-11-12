@@ -1,10 +1,10 @@
 /* Generated static-only QR Link worker. Never caches session data or files. */
 'use strict';
-const VERSION = "8f3bdccf2a5ade6dce73";
+const VERSION = "9856b86235e8b2bba877";
 const SCOPE = self.registration.scope;
 const PREFIX = 'qr-link-static:' + SCOPE + ':';
 const CACHE = PREFIX + VERSION;
-const ASSETS = ["LICENSE","THIRD_PARTY_NOTICES.txt","assets/index-2MSIpI-M.css","assets/index-Rv9NRQGp.js","icon-192.png","icon-512.png","icon.svg","index.html","manifest.webmanifest"].map((asset) => new URL(asset, SCOPE).href);
+const ASSETS = ["LICENSE","THIRD_PARTY_NOTICES.txt","assets/index-Cfn2s-JE.js","assets/index-DiztzYSb.css","icon-192.png","icon-512.png","icon.svg","index.html","manifest.webmanifest"].map((asset) => new URL(asset, SCOPE).href);
 const STATIC_URLS = new Set(ASSETS);
 const INDEX = new URL('index.html', SCOPE).href;
 
