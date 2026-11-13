@@ -1,0 +1,11 @@
+#xr-launcher { position: absolute; z-index: 45; right: max(18px, env(safe-area-inset-right)); top: max(18px, env(safe-area-inset-top)); max-width: min(340px, calc(100vw - 36px)); max-height: calc(100dvh - 36px); overflow: auto; overscroll-behavior: contain; padding: 14px 16px; border: 1px solid #586369; background: rgba(11, 13, 15, .96); color: #e8e4da; font: 14px/1.45 system-ui, sans-serif; }
+#xr-launcher summary { cursor: pointer; font-size: 13px; color: #b9c2c8; margin-top: 9px; }
+#xr-launcher button { width: 100%; padding: 12px 18px; border: 1px solid #ffc977; background: #ffb347; color: #17120a; font: 700 17px system-ui, sans-serif; cursor: pointer; }
+#xr-launcher button:disabled { cursor: default; background: #23282c; border-color: #586369; color: #b9c2c8; font-size: 14px; }
+#xr-launcher button:focus-visible, #xr-launcher select:focus-visible, #xr-launcher input:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+#xr-status { margin: 8px 0 0; font-size: 12px; color: #b9c2c8; }
+#xr-launcher label { display: block; margin: 9px 0; }
+#xr-launcher select { background: #23282c; color: #e8e4da; border: 1px solid #586369; padding: 4px; }
+#xr-launcher small { display: block; margin-top: 8px; color: #b9c2c8; }
+.in-xr #xr-launcher, .in-xr #ui, .in-xr #bench { display: none !important; }
+@media (max-height: 600px), (max-width: 700px) { #xr-launcher { padding: 8px 10px; max-width: 250px; } #xr-launcher button { padding: 8px 12px; } }
