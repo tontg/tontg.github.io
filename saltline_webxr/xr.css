@@ -7,5 +7,8 @@
 #xr-launcher label { display: block; margin: 9px 0; }
 #xr-launcher select { background: #23282c; color: #e8e4da; border: 1px solid #586369; padding: 4px; }
 #xr-launcher small { display: block; margin-top: 8px; color: #b9c2c8; }
+.game-credit { color: var(--bone); text-underline-offset: .18em; }
+.game-credit:hover { color: var(--signal); }
+.game-credit:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 .in-xr #xr-launcher, .in-xr #ui, .in-xr #bench { display: none !important; }
 @media (max-height: 600px), (max-width: 700px) { #xr-launcher { padding: 8px 10px; max-width: 250px; } #xr-launcher button { padding: 8px 12px; } }
