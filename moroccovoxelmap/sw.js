@@ -1,9 +1,9 @@
 /* Release shells plus a bounded, visited-only geographic cache. */
-const VERSION = 'e0c65704eeaf77c30270';
+const VERSION = 'a6de3397f14efbd594a9';
 const SHELL = `morocco-voxel-map-shell-${VERSION}`;
 // URL revisions identify content, so an unchanged CVM survives a UI release.
 const DATA = 'morocco-voxel-map-data-v2';
-const SHELL_FILES = ["index.html","icon.svg","favicon.ico","favicon-16.png","favicon-32.png","apple-touch-icon.png","icon-192.png","icon-512.png","icon-maskable-512.png","manifest.webmanifest","provenance.json?v=e0c65704eeaf77c30270","third-party-notices.json?v=e0c65704eeaf77c30270","data/regions.json?v=e0c65704eeaf77c30270","previews/manifest.json?v=e0c65704eeaf77c30270","data/greater-casablanca/index.json?v=e0c65704eeaf77c30270","assets/NotoSansTifinagh-Regular-BcGNahJE.woff2","assets/OrbitControls-DcV2OIXR.js","assets/brotli_dec_wasm-vK8OFmHz.js","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/brotli_dec_wasm_bg-BmCHhgOM.js","assets/main-BCRoqkZD.js","assets/main-C8GXWplL.css","assets/rolldown-runtime-B0lUwjiP.js","assets/scene-previews-DAGH1dIQ.js"];
+const SHELL_FILES = ["index.html","icon.svg","favicon.ico","favicon-16.png","favicon-32.png","apple-touch-icon.png","icon-192.png","icon-512.png","icon-maskable-512.png","manifest.webmanifest","provenance.json?v=a6de3397f14efbd594a9","third-party-notices.json?v=a6de3397f14efbd594a9","data/regions.json?v=a6de3397f14efbd594a9","previews/manifest.json?v=a6de3397f14efbd594a9","data/greater-casablanca/index.json?v=a6de3397f14efbd594a9","assets/NotoSansTifinagh-Regular-BcGNahJE.woff2","assets/OrbitControls-DcV2OIXR.js","assets/brotli_dec_wasm-vK8OFmHz.js","assets/brotli_dec_wasm_bg-BK3DOf3U.wasm","assets/brotli_dec_wasm_bg-BmCHhgOM.js","assets/main-BA_L213a.js","assets/main-C8GXWplL.css","assets/rolldown-runtime-B0lUwjiP.js","assets/scene-previews-BdB49RyN.js"];
 const MAX_FILES = 2048;
 const MAX_BYTES = 128 * 1024 * 1024;
 const BYTE_HEADER = 'x-casa-cache-bytes';
